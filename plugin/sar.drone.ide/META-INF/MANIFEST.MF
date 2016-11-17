@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: sar.drone.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: sar.drone.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: sar.drone,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: sar.drone.ide.contentassist.antlr.internal,
+ sar.drone.ide.contentassist.antlr
+
