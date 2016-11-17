@@ -224,7 +224,7 @@ With :
 ;
 
 Option :
-	Led_Impl | LedBlink | Camera;
+	Led_Impl | LedBlink | CameraFront | CameraBottom;
 
 Led_Impl :// Led:
 	name='led'
@@ -240,13 +240,19 @@ LedBlink :// LedBlink:
 	('blink_per_sec''=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre] ) )
 	')';
 
-Camera :// Camera:
-	name='camera'
+CameraFront :// Camera:
+	name='cameraFront'
 	'('
 	'mode=' mode=Mode
 	')'
 ;
 
+CameraBottom :// Camera:
+	name='cameraBottom'
+	'('
+	'mode=' mode=Mode
+	')'
+;
 
 /******************* Type *********************/
 

@@ -2611,13 +2611,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cLed_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLedBlinkParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCameraParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCameraFrontParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCameraBottomParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Option:
-		//	Led_Impl | LedBlink | Camera;
+		//	Led_Impl | LedBlink | CameraFront | CameraBottom;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Led_Impl | LedBlink | Camera
+		//Led_Impl | LedBlink | CameraFront | CameraBottom
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Led_Impl
@@ -2626,8 +2627,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//LedBlink
 		public RuleCall getLedBlinkParserRuleCall_1() { return cLedBlinkParserRuleCall_1; }
 		
-		//Camera
-		public RuleCall getCameraParserRuleCall_2() { return cCameraParserRuleCall_2; }
+		//CameraFront
+		public RuleCall getCameraFrontParserRuleCall_2() { return cCameraFrontParserRuleCall_2; }
+		
+		//CameraBottom
+		public RuleCall getCameraBottomParserRuleCall_3() { return cCameraBottomParserRuleCall_3; }
 	}
 	public class Led_ImplElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Led_Impl");
@@ -2765,34 +2769,78 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
-	public class CameraElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Camera");
+	public class CameraFrontElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CameraFront");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameCameraKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNameCameraFrontKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cModeModeEnumRuleCall_3_0 = (RuleCall)cModeAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//Camera:
-		//	name='camera'
+		//CameraFront:
+		//	name='cameraFront'
 		//	'('
 		//	'mode=' mode=Mode
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// Camera:
-		//name='camera' '(' 'mode=' mode=Mode ')'
+		//name='cameraFront' '(' 'mode=' mode=Mode ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// Camera:
-		//name='camera'
+		//name='cameraFront'
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//'camera'
-		public Keyword getNameCameraKeyword_0_0() { return cNameCameraKeyword_0_0; }
+		//'cameraFront'
+		public Keyword getNameCameraFrontKeyword_0_0() { return cNameCameraFrontKeyword_0_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'mode='
+		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
+		
+		//mode=Mode
+		public Assignment getModeAssignment_3() { return cModeAssignment_3; }
+		
+		//Mode
+		public RuleCall getModeModeEnumRuleCall_3_0() { return cModeModeEnumRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
+	public class CameraBottomElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CameraBottom");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameCameraBottomKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModeModeEnumRuleCall_3_0 = (RuleCall)cModeAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//CameraBottom:
+		//	name='cameraBottom'
+		//	'('
+		//	'mode=' mode=Mode
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//// Camera:
+		//name='cameraBottom' '(' 'mode=' mode=Mode ')'
+		public Group getGroup() { return cGroup; }
+		
+		//// Camera:
+		//name='cameraBottom'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//'cameraBottom'
+		public Keyword getNameCameraBottomKeyword_0_0() { return cNameCameraBottomKeyword_0_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
@@ -2979,7 +3027,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final OptionElements pOption;
 	private final Led_ImplElements pLed_Impl;
 	private final LedBlinkElements pLedBlink;
-	private final CameraElements pCamera;
+	private final CameraFrontElements pCameraFront;
+	private final CameraBottomElements pCameraBottom;
 	private final EIntElements pEInt;
 	private final ColorLedElements eColorLed;
 	private final ModeElements eMode;
@@ -3034,7 +3083,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOption = new OptionElements();
 		this.pLed_Impl = new Led_ImplElements();
 		this.pLedBlink = new LedBlinkElements();
-		this.pCamera = new CameraElements();
+		this.pCameraFront = new CameraFrontElements();
+		this.pCameraBottom = new CameraBottomElements();
 		this.pEInt = new EIntElements();
 		this.eColorLed = new ColorLedElements();
 		this.eMode = new ModeElements();
@@ -3507,7 +3557,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Option:
-	//	Led_Impl | LedBlink | Camera;
+	//	Led_Impl | LedBlink | CameraFront | CameraBottom;
 	public OptionElements getOptionAccess() {
 		return pOption;
 	}
@@ -3541,17 +3591,30 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getLedBlinkAccess().getRule();
 	}
 	
-	//Camera:
-	//	name='camera'
+	//CameraFront:
+	//	name='cameraFront'
 	//	'('
 	//	'mode=' mode=Mode
 	//	')';
-	public CameraElements getCameraAccess() {
-		return pCamera;
+	public CameraFrontElements getCameraFrontAccess() {
+		return pCameraFront;
 	}
 	
-	public ParserRule getCameraRule() {
-		return getCameraAccess().getRule();
+	public ParserRule getCameraFrontRule() {
+		return getCameraFrontAccess().getRule();
+	}
+	
+	//CameraBottom:
+	//	name='cameraBottom'
+	//	'('
+	//	'mode=' mode=Mode
+	//	')';
+	public CameraBottomElements getCameraBottomAccess() {
+		return pCameraBottom;
+	}
+	
+	public ParserRule getCameraBottomRule() {
+		return getCameraBottomAccess().getRule();
 	}
 	
 	/// ******************* Type ********************* / EInt:

@@ -6,21 +6,21 @@ package sar.drone.drn;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Camera</b></em>'.
+ * A representation of the model object '<em><b>Camera Bottom</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.Camera#getMode <em>Mode</em>}</li>
+ *   <li>{@link sar.drone.drn.CameraBottom#getMode <em>Mode</em>}</li>
  * </ul>
  *
- * @see sar.drone.drn.DrnPackage#getCamera()
+ * @see sar.drone.drn.DrnPackage#getCameraBottom()
  * @model
  * @generated
  */
-public interface Camera extends Option
+public interface CameraBottom extends Option
 {
   /**
    * Returns the value of the '<em><b>Mode</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface Camera extends Option
    * @return the value of the '<em>Mode</em>' attribute.
    * @see sar.drone.drn.Mode
    * @see #setMode(Mode)
-   * @see sar.drone.drn.DrnPackage#getCamera_Mode()
+   * @see sar.drone.drn.DrnPackage#getCameraBottom_Mode()
    * @model
    * @generated
    */
   Mode getMode();
 
   /**
-   * Sets the value of the '{@link sar.drone.drn.Camera#getMode <em>Mode</em>}' attribute.
+   * Sets the value of the '{@link sar.drone.drn.CameraBottom#getMode <em>Mode</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Mode</em>' attribute.
@@ -51,4 +51,4 @@ public interface Camera extends Option
    */
   void setMode(Mode value);
 
-} // Camera
+} // CameraBottom

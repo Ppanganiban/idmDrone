@@ -9,24 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import sar.drone.drn.Camera;
+import sar.drone.drn.CameraBottom;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Mode;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Camera</b></em>'.
+ * An implementation of the model object '<em><b>Camera Bottom</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.CameraImpl#getMode <em>Mode</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.CameraBottomImpl#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CameraImpl extends OptionImpl implements Camera
+public class CameraBottomImpl extends OptionImpl implements CameraBottom
 {
   /**
    * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
@@ -53,7 +53,7 @@ public class CameraImpl extends OptionImpl implements Camera
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CameraImpl()
+  protected CameraBottomImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class CameraImpl extends OptionImpl implements Camera
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.CAMERA;
+    return DrnPackage.Literals.CAMERA_BOTTOM;
   }
 
   /**
@@ -89,7 +89,7 @@ public class CameraImpl extends OptionImpl implements Camera
     Mode oldMode = mode;
     mode = newMode == null ? MODE_EDEFAULT : newMode;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CAMERA__MODE, oldMode, mode));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CAMERA_BOTTOM__MODE, oldMode, mode));
   }
 
   /**
@@ -102,7 +102,7 @@ public class CameraImpl extends OptionImpl implements Camera
   {
     switch (featureID)
     {
-      case DrnPackage.CAMERA__MODE:
+      case DrnPackage.CAMERA_BOTTOM__MODE:
         return getMode();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public class CameraImpl extends OptionImpl implements Camera
   {
     switch (featureID)
     {
-      case DrnPackage.CAMERA__MODE:
+      case DrnPackage.CAMERA_BOTTOM__MODE:
         setMode((Mode)newValue);
         return;
     }
@@ -135,7 +135,7 @@ public class CameraImpl extends OptionImpl implements Camera
   {
     switch (featureID)
     {
-      case DrnPackage.CAMERA__MODE:
+      case DrnPackage.CAMERA_BOTTOM__MODE:
         setMode(MODE_EDEFAULT);
         return;
     }
@@ -152,7 +152,7 @@ public class CameraImpl extends OptionImpl implements Camera
   {
     switch (featureID)
     {
-      case DrnPackage.CAMERA__MODE:
+      case DrnPackage.CAMERA_BOTTOM__MODE:
         return mode != MODE_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -169,12 +169,12 @@ public class CameraImpl extends OptionImpl implements Camera
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<camera>");
+    result.append("<"+this.name+">");
     result.append("<mode>");
     result.append(mode);
     result.append("</mode>");
-    result.append("</camera>\n");
+    result.append("</"+this.name+">\n");
     return result.toString();
   }
 
-} //CameraImpl
+} //CameraBottomImpl

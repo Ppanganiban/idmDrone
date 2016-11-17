@@ -384,13 +384,22 @@ public interface DrnFactory extends EFactory
   LedBlink createLedBlink();
 
   /**
-   * Returns a new object of class '<em>Camera</em>'.
+   * Returns a new object of class '<em>Camera Front</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Camera</em>'.
+   * @return a new object of class '<em>Camera Front</em>'.
    * @generated
    */
-  Camera createCamera();
+  CameraFront createCameraFront();
+
+  /**
+   * Returns a new object of class '<em>Camera Bottom</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Camera Bottom</em>'.
+   * @generated
+   */
+  CameraBottom createCameraBottom();
 
   /**
    * Returns the package supported by this factory.

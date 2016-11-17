@@ -130,7 +130,8 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLedBlinkAccess().getGroup(), "rule__LedBlink__Group__0");
 					put(grammarAccess.getLedBlinkAccess().getGroup_2(), "rule__LedBlink__Group_2__0");
 					put(grammarAccess.getLedBlinkAccess().getGroup_3(), "rule__LedBlink__Group_3__0");
-					put(grammarAccess.getCameraAccess().getGroup(), "rule__Camera__Group__0");
+					put(grammarAccess.getCameraFrontAccess().getGroup(), "rule__CameraFront__Group__0");
+					put(grammarAccess.getCameraBottomAccess().getGroup(), "rule__CameraBottom__Group__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getModelAccess().getContextAssignment_2(), "rule__Model__ContextAssignment_2");
 					put(grammarAccess.getModelAccess().getAssignementAssignment_3(), "rule__Model__AssignementAssignment_3");
@@ -267,8 +268,10 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLedBlinkAccess().getColorAssignment_2_2(), "rule__LedBlink__ColorAssignment_2_2");
 					put(grammarAccess.getLedBlinkAccess().getBlink_per_secCSTAssignment_3_2_0(), "rule__LedBlink__Blink_per_secCSTAssignment_3_2_0");
 					put(grammarAccess.getLedBlinkAccess().getBlink_per_secVARAssignment_3_2_1(), "rule__LedBlink__Blink_per_secVARAssignment_3_2_1");
-					put(grammarAccess.getCameraAccess().getNameAssignment_0(), "rule__Camera__NameAssignment_0");
-					put(grammarAccess.getCameraAccess().getModeAssignment_3(), "rule__Camera__ModeAssignment_3");
+					put(grammarAccess.getCameraFrontAccess().getNameAssignment_0(), "rule__CameraFront__NameAssignment_0");
+					put(grammarAccess.getCameraFrontAccess().getModeAssignment_3(), "rule__CameraFront__ModeAssignment_3");
+					put(grammarAccess.getCameraBottomAccess().getNameAssignment_0(), "rule__CameraBottom__NameAssignment_0");
+					put(grammarAccess.getCameraBottomAccess().getModeAssignment_3(), "rule__CameraBottom__ModeAssignment_3");
 				}
 			};
 		}

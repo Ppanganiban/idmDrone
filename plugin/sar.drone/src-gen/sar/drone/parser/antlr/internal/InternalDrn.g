@@ -3996,11 +3996,20 @@ ruleOption returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOptionAccess().getCameraParserRuleCall_2());
+			newCompositeNode(grammarAccess.getOptionAccess().getCameraFrontParserRuleCall_2());
 		}
-		this_Camera_2=ruleCamera
+		this_CameraFront_2=ruleCameraFront
 		{
-			$current = $this_Camera_2.current;
+			$current = $this_CameraFront_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getOptionAccess().getCameraBottomParserRuleCall_3());
+		}
+		this_CameraBottom_3=ruleCameraBottom
+		{
+			$current = $this_CameraBottom_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -4189,15 +4198,15 @@ ruleLedBlink returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleCamera
-entryRuleCamera returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCameraRule()); }
-	iv_ruleCamera=ruleCamera
-	{ $current=$iv_ruleCamera.current; }
+// Entry rule entryRuleCameraFront
+entryRuleCameraFront returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCameraFrontRule()); }
+	iv_ruleCameraFront=ruleCameraFront
+	{ $current=$iv_ruleCameraFront.current; }
 	EOF;
 
-// Rule Camera
-ruleCamera returns [EObject current=null]
+// Rule CameraFront
+ruleCameraFront returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -4207,35 +4216,35 @@ ruleCamera returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0='camera'
+				lv_name_0_0='cameraFront'
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getCameraAccess().getNameCameraKeyword_0_0());
+					newLeafNode(lv_name_0_0, grammarAccess.getCameraFrontAccess().getNameCameraFrontKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCameraRule());
+						$current = createModelElement(grammarAccess.getCameraFrontRule());
 					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "camera");
+					setWithLastConsumed($current, "name", lv_name_0_0, "cameraFront");
 				}
 			)
 		)
 		otherlv_1='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getCameraAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getCameraFrontAccess().getLeftParenthesisKeyword_1());
 		}
 		otherlv_2='mode='
 		{
-			newLeafNode(otherlv_2, grammarAccess.getCameraAccess().getModeKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getCameraFrontAccess().getModeKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCameraAccess().getModeModeEnumRuleCall_3_0());
+					newCompositeNode(grammarAccess.getCameraFrontAccess().getModeModeEnumRuleCall_3_0());
 				}
 				lv_mode_3_0=ruleMode
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCameraRule());
+						$current = createModelElementForParent(grammarAccess.getCameraFrontRule());
 					}
 					set(
 						$current,
@@ -4248,7 +4257,71 @@ ruleCamera returns [EObject current=null]
 		)
 		otherlv_4=')'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getCameraAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getCameraFrontAccess().getRightParenthesisKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleCameraBottom
+entryRuleCameraBottom returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCameraBottomRule()); }
+	iv_ruleCameraBottom=ruleCameraBottom
+	{ $current=$iv_ruleCameraBottom.current; }
+	EOF;
+
+// Rule CameraBottom
+ruleCameraBottom returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0='cameraBottom'
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getCameraBottomAccess().getNameCameraBottomKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCameraBottomRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "cameraBottom");
+				}
+			)
+		)
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCameraBottomAccess().getLeftParenthesisKeyword_1());
+		}
+		otherlv_2='mode='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCameraBottomAccess().getModeKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCameraBottomAccess().getModeModeEnumRuleCall_3_0());
+				}
+				lv_mode_3_0=ruleMode
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCameraBottomRule());
+					}
+					set(
+						$current,
+						"mode",
+						lv_mode_3_0,
+						"sar.drone.Drn.Mode");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCameraBottomAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;

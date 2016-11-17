@@ -106,7 +106,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.OPTION: return createOption();
       case DrnPackage.LED_IMPL: return createLed_Impl();
       case DrnPackage.LED_BLINK: return createLedBlink();
-      case DrnPackage.CAMERA: return createCamera();
+      case DrnPackage.CAMERA_FRONT: return createCameraFront();
+      case DrnPackage.CAMERA_BOTTOM: return createCameraBottom();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -599,10 +600,21 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Camera createCamera()
+  public CameraFront createCameraFront()
   {
-    CameraImpl camera = new CameraImpl();
-    return camera;
+    CameraFrontImpl cameraFront = new CameraFrontImpl();
+    return cameraFront;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CameraBottom createCameraBottom()
+  {
+    CameraBottomImpl cameraBottom = new CameraBottomImpl();
+    return cameraBottom;
   }
 
   /**

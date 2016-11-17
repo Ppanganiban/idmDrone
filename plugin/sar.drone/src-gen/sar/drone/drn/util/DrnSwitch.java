@@ -400,11 +400,19 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.CAMERA:
+      case DrnPackage.CAMERA_FRONT:
       {
-        Camera camera = (Camera)theEObject;
-        T result = caseCamera(camera);
-        if (result == null) result = caseOption(camera);
+        CameraFront cameraFront = (CameraFront)theEObject;
+        T result = caseCameraFront(cameraFront);
+        if (result == null) result = caseOption(cameraFront);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.CAMERA_BOTTOM:
+      {
+        CameraBottom cameraBottom = (CameraBottom)theEObject;
+        T result = caseCameraBottom(cameraBottom);
+        if (result == null) result = caseOption(cameraBottom);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1053,17 +1061,33 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Camera</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Camera Front</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Camera</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Camera Front</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCamera(Camera object)
+  public T caseCameraFront(CameraFront object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Camera Bottom</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Camera Bottom</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCameraBottom(CameraBottom object)
   {
     return null;
   }

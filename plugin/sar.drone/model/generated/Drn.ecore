@@ -170,7 +170,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blink_per_secCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blink_per_secVAR" eType="#//Parametre"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Camera" eSuperTypes="#//Option">
+  <eClassifiers xsi:type="ecore:EClass" name="CameraFront" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CameraBottom" eSuperTypes="#//Option">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ColorLed">

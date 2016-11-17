@@ -13,7 +13,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
-import sar.drone.drn.Camera;
+import sar.drone.drn.CameraBottom;
+import sar.drone.drn.CameraFront;
 import sar.drone.drn.ColorLed;
 import sar.drone.drn.Context;
 import sar.drone.drn.DepXY;
@@ -341,7 +342,14 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass cameraEClass = null;
+  private EClass cameraFrontEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cameraBottomEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1662,9 +1670,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCamera()
+  public EClass getCameraFront()
   {
-    return cameraEClass;
+    return cameraFrontEClass;
   }
 
   /**
@@ -1672,9 +1680,29 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCamera_Mode()
+  public EAttribute getCameraFront_Mode()
   {
-    return (EAttribute)cameraEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)cameraFrontEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCameraBottom()
+  {
+    return cameraBottomEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCameraBottom_Mode()
+  {
+    return (EAttribute)cameraBottomEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1900,8 +1928,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEAttribute(ledBlinkEClass, LED_BLINK__BLINK_PER_SEC_CST);
     createEReference(ledBlinkEClass, LED_BLINK__BLINK_PER_SEC_VAR);
 
-    cameraEClass = createEClass(CAMERA);
-    createEAttribute(cameraEClass, CAMERA__MODE);
+    cameraFrontEClass = createEClass(CAMERA_FRONT);
+    createEAttribute(cameraFrontEClass, CAMERA_FRONT__MODE);
+
+    cameraBottomEClass = createEClass(CAMERA_BOTTOM);
+    createEAttribute(cameraBottomEClass, CAMERA_BOTTOM__MODE);
 
     // Create enums
     colorLedEEnum = createEEnum(COLOR_LED);
@@ -1970,7 +2001,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     landEClass.getESuperTypes().add(this.getExpression());
     led_ImplEClass.getESuperTypes().add(this.getOption());
     ledBlinkEClass.getESuperTypes().add(this.getOption());
-    cameraEClass.getESuperTypes().add(this.getOption());
+    cameraFrontEClass.getESuperTypes().add(this.getOption());
+    cameraBottomEClass.getESuperTypes().add(this.getOption());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2136,8 +2168,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getLedBlink_Blink_per_secCST(), ecorePackage.getEString(), "blink_per_secCST", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLedBlink_Blink_per_secVAR(), this.getParametre(), null, "blink_per_secVAR", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCamera_Mode(), this.getMode(), "mode", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(cameraFrontEClass, CameraFront.class, "CameraFront", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCameraFront_Mode(), this.getMode(), "mode", null, 0, 1, CameraFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cameraBottomEClass, CameraBottom.class, "CameraBottom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCameraBottom_Mode(), this.getMode(), "mode", null, 0, 1, CameraBottom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(colorLedEEnum, ColorLed.class, "ColorLed");

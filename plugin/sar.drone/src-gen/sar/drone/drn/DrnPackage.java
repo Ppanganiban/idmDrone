@@ -3078,14 +3078,14 @@ public interface DrnPackage extends EPackage
   int LED_BLINK_FEATURE_COUNT = OPTION_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.CameraImpl <em>Camera</em>}' class.
+   * The meta object id for the '{@link sar.drone.drn.impl.CameraFrontImpl <em>Camera Front</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.CameraImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
+   * @see sar.drone.drn.impl.CameraFrontImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getCameraFront()
    * @generated
    */
-  int CAMERA = 40;
+  int CAMERA_FRONT = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3094,7 +3094,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAMERA__NAME = OPTION__NAME;
+  int CAMERA_FRONT__NAME = OPTION__NAME;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3103,16 +3103,53 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAMERA__MODE = OPTION_FEATURE_COUNT + 0;
+  int CAMERA_FRONT__MODE = OPTION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Camera</em>' class.
+   * The number of structural features of the '<em>Camera Front</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAMERA_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
+  int CAMERA_FRONT_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.CameraBottomImpl <em>Camera Bottom</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.CameraBottomImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getCameraBottom()
+   * @generated
+   */
+  int CAMERA_BOTTOM = 41;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAMERA_BOTTOM__NAME = OPTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAMERA_BOTTOM__MODE = OPTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Camera Bottom</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAMERA_BOTTOM_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.ColorLed <em>Color Led</em>}' enum.
@@ -3122,7 +3159,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getColorLed()
    * @generated
    */
-  int COLOR_LED = 41;
+  int COLOR_LED = 42;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -3132,7 +3169,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 42;
+  int MODE = 43;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -3142,7 +3179,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 43;
+  int EBOOL = 44;
 
 
   /**
@@ -4459,25 +4496,46 @@ public interface DrnPackage extends EPackage
   EReference getLedBlink_Blink_per_secVAR();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.Camera <em>Camera</em>}'.
+   * Returns the meta object for class '{@link sar.drone.drn.CameraFront <em>Camera Front</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Camera</em>'.
-   * @see sar.drone.drn.Camera
+   * @return the meta object for class '<em>Camera Front</em>'.
+   * @see sar.drone.drn.CameraFront
    * @generated
    */
-  EClass getCamera();
+  EClass getCameraFront();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Camera#getMode <em>Mode</em>}'.
+   * Returns the meta object for the attribute '{@link sar.drone.drn.CameraFront#getMode <em>Mode</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Mode</em>'.
-   * @see sar.drone.drn.Camera#getMode()
-   * @see #getCamera()
+   * @see sar.drone.drn.CameraFront#getMode()
+   * @see #getCameraFront()
    * @generated
    */
-  EAttribute getCamera_Mode();
+  EAttribute getCameraFront_Mode();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.CameraBottom <em>Camera Bottom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Camera Bottom</em>'.
+   * @see sar.drone.drn.CameraBottom
+   * @generated
+   */
+  EClass getCameraBottom();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.CameraBottom#getMode <em>Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mode</em>'.
+   * @see sar.drone.drn.CameraBottom#getMode()
+   * @see #getCameraBottom()
+   * @generated
+   */
+  EAttribute getCameraBottom_Mode();
 
   /**
    * Returns the meta object for enum '{@link sar.drone.drn.ColorLed <em>Color Led</em>}'.
@@ -5597,14 +5655,14 @@ public interface DrnPackage extends EPackage
     EReference LED_BLINK__BLINK_PER_SEC_VAR = eINSTANCE.getLedBlink_Blink_per_secVAR();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.CameraImpl <em>Camera</em>}' class.
+     * The meta object literal for the '{@link sar.drone.drn.impl.CameraFrontImpl <em>Camera Front</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.CameraImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
+     * @see sar.drone.drn.impl.CameraFrontImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getCameraFront()
      * @generated
      */
-    EClass CAMERA = eINSTANCE.getCamera();
+    EClass CAMERA_FRONT = eINSTANCE.getCameraFront();
 
     /**
      * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
@@ -5612,7 +5670,25 @@ public interface DrnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CAMERA__MODE = eINSTANCE.getCamera_Mode();
+    EAttribute CAMERA_FRONT__MODE = eINSTANCE.getCameraFront_Mode();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.CameraBottomImpl <em>Camera Bottom</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.CameraBottomImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getCameraBottom()
+     * @generated
+     */
+    EClass CAMERA_BOTTOM = eINSTANCE.getCameraBottom();
+
+    /**
+     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CAMERA_BOTTOM__MODE = eINSTANCE.getCameraBottom_Mode();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.ColorLed <em>Color Led</em>}' enum.

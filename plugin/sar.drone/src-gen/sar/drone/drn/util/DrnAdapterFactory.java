@@ -276,9 +276,14 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createLedBlinkAdapter();
       }
       @Override
-      public Adapter caseCamera(Camera object)
+      public Adapter caseCameraFront(CameraFront object)
       {
-        return createCameraAdapter();
+        return createCameraFrontAdapter();
+      }
+      @Override
+      public Adapter caseCameraBottom(CameraBottom object)
+      {
+        return createCameraBottomAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -903,16 +908,31 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Camera <em>Camera</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.CameraFront <em>Camera Front</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.Camera
+   * @see sar.drone.drn.CameraFront
    * @generated
    */
-  public Adapter createCameraAdapter()
+  public Adapter createCameraFrontAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.CameraBottom <em>Camera Bottom</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.CameraBottom
+   * @generated
+   */
+  public Adapter createCameraBottomAdapter()
   {
     return null;
   }

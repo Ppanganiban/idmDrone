@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDrnParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'CONTEXT'", "'vmax'", "'hmax'", "'('", "','", "')'", "'X'", "'then'", "'merge'", "'forward'", "'distance'", "'temps'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'depXY'", "'cercleXY'", "'rayon'", "'carreXY'", "'cote'", "'depYZ'", "'cercleYZ'", "'carreYZ'", "'depXZ'", "'depXYZ'", "'flip'", "'rotate'", "'angle'", "'wait'", "'takeoff'", "'land'", "'with'", "'led'", "'color'", "'ledBlink'", "'blink_per_sec'", "'camera'", "'mode='", "'-'", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'CONTEXT'", "'vmax'", "'hmax'", "'('", "','", "')'", "'X'", "'then'", "'merge'", "'forward'", "'distance'", "'temps'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'depXY'", "'cercleXY'", "'rayon'", "'carreXY'", "'cote'", "'depYZ'", "'cercleYZ'", "'carreYZ'", "'depXZ'", "'depXYZ'", "'flip'", "'rotate'", "'angle'", "'wait'", "'takeoff'", "'land'", "'with'", "'led'", "'color'", "'ledBlink'", "'blink_per_sec'", "'cameraFront'", "'mode='", "'cameraBottom'", "'-'", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -61,6 +61,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
     public static final int T__20=20;
     public static final int T__64=64;
     public static final int T__21=21;
+    public static final int T__65=65;
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__37=37;
@@ -1890,7 +1891,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                             int alt9=2;
                             int LA9_0 = input.LA(1);
 
-                            if ( (LA9_0==RULE_INT||LA9_0==57) ) {
+                            if ( (LA9_0==RULE_INT||LA9_0==58) ) {
                                 alt9=1;
                             }
                             else if ( (LA9_0==RULE_ID) ) {
@@ -2478,7 +2479,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                             int alt14=2;
                             int LA14_0 = input.LA(1);
 
-                            if ( (LA14_0==RULE_INT||LA14_0==57) ) {
+                            if ( (LA14_0==RULE_INT||LA14_0==58) ) {
                                 alt14=1;
                             }
                             else if ( (LA14_0==RULE_ID) ) {
@@ -2723,7 +2724,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==RULE_INT||LA18_0==57) ) {
+                if ( (LA18_0==RULE_INT||LA18_0==58) ) {
                     alt18=1;
                 }
 
@@ -4037,7 +4038,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             if ( (LA24_0==RULE_ID) ) {
                 alt24=1;
             }
-            else if ( (LA24_0==RULE_INT||LA24_0==57) ) {
+            else if ( (LA24_0==RULE_INT||LA24_0==58) ) {
                 alt24=2;
             }
             else {
@@ -4126,7 +4127,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_INT||LA25_0==57) ) {
+            if ( (LA25_0==RULE_INT||LA25_0==58) ) {
                 alt25=1;
             }
             else if ( (LA25_0==RULE_ID) ) {
@@ -4335,7 +4336,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==RULE_INT||LA26_0==57) ) {
+            if ( (LA26_0==RULE_INT||LA26_0==58) ) {
                 alt26=1;
             }
             else if ( (LA26_0==RULE_ID) ) {
@@ -4427,7 +4428,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( (LA27_0==RULE_INT||LA27_0==57) ) {
+            if ( (LA27_0==RULE_INT||LA27_0==58) ) {
                 alt27=1;
             }
             else if ( (LA27_0==RULE_ID) ) {
@@ -4764,7 +4765,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==RULE_INT||LA29_0==57) ) {
+            if ( (LA29_0==RULE_INT||LA29_0==58) ) {
                 alt29=1;
             }
             else if ( (LA29_0==RULE_ID) ) {
@@ -4856,7 +4857,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==RULE_INT||LA30_0==57) ) {
+            if ( (LA30_0==RULE_INT||LA30_0==58) ) {
                 alt30=1;
             }
             else if ( (LA30_0==RULE_ID) ) {
@@ -5065,7 +5066,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_INT||LA31_0==57) ) {
+            if ( (LA31_0==RULE_INT||LA31_0==58) ) {
                 alt31=1;
             }
             else if ( (LA31_0==RULE_ID) ) {
@@ -5157,7 +5158,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt32=2;
             int LA32_0 = input.LA(1);
 
-            if ( (LA32_0==RULE_INT||LA32_0==57) ) {
+            if ( (LA32_0==RULE_INT||LA32_0==58) ) {
                 alt32=1;
             }
             else if ( (LA32_0==RULE_ID) ) {
@@ -5494,7 +5495,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( (LA34_0==RULE_INT||LA34_0==57) ) {
+            if ( (LA34_0==RULE_INT||LA34_0==58) ) {
                 alt34=1;
             }
             else if ( (LA34_0==RULE_ID) ) {
@@ -5586,7 +5587,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( (LA35_0==RULE_INT||LA35_0==57) ) {
+            if ( (LA35_0==RULE_INT||LA35_0==58) ) {
                 alt35=1;
             }
             else if ( (LA35_0==RULE_ID) ) {
@@ -5795,7 +5796,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==RULE_INT||LA36_0==57) ) {
+            if ( (LA36_0==RULE_INT||LA36_0==58) ) {
                 alt36=1;
             }
             else if ( (LA36_0==RULE_ID) ) {
@@ -5887,7 +5888,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( (LA37_0==RULE_INT||LA37_0==57) ) {
+            if ( (LA37_0==RULE_INT||LA37_0==58) ) {
                 alt37=1;
             }
             else if ( (LA37_0==RULE_ID) ) {
@@ -6253,7 +6254,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt39=2;
             int LA39_0 = input.LA(1);
 
-            if ( (LA39_0==RULE_INT||LA39_0==57) ) {
+            if ( (LA39_0==RULE_INT||LA39_0==58) ) {
                 alt39=1;
             }
             else if ( (LA39_0==RULE_ID) ) {
@@ -6345,7 +6346,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( (LA40_0==RULE_INT||LA40_0==57) ) {
+            if ( (LA40_0==RULE_INT||LA40_0==58) ) {
                 alt40=1;
             }
             else if ( (LA40_0==RULE_ID) ) {
@@ -6554,7 +6555,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( (LA41_0==RULE_INT||LA41_0==57) ) {
+            if ( (LA41_0==RULE_INT||LA41_0==58) ) {
                 alt41=1;
             }
             else if ( (LA41_0==RULE_ID) ) {
@@ -6646,7 +6647,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( (LA42_0==RULE_INT||LA42_0==57) ) {
+            if ( (LA42_0==RULE_INT||LA42_0==58) ) {
                 alt42=1;
             }
             else if ( (LA42_0==RULE_ID) ) {
@@ -6855,7 +6856,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt43=2;
             int LA43_0 = input.LA(1);
 
-            if ( (LA43_0==RULE_INT||LA43_0==57) ) {
+            if ( (LA43_0==RULE_INT||LA43_0==58) ) {
                 alt43=1;
             }
             else if ( (LA43_0==RULE_ID) ) {
@@ -6947,7 +6948,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( (LA44_0==RULE_INT||LA44_0==57) ) {
+            if ( (LA44_0==RULE_INT||LA44_0==58) ) {
                 alt44=1;
             }
             else if ( (LA44_0==RULE_ID) ) {
@@ -7313,7 +7314,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( (LA46_0==RULE_INT||LA46_0==57) ) {
+            if ( (LA46_0==RULE_INT||LA46_0==58) ) {
                 alt46=1;
             }
             else if ( (LA46_0==RULE_ID) ) {
@@ -7405,7 +7406,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==RULE_INT||LA47_0==57) ) {
+            if ( (LA47_0==RULE_INT||LA47_0==58) ) {
                 alt47=1;
             }
             else if ( (LA47_0==RULE_ID) ) {
@@ -7614,7 +7615,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt48=2;
             int LA48_0 = input.LA(1);
 
-            if ( (LA48_0==RULE_INT||LA48_0==57) ) {
+            if ( (LA48_0==RULE_INT||LA48_0==58) ) {
                 alt48=1;
             }
             else if ( (LA48_0==RULE_ID) ) {
@@ -7706,7 +7707,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( (LA49_0==RULE_INT||LA49_0==57) ) {
+            if ( (LA49_0==RULE_INT||LA49_0==58) ) {
                 alt49=1;
             }
             else if ( (LA49_0==RULE_ID) ) {
@@ -7915,7 +7916,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt50=2;
             int LA50_0 = input.LA(1);
 
-            if ( (LA50_0==RULE_INT||LA50_0==57) ) {
+            if ( (LA50_0==RULE_INT||LA50_0==58) ) {
                 alt50=1;
             }
             else if ( (LA50_0==RULE_ID) ) {
@@ -8007,7 +8008,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==RULE_INT||LA51_0==57) ) {
+            if ( (LA51_0==RULE_INT||LA51_0==58) ) {
                 alt51=1;
             }
             else if ( (LA51_0==RULE_ID) ) {
@@ -8298,7 +8299,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( (LA52_0==RULE_INT||LA52_0==57) ) {
+            if ( (LA52_0==RULE_INT||LA52_0==58) ) {
                 alt52=1;
             }
             else if ( (LA52_0==RULE_ID) ) {
@@ -8390,7 +8391,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt53=2;
             int LA53_0 = input.LA(1);
 
-            if ( (LA53_0==RULE_INT||LA53_0==57) ) {
+            if ( (LA53_0==RULE_INT||LA53_0==58) ) {
                 alt53=1;
             }
             else if ( (LA53_0==RULE_ID) ) {
@@ -8727,7 +8728,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( (LA55_0==RULE_INT||LA55_0==57) ) {
+            if ( (LA55_0==RULE_INT||LA55_0==58) ) {
                 alt55=1;
             }
             else if ( (LA55_0==RULE_ID) ) {
@@ -8819,7 +8820,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt56=2;
             int LA56_0 = input.LA(1);
 
-            if ( (LA56_0==RULE_INT||LA56_0==57) ) {
+            if ( (LA56_0==RULE_INT||LA56_0==58) ) {
                 alt56=1;
             }
             else if ( (LA56_0==RULE_ID) ) {
@@ -9135,7 +9136,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt57=2;
             int LA57_0 = input.LA(1);
 
-            if ( (LA57_0==RULE_INT||LA57_0==57) ) {
+            if ( (LA57_0==RULE_INT||LA57_0==58) ) {
                 alt57=1;
             }
             else if ( (LA57_0==RULE_ID) ) {
@@ -9227,7 +9228,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt58=2;
             int LA58_0 = input.LA(1);
 
-            if ( (LA58_0==RULE_INT||LA58_0==57) ) {
+            if ( (LA58_0==RULE_INT||LA58_0==58) ) {
                 alt58=1;
             }
             else if ( (LA58_0==RULE_ID) ) {
@@ -9431,7 +9432,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             int alt59=2;
             int LA59_0 = input.LA(1);
 
-            if ( (LA59_0==RULE_INT||LA59_0==57) ) {
+            if ( (LA59_0==RULE_INT||LA59_0==58) ) {
                 alt59=1;
             }
             else if ( (LA59_0==RULE_ID) ) {
@@ -9980,7 +9981,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOption"
-    // InternalDrn.g:3972:1: ruleOption returns [EObject current=null] : (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_Camera_2= ruleCamera ) ;
+    // InternalDrn.g:3972:1: ruleOption returns [EObject current=null] : (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_CameraFront_2= ruleCameraFront | this_CameraBottom_3= ruleCameraBottom ) ;
     public final EObject ruleOption() throws RecognitionException {
         EObject current = null;
 
@@ -9988,18 +9989,20 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
         EObject this_LedBlink_1 = null;
 
-        EObject this_Camera_2 = null;
+        EObject this_CameraFront_2 = null;
+
+        EObject this_CameraBottom_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalDrn.g:3978:2: ( (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_Camera_2= ruleCamera ) )
-            // InternalDrn.g:3979:2: (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_Camera_2= ruleCamera )
+            // InternalDrn.g:3978:2: ( (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_CameraFront_2= ruleCameraFront | this_CameraBottom_3= ruleCameraBottom ) )
+            // InternalDrn.g:3979:2: (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_CameraFront_2= ruleCameraFront | this_CameraBottom_3= ruleCameraBottom )
             {
-            // InternalDrn.g:3979:2: (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_Camera_2= ruleCamera )
-            int alt61=3;
+            // InternalDrn.g:3979:2: (this_Led_Impl_0= ruleLed_Impl | this_LedBlink_1= ruleLedBlink | this_CameraFront_2= ruleCameraFront | this_CameraBottom_3= ruleCameraBottom )
+            int alt61=4;
             switch ( input.LA(1) ) {
             case 51:
                 {
@@ -10014,6 +10017,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             case 55:
                 {
                 alt61=3;
+                }
+                break;
+            case 57:
+                {
+                alt61=4;
                 }
                 break;
             default:
@@ -10061,18 +10069,36 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDrn.g:3998:3: this_Camera_2= ruleCamera
+                    // InternalDrn.g:3998:3: this_CameraFront_2= ruleCameraFront
                     {
 
-                    			newCompositeNode(grammarAccess.getOptionAccess().getCameraParserRuleCall_2());
+                    			newCompositeNode(grammarAccess.getOptionAccess().getCameraFrontParserRuleCall_2());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Camera_2=ruleCamera();
+                    this_CameraFront_2=ruleCameraFront();
 
                     state._fsp--;
 
 
-                    			current = this_Camera_2;
+                    			current = this_CameraFront_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 4 :
+                    // InternalDrn.g:4007:3: this_CameraBottom_3= ruleCameraBottom
+                    {
+
+                    			newCompositeNode(grammarAccess.getOptionAccess().getCameraBottomParserRuleCall_3());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_CameraBottom_3=ruleCameraBottom();
+
+                    state._fsp--;
+
+
+                    			current = this_CameraBottom_3;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -10101,7 +10127,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLed_Impl"
-    // InternalDrn.g:4010:1: entryRuleLed_Impl returns [EObject current=null] : iv_ruleLed_Impl= ruleLed_Impl EOF ;
+    // InternalDrn.g:4019:1: entryRuleLed_Impl returns [EObject current=null] : iv_ruleLed_Impl= ruleLed_Impl EOF ;
     public final EObject entryRuleLed_Impl() throws RecognitionException {
         EObject current = null;
 
@@ -10109,8 +10135,8 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDrn.g:4010:49: (iv_ruleLed_Impl= ruleLed_Impl EOF )
-            // InternalDrn.g:4011:2: iv_ruleLed_Impl= ruleLed_Impl EOF
+            // InternalDrn.g:4019:49: (iv_ruleLed_Impl= ruleLed_Impl EOF )
+            // InternalDrn.g:4020:2: iv_ruleLed_Impl= ruleLed_Impl EOF
             {
              newCompositeNode(grammarAccess.getLed_ImplRule()); 
             pushFollow(FOLLOW_1);
@@ -10137,7 +10163,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLed_Impl"
-    // InternalDrn.g:4017:1: ruleLed_Impl returns [EObject current=null] : ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' ) ;
+    // InternalDrn.g:4026:1: ruleLed_Impl returns [EObject current=null] : ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' ) ;
     public final EObject ruleLed_Impl() throws RecognitionException {
         EObject current = null;
 
@@ -10153,17 +10179,17 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4023:2: ( ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' ) )
-            // InternalDrn.g:4024:2: ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' )
+            // InternalDrn.g:4032:2: ( ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' ) )
+            // InternalDrn.g:4033:2: ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' )
             {
-            // InternalDrn.g:4024:2: ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' )
-            // InternalDrn.g:4025:3: ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')'
+            // InternalDrn.g:4033:2: ( ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')' )
+            // InternalDrn.g:4034:3: ( (lv_name_0_0= 'led' ) ) otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) otherlv_5= ')'
             {
-            // InternalDrn.g:4025:3: ( (lv_name_0_0= 'led' ) )
-            // InternalDrn.g:4026:4: (lv_name_0_0= 'led' )
+            // InternalDrn.g:4034:3: ( (lv_name_0_0= 'led' ) )
+            // InternalDrn.g:4035:4: (lv_name_0_0= 'led' )
             {
-            // InternalDrn.g:4026:4: (lv_name_0_0= 'led' )
-            // InternalDrn.g:4027:5: lv_name_0_0= 'led'
+            // InternalDrn.g:4035:4: (lv_name_0_0= 'led' )
+            // InternalDrn.g:4036:5: lv_name_0_0= 'led'
             {
             lv_name_0_0=(Token)match(input,51,FOLLOW_13); 
 
@@ -10193,11 +10219,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getLed_ImplAccess().getEqualsSignKeyword_3());
             		
-            // InternalDrn.g:4051:3: ( (lv_color_4_0= ruleColorLed ) )
-            // InternalDrn.g:4052:4: (lv_color_4_0= ruleColorLed )
+            // InternalDrn.g:4060:3: ( (lv_color_4_0= ruleColorLed ) )
+            // InternalDrn.g:4061:4: (lv_color_4_0= ruleColorLed )
             {
-            // InternalDrn.g:4052:4: (lv_color_4_0= ruleColorLed )
-            // InternalDrn.g:4053:5: lv_color_4_0= ruleColorLed
+            // InternalDrn.g:4061:4: (lv_color_4_0= ruleColorLed )
+            // InternalDrn.g:4062:5: lv_color_4_0= ruleColorLed
             {
 
             					newCompositeNode(grammarAccess.getLed_ImplAccess().getColorColorLedEnumRuleCall_4_0());
@@ -10251,7 +10277,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLedBlink"
-    // InternalDrn.g:4078:1: entryRuleLedBlink returns [EObject current=null] : iv_ruleLedBlink= ruleLedBlink EOF ;
+    // InternalDrn.g:4087:1: entryRuleLedBlink returns [EObject current=null] : iv_ruleLedBlink= ruleLedBlink EOF ;
     public final EObject entryRuleLedBlink() throws RecognitionException {
         EObject current = null;
 
@@ -10259,8 +10285,8 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDrn.g:4078:49: (iv_ruleLedBlink= ruleLedBlink EOF )
-            // InternalDrn.g:4079:2: iv_ruleLedBlink= ruleLedBlink EOF
+            // InternalDrn.g:4087:49: (iv_ruleLedBlink= ruleLedBlink EOF )
+            // InternalDrn.g:4088:2: iv_ruleLedBlink= ruleLedBlink EOF
             {
              newCompositeNode(grammarAccess.getLedBlinkRule()); 
             pushFollow(FOLLOW_1);
@@ -10287,7 +10313,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLedBlink"
-    // InternalDrn.g:4085:1: ruleLedBlink returns [EObject current=null] : ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' ) ;
+    // InternalDrn.g:4094:1: ruleLedBlink returns [EObject current=null] : ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' ) ;
     public final EObject ruleLedBlink() throws RecognitionException {
         EObject current = null;
 
@@ -10308,17 +10334,17 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4091:2: ( ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' ) )
-            // InternalDrn.g:4092:2: ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' )
+            // InternalDrn.g:4100:2: ( ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' ) )
+            // InternalDrn.g:4101:2: ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' )
             {
-            // InternalDrn.g:4092:2: ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' )
-            // InternalDrn.g:4093:3: ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')'
+            // InternalDrn.g:4101:2: ( ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')' )
+            // InternalDrn.g:4102:3: ( (lv_name_0_0= 'ledBlink' ) ) otherlv_1= '(' (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) ) (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) ) otherlv_9= ')'
             {
-            // InternalDrn.g:4093:3: ( (lv_name_0_0= 'ledBlink' ) )
-            // InternalDrn.g:4094:4: (lv_name_0_0= 'ledBlink' )
+            // InternalDrn.g:4102:3: ( (lv_name_0_0= 'ledBlink' ) )
+            // InternalDrn.g:4103:4: (lv_name_0_0= 'ledBlink' )
             {
-            // InternalDrn.g:4094:4: (lv_name_0_0= 'ledBlink' )
-            // InternalDrn.g:4095:5: lv_name_0_0= 'ledBlink'
+            // InternalDrn.g:4103:4: (lv_name_0_0= 'ledBlink' )
+            // InternalDrn.g:4104:5: lv_name_0_0= 'ledBlink'
             {
             lv_name_0_0=(Token)match(input,53,FOLLOW_13); 
 
@@ -10340,8 +10366,8 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getLedBlinkAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalDrn.g:4111:3: (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) )
-            // InternalDrn.g:4112:4: otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) )
+            // InternalDrn.g:4120:3: (otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) ) )
+            // InternalDrn.g:4121:4: otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleColorLed ) )
             {
             otherlv_2=(Token)match(input,52,FOLLOW_6); 
 
@@ -10351,11 +10377,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             				newLeafNode(otherlv_3, grammarAccess.getLedBlinkAccess().getEqualsSignKeyword_2_1());
             			
-            // InternalDrn.g:4120:4: ( (lv_color_4_0= ruleColorLed ) )
-            // InternalDrn.g:4121:5: (lv_color_4_0= ruleColorLed )
+            // InternalDrn.g:4129:4: ( (lv_color_4_0= ruleColorLed ) )
+            // InternalDrn.g:4130:5: (lv_color_4_0= ruleColorLed )
             {
-            // InternalDrn.g:4121:5: (lv_color_4_0= ruleColorLed )
-            // InternalDrn.g:4122:6: lv_color_4_0= ruleColorLed
+            // InternalDrn.g:4130:5: (lv_color_4_0= ruleColorLed )
+            // InternalDrn.g:4131:6: lv_color_4_0= ruleColorLed
             {
 
             						newCompositeNode(grammarAccess.getLedBlinkAccess().getColorColorLedEnumRuleCall_2_2_0());
@@ -10385,8 +10411,8 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalDrn.g:4140:3: (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) )
-            // InternalDrn.g:4141:4: otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) )
+            // InternalDrn.g:4149:3: (otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) ) )
+            // InternalDrn.g:4150:4: otherlv_5= 'blink_per_sec' otherlv_6= '=' ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) )
             {
             otherlv_5=(Token)match(input,54,FOLLOW_6); 
 
@@ -10396,11 +10422,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             				newLeafNode(otherlv_6, grammarAccess.getLedBlinkAccess().getEqualsSignKeyword_3_1());
             			
-            // InternalDrn.g:4149:4: ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) )
+            // InternalDrn.g:4158:4: ( ( (lv_blink_per_secCST_7_0= ruleEInt ) ) | ( (otherlv_8= RULE_ID ) ) )
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( (LA62_0==RULE_INT||LA62_0==57) ) {
+            if ( (LA62_0==RULE_INT||LA62_0==58) ) {
                 alt62=1;
             }
             else if ( (LA62_0==RULE_ID) ) {
@@ -10414,13 +10440,13 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             }
             switch (alt62) {
                 case 1 :
-                    // InternalDrn.g:4150:5: ( (lv_blink_per_secCST_7_0= ruleEInt ) )
+                    // InternalDrn.g:4159:5: ( (lv_blink_per_secCST_7_0= ruleEInt ) )
                     {
-                    // InternalDrn.g:4150:5: ( (lv_blink_per_secCST_7_0= ruleEInt ) )
-                    // InternalDrn.g:4151:6: (lv_blink_per_secCST_7_0= ruleEInt )
+                    // InternalDrn.g:4159:5: ( (lv_blink_per_secCST_7_0= ruleEInt ) )
+                    // InternalDrn.g:4160:6: (lv_blink_per_secCST_7_0= ruleEInt )
                     {
-                    // InternalDrn.g:4151:6: (lv_blink_per_secCST_7_0= ruleEInt )
-                    // InternalDrn.g:4152:7: lv_blink_per_secCST_7_0= ruleEInt
+                    // InternalDrn.g:4160:6: (lv_blink_per_secCST_7_0= ruleEInt )
+                    // InternalDrn.g:4161:7: lv_blink_per_secCST_7_0= ruleEInt
                     {
 
                     							newCompositeNode(grammarAccess.getLedBlinkAccess().getBlink_per_secCSTEIntParserRuleCall_3_2_0_0());
@@ -10451,13 +10477,13 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDrn.g:4170:5: ( (otherlv_8= RULE_ID ) )
+                    // InternalDrn.g:4179:5: ( (otherlv_8= RULE_ID ) )
                     {
-                    // InternalDrn.g:4170:5: ( (otherlv_8= RULE_ID ) )
-                    // InternalDrn.g:4171:6: (otherlv_8= RULE_ID )
+                    // InternalDrn.g:4179:5: ( (otherlv_8= RULE_ID ) )
+                    // InternalDrn.g:4180:6: (otherlv_8= RULE_ID )
                     {
-                    // InternalDrn.g:4171:6: (otherlv_8= RULE_ID )
-                    // InternalDrn.g:4172:7: otherlv_8= RULE_ID
+                    // InternalDrn.g:4180:6: (otherlv_8= RULE_ID )
+                    // InternalDrn.g:4181:7: otherlv_8= RULE_ID
                     {
 
                     							if (current==null) {
@@ -10509,25 +10535,25 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleLedBlink"
 
 
-    // $ANTLR start "entryRuleCamera"
-    // InternalDrn.g:4193:1: entryRuleCamera returns [EObject current=null] : iv_ruleCamera= ruleCamera EOF ;
-    public final EObject entryRuleCamera() throws RecognitionException {
+    // $ANTLR start "entryRuleCameraFront"
+    // InternalDrn.g:4202:1: entryRuleCameraFront returns [EObject current=null] : iv_ruleCameraFront= ruleCameraFront EOF ;
+    public final EObject entryRuleCameraFront() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleCamera = null;
+        EObject iv_ruleCameraFront = null;
 
 
         try {
-            // InternalDrn.g:4193:47: (iv_ruleCamera= ruleCamera EOF )
-            // InternalDrn.g:4194:2: iv_ruleCamera= ruleCamera EOF
+            // InternalDrn.g:4202:52: (iv_ruleCameraFront= ruleCameraFront EOF )
+            // InternalDrn.g:4203:2: iv_ruleCameraFront= ruleCameraFront EOF
             {
-             newCompositeNode(grammarAccess.getCameraRule()); 
+             newCompositeNode(grammarAccess.getCameraFrontRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleCamera=ruleCamera();
+            iv_ruleCameraFront=ruleCameraFront();
 
             state._fsp--;
 
-             current =iv_ruleCamera; 
+             current =iv_ruleCameraFront; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -10542,12 +10568,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleCamera"
+    // $ANTLR end "entryRuleCameraFront"
 
 
-    // $ANTLR start "ruleCamera"
-    // InternalDrn.g:4200:1: ruleCamera returns [EObject current=null] : ( ( (lv_name_0_0= 'camera' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) ;
-    public final EObject ruleCamera() throws RecognitionException {
+    // $ANTLR start "ruleCameraFront"
+    // InternalDrn.g:4209:1: ruleCameraFront returns [EObject current=null] : ( ( (lv_name_0_0= 'cameraFront' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) ;
+    public final EObject ruleCameraFront() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
@@ -10561,27 +10587,27 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4206:2: ( ( ( (lv_name_0_0= 'camera' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) )
-            // InternalDrn.g:4207:2: ( ( (lv_name_0_0= 'camera' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
+            // InternalDrn.g:4215:2: ( ( ( (lv_name_0_0= 'cameraFront' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) )
+            // InternalDrn.g:4216:2: ( ( (lv_name_0_0= 'cameraFront' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
             {
-            // InternalDrn.g:4207:2: ( ( (lv_name_0_0= 'camera' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
-            // InternalDrn.g:4208:3: ( (lv_name_0_0= 'camera' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')'
+            // InternalDrn.g:4216:2: ( ( (lv_name_0_0= 'cameraFront' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
+            // InternalDrn.g:4217:3: ( (lv_name_0_0= 'cameraFront' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')'
             {
-            // InternalDrn.g:4208:3: ( (lv_name_0_0= 'camera' ) )
-            // InternalDrn.g:4209:4: (lv_name_0_0= 'camera' )
+            // InternalDrn.g:4217:3: ( (lv_name_0_0= 'cameraFront' ) )
+            // InternalDrn.g:4218:4: (lv_name_0_0= 'cameraFront' )
             {
-            // InternalDrn.g:4209:4: (lv_name_0_0= 'camera' )
-            // InternalDrn.g:4210:5: lv_name_0_0= 'camera'
+            // InternalDrn.g:4218:4: (lv_name_0_0= 'cameraFront' )
+            // InternalDrn.g:4219:5: lv_name_0_0= 'cameraFront'
             {
             lv_name_0_0=(Token)match(input,55,FOLLOW_13); 
 
-            					newLeafNode(lv_name_0_0, grammarAccess.getCameraAccess().getNameCameraKeyword_0_0());
+            					newLeafNode(lv_name_0_0, grammarAccess.getCameraFrontAccess().getNameCameraFrontKeyword_0_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getCameraRule());
+            						current = createModelElement(grammarAccess.getCameraFrontRule());
             					}
-            					setWithLastConsumed(current, "name", lv_name_0_0, "camera");
+            					setWithLastConsumed(current, "name", lv_name_0_0, "cameraFront");
             				
 
             }
@@ -10591,20 +10617,20 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,20,FOLLOW_38); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getCameraAccess().getLeftParenthesisKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getCameraFrontAccess().getLeftParenthesisKeyword_1());
             		
             otherlv_2=(Token)match(input,56,FOLLOW_39); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getCameraAccess().getModeKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getCameraFrontAccess().getModeKeyword_2());
             		
-            // InternalDrn.g:4230:3: ( (lv_mode_3_0= ruleMode ) )
-            // InternalDrn.g:4231:4: (lv_mode_3_0= ruleMode )
+            // InternalDrn.g:4239:3: ( (lv_mode_3_0= ruleMode ) )
+            // InternalDrn.g:4240:4: (lv_mode_3_0= ruleMode )
             {
-            // InternalDrn.g:4231:4: (lv_mode_3_0= ruleMode )
-            // InternalDrn.g:4232:5: lv_mode_3_0= ruleMode
+            // InternalDrn.g:4240:4: (lv_mode_3_0= ruleMode )
+            // InternalDrn.g:4241:5: lv_mode_3_0= ruleMode
             {
 
-            					newCompositeNode(grammarAccess.getCameraAccess().getModeModeEnumRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getCameraFrontAccess().getModeModeEnumRuleCall_3_0());
             				
             pushFollow(FOLLOW_29);
             lv_mode_3_0=ruleMode();
@@ -10613,7 +10639,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getCameraRule());
+            						current = createModelElementForParent(grammarAccess.getCameraFrontRule());
             					}
             					set(
             						current,
@@ -10630,7 +10656,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             otherlv_4=(Token)match(input,22,FOLLOW_2); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getCameraAccess().getRightParenthesisKeyword_4());
+            			newLeafNode(otherlv_4, grammarAccess.getCameraFrontAccess().getRightParenthesisKeyword_4());
             		
 
             }
@@ -10651,11 +10677,156 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleCamera"
+    // $ANTLR end "ruleCameraFront"
+
+
+    // $ANTLR start "entryRuleCameraBottom"
+    // InternalDrn.g:4266:1: entryRuleCameraBottom returns [EObject current=null] : iv_ruleCameraBottom= ruleCameraBottom EOF ;
+    public final EObject entryRuleCameraBottom() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCameraBottom = null;
+
+
+        try {
+            // InternalDrn.g:4266:53: (iv_ruleCameraBottom= ruleCameraBottom EOF )
+            // InternalDrn.g:4267:2: iv_ruleCameraBottom= ruleCameraBottom EOF
+            {
+             newCompositeNode(grammarAccess.getCameraBottomRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleCameraBottom=ruleCameraBottom();
+
+            state._fsp--;
+
+             current =iv_ruleCameraBottom; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCameraBottom"
+
+
+    // $ANTLR start "ruleCameraBottom"
+    // InternalDrn.g:4273:1: ruleCameraBottom returns [EObject current=null] : ( ( (lv_name_0_0= 'cameraBottom' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) ;
+    public final EObject ruleCameraBottom() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_0=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token otherlv_4=null;
+        Enumerator lv_mode_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalDrn.g:4279:2: ( ( ( (lv_name_0_0= 'cameraBottom' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' ) )
+            // InternalDrn.g:4280:2: ( ( (lv_name_0_0= 'cameraBottom' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
+            {
+            // InternalDrn.g:4280:2: ( ( (lv_name_0_0= 'cameraBottom' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')' )
+            // InternalDrn.g:4281:3: ( (lv_name_0_0= 'cameraBottom' ) ) otherlv_1= '(' otherlv_2= 'mode=' ( (lv_mode_3_0= ruleMode ) ) otherlv_4= ')'
+            {
+            // InternalDrn.g:4281:3: ( (lv_name_0_0= 'cameraBottom' ) )
+            // InternalDrn.g:4282:4: (lv_name_0_0= 'cameraBottom' )
+            {
+            // InternalDrn.g:4282:4: (lv_name_0_0= 'cameraBottom' )
+            // InternalDrn.g:4283:5: lv_name_0_0= 'cameraBottom'
+            {
+            lv_name_0_0=(Token)match(input,57,FOLLOW_13); 
+
+            					newLeafNode(lv_name_0_0, grammarAccess.getCameraBottomAccess().getNameCameraBottomKeyword_0_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getCameraBottomRule());
+            					}
+            					setWithLastConsumed(current, "name", lv_name_0_0, "cameraBottom");
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,20,FOLLOW_38); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getCameraBottomAccess().getLeftParenthesisKeyword_1());
+            		
+            otherlv_2=(Token)match(input,56,FOLLOW_39); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getCameraBottomAccess().getModeKeyword_2());
+            		
+            // InternalDrn.g:4303:3: ( (lv_mode_3_0= ruleMode ) )
+            // InternalDrn.g:4304:4: (lv_mode_3_0= ruleMode )
+            {
+            // InternalDrn.g:4304:4: (lv_mode_3_0= ruleMode )
+            // InternalDrn.g:4305:5: lv_mode_3_0= ruleMode
+            {
+
+            					newCompositeNode(grammarAccess.getCameraBottomAccess().getModeModeEnumRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_29);
+            lv_mode_3_0=ruleMode();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getCameraBottomRule());
+            					}
+            					set(
+            						current,
+            						"mode",
+            						lv_mode_3_0,
+            						"sar.drone.Drn.Mode");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_4=(Token)match(input,22,FOLLOW_2); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getCameraBottomAccess().getRightParenthesisKeyword_4());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCameraBottom"
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalDrn.g:4257:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalDrn.g:4330:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -10663,8 +10834,8 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalDrn.g:4257:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalDrn.g:4258:2: iv_ruleEInt= ruleEInt EOF
+            // InternalDrn.g:4330:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalDrn.g:4331:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -10691,7 +10862,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalDrn.g:4264:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalDrn.g:4337:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10702,24 +10873,24 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4270:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalDrn.g:4271:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalDrn.g:4343:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalDrn.g:4344:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalDrn.g:4271:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalDrn.g:4272:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalDrn.g:4344:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalDrn.g:4345:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalDrn.g:4272:3: (kw= '-' )?
+            // InternalDrn.g:4345:3: (kw= '-' )?
             int alt63=2;
             int LA63_0 = input.LA(1);
 
-            if ( (LA63_0==57) ) {
+            if ( (LA63_0==58) ) {
                 alt63=1;
             }
             switch (alt63) {
                 case 1 :
-                    // InternalDrn.g:4273:4: kw= '-'
+                    // InternalDrn.g:4346:4: kw= '-'
                     {
-                    kw=(Token)match(input,57,FOLLOW_40); 
+                    kw=(Token)match(input,58,FOLLOW_40); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -10760,7 +10931,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleColorLed"
-    // InternalDrn.g:4290:1: ruleColorLed returns [Enumerator current=null] : ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) ) ;
+    // InternalDrn.g:4363:1: ruleColorLed returns [Enumerator current=null] : ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) ) ;
     public final Enumerator ruleColorLed() throws RecognitionException {
         Enumerator current = null;
 
@@ -10774,33 +10945,33 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4296:2: ( ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) ) )
-            // InternalDrn.g:4297:2: ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) )
+            // InternalDrn.g:4369:2: ( ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) ) )
+            // InternalDrn.g:4370:2: ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) )
             {
-            // InternalDrn.g:4297:2: ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) )
+            // InternalDrn.g:4370:2: ( (enumLiteral_0= 'BLUE' ) | (enumLiteral_1= 'RED' ) | (enumLiteral_2= 'YELLOW' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'WHITE' ) )
             int alt64=5;
             switch ( input.LA(1) ) {
-            case 58:
+            case 59:
                 {
                 alt64=1;
                 }
                 break;
-            case 59:
+            case 60:
                 {
                 alt64=2;
                 }
                 break;
-            case 60:
+            case 61:
                 {
                 alt64=3;
                 }
                 break;
-            case 61:
+            case 62:
                 {
                 alt64=4;
                 }
                 break;
-            case 62:
+            case 63:
                 {
                 alt64=5;
                 }
@@ -10814,12 +10985,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             switch (alt64) {
                 case 1 :
-                    // InternalDrn.g:4298:3: (enumLiteral_0= 'BLUE' )
+                    // InternalDrn.g:4371:3: (enumLiteral_0= 'BLUE' )
                     {
-                    // InternalDrn.g:4298:3: (enumLiteral_0= 'BLUE' )
-                    // InternalDrn.g:4299:4: enumLiteral_0= 'BLUE'
+                    // InternalDrn.g:4371:3: (enumLiteral_0= 'BLUE' )
+                    // InternalDrn.g:4372:4: enumLiteral_0= 'BLUE'
                     {
-                    enumLiteral_0=(Token)match(input,58,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,59,FOLLOW_2); 
 
                     				current = grammarAccess.getColorLedAccess().getBLUEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getColorLedAccess().getBLUEEnumLiteralDeclaration_0());
@@ -10831,12 +11002,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDrn.g:4306:3: (enumLiteral_1= 'RED' )
+                    // InternalDrn.g:4379:3: (enumLiteral_1= 'RED' )
                     {
-                    // InternalDrn.g:4306:3: (enumLiteral_1= 'RED' )
-                    // InternalDrn.g:4307:4: enumLiteral_1= 'RED'
+                    // InternalDrn.g:4379:3: (enumLiteral_1= 'RED' )
+                    // InternalDrn.g:4380:4: enumLiteral_1= 'RED'
                     {
-                    enumLiteral_1=(Token)match(input,59,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,60,FOLLOW_2); 
 
                     				current = grammarAccess.getColorLedAccess().getREDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getColorLedAccess().getREDEnumLiteralDeclaration_1());
@@ -10848,12 +11019,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalDrn.g:4314:3: (enumLiteral_2= 'YELLOW' )
+                    // InternalDrn.g:4387:3: (enumLiteral_2= 'YELLOW' )
                     {
-                    // InternalDrn.g:4314:3: (enumLiteral_2= 'YELLOW' )
-                    // InternalDrn.g:4315:4: enumLiteral_2= 'YELLOW'
+                    // InternalDrn.g:4387:3: (enumLiteral_2= 'YELLOW' )
+                    // InternalDrn.g:4388:4: enumLiteral_2= 'YELLOW'
                     {
-                    enumLiteral_2=(Token)match(input,60,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,61,FOLLOW_2); 
 
                     				current = grammarAccess.getColorLedAccess().getYELLOWEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getColorLedAccess().getYELLOWEnumLiteralDeclaration_2());
@@ -10865,12 +11036,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalDrn.g:4322:3: (enumLiteral_3= 'GREEN' )
+                    // InternalDrn.g:4395:3: (enumLiteral_3= 'GREEN' )
                     {
-                    // InternalDrn.g:4322:3: (enumLiteral_3= 'GREEN' )
-                    // InternalDrn.g:4323:4: enumLiteral_3= 'GREEN'
+                    // InternalDrn.g:4395:3: (enumLiteral_3= 'GREEN' )
+                    // InternalDrn.g:4396:4: enumLiteral_3= 'GREEN'
                     {
-                    enumLiteral_3=(Token)match(input,61,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,62,FOLLOW_2); 
 
                     				current = grammarAccess.getColorLedAccess().getGREENEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getColorLedAccess().getGREENEnumLiteralDeclaration_3());
@@ -10882,12 +11053,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalDrn.g:4330:3: (enumLiteral_4= 'WHITE' )
+                    // InternalDrn.g:4403:3: (enumLiteral_4= 'WHITE' )
                     {
-                    // InternalDrn.g:4330:3: (enumLiteral_4= 'WHITE' )
-                    // InternalDrn.g:4331:4: enumLiteral_4= 'WHITE'
+                    // InternalDrn.g:4403:3: (enumLiteral_4= 'WHITE' )
+                    // InternalDrn.g:4404:4: enumLiteral_4= 'WHITE'
                     {
-                    enumLiteral_4=(Token)match(input,62,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,63,FOLLOW_2); 
 
                     				current = grammarAccess.getColorLedAccess().getWHITEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getColorLedAccess().getWHITEEnumLiteralDeclaration_4());
@@ -10921,7 +11092,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMode"
-    // InternalDrn.g:4341:1: ruleMode returns [Enumerator current=null] : ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) ) ;
+    // InternalDrn.g:4414:1: ruleMode returns [Enumerator current=null] : ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) ) ;
     public final Enumerator ruleMode() throws RecognitionException {
         Enumerator current = null;
 
@@ -10932,17 +11103,17 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:4347:2: ( ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) ) )
-            // InternalDrn.g:4348:2: ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) )
+            // InternalDrn.g:4420:2: ( ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) ) )
+            // InternalDrn.g:4421:2: ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) )
             {
-            // InternalDrn.g:4348:2: ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) )
+            // InternalDrn.g:4421:2: ( (enumLiteral_0= 'OFF' ) | (enumLiteral_1= 'ON' ) )
             int alt65=2;
             int LA65_0 = input.LA(1);
 
-            if ( (LA65_0==63) ) {
+            if ( (LA65_0==64) ) {
                 alt65=1;
             }
-            else if ( (LA65_0==64) ) {
+            else if ( (LA65_0==65) ) {
                 alt65=2;
             }
             else {
@@ -10953,12 +11124,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             }
             switch (alt65) {
                 case 1 :
-                    // InternalDrn.g:4349:3: (enumLiteral_0= 'OFF' )
+                    // InternalDrn.g:4422:3: (enumLiteral_0= 'OFF' )
                     {
-                    // InternalDrn.g:4349:3: (enumLiteral_0= 'OFF' )
-                    // InternalDrn.g:4350:4: enumLiteral_0= 'OFF'
+                    // InternalDrn.g:4422:3: (enumLiteral_0= 'OFF' )
+                    // InternalDrn.g:4423:4: enumLiteral_0= 'OFF'
                     {
-                    enumLiteral_0=(Token)match(input,63,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,64,FOLLOW_2); 
 
                     				current = grammarAccess.getModeAccess().getOFFEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getModeAccess().getOFFEnumLiteralDeclaration_0());
@@ -10970,12 +11141,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalDrn.g:4357:3: (enumLiteral_1= 'ON' )
+                    // InternalDrn.g:4430:3: (enumLiteral_1= 'ON' )
                     {
-                    // InternalDrn.g:4357:3: (enumLiteral_1= 'ON' )
-                    // InternalDrn.g:4358:4: enumLiteral_1= 'ON'
+                    // InternalDrn.g:4430:3: (enumLiteral_1= 'ON' )
+                    // InternalDrn.g:4431:4: enumLiteral_1= 'ON'
                     {
-                    enumLiteral_1=(Token)match(input,64,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,65,FOLLOW_2); 
 
                     				current = grammarAccess.getModeAccess().getONEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getModeAccess().getONEnumLiteralDeclaration_1());
@@ -11023,19 +11194,19 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000C0000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000000D0000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0200000000000020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0400000000000020L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400010L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000600000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0003BFAFE6100010L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0003BFAFE6110010L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0004000000800002L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0200000000000030L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0400000000000030L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0004000000000002L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0003BFAFE6000010L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000001400000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0200000000400020L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0400000000400020L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000242FE4000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000008000000L});
@@ -11044,13 +11215,13 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x00A8000000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x02A8000000000000L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000200002L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x7C00000000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0xF800000000000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0040000000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x8000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000003L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000020L});
 
 }

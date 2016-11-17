@@ -21,7 +21,8 @@ import sar.drone.drn.CARREXY;
 import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
 import sar.drone.drn.CERCLEYZ;
-import sar.drone.drn.Camera;
+import sar.drone.drn.CameraBottom;
+import sar.drone.drn.CameraFront;
 import sar.drone.drn.Context;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.DepXY;
@@ -130,8 +131,11 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case DrnPackage.CAMERA:
-				sequence_Camera(context, (Camera) semanticObject); 
+			case DrnPackage.CAMERA_BOTTOM:
+				sequence_CameraBottom(context, (CameraBottom) semanticObject); 
+				return; 
+			case DrnPackage.CAMERA_FRONT:
+				sequence_CameraFront(context, (CameraFront) semanticObject); 
 				return; 
 			case DrnPackage.CONTEXT:
 				sequence_Context(context, (Context) semanticObject); 
@@ -575,22 +579,44 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Option returns Camera
-	 *     Camera returns Camera
+	 *     Option returns CameraBottom
+	 *     CameraBottom returns CameraBottom
 	 *
 	 * Constraint:
-	 *     (name='camera' mode=Mode)
+	 *     (name='cameraBottom' mode=Mode)
 	 */
-	protected void sequence_Camera(ISerializationContext context, Camera semanticObject) {
+	protected void sequence_CameraBottom(ISerializationContext context, CameraBottom semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.OPTION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.OPTION__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CAMERA__MODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CAMERA__MODE));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CAMERA_BOTTOM__MODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CAMERA_BOTTOM__MODE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCameraAccess().getNameCameraKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCameraAccess().getModeModeEnumRuleCall_3_0(), semanticObject.getMode());
+		feeder.accept(grammarAccess.getCameraBottomAccess().getNameCameraBottomKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCameraBottomAccess().getModeModeEnumRuleCall_3_0(), semanticObject.getMode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Option returns CameraFront
+	 *     CameraFront returns CameraFront
+	 *
+	 * Constraint:
+	 *     (name='cameraFront' mode=Mode)
+	 */
+	protected void sequence_CameraFront(ISerializationContext context, CameraFront semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.OPTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.OPTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CAMERA_FRONT__MODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CAMERA_FRONT__MODE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCameraFrontAccess().getNameCameraFrontKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCameraFrontAccess().getModeModeEnumRuleCall_3_0(), semanticObject.getMode());
 		feeder.finish();
 	}
 	

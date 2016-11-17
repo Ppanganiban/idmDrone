@@ -17,7 +17,8 @@
 'angle'=34
 'backward'=43
 'blink_per_sec'=36
-'camera'=64
+'cameraBottom'=65
+'cameraFront'=64
 'carreXY'=50
 'carreYZ'=53
 'cercleXY'=49
@@ -113,3 +114,4 @@ T__61=61
 T__62=62
 T__63=63
 T__64=64
+T__65=65

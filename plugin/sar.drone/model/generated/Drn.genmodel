@@ -174,8 +174,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/blink_per_secCST"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//LedBlink/blink_per_secVAR"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//Camera">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Camera/mode"/>
+    <genClasses ecoreClass="Drn.ecore#//CameraFront">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CameraFront/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//CameraBottom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CameraBottom/mode"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
