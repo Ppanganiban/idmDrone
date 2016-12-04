@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Model#getContext <em>Context</em>}</li>
+ *   <li>{@link sar.drone.drn.Model#getTypes <em>Types</em>}</li>
+ *   <li>{@link sar.drone.drn.Model#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getAssignement <em>Assignement</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getMain <em>Main</em>}</li>
  * </ul>
@@ -52,6 +54,38 @@ public interface Model extends EObject
    * @generated
    */
   void setContext(Context value);
+
+  /**
+   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.TypeGeneric}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Types</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getModel_Types()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TypeGeneric> getTypes();
+
+  /**
+   * Returns the value of the '<em><b>Devices</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.Device}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Devices</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Devices</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getModel_Devices()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Device> getDevices();
 
   /**
    * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.

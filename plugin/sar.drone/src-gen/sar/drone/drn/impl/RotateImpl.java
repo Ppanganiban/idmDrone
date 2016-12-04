@@ -406,24 +406,15 @@ public class RotateImpl extends ExpressionImpl implements Rotate
   public String toString()
   {
     if (eIsProxy()) return super.toString();
-    
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">\n");
-    result.append("<angle>");
-    if(angleCST!=null)
-    	result.append(angleCST);
-    else
-    	result.append(angleVAR.getName());
-    result.append("</temps>\n");
-    
-    result.append("<temps>");
-    if(tempsCST!=null)
-    	result.append(tempsCST);
-    else
-    	result.append(tempsVAR.getName());
-    result.append("</temps>\n");
-    result.append(super.toString());
-    result.append("</"+this.name+">\n");
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", angleCST: ");
+    result.append(angleCST);
+    result.append(", tempsCST: ");
+    result.append(tempsCST);
+    result.append(')');
     return result.toString();
   }
 

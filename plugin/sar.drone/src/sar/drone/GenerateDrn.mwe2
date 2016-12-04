@@ -19,9 +19,11 @@ Workflow {
 					enabled = true
 				}
 				eclipsePluginTest = {
+							src = ""
 					enabled = true
 				}
 				createEclipseMetaData = true
+				
 			}
 			code = {
 				encoding = "UTF-8"
@@ -31,7 +33,6 @@ Workflow {
 		language = StandardLanguage {
 			name = "sar.drone.Drn"
 			fileExtensions = "drn"
-
 			serializer = {
 				generateStub = false
 			}
@@ -39,5 +40,6 @@ Workflow {
 				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 		}
+
 	}
 }

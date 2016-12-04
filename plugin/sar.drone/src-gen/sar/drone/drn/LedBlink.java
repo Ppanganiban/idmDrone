@@ -3,6 +3,7 @@
  */
 package sar.drone.drn;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,9 +14,11 @@ package sar.drone.drn;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.LedBlink#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getColor <em>Color</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getBlink_per_secCST <em>Blink per sec CST</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getBlink_per_secVAR <em>Blink per sec VAR</em>}</li>
+ *   <li>{@link sar.drone.drn.LedBlink#getAttributs <em>Attributs</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getLedBlink()
@@ -24,6 +27,32 @@ package sar.drone.drn;
  */
 public interface LedBlink extends Option
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see sar.drone.drn.DrnPackage#getLedBlink_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.LedBlink#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Color</b></em>' attribute.
    * The literals are from the enumeration {@link sar.drone.drn.ColorLed}.
@@ -104,5 +133,21 @@ public interface LedBlink extends Option
    * @generated
    */
   void setBlink_per_secVAR(Parametre value);
+
+  /**
+   * Returns the value of the '<em><b>Attributs</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.Attribut}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Attributs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Attributs</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getLedBlink_Attributs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Attribut> getAttributs();
 
 } // LedBlink

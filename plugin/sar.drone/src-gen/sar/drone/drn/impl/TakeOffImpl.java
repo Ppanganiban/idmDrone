@@ -167,9 +167,10 @@ public class TakeOffImpl extends ExpressionImpl implements TakeOff
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">");
-    result.append("</"+this.name+">\n");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
     return result.toString();
   }
 

@@ -21,9 +21,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.Assignement;
 import sar.drone.drn.Context;
+import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Model;
 import sar.drone.drn.RefPart;
+import sar.drone.drn.TypeGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +36,8 @@ import sar.drone.drn.RefPart;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getAssignement <em>Assignement</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getMain <em>Main</em>}</li>
  * </ul>
@@ -51,6 +55,26 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected Context context;
+
+  /**
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<TypeGeneric> types;
+
+  /**
+   * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDevices()
+   * @generated
+   * @ordered
+   */
+  protected EList<Device> devices;
 
   /**
    * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
@@ -146,6 +170,34 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<TypeGeneric> getTypes()
+  {
+    if (types == null)
+    {
+      types = new EObjectContainmentEList<TypeGeneric>(TypeGeneric.class, this, DrnPackage.MODEL__TYPES);
+    }
+    return types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Device> getDevices()
+  {
+    if (devices == null)
+    {
+      devices = new EObjectContainmentEList<Device>(Device.class, this, DrnPackage.MODEL__DEVICES);
+    }
+    return devices;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Assignement> getAssignement()
   {
     if (assignement == null)
@@ -215,6 +267,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case DrnPackage.MODEL__CONTEXT:
         return basicSetContext(null, msgs);
+      case DrnPackage.MODEL__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case DrnPackage.MODEL__DEVICES:
+        return ((InternalEList<?>)getDevices()).basicRemove(otherEnd, msgs);
       case DrnPackage.MODEL__ASSIGNEMENT:
         return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
       case DrnPackage.MODEL__MAIN:
@@ -235,6 +291,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case DrnPackage.MODEL__CONTEXT:
         return getContext();
+      case DrnPackage.MODEL__TYPES:
+        return getTypes();
+      case DrnPackage.MODEL__DEVICES:
+        return getDevices();
       case DrnPackage.MODEL__ASSIGNEMENT:
         return getAssignement();
       case DrnPackage.MODEL__MAIN:
@@ -256,6 +316,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)newValue);
+        return;
+      case DrnPackage.MODEL__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends TypeGeneric>)newValue);
+        return;
+      case DrnPackage.MODEL__DEVICES:
+        getDevices().clear();
+        getDevices().addAll((Collection<? extends Device>)newValue);
         return;
       case DrnPackage.MODEL__ASSIGNEMENT:
         getAssignement().clear();
@@ -281,6 +349,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)null);
         return;
+      case DrnPackage.MODEL__TYPES:
+        getTypes().clear();
+        return;
+      case DrnPackage.MODEL__DEVICES:
+        getDevices().clear();
+        return;
       case DrnPackage.MODEL__ASSIGNEMENT:
         getAssignement().clear();
         return;
@@ -303,6 +377,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case DrnPackage.MODEL__CONTEXT:
         return context != null;
+      case DrnPackage.MODEL__TYPES:
+        return types != null && !types.isEmpty();
+      case DrnPackage.MODEL__DEVICES:
+        return devices != null && !devices.isEmpty();
       case DrnPackage.MODEL__ASSIGNEMENT:
         return assignement != null && !assignement.isEmpty();
       case DrnPackage.MODEL__MAIN:
@@ -311,16 +389,4 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     return super.eIsSet(featureID);
   }
 
-  public String toString(){
-	  StringBuffer sb = new StringBuffer();
-	  sb.append("<model>\n");
-	  sb.append(this.getContext().toString());
-	  for(Assignement a:this.assignement)
-	  {
-		  sb.append(a.toString()+"\n\n");
-	  }
-	  sb.append("<main>\n"+this.getMain().toString()+"</main>\n");
-	  sb.append("</model>\n");
-	  return sb.toString();
-  }
 } //ModelImpl

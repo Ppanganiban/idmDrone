@@ -3,13 +3,22 @@
  */
 package sar.drone.drn.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import sar.drone.drn.Attribut;
 import sar.drone.drn.ColorLed;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.LedBlink;
@@ -23,15 +32,37 @@ import sar.drone.drn.Parametre;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getColor <em>Color</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getBlink_per_secCST <em>Blink per sec CST</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getBlink_per_secVAR <em>Blink per sec VAR</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getAttributs <em>Attributs</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LedBlinkImpl extends OptionImpl implements LedBlink
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -83,6 +114,16 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
   protected Parametre blink_per_secVAR;
 
   /**
+   * The cached value of the '{@link #getAttributs() <em>Attributs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttributs()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribut> attributs;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -101,6 +142,29 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.LED_BLINK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.LED_BLINK__NAME, oldName, name));
   }
 
   /**
@@ -197,11 +261,43 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Attribut> getAttributs()
+  {
+    if (attributs == null)
+    {
+      attributs = new EObjectContainmentEList<Attribut>(Attribut.class, this, DrnPackage.LED_BLINK__ATTRIBUTS);
+    }
+    return attributs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.LED_BLINK__ATTRIBUTS:
+        return ((InternalEList<?>)getAttributs()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DrnPackage.LED_BLINK__NAME:
+        return getName();
       case DrnPackage.LED_BLINK__COLOR:
         return getColor();
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
@@ -209,6 +305,8 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
         if (resolve) return getBlink_per_secVAR();
         return basicGetBlink_per_secVAR();
+      case DrnPackage.LED_BLINK__ATTRIBUTS:
+        return getAttributs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,11 +316,15 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case DrnPackage.LED_BLINK__NAME:
+        setName((String)newValue);
+        return;
       case DrnPackage.LED_BLINK__COLOR:
         setColor((ColorLed)newValue);
         return;
@@ -231,6 +333,10 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
         return;
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
         setBlink_per_secVAR((Parametre)newValue);
+        return;
+      case DrnPackage.LED_BLINK__ATTRIBUTS:
+        getAttributs().clear();
+        getAttributs().addAll((Collection<? extends Attribut>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -246,6 +352,9 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
   {
     switch (featureID)
     {
+      case DrnPackage.LED_BLINK__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DrnPackage.LED_BLINK__COLOR:
         setColor(COLOR_EDEFAULT);
         return;
@@ -254,6 +363,9 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
         return;
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
         setBlink_per_secVAR((Parametre)null);
+        return;
+      case DrnPackage.LED_BLINK__ATTRIBUTS:
+        getAttributs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -269,12 +381,16 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
   {
     switch (featureID)
     {
+      case DrnPackage.LED_BLINK__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DrnPackage.LED_BLINK__COLOR:
         return color != COLOR_EDEFAULT;
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
         return BLINK_PER_SEC_CST_EDEFAULT == null ? blink_per_secCST != null : !BLINK_PER_SEC_CST_EDEFAULT.equals(blink_per_secCST);
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
         return blink_per_secVAR != null;
+      case DrnPackage.LED_BLINK__ATTRIBUTS:
+        return attributs != null && !attributs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -289,18 +405,14 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<ledblink>\n");
-    result.append("<color>");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", color: ");
     result.append(color);
-    result.append("</color>\n");
-    result.append("<blink_per_sec>");
-    if(blink_per_secCST!=null)
-    	result.append(blink_per_secCST);
-    else
-    	result.append(blink_per_secVAR.getName());
-    result.append("</blink_per_sec>\n");
-    result.append("</ledblink>\n");
+    result.append(", blink_per_secCST: ");
+    result.append(blink_per_secCST);
+    result.append(')');
     return result.toString();
   }
 

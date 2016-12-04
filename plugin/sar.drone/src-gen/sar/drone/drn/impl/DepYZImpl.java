@@ -234,7 +234,7 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (distanceCST: ");
     result.append(distanceCST);
     result.append(')');

@@ -165,7 +165,13 @@ public class DepXYZ_IMPLImpl extends ExpressionImpl implements DepXYZ_IMPL
   @Override
   public String toString()
   {
-    return super.toString();
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DepXYZ_IMPLImpl

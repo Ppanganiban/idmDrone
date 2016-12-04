@@ -232,27 +232,13 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
   @Override
   public String toString()
   {
-	    if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-	    StringBuffer result = new StringBuffer();
-		result.append("<"+this.name+">\n");
-		result.append("<cote>");
-		if(coteCST!=null)
-			result.append(coteCST);
-		else
-			result.append(coteVAR.getName());
-		result.append("</cote>\n");
-
-		result.append("<temps>");
-		if(tempsCST!=null)
-			result.append(tempsCST);
-		else
-			result.append(tempsVAR.getName());
-		result.append("</temps>\n");
-		result.append(super.toString());
-		result.append("</"+this.name+">\n");
-		
-		return result.toString();
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (coteCST: ");
+    result.append(coteCST);
+    result.append(')');
+    return result.toString();
   }
 
 } //CARREXYImpl

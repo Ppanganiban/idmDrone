@@ -21,6 +21,7 @@ import sar.drone.drn.Led_Impl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.Led_ImplImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.Led_ImplImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
@@ -28,6 +29,26 @@ import sar.drone.drn.Led_Impl;
  */
 public class Led_ImplImpl extends OptionImpl implements Led_Impl
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -74,6 +95,29 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.LED_IMPL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ColorLed getColor()
   {
     return color;
@@ -102,6 +146,8 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
   {
     switch (featureID)
     {
+      case DrnPackage.LED_IMPL__NAME:
+        return getName();
       case DrnPackage.LED_IMPL__COLOR:
         return getColor();
     }
@@ -118,6 +164,9 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
   {
     switch (featureID)
     {
+      case DrnPackage.LED_IMPL__NAME:
+        setName((String)newValue);
+        return;
       case DrnPackage.LED_IMPL__COLOR:
         setColor((ColorLed)newValue);
         return;
@@ -135,6 +184,9 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
   {
     switch (featureID)
     {
+      case DrnPackage.LED_IMPL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DrnPackage.LED_IMPL__COLOR:
         setColor(COLOR_EDEFAULT);
         return;
@@ -152,6 +204,8 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
   {
     switch (featureID)
     {
+      case DrnPackage.LED_IMPL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DrnPackage.LED_IMPL__COLOR:
         return color != COLOR_EDEFAULT;
     }
@@ -168,12 +222,12 @@ public class Led_ImplImpl extends OptionImpl implements Led_Impl
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<led>\n");
-    result.append("<color>");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", color: ");
     result.append(color);
-    result.append("</color>\n");
-    result.append("</led>\n");
+    result.append(')');
     return result.toString();
   }
 

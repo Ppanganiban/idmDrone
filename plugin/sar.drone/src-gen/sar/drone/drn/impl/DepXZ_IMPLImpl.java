@@ -37,17 +37,5 @@ public class DepXZ_IMPLImpl extends ExpressionImpl implements DepXZ_IMPL
   {
     return DrnPackage.Literals.DEP_XZ_IMPL;
   }
-  
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    return super.toString();
-  }
-
 
 } //DepXZ_IMPLImpl

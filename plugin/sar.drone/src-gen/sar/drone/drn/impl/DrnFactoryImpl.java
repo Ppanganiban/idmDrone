@@ -69,8 +69,15 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.MODEL: return createModel();
       case DrnPackage.CONTEXT: return createContext();
       case DrnPackage.LIMIT: return createLimit();
-      case DrnPackage.VMAX: return createVmax();
-      case DrnPackage.HMAX: return createHmax();
+      case DrnPackage.SURFACE: return createSurface();
+      case DrnPackage.INITIAL_POSITION: return createInitialPosition();
+      case DrnPackage.INITIAL_DIRECTION: return createInitialDirection();
+      case DrnPackage.INITIAL_POSITION_X: return createInitialPositionX();
+      case DrnPackage.INITIAL_POSITION_Y: return createInitialPositionY();
+      case DrnPackage.MAX_LENGTH: return createMaxLength();
+      case DrnPackage.MAX_WIDTH: return createMaxWidth();
+      case DrnPackage.MAX_SPEED: return createMaxSpeed();
+      case DrnPackage.MAX_HEIGTH: return createMaxHeigth();
       case DrnPackage.ASSIGNEMENT: return createAssignement();
       case DrnPackage.PARAMETRE: return createParametre();
       case DrnPackage.EXPRESSION: return createExpression();
@@ -102,12 +109,18 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.WAIT: return createWait();
       case DrnPackage.TAKE_OFF: return createTakeOff();
       case DrnPackage.LAND: return createLand();
+      case DrnPackage.DEVICE: return createDevice();
+      case DrnPackage.DECLARATION: return createDeclaration();
+      case DrnPackage.DEFINITION: return createDefinition();
       case DrnPackage.WITH: return createWith();
       case DrnPackage.OPTION: return createOption();
+      case DrnPackage.REF_DEVICE: return createRefDevice();
+      case DrnPackage.ATTRIBUT: return createAttribut();
       case DrnPackage.LED_IMPL: return createLed_Impl();
       case DrnPackage.LED_BLINK: return createLedBlink();
-      case DrnPackage.CAMERA_FRONT: return createCameraFront();
-      case DrnPackage.CAMERA_BOTTOM: return createCameraBottom();
+      case DrnPackage.CAMERA: return createCamera();
+      case DrnPackage.TYPE_GENERIC: return createTypeGeneric();
+      case DrnPackage.ELEMENT: return createElement();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -129,6 +142,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return createModeFromString(eDataType, initialValue);
       case DrnPackage.EBOOL:
         return createEBoolFromString(eDataType, initialValue);
+      case DrnPackage.DIRECTION_TYPE:
+        return createDirectionTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -150,6 +165,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return convertModeToString(eDataType, instanceValue);
       case DrnPackage.EBOOL:
         return convertEBoolToString(eDataType, instanceValue);
+      case DrnPackage.DIRECTION_TYPE:
+        return convertDirectionTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -193,10 +210,10 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Vmax createVmax()
+  public Surface createSurface()
   {
-    VmaxImpl vmax = new VmaxImpl();
-    return vmax;
+    SurfaceImpl surface = new SurfaceImpl();
+    return surface;
   }
 
   /**
@@ -204,10 +221,87 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Hmax createHmax()
+  public InitialPosition createInitialPosition()
   {
-    HmaxImpl hmax = new HmaxImpl();
-    return hmax;
+    InitialPositionImpl initialPosition = new InitialPositionImpl();
+    return initialPosition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitialDirection createInitialDirection()
+  {
+    InitialDirectionImpl initialDirection = new InitialDirectionImpl();
+    return initialDirection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitialPositionX createInitialPositionX()
+  {
+    InitialPositionXImpl initialPositionX = new InitialPositionXImpl();
+    return initialPositionX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitialPositionY createInitialPositionY()
+  {
+    InitialPositionYImpl initialPositionY = new InitialPositionYImpl();
+    return initialPositionY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MaxLength createMaxLength()
+  {
+    MaxLengthImpl maxLength = new MaxLengthImpl();
+    return maxLength;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MaxWidth createMaxWidth()
+  {
+    MaxWidthImpl maxWidth = new MaxWidthImpl();
+    return maxWidth;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MaxSpeed createMaxSpeed()
+  {
+    MaxSpeedImpl maxSpeed = new MaxSpeedImpl();
+    return maxSpeed;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MaxHeigth createMaxHeigth()
+  {
+    MaxHeigthImpl maxHeigth = new MaxHeigthImpl();
+    return maxHeigth;
   }
 
   /**
@@ -556,6 +650,39 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Device createDevice()
+  {
+    DeviceImpl device = new DeviceImpl();
+    return device;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Declaration createDeclaration()
+  {
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Definition createDefinition()
+  {
+    DefinitionImpl definition = new DefinitionImpl();
+    return definition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public With createWith()
   {
     WithImpl with = new WithImpl();
@@ -571,6 +698,28 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     OptionImpl option = new OptionImpl();
     return option;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefDevice createRefDevice()
+  {
+    RefDeviceImpl refDevice = new RefDeviceImpl();
+    return refDevice;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribut createAttribut()
+  {
+    AttributImpl attribut = new AttributImpl();
+    return attribut;
   }
 
   /**
@@ -600,10 +749,10 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CameraFront createCameraFront()
+  public Camera createCamera()
   {
-    CameraFrontImpl cameraFront = new CameraFrontImpl();
-    return cameraFront;
+    CameraImpl camera = new CameraImpl();
+    return camera;
   }
 
   /**
@@ -611,10 +760,21 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CameraBottom createCameraBottom()
+  public TypeGeneric createTypeGeneric()
   {
-    CameraBottomImpl cameraBottom = new CameraBottomImpl();
-    return cameraBottom;
+    TypeGenericImpl typeGeneric = new TypeGenericImpl();
+    return typeGeneric;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
   }
 
   /**
@@ -679,6 +839,28 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * @generated
    */
   public String convertEBoolToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DirectionType createDirectionTypeFromString(EDataType eDataType, String initialValue)
+  {
+    DirectionType result = DirectionType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

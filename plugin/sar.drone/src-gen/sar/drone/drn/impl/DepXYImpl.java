@@ -234,7 +234,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (distanceCST: ");
     result.append(distanceCST);
     result.append(')');

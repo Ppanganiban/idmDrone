@@ -22,7 +22,6 @@ import sar.drone.drn.Limit;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.LimitImpl#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.impl.LimitImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,26 +47,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,29 +97,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.LIMIT__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -148,8 +104,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
     {
       case DrnPackage.LIMIT__NAME:
         return getName();
-      case DrnPackage.LIMIT__VALUE:
-        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,9 +120,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
     {
       case DrnPackage.LIMIT__NAME:
         setName((String)newValue);
-        return;
-      case DrnPackage.LIMIT__VALUE:
-        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,9 +138,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
       case DrnPackage.LIMIT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DrnPackage.LIMIT__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -206,8 +154,6 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
     {
       case DrnPackage.LIMIT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.LIMIT__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -220,11 +166,13 @@ public class LimitImpl extends MinimalEObjectImpl.Container implements Limit
   @Override
   public String toString()
   {
-	    if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-	    StringBuffer result = new StringBuffer();
-	    result.append("<" + this.name+">" +value+"</" + this.name + ">\n");
-	    return result.toString();
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //LimitImpl

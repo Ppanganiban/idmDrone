@@ -51,22 +51,85 @@ public interface DrnFactory extends EFactory
   Limit createLimit();
 
   /**
-   * Returns a new object of class '<em>Vmax</em>'.
+   * Returns a new object of class '<em>Surface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vmax</em>'.
+   * @return a new object of class '<em>Surface</em>'.
    * @generated
    */
-  Vmax createVmax();
+  Surface createSurface();
 
   /**
-   * Returns a new object of class '<em>Hmax</em>'.
+   * Returns a new object of class '<em>Initial Position</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hmax</em>'.
+   * @return a new object of class '<em>Initial Position</em>'.
    * @generated
    */
-  Hmax createHmax();
+  InitialPosition createInitialPosition();
+
+  /**
+   * Returns a new object of class '<em>Initial Direction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initial Direction</em>'.
+   * @generated
+   */
+  InitialDirection createInitialDirection();
+
+  /**
+   * Returns a new object of class '<em>Initial Position X</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initial Position X</em>'.
+   * @generated
+   */
+  InitialPositionX createInitialPositionX();
+
+  /**
+   * Returns a new object of class '<em>Initial Position Y</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initial Position Y</em>'.
+   * @generated
+   */
+  InitialPositionY createInitialPositionY();
+
+  /**
+   * Returns a new object of class '<em>Max Length</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Max Length</em>'.
+   * @generated
+   */
+  MaxLength createMaxLength();
+
+  /**
+   * Returns a new object of class '<em>Max Width</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Max Width</em>'.
+   * @generated
+   */
+  MaxWidth createMaxWidth();
+
+  /**
+   * Returns a new object of class '<em>Max Speed</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Max Speed</em>'.
+   * @generated
+   */
+  MaxSpeed createMaxSpeed();
+
+  /**
+   * Returns a new object of class '<em>Max Heigth</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Max Heigth</em>'.
+   * @generated
+   */
+  MaxHeigth createMaxHeigth();
 
   /**
    * Returns a new object of class '<em>Assignement</em>'.
@@ -348,6 +411,33 @@ public interface DrnFactory extends EFactory
   Land createLand();
 
   /**
+   * Returns a new object of class '<em>Device</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Device</em>'.
+   * @generated
+   */
+  Device createDevice();
+
+  /**
+   * Returns a new object of class '<em>Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Declaration</em>'.
+   * @generated
+   */
+  Declaration createDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition</em>'.
+   * @generated
+   */
+  Definition createDefinition();
+
+  /**
    * Returns a new object of class '<em>With</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -364,6 +454,24 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   Option createOption();
+
+  /**
+   * Returns a new object of class '<em>Ref Device</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Device</em>'.
+   * @generated
+   */
+  RefDevice createRefDevice();
+
+  /**
+   * Returns a new object of class '<em>Attribut</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribut</em>'.
+   * @generated
+   */
+  Attribut createAttribut();
 
   /**
    * Returns a new object of class '<em>Led Impl</em>'.
@@ -384,22 +492,31 @@ public interface DrnFactory extends EFactory
   LedBlink createLedBlink();
 
   /**
-   * Returns a new object of class '<em>Camera Front</em>'.
+   * Returns a new object of class '<em>Camera</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Camera Front</em>'.
+   * @return a new object of class '<em>Camera</em>'.
    * @generated
    */
-  CameraFront createCameraFront();
+  Camera createCamera();
 
   /**
-   * Returns a new object of class '<em>Camera Bottom</em>'.
+   * Returns a new object of class '<em>Type Generic</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Camera Bottom</em>'.
+   * @return a new object of class '<em>Type Generic</em>'.
    * @generated
    */
-  CameraBottom createCameraBottom();
+  TypeGeneric createTypeGeneric();
+
+  /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
 
   /**
    * Returns the package supported by this factory.

@@ -270,22 +270,11 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     if (eIsProxy()) return super.toString();
 
-	  StringBuffer sb= new StringBuffer();
-	  sb.append("<assignement>\n");
-	  sb.append("<name>" + name + "</name>\n");
-	  
-	  for(int i=0;i<this.getParametre().size();i++){
-		sb.append(this.getParametre().get(i).toString());  
-	  }
-	  
-	  sb.append("<operands>\n\n");
-	  for(int i=0;i<this.getOperandes().size();i++){
-		sb.append(this.getOperandes().get(i).toString()+"\n");  
-	  }
-	  sb.append("</operands>\n");
-	  sb.append("</assignement>\n");
-	  
-	  return sb.toString();
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //AssignementImpl

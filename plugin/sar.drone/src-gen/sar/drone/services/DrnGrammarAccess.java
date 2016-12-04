@@ -34,27 +34,34 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cContextAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cContextContextParserRuleCall_2_0 = (RuleCall)cContextAssignment_2.eContents().get(0);
-		private final Assignment cAssignementAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAssignementAssignementParserRuleCall_3_0 = (RuleCall)cAssignementAssignment_3.eContents().get(0);
-		private final Assignment cAssignementAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cAssignementAssignementParserRuleCall_4_0 = (RuleCall)cAssignementAssignment_4.eContents().get(0);
-		private final Keyword cStartKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cMainAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cMainRefPartParserRuleCall_7_0 = (RuleCall)cMainAssignment_7.eContents().get(0);
-		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cTypesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypesTypeGenericParserRuleCall_3_0 = (RuleCall)cTypesAssignment_3.eContents().get(0);
+		private final Assignment cDevicesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDevicesDeviceParserRuleCall_4_0 = (RuleCall)cDevicesAssignment_4.eContents().get(0);
+		private final Assignment cAssignementAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAssignementAssignementParserRuleCall_5_0 = (RuleCall)cAssignementAssignment_5.eContents().get(0);
+		private final Assignment cAssignementAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cAssignementAssignementParserRuleCall_6_0 = (RuleCall)cAssignementAssignment_6.eContents().get(0);
+		private final Keyword cStartKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cEqualsSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cMainAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cMainRefPartParserRuleCall_9_0 = (RuleCall)cMainAssignment_9.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Model:
 		//	'MODEL'
 		//	'{'
 		//	context=Context?
+		//	types+=TypeGeneric*
+		//	devices+=Device*
 		//	assignement+=Assignement assignement+=Assignement*
 		//	'start' '=' main=RefPart ';'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MODEL' '{' context=Context? assignement+=Assignement assignement+=Assignement* 'start' '=' main=RefPart ';' '}'
+		//'MODEL' '{' context=Context? types+=TypeGeneric* devices+=Device* assignement+=Assignement assignement+=Assignement*
+		//'start' '=' main=RefPart ';' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'MODEL'
@@ -69,40 +76,53 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//Context
 		public RuleCall getContextContextParserRuleCall_2_0() { return cContextContextParserRuleCall_2_0; }
 		
+		//types+=TypeGeneric*
+		public Assignment getTypesAssignment_3() { return cTypesAssignment_3; }
+		
+		//TypeGeneric
+		public RuleCall getTypesTypeGenericParserRuleCall_3_0() { return cTypesTypeGenericParserRuleCall_3_0; }
+		
+		//devices+=Device*
+		public Assignment getDevicesAssignment_4() { return cDevicesAssignment_4; }
+		
+		//Device
+		public RuleCall getDevicesDeviceParserRuleCall_4_0() { return cDevicesDeviceParserRuleCall_4_0; }
+		
 		//assignement+=Assignement
-		public Assignment getAssignementAssignment_3() { return cAssignementAssignment_3; }
+		public Assignment getAssignementAssignment_5() { return cAssignementAssignment_5; }
 		
 		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_3_0() { return cAssignementAssignementParserRuleCall_3_0; }
+		public RuleCall getAssignementAssignementParserRuleCall_5_0() { return cAssignementAssignementParserRuleCall_5_0; }
 		
 		//assignement+=Assignement*
-		public Assignment getAssignementAssignment_4() { return cAssignementAssignment_4; }
+		public Assignment getAssignementAssignment_6() { return cAssignementAssignment_6; }
 		
 		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_4_0() { return cAssignementAssignementParserRuleCall_4_0; }
+		public RuleCall getAssignementAssignementParserRuleCall_6_0() { return cAssignementAssignementParserRuleCall_6_0; }
 		
 		//'start'
-		public Keyword getStartKeyword_5() { return cStartKeyword_5; }
+		public Keyword getStartKeyword_7() { return cStartKeyword_7; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+		public Keyword getEqualsSignKeyword_8() { return cEqualsSignKeyword_8; }
 		
 		//main=RefPart
-		public Assignment getMainAssignment_7() { return cMainAssignment_7; }
+		public Assignment getMainAssignment_9() { return cMainAssignment_9; }
 		
 		//RefPart
-		public RuleCall getMainRefPartParserRuleCall_7_0() { return cMainRefPartParserRuleCall_7_0; }
+		public RuleCall getMainRefPartParserRuleCall_9_0() { return cMainRefPartParserRuleCall_9_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
+		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 	public class ContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Context");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCONTEXTKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameCONTEXTKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cLimitAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cLimitLimitParserRuleCall_2_0 = (RuleCall)cLimitAssignment_2.eContents().get(0);
@@ -114,17 +134,20 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// ******************* Contexte ********************* / Context:
-		//	'CONTEXT'
+		//	name='CONTEXT'
 		//	'{'
 		//	limit+=Limit ";" (limit+=Limit ";")*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CONTEXT' '{' limit+=Limit ";" (limit+=Limit ";")* '}'
+		//name='CONTEXT' '{' limit+=Limit ";" (limit+=Limit ";")* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//name='CONTEXT'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
 		//'CONTEXT'
-		public Keyword getCONTEXTKeyword_0() { return cCONTEXTKeyword_0; }
+		public Keyword getNameCONTEXTKeyword_0_0() { return cNameCONTEXTKeyword_0_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
@@ -156,44 +179,126 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	public class LimitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Limit");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVmaxParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cHmaxParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMaxSpeedParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSurfaceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cInitialPositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Limit:
-		//	Vmax | Hmax;
+		//	MaxSpeed | Surface | InitialPosition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Vmax | Hmax
+		//MaxSpeed | Surface | InitialPosition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Vmax
-		public RuleCall getVmaxParserRuleCall_0() { return cVmaxParserRuleCall_0; }
+		//MaxSpeed
+		public RuleCall getMaxSpeedParserRuleCall_0() { return cMaxSpeedParserRuleCall_0; }
 		
-		//Hmax
-		public RuleCall getHmaxParserRuleCall_1() { return cHmaxParserRuleCall_1; }
+		//Surface
+		public RuleCall getSurfaceParserRuleCall_1() { return cSurfaceParserRuleCall_1; }
+		
+		//InitialPosition
+		public RuleCall getInitialPositionParserRuleCall_2() { return cInitialPositionParserRuleCall_2; }
 	}
-	public class VmaxElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Vmax");
+	public class SurfaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Surface");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMaxHeigthParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMaxLengthParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMaxWidthParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Surface:
+		//	MaxHeigth | MaxLength | MaxWidth;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MaxHeigth | MaxLength | MaxWidth
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MaxHeigth
+		public RuleCall getMaxHeigthParserRuleCall_0() { return cMaxHeigthParserRuleCall_0; }
+		
+		//MaxLength
+		public RuleCall getMaxLengthParserRuleCall_1() { return cMaxLengthParserRuleCall_1; }
+		
+		//MaxWidth
+		public RuleCall getMaxWidthParserRuleCall_2() { return cMaxWidthParserRuleCall_2; }
+	}
+	public class InitialPositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.InitialPosition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cInitialPositionXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cInitialPositionYParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cInitialDirectionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//InitialPosition:
+		//	InitialPositionX | InitialPositionY | InitialDirection;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//InitialPositionX | InitialPositionY | InitialDirection
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//InitialPositionX
+		public RuleCall getInitialPositionXParserRuleCall_0() { return cInitialPositionXParserRuleCall_0; }
+		
+		//InitialPositionY
+		public RuleCall getInitialPositionYParserRuleCall_1() { return cInitialPositionYParserRuleCall_1; }
+		
+		//InitialDirection
+		public RuleCall getInitialDirectionParserRuleCall_2() { return cInitialDirectionParserRuleCall_2; }
+	}
+	public class InitialDirectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.InitialDirection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameVmaxKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNameInitialDirectionKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueDirectionTypeEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//InitialDirection:
+		//	name="initialDirection"
+		//	'=' value=DirectionType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="initialDirection" '=' value=DirectionType
+		public Group getGroup() { return cGroup; }
+		
+		//name="initialDirection"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"initialDirection"
+		public Keyword getNameInitialDirectionKeyword_0_0() { return cNameInitialDirectionKeyword_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//value=DirectionType
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//DirectionType
+		public RuleCall getValueDirectionTypeEnumRuleCall_2_0() { return cValueDirectionTypeEnumRuleCall_2_0; }
+	}
+	public class InitialPositionXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.InitialPositionX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNamePositionXKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//Vmax:
-		//	name="vmax"
+		//InitialPositionX:
+		//	name="positionX"
 		//	'=' value=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="vmax" '=' value=EInt
+		//name="positionX" '=' value=EInt
 		public Group getGroup() { return cGroup; }
 		
-		//name="vmax"
+		//name="positionX"
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//"vmax"
-		public Keyword getNameVmaxKeyword_0_0() { return cNameVmaxKeyword_0_0; }
+		//"positionX"
+		public Keyword getNamePositionXKeyword_0_0() { return cNamePositionXKeyword_0_0; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -204,28 +309,156 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
 	}
-	public class HmaxElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Hmax");
+	public class InitialPositionYElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.InitialPositionY");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameHmaxKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNamePositionYKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//Hmax:
-		//	name="hmax"
+		//InitialPositionY:
+		//	name="positionY"
 		//	'=' value=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="hmax" '=' value=EInt
+		//name="positionY" '=' value=EInt
 		public Group getGroup() { return cGroup; }
 		
-		//name="hmax"
+		//name="positionY"
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//"hmax"
-		public Keyword getNameHmaxKeyword_0_0() { return cNameHmaxKeyword_0_0; }
+		//"positionY"
+		public Keyword getNamePositionYKeyword_0_0() { return cNamePositionYKeyword_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//value=EInt
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//EInt
+		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+	}
+	public class MaxLengthElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxLength");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameMaxLengthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//MaxLength:
+		//	name="maxLength"
+		//	'=' value=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="maxLength" '=' value=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//name="maxLength"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"maxLength"
+		public Keyword getNameMaxLengthKeyword_0_0() { return cNameMaxLengthKeyword_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//value=EInt
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//EInt
+		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+	}
+	public class MaxWidthElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxWidth");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameMaxWidthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//MaxWidth:
+		//	name="maxWidth"
+		//	'=' value=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="maxWidth" '=' value=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//name="maxWidth"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"maxWidth"
+		public Keyword getNameMaxWidthKeyword_0_0() { return cNameMaxWidthKeyword_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//value=EInt
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//EInt
+		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+	}
+	public class MaxSpeedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxSpeed");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameMaxSpeedKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//MaxSpeed:
+		//	name="maxSpeed"
+		//	'=' value=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="maxSpeed" '=' value=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//name="maxSpeed"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"maxSpeed"
+		public Keyword getNameMaxSpeedKeyword_0_0() { return cNameMaxSpeedKeyword_0_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//value=EInt
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		
+		//EInt
+		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+	}
+	public class MaxHeigthElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxHeigth");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameMaxHeigthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//MaxHeigth:
+		//	name="maxHeigth"
+		//	'=' value=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="maxHeigth" '=' value=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//name="maxHeigth"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"maxHeigth"
+		public Keyword getNameMaxHeigthKeyword_0_0() { return cNameMaxHeigthKeyword_0_0; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -2563,6 +2796,138 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
+	public class DeviceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Device");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDEVICEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDeclarationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDeclarationsDeclarationParserRuleCall_3_0 = (RuleCall)cDeclarationsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cSemicolonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDeclarationsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDeclarationsDeclarationParserRuleCall_4_1_0 = (RuleCall)cDeclarationsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		/// ******************* Option ********************* / Device:
+		//	'DEVICE' name=ID
+		//	'{'
+		//	declarations+=Declaration (';' declarations+=Declaration)*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'DEVICE' name=ID '{' declarations+=Declaration (';' declarations+=Declaration)* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'DEVICE'
+		public Keyword getDEVICEKeyword_0() { return cDEVICEKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//declarations+=Declaration
+		public Assignment getDeclarationsAssignment_3() { return cDeclarationsAssignment_3; }
+		
+		//Declaration
+		public RuleCall getDeclarationsDeclarationParserRuleCall_3_0() { return cDeclarationsDeclarationParserRuleCall_3_0; }
+		
+		//(';' declarations+=Declaration)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_4_0() { return cSemicolonKeyword_4_0; }
+		
+		//declarations+=Declaration
+		public Assignment getDeclarationsAssignment_4_1() { return cDeclarationsAssignment_4_1; }
+		
+		//Declaration
+		public RuleCall getDeclarationsDeclarationParserRuleCall_4_1_0() { return cDeclarationsDeclarationParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class DeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Declaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeTypeGenericCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeTypeGenericCrossReference_1_0.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		
+		//Declaration:
+		//	'type' type=[TypeGeneric] name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'type' type=[TypeGeneric] name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'type'
+		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
+		
+		//type=[TypeGeneric]
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//[TypeGeneric]
+		public CrossReference getTypeTypeGenericCrossReference_1_0() { return cTypeTypeGenericCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getTypeTypeGenericIDTerminalRuleCall_1_0_1() { return cTypeTypeGenericIDTerminalRuleCall_1_0_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+	}
+	public class DefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Definition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLeftAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cLeftDeclarationCrossReference_0_0 = (CrossReference)cLeftAssignment_0.eContents().get(0);
+		private final RuleCall cLeftDeclarationIDTerminalRuleCall_0_0_1 = (RuleCall)cLeftDeclarationCrossReference_0_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cRightElementCrossReference_2_0 = (CrossReference)cRightAssignment_2.eContents().get(0);
+		private final RuleCall cRightElementIDTerminalRuleCall_2_0_1 = (RuleCall)cRightElementCrossReference_2_0.eContents().get(1);
+		
+		//Definition:
+		//	left=[Declaration] '=' right=[Element];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//left=[Declaration] '=' right=[Element]
+		public Group getGroup() { return cGroup; }
+		
+		//left=[Declaration]
+		public Assignment getLeftAssignment_0() { return cLeftAssignment_0; }
+		
+		//[Declaration]
+		public CrossReference getLeftDeclarationCrossReference_0_0() { return cLeftDeclarationCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getLeftDeclarationIDTerminalRuleCall_0_0_1() { return cLeftDeclarationIDTerminalRuleCall_0_0_1; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//right=[Element]
+		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
+		
+		//[Element]
+		public CrossReference getRightElementCrossReference_2_0() { return cRightElementCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getRightElementIDTerminalRuleCall_2_0_1() { return cRightElementIDTerminalRuleCall_2_0_1; }
+	}
 	public class WithElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.With");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2575,7 +2940,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cOptionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cOptionOptionParserRuleCall_2_1_0 = (RuleCall)cOptionAssignment_2_1.eContents().get(0);
 		
-		/// ******************* Option ********************* / With:
+		//With:
 		//	name='with' option+=Option ("," option+=Option)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2611,14 +2976,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cLed_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLedBlinkParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCameraFrontParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCameraBottomParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cCameraParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cRefDeviceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Option:
-		//	Led_Impl | LedBlink | CameraFront | CameraBottom;
+		//	Led_Impl
+		//	| LedBlink
+		//	| Camera
+		//	| RefDevice;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Led_Impl | LedBlink | CameraFront | CameraBottom
+		//Led_Impl | LedBlink | Camera | RefDevice
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Led_Impl
@@ -2627,11 +2995,128 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//LedBlink
 		public RuleCall getLedBlinkParserRuleCall_1() { return cLedBlinkParserRuleCall_1; }
 		
-		//CameraFront
-		public RuleCall getCameraFrontParserRuleCall_2() { return cCameraFrontParserRuleCall_2; }
+		//Camera
+		public RuleCall getCameraParserRuleCall_2() { return cCameraParserRuleCall_2; }
 		
-		//CameraBottom
-		public RuleCall getCameraBottomParserRuleCall_3() { return cCameraBottomParserRuleCall_3; }
+		//RefDevice
+		public RuleCall getRefDeviceParserRuleCall_3() { return cRefDeviceParserRuleCall_3; }
+	}
+	public class RefDeviceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefDevice");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDevAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cDevDeviceCrossReference_0_0 = (CrossReference)cDevAssignment_0.eContents().get(0);
+		private final RuleCall cDevDeviceIDTerminalRuleCall_0_0_1 = (RuleCall)cDevDeviceCrossReference_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModeModeEnumRuleCall_3_0 = (RuleCall)cModeAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDefinitionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDefinitionsDefinitionParserRuleCall_4_1_0 = (RuleCall)cDefinitionsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//RefDevice:
+		//	dev=[Device]
+		//	'('
+		//	'mode' mode=Mode (',' definitions+=Definition)*
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//dev=[Device] '(' 'mode' mode=Mode (',' definitions+=Definition)* ')'
+		public Group getGroup() { return cGroup; }
+		
+		//dev=[Device]
+		public Assignment getDevAssignment_0() { return cDevAssignment_0; }
+		
+		//[Device]
+		public CrossReference getDevDeviceCrossReference_0_0() { return cDevDeviceCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getDevDeviceIDTerminalRuleCall_0_0_1() { return cDevDeviceIDTerminalRuleCall_0_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'mode'
+		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
+		
+		//mode=Mode
+		public Assignment getModeAssignment_3() { return cModeAssignment_3; }
+		
+		//Mode
+		public RuleCall getModeModeEnumRuleCall_3_0() { return cModeModeEnumRuleCall_3_0; }
+		
+		//(',' definitions+=Definition)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//definitions+=Definition
+		public Assignment getDefinitionsAssignment_4_1() { return cDefinitionsAssignment_4_1; }
+		
+		//Definition
+		public RuleCall getDefinitionsDefinitionParserRuleCall_4_1_0() { return cDefinitionsDefinitionParserRuleCall_4_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
+	public class AttributElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Attribut");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAttributeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTypeTypeGenericCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
+		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeTypeGenericCrossReference_3_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cElmtAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cElmtElementCrossReference_5_0 = (CrossReference)cElmtAssignment_5.eContents().get(0);
+		private final RuleCall cElmtElementIDTerminalRuleCall_5_0_1 = (RuleCall)cElmtElementCrossReference_5_0.eContents().get(1);
+		
+		//Attribut:
+		//	'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element]
+		public Group getGroup() { return cGroup; }
+		
+		//'attribute'
+		public Keyword getAttributeKeyword_0() { return cAttributeKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		
+		//type=[TypeGeneric]
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
+		//[TypeGeneric]
+		public CrossReference getTypeTypeGenericCrossReference_3_0() { return cTypeTypeGenericCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getTypeTypeGenericIDTerminalRuleCall_3_0_1() { return cTypeTypeGenericIDTerminalRuleCall_3_0_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_4() { return cFullStopKeyword_4; }
+		
+		//elmt+=[Element]
+		public Assignment getElmtAssignment_5() { return cElmtAssignment_5; }
+		
+		//[Element]
+		public CrossReference getElmtElementCrossReference_5_0() { return cElmtElementCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getElmtElementIDTerminalRuleCall_5_0_1() { return cElmtElementIDTerminalRuleCall_5_0_1; }
 	}
 	public class Led_ImplElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Led_Impl");
@@ -2639,21 +3124,26 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNameLedKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cColorKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cColorAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cColorColorLedEnumRuleCall_4_0 = (RuleCall)cColorAssignment_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
+		private final Keyword cColorKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cColorAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cColorColorLedEnumRuleCall_7_0 = (RuleCall)cColorAssignment_7.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Led_Impl:
 		//	name='led'
 		//	'('
+		//	'mode' '=' mode=Mode
 		//	'color' '=' color=ColorLed
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// Led:
-		//name='led' '(' 'color' '=' color=ColorLed ')'
+		//name='led' '(' 'mode' '=' mode=Mode 'color' '=' color=ColorLed ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// Led:
@@ -2666,20 +3156,32 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//'color'
-		public Keyword getColorKeyword_2() { return cColorKeyword_2; }
+		//'mode'
+		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
+		//mode=Mode
+		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
+		
+		//Mode
+		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
+		
+		//'color'
+		public Keyword getColorKeyword_5() { return cColorKeyword_5; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+		
 		//color=ColorLed
-		public Assignment getColorAssignment_4() { return cColorAssignment_4; }
+		public Assignment getColorAssignment_7() { return cColorAssignment_7; }
 		
 		//ColorLed
-		public RuleCall getColorColorLedEnumRuleCall_4_0() { return cColorColorLedEnumRuleCall_4_0; }
+		public RuleCall getColorColorLedEnumRuleCall_7_0() { return cColorColorLedEnumRuleCall_7_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
 	}
 	public class LedBlinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.LedBlink");
@@ -2687,31 +3189,39 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNameLedBlinkKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColorKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cColorAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cColorColorLedEnumRuleCall_2_2_0 = (RuleCall)cColorAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cBlink_per_secKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Alternatives cAlternatives_3_2 = (Alternatives)cGroup_3.eContents().get(2);
-		private final Assignment cBlink_per_secCSTAssignment_3_2_0 = (Assignment)cAlternatives_3_2.eContents().get(0);
-		private final RuleCall cBlink_per_secCSTEIntParserRuleCall_3_2_0_0 = (RuleCall)cBlink_per_secCSTAssignment_3_2_0.eContents().get(0);
-		private final Assignment cBlink_per_secVARAssignment_3_2_1 = (Assignment)cAlternatives_3_2.eContents().get(1);
-		private final CrossReference cBlink_per_secVARParametreCrossReference_3_2_1_0 = (CrossReference)cBlink_per_secVARAssignment_3_2_1.eContents().get(0);
-		private final RuleCall cBlink_per_secVARParametreIDTerminalRuleCall_3_2_1_0_1 = (RuleCall)cBlink_per_secVARParametreCrossReference_3_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cColorKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cColorAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cColorColorLedEnumRuleCall_5_2_0 = (RuleCall)cColorAssignment_5_2.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cBlink_per_secKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Alternatives cAlternatives_6_2 = (Alternatives)cGroup_6.eContents().get(2);
+		private final Assignment cBlink_per_secCSTAssignment_6_2_0 = (Assignment)cAlternatives_6_2.eContents().get(0);
+		private final RuleCall cBlink_per_secCSTEIntParserRuleCall_6_2_0_0 = (RuleCall)cBlink_per_secCSTAssignment_6_2_0.eContents().get(0);
+		private final Assignment cBlink_per_secVARAssignment_6_2_1 = (Assignment)cAlternatives_6_2.eContents().get(1);
+		private final CrossReference cBlink_per_secVARParametreCrossReference_6_2_1_0 = (CrossReference)cBlink_per_secVARAssignment_6_2_1.eContents().get(0);
+		private final RuleCall cBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1 = (RuleCall)cBlink_per_secVARParametreCrossReference_6_2_1_0.eContents().get(1);
+		private final Assignment cAttributsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cAttributsAttributParserRuleCall_7_0 = (RuleCall)cAttributsAssignment_7.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//LedBlink:
 		//	name='ledBlink'
-		//	'(' ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre]))
+		//	'('
+		//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
+		//	blink_per_secVAR=[Parametre])) attributs+=Attribut*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// LedBlink:
-		//name='ledBlink' '(' ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
-		//blink_per_secVAR=[Parametre])) ')'
+		//name='ledBlink' '(' 'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
+		//blink_per_secVAR=[Parametre])) attributs+=Attribut* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// LedBlink:
@@ -2724,138 +3234,206 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
+		//'mode'
+		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		
+		//mode=Mode
+		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
+		
+		//Mode
+		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
+		
 		//('color' '=' color=ColorLed)
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'color'
-		public Keyword getColorKeyword_2_0() { return cColorKeyword_2_0; }
+		public Keyword getColorKeyword_5_0() { return cColorKeyword_5_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
 		
 		//color=ColorLed
-		public Assignment getColorAssignment_2_2() { return cColorAssignment_2_2; }
+		public Assignment getColorAssignment_5_2() { return cColorAssignment_5_2; }
 		
 		//ColorLed
-		public RuleCall getColorColorLedEnumRuleCall_2_2_0() { return cColorColorLedEnumRuleCall_2_2_0; }
+		public RuleCall getColorColorLedEnumRuleCall_5_2_0() { return cColorColorLedEnumRuleCall_5_2_0; }
 		
 		//('blink_per_sec' '=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre]))
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'blink_per_sec'
-		public Keyword getBlink_per_secKeyword_3_0() { return cBlink_per_secKeyword_3_0; }
+		public Keyword getBlink_per_secKeyword_6_0() { return cBlink_per_secKeyword_6_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_6_1() { return cEqualsSignKeyword_6_1; }
 		
 		//(blink_per_secCST=EInt | blink_per_secVAR=[Parametre])
-		public Alternatives getAlternatives_3_2() { return cAlternatives_3_2; }
+		public Alternatives getAlternatives_6_2() { return cAlternatives_6_2; }
 		
 		//blink_per_secCST=EInt
-		public Assignment getBlink_per_secCSTAssignment_3_2_0() { return cBlink_per_secCSTAssignment_3_2_0; }
+		public Assignment getBlink_per_secCSTAssignment_6_2_0() { return cBlink_per_secCSTAssignment_6_2_0; }
 		
 		//EInt
-		public RuleCall getBlink_per_secCSTEIntParserRuleCall_3_2_0_0() { return cBlink_per_secCSTEIntParserRuleCall_3_2_0_0; }
+		public RuleCall getBlink_per_secCSTEIntParserRuleCall_6_2_0_0() { return cBlink_per_secCSTEIntParserRuleCall_6_2_0_0; }
 		
 		//blink_per_secVAR=[Parametre]
-		public Assignment getBlink_per_secVARAssignment_3_2_1() { return cBlink_per_secVARAssignment_3_2_1; }
+		public Assignment getBlink_per_secVARAssignment_6_2_1() { return cBlink_per_secVARAssignment_6_2_1; }
 		
 		//[Parametre]
-		public CrossReference getBlink_per_secVARParametreCrossReference_3_2_1_0() { return cBlink_per_secVARParametreCrossReference_3_2_1_0; }
+		public CrossReference getBlink_per_secVARParametreCrossReference_6_2_1_0() { return cBlink_per_secVARParametreCrossReference_6_2_1_0; }
 		
 		//ID
-		public RuleCall getBlink_per_secVARParametreIDTerminalRuleCall_3_2_1_0_1() { return cBlink_per_secVARParametreIDTerminalRuleCall_3_2_1_0_1; }
+		public RuleCall getBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1() { return cBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1; }
+		
+		//attributs+=Attribut*
+		public Assignment getAttributsAssignment_7() { return cAttributsAssignment_7; }
+		
+		//Attribut
+		public RuleCall getAttributsAttributParserRuleCall_7_0() { return cAttributsAttributParserRuleCall_7_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
 	}
-	public class CameraFrontElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CameraFront");
+	public class CameraElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Camera");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameCameraFrontKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNameCameraKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cModeModeEnumRuleCall_3_0 = (RuleCall)cModeAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
+		private final Assignment cAttributsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAttributsAttributParserRuleCall_5_0 = (RuleCall)cAttributsAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//CameraFront:
-		//	name='cameraFront'
+		//Camera:
+		//	name='camera'
 		//	'('
-		//	'mode=' mode=Mode
+		//	'mode' '=' mode=Mode
+		//	attributs+=Attribut*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// Camera:
-		//name='cameraFront' '(' 'mode=' mode=Mode ')'
+		//name='camera' '(' 'mode' '=' mode=Mode attributs+=Attribut* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// Camera:
-		//name='cameraFront'
+		//name='camera'
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//'cameraFront'
-		public Keyword getNameCameraFrontKeyword_0_0() { return cNameCameraFrontKeyword_0_0; }
+		//'camera'
+		public Keyword getNameCameraKeyword_0_0() { return cNameCameraKeyword_0_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//'mode='
+		//'mode'
 		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
 		
+		//'='
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		
 		//mode=Mode
-		public Assignment getModeAssignment_3() { return cModeAssignment_3; }
+		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
 		
 		//Mode
-		public RuleCall getModeModeEnumRuleCall_3_0() { return cModeModeEnumRuleCall_3_0; }
+		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
+		
+		//attributs+=Attribut*
+		public Assignment getAttributsAssignment_5() { return cAttributsAssignment_5; }
+		
+		//Attribut
+		public RuleCall getAttributsAttributParserRuleCall_5_0() { return cAttributsAttributParserRuleCall_5_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
-	public class CameraBottomElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CameraBottom");
+	public class TypeGenericElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.TypeGeneric");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameCameraBottomKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cModeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cModeModeEnumRuleCall_3_0 = (RuleCall)cModeAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cElementsElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cElementsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cElementsElementParserRuleCall_4_1_0 = (RuleCall)cElementsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//CameraBottom:
-		//	name='cameraBottom'
-		//	'('
-		//	'mode=' mode=Mode
-		//	')';
+		/// ******************* Type ********************* / TypeGeneric:
+		//	'Type' name=ID
+		//	'{'
+		//	elements+=Element (',' elements+=Element)*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//// Camera:
-		//name='cameraBottom' '(' 'mode=' mode=Mode ')'
+		//'Type' name=ID '{' elements+=Element (',' elements+=Element)* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//// Camera:
-		//name='cameraBottom'
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//'Type'
+		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
 		
-		//'cameraBottom'
-		public Keyword getNameCameraBottomKeyword_0_0() { return cNameCameraBottomKeyword_0_0; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//'mode='
-		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//mode=Mode
-		public Assignment getModeAssignment_3() { return cModeAssignment_3; }
+		//elements+=Element
+		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
 		
-		//Mode
-		public RuleCall getModeModeEnumRuleCall_3_0() { return cModeModeEnumRuleCall_3_0; }
+		//Element
+		public RuleCall getElementsElementParserRuleCall_3_0() { return cElementsElementParserRuleCall_3_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//(',' elements+=Element)*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//elements+=Element
+		public Assignment getElementsAssignment_4_1() { return cElementsAssignment_4_1; }
+		
+		//Element
+		public RuleCall getElementsElementParserRuleCall_4_1_0() { return cElementsElementParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class ElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Element");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cElementKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Element:
+		//	'element' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'element' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'element'
+		public Keyword getElementKeyword_0() { return cElementKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.EInt");
@@ -2863,7 +3441,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		/// ******************* Type ********************* / EInt:
+		//EInt:
 		//	'-'? INT;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2986,12 +3564,62 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'FALSE'
 		public Keyword getFALSEFALSEKeyword_1_0() { return cFALSEFALSEKeyword_1_0; }
 	}
+	public class DirectionTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DirectionType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cFRONTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cFRONTFRONTKeyword_0_0 = (Keyword)cFRONTEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cBEHINDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cBEHINDBEHINDKeyword_1_0 = (Keyword)cBEHINDEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cLEFTEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cLEFTLEFTKeyword_2_0 = (Keyword)cLEFTEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cRIGHTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cRIGHTRIGHTKeyword_3_0 = (Keyword)cRIGHTEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum DirectionType:
+		//	FRONT | BEHIND | LEFT | RIGHT;
+		public EnumRule getRule() { return rule; }
+		
+		//FRONT | BEHIND | LEFT | RIGHT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//FRONT
+		public EnumLiteralDeclaration getFRONTEnumLiteralDeclaration_0() { return cFRONTEnumLiteralDeclaration_0; }
+		
+		//'FRONT'
+		public Keyword getFRONTFRONTKeyword_0_0() { return cFRONTFRONTKeyword_0_0; }
+		
+		//BEHIND
+		public EnumLiteralDeclaration getBEHINDEnumLiteralDeclaration_1() { return cBEHINDEnumLiteralDeclaration_1; }
+		
+		//'BEHIND'
+		public Keyword getBEHINDBEHINDKeyword_1_0() { return cBEHINDBEHINDKeyword_1_0; }
+		
+		//LEFT
+		public EnumLiteralDeclaration getLEFTEnumLiteralDeclaration_2() { return cLEFTEnumLiteralDeclaration_2; }
+		
+		//'LEFT'
+		public Keyword getLEFTLEFTKeyword_2_0() { return cLEFTLEFTKeyword_2_0; }
+		
+		//RIGHT
+		public EnumLiteralDeclaration getRIGHTEnumLiteralDeclaration_3() { return cRIGHTEnumLiteralDeclaration_3; }
+		
+		//'RIGHT'
+		public Keyword getRIGHTRIGHTKeyword_3_0() { return cRIGHTRIGHTKeyword_3_0; }
+	}
 	
 	private final ModelElements pModel;
 	private final ContextElements pContext;
 	private final LimitElements pLimit;
-	private final VmaxElements pVmax;
-	private final HmaxElements pHmax;
+	private final SurfaceElements pSurface;
+	private final InitialPositionElements pInitialPosition;
+	private final InitialDirectionElements pInitialDirection;
+	private final InitialPositionXElements pInitialPositionX;
+	private final InitialPositionYElements pInitialPositionY;
+	private final MaxLengthElements pMaxLength;
+	private final MaxWidthElements pMaxWidth;
+	private final MaxSpeedElements pMaxSpeed;
+	private final MaxHeigthElements pMaxHeigth;
 	private final AssignementElements pAssignement;
 	private final ParametreElements pParametre;
 	private final ExpressionElements pExpression;
@@ -3023,16 +3651,23 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final WaitElements pWait;
 	private final TakeOffElements pTakeOff;
 	private final LandElements pLand;
+	private final DeviceElements pDevice;
+	private final DeclarationElements pDeclaration;
+	private final DefinitionElements pDefinition;
 	private final WithElements pWith;
 	private final OptionElements pOption;
+	private final RefDeviceElements pRefDevice;
+	private final AttributElements pAttribut;
 	private final Led_ImplElements pLed_Impl;
 	private final LedBlinkElements pLedBlink;
-	private final CameraFrontElements pCameraFront;
-	private final CameraBottomElements pCameraBottom;
+	private final CameraElements pCamera;
+	private final TypeGenericElements pTypeGeneric;
+	private final ElementElements pElement;
 	private final EIntElements pEInt;
 	private final ColorLedElements eColorLed;
 	private final ModeElements eMode;
 	private final EBoolElements eEBool;
+	private final DirectionTypeElements eDirectionType;
 	
 	private final Grammar grammar;
 	
@@ -3046,8 +3681,15 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pContext = new ContextElements();
 		this.pLimit = new LimitElements();
-		this.pVmax = new VmaxElements();
-		this.pHmax = new HmaxElements();
+		this.pSurface = new SurfaceElements();
+		this.pInitialPosition = new InitialPositionElements();
+		this.pInitialDirection = new InitialDirectionElements();
+		this.pInitialPositionX = new InitialPositionXElements();
+		this.pInitialPositionY = new InitialPositionYElements();
+		this.pMaxLength = new MaxLengthElements();
+		this.pMaxWidth = new MaxWidthElements();
+		this.pMaxSpeed = new MaxSpeedElements();
+		this.pMaxHeigth = new MaxHeigthElements();
 		this.pAssignement = new AssignementElements();
 		this.pParametre = new ParametreElements();
 		this.pExpression = new ExpressionElements();
@@ -3079,16 +3721,23 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pWait = new WaitElements();
 		this.pTakeOff = new TakeOffElements();
 		this.pLand = new LandElements();
+		this.pDevice = new DeviceElements();
+		this.pDeclaration = new DeclarationElements();
+		this.pDefinition = new DefinitionElements();
 		this.pWith = new WithElements();
 		this.pOption = new OptionElements();
+		this.pRefDevice = new RefDeviceElements();
+		this.pAttribut = new AttributElements();
 		this.pLed_Impl = new Led_ImplElements();
 		this.pLedBlink = new LedBlinkElements();
-		this.pCameraFront = new CameraFrontElements();
-		this.pCameraBottom = new CameraBottomElements();
+		this.pCamera = new CameraElements();
+		this.pTypeGeneric = new TypeGenericElements();
+		this.pElement = new ElementElements();
 		this.pEInt = new EIntElements();
 		this.eColorLed = new ColorLedElements();
 		this.eMode = new ModeElements();
 		this.eEBool = new EBoolElements();
+		this.eDirectionType = new DirectionTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -3122,6 +3771,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	//	'MODEL'
 	//	'{'
 	//	context=Context?
+	//	types+=TypeGeneric*
+	//	devices+=Device*
 	//	assignement+=Assignement assignement+=Assignement*
 	//	'start' '=' main=RefPart ';'
 	//	'}';
@@ -3134,7 +3785,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	/// ******************* Contexte ********************* / Context:
-	//	'CONTEXT'
+	//	name='CONTEXT'
 	//	'{'
 	//	limit+=Limit ";" (limit+=Limit ";")*
 	//	'}';
@@ -3147,7 +3798,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Limit:
-	//	Vmax | Hmax;
+	//	MaxSpeed | Surface | InitialPosition;
 	public LimitElements getLimitAccess() {
 		return pLimit;
 	}
@@ -3156,26 +3807,101 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getLimitAccess().getRule();
 	}
 	
-	//Vmax:
-	//	name="vmax"
+	//Surface:
+	//	MaxHeigth | MaxLength | MaxWidth;
+	public SurfaceElements getSurfaceAccess() {
+		return pSurface;
+	}
+	
+	public ParserRule getSurfaceRule() {
+		return getSurfaceAccess().getRule();
+	}
+	
+	//InitialPosition:
+	//	InitialPositionX | InitialPositionY | InitialDirection;
+	public InitialPositionElements getInitialPositionAccess() {
+		return pInitialPosition;
+	}
+	
+	public ParserRule getInitialPositionRule() {
+		return getInitialPositionAccess().getRule();
+	}
+	
+	//InitialDirection:
+	//	name="initialDirection"
+	//	'=' value=DirectionType;
+	public InitialDirectionElements getInitialDirectionAccess() {
+		return pInitialDirection;
+	}
+	
+	public ParserRule getInitialDirectionRule() {
+		return getInitialDirectionAccess().getRule();
+	}
+	
+	//InitialPositionX:
+	//	name="positionX"
 	//	'=' value=EInt;
-	public VmaxElements getVmaxAccess() {
-		return pVmax;
+	public InitialPositionXElements getInitialPositionXAccess() {
+		return pInitialPositionX;
 	}
 	
-	public ParserRule getVmaxRule() {
-		return getVmaxAccess().getRule();
+	public ParserRule getInitialPositionXRule() {
+		return getInitialPositionXAccess().getRule();
 	}
 	
-	//Hmax:
-	//	name="hmax"
+	//InitialPositionY:
+	//	name="positionY"
 	//	'=' value=EInt;
-	public HmaxElements getHmaxAccess() {
-		return pHmax;
+	public InitialPositionYElements getInitialPositionYAccess() {
+		return pInitialPositionY;
 	}
 	
-	public ParserRule getHmaxRule() {
-		return getHmaxAccess().getRule();
+	public ParserRule getInitialPositionYRule() {
+		return getInitialPositionYAccess().getRule();
+	}
+	
+	//MaxLength:
+	//	name="maxLength"
+	//	'=' value=EInt;
+	public MaxLengthElements getMaxLengthAccess() {
+		return pMaxLength;
+	}
+	
+	public ParserRule getMaxLengthRule() {
+		return getMaxLengthAccess().getRule();
+	}
+	
+	//MaxWidth:
+	//	name="maxWidth"
+	//	'=' value=EInt;
+	public MaxWidthElements getMaxWidthAccess() {
+		return pMaxWidth;
+	}
+	
+	public ParserRule getMaxWidthRule() {
+		return getMaxWidthAccess().getRule();
+	}
+	
+	//MaxSpeed:
+	//	name="maxSpeed"
+	//	'=' value=EInt;
+	public MaxSpeedElements getMaxSpeedAccess() {
+		return pMaxSpeed;
+	}
+	
+	public ParserRule getMaxSpeedRule() {
+		return getMaxSpeedAccess().getRule();
+	}
+	
+	//MaxHeigth:
+	//	name="maxHeigth"
+	//	'=' value=EInt;
+	public MaxHeigthElements getMaxHeigthAccess() {
+		return pMaxHeigth;
+	}
+	
+	public ParserRule getMaxHeigthRule() {
+		return getMaxHeigthAccess().getRule();
 	}
 	
 	/// ******************* Alias ********************* / Assignement:
@@ -3546,7 +4272,40 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getLandAccess().getRule();
 	}
 	
-	/// ******************* Option ********************* / With:
+	/// ******************* Option ********************* / Device:
+	//	'DEVICE' name=ID
+	//	'{'
+	//	declarations+=Declaration (';' declarations+=Declaration)*
+	//	'}';
+	public DeviceElements getDeviceAccess() {
+		return pDevice;
+	}
+	
+	public ParserRule getDeviceRule() {
+		return getDeviceAccess().getRule();
+	}
+	
+	//Declaration:
+	//	'type' type=[TypeGeneric] name=ID;
+	public DeclarationElements getDeclarationAccess() {
+		return pDeclaration;
+	}
+	
+	public ParserRule getDeclarationRule() {
+		return getDeclarationAccess().getRule();
+	}
+	
+	//Definition:
+	//	left=[Declaration] '=' right=[Element];
+	public DefinitionElements getDefinitionAccess() {
+		return pDefinition;
+	}
+	
+	public ParserRule getDefinitionRule() {
+		return getDefinitionAccess().getRule();
+	}
+	
+	//With:
 	//	name='with' option+=Option ("," option+=Option)*;
 	public WithElements getWithAccess() {
 		return pWith;
@@ -3557,7 +4316,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Option:
-	//	Led_Impl | LedBlink | CameraFront | CameraBottom;
+	//	Led_Impl
+	//	| LedBlink
+	//	| Camera
+	//	| RefDevice;
 	public OptionElements getOptionAccess() {
 		return pOption;
 	}
@@ -3566,9 +4328,33 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getOptionAccess().getRule();
 	}
 	
+	//RefDevice:
+	//	dev=[Device]
+	//	'('
+	//	'mode' mode=Mode (',' definitions+=Definition)*
+	//	')';
+	public RefDeviceElements getRefDeviceAccess() {
+		return pRefDevice;
+	}
+	
+	public ParserRule getRefDeviceRule() {
+		return getRefDeviceAccess().getRule();
+	}
+	
+	//Attribut:
+	//	'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element];
+	public AttributElements getAttributAccess() {
+		return pAttribut;
+	}
+	
+	public ParserRule getAttributRule() {
+		return getAttributAccess().getRule();
+	}
+	
 	//Led_Impl:
 	//	name='led'
 	//	'('
+	//	'mode' '=' mode=Mode
 	//	'color' '=' color=ColorLed
 	//	')';
 	public Led_ImplElements getLed_ImplAccess() {
@@ -3581,7 +4367,9 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//LedBlink:
 	//	name='ledBlink'
-	//	'(' ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre]))
+	//	'('
+	//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
+	//	blink_per_secVAR=[Parametre])) attributs+=Attribut*
 	//	')';
 	public LedBlinkElements getLedBlinkAccess() {
 		return pLedBlink;
@@ -3591,33 +4379,44 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getLedBlinkAccess().getRule();
 	}
 	
-	//CameraFront:
-	//	name='cameraFront'
+	//Camera:
+	//	name='camera'
 	//	'('
-	//	'mode=' mode=Mode
+	//	'mode' '=' mode=Mode
+	//	attributs+=Attribut*
 	//	')';
-	public CameraFrontElements getCameraFrontAccess() {
-		return pCameraFront;
+	public CameraElements getCameraAccess() {
+		return pCamera;
 	}
 	
-	public ParserRule getCameraFrontRule() {
-		return getCameraFrontAccess().getRule();
+	public ParserRule getCameraRule() {
+		return getCameraAccess().getRule();
 	}
 	
-	//CameraBottom:
-	//	name='cameraBottom'
-	//	'('
-	//	'mode=' mode=Mode
-	//	')';
-	public CameraBottomElements getCameraBottomAccess() {
-		return pCameraBottom;
+	/// ******************* Type ********************* / TypeGeneric:
+	//	'Type' name=ID
+	//	'{'
+	//	elements+=Element (',' elements+=Element)*
+	//	'}';
+	public TypeGenericElements getTypeGenericAccess() {
+		return pTypeGeneric;
 	}
 	
-	public ParserRule getCameraBottomRule() {
-		return getCameraBottomAccess().getRule();
+	public ParserRule getTypeGenericRule() {
+		return getTypeGenericAccess().getRule();
 	}
 	
-	/// ******************* Type ********************* / EInt:
+	//Element:
+	//	'element' name=ID;
+	public ElementElements getElementAccess() {
+		return pElement;
+	}
+	
+	public ParserRule getElementRule() {
+		return getElementAccess().getRule();
+	}
+	
+	//EInt:
 	//	'-'? INT;
 	public EIntElements getEIntAccess() {
 		return pEInt;
@@ -3655,6 +4454,16 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getEBoolRule() {
 		return getEBoolAccess().getRule();
+	}
+	
+	//enum DirectionType:
+	//	FRONT | BEHIND | LEFT | RIGHT;
+	public DirectionTypeElements getDirectionTypeAccess() {
+		return eDirectionType;
+	}
+	
+	public EnumRule getDirectionTypeRule() {
+		return getDirectionTypeAccess().getRule();
 	}
 	
 	//terminal ID:

@@ -5,6 +5,7 @@ package sar.drone.drn.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import sar.drone.drn.Limit;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.ContextImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ContextImpl#getLimit <em>Limit</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import sar.drone.drn.Limit;
  */
 public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,29 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.CONTEXT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONTEXT__NAME, oldName, name));
   }
 
   /**
@@ -107,6 +153,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   {
     switch (featureID)
     {
+      case DrnPackage.CONTEXT__NAME:
+        return getName();
       case DrnPackage.CONTEXT__LIMIT:
         return getLimit();
     }
@@ -124,6 +172,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   {
     switch (featureID)
     {
+      case DrnPackage.CONTEXT__NAME:
+        setName((String)newValue);
+        return;
       case DrnPackage.CONTEXT__LIMIT:
         getLimit().clear();
         getLimit().addAll((Collection<? extends Limit>)newValue);
@@ -142,6 +193,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   {
     switch (featureID)
     {
+      case DrnPackage.CONTEXT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DrnPackage.CONTEXT__LIMIT:
         getLimit().clear();
         return;
@@ -159,19 +213,29 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
   {
     switch (featureID)
     {
+      case DrnPackage.CONTEXT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DrnPackage.CONTEXT__LIMIT:
         return limit != null && !limit.isEmpty();
     }
     return super.eIsSet(featureID);
   }
-  public String toString(){
-	  StringBuffer sb = new StringBuffer();
-	  sb.append("<context>\n");
-	  for(int i=0;i<this.getLimit().size();i++){
-		  sb.append(this.getLimit().get(i).toString());
-	  }
-	  sb.append("</context>\n\n");
-	  
-	  return sb.toString();
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
+
 } //ContextImpl

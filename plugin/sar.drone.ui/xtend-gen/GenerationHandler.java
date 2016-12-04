@@ -22,6 +22,7 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+@SuppressWarnings("deprecation")
 public class GenerationHandler extends AbstractHandler implements IHandler {
      
     @Inject

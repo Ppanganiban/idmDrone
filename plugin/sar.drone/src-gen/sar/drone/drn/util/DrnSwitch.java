@@ -94,19 +94,81 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.VMAX:
+      case DrnPackage.SURFACE:
       {
-        Vmax vmax = (Vmax)theEObject;
-        T result = caseVmax(vmax);
-        if (result == null) result = caseLimit(vmax);
+        Surface surface = (Surface)theEObject;
+        T result = caseSurface(surface);
+        if (result == null) result = caseLimit(surface);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.HMAX:
+      case DrnPackage.INITIAL_POSITION:
       {
-        Hmax hmax = (Hmax)theEObject;
-        T result = caseHmax(hmax);
-        if (result == null) result = caseLimit(hmax);
+        InitialPosition initialPosition = (InitialPosition)theEObject;
+        T result = caseInitialPosition(initialPosition);
+        if (result == null) result = caseLimit(initialPosition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.INITIAL_DIRECTION:
+      {
+        InitialDirection initialDirection = (InitialDirection)theEObject;
+        T result = caseInitialDirection(initialDirection);
+        if (result == null) result = caseInitialPosition(initialDirection);
+        if (result == null) result = caseLimit(initialDirection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.INITIAL_POSITION_X:
+      {
+        InitialPositionX initialPositionX = (InitialPositionX)theEObject;
+        T result = caseInitialPositionX(initialPositionX);
+        if (result == null) result = caseInitialPosition(initialPositionX);
+        if (result == null) result = caseLimit(initialPositionX);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.INITIAL_POSITION_Y:
+      {
+        InitialPositionY initialPositionY = (InitialPositionY)theEObject;
+        T result = caseInitialPositionY(initialPositionY);
+        if (result == null) result = caseInitialPosition(initialPositionY);
+        if (result == null) result = caseLimit(initialPositionY);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.MAX_LENGTH:
+      {
+        MaxLength maxLength = (MaxLength)theEObject;
+        T result = caseMaxLength(maxLength);
+        if (result == null) result = caseSurface(maxLength);
+        if (result == null) result = caseLimit(maxLength);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.MAX_WIDTH:
+      {
+        MaxWidth maxWidth = (MaxWidth)theEObject;
+        T result = caseMaxWidth(maxWidth);
+        if (result == null) result = caseSurface(maxWidth);
+        if (result == null) result = caseLimit(maxWidth);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.MAX_SPEED:
+      {
+        MaxSpeed maxSpeed = (MaxSpeed)theEObject;
+        T result = caseMaxSpeed(maxSpeed);
+        if (result == null) result = caseLimit(maxSpeed);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.MAX_HEIGTH:
+      {
+        MaxHeigth maxHeigth = (MaxHeigth)theEObject;
+        T result = caseMaxHeigth(maxHeigth);
+        if (result == null) result = caseSurface(maxHeigth);
+        if (result == null) result = caseLimit(maxHeigth);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -370,6 +432,27 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DrnPackage.DEVICE:
+      {
+        Device device = (Device)theEObject;
+        T result = caseDevice(device);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.DECLARATION:
+      {
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.DEFINITION:
+      {
+        Definition definition = (Definition)theEObject;
+        T result = caseDefinition(definition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DrnPackage.WITH:
       {
         With with = (With)theEObject;
@@ -381,6 +464,21 @@ public class DrnSwitch<T> extends Switch<T>
       {
         Option option = (Option)theEObject;
         T result = caseOption(option);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.REF_DEVICE:
+      {
+        RefDevice refDevice = (RefDevice)theEObject;
+        T result = caseRefDevice(refDevice);
+        if (result == null) result = caseOption(refDevice);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.ATTRIBUT:
+      {
+        Attribut attribut = (Attribut)theEObject;
+        T result = caseAttribut(attribut);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -400,19 +498,25 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.CAMERA_FRONT:
+      case DrnPackage.CAMERA:
       {
-        CameraFront cameraFront = (CameraFront)theEObject;
-        T result = caseCameraFront(cameraFront);
-        if (result == null) result = caseOption(cameraFront);
+        Camera camera = (Camera)theEObject;
+        T result = caseCamera(camera);
+        if (result == null) result = caseOption(camera);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.CAMERA_BOTTOM:
+      case DrnPackage.TYPE_GENERIC:
       {
-        CameraBottom cameraBottom = (CameraBottom)theEObject;
-        T result = caseCameraBottom(cameraBottom);
-        if (result == null) result = caseOption(cameraBottom);
+        TypeGeneric typeGeneric = (TypeGeneric)theEObject;
+        T result = caseTypeGeneric(typeGeneric);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.ELEMENT:
+      {
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -469,33 +573,145 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Vmax</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Surface</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vmax</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Surface</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVmax(Vmax object)
+  public T caseSurface(Surface object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Hmax</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Initial Position</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hmax</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Initial Position</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseHmax(Hmax object)
+  public T caseInitialPosition(InitialPosition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initial Direction</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initial Direction</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitialDirection(InitialDirection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initial Position X</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initial Position X</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitialPositionX(InitialPositionX object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initial Position Y</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initial Position Y</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitialPositionY(InitialPositionY object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Max Length</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Max Length</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMaxLength(MaxLength object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Max Width</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Max Width</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMaxWidth(MaxWidth object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Max Speed</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Max Speed</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMaxSpeed(MaxSpeed object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Max Heigth</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Max Heigth</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMaxHeigth(MaxHeigth object)
   {
     return null;
   }
@@ -997,6 +1213,54 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Device</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDevice(Device object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclaration(Declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefinition(Definition object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>With</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1024,6 +1288,38 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOption(Option object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Device</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Device</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefDevice(RefDevice object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribut</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribut</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttribut(Attribut object)
   {
     return null;
   }
@@ -1061,33 +1357,49 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Camera Front</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Camera</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Camera Front</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Camera</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCameraFront(CameraFront object)
+  public T caseCamera(Camera object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Camera Bottom</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type Generic</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Camera Bottom</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type Generic</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCameraBottom(CameraBottom object)
+  public T caseTypeGeneric(TypeGeneric object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElement(Element object)
   {
     return null;
   }

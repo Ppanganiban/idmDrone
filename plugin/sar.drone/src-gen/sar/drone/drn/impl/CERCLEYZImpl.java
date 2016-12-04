@@ -30,229 +30,215 @@ import sar.drone.drn.Parametre;
  */
 public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
 {
-	/**
-	 * The default value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRayonCST()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String RAYON_CST_EDEFAULT = null;
+  /**
+   * The default value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRayonCST()
+   * @generated
+   * @ordered
+   */
+  protected static final String RAYON_CST_EDEFAULT = null;
 
-	/**
-	 * The cached value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRayonCST()
-	 * @generated
-	 * @ordered
-	 */
-	protected String rayonCST = RAYON_CST_EDEFAULT;
+  /**
+   * The cached value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRayonCST()
+   * @generated
+   * @ordered
+   */
+  protected String rayonCST = RAYON_CST_EDEFAULT;
 
-	/**
-	 * The cached value of the '{@link #getRayonVar() <em>Rayon Var</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRayonVar()
-	 * @generated
-	 * @ordered
-	 */
-	protected Parametre rayonVar;
+  /**
+   * The cached value of the '{@link #getRayonVar() <em>Rayon Var</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRayonVar()
+   * @generated
+   * @ordered
+   */
+  protected Parametre rayonVar;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CERCLEYZImpl()
-	{
-		super();
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CERCLEYZImpl()
+  {
+    super();
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass()
-	{
-		return DrnPackage.Literals.CERCLEYZ;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return DrnPackage.Literals.CERCLEYZ;
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRayonCST()
-	{
-		return rayonCST;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getRayonCST()
+  {
+    return rayonCST;
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRayonCST(String newRayonCST)
-	{
-		String oldRayonCST = rayonCST;
-		rayonCST = newRayonCST;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_CST, oldRayonCST, rayonCST));
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRayonCST(String newRayonCST)
+  {
+    String oldRayonCST = rayonCST;
+    rayonCST = newRayonCST;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_CST, oldRayonCST, rayonCST));
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parametre getRayonVar()
-	{
-		if (rayonVar != null && rayonVar.eIsProxy())
-		{
-			InternalEObject oldRayonVar = (InternalEObject)rayonVar;
-			rayonVar = (Parametre)eResolveProxy(oldRayonVar);
-			if (rayonVar != oldRayonVar)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
-			}
-		}
-		return rayonVar;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parametre getRayonVar()
+  {
+    if (rayonVar != null && rayonVar.eIsProxy())
+    {
+      InternalEObject oldRayonVar = (InternalEObject)rayonVar;
+      rayonVar = (Parametre)eResolveProxy(oldRayonVar);
+      if (rayonVar != oldRayonVar)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
+      }
+    }
+    return rayonVar;
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parametre basicGetRayonVar()
-	{
-		return rayonVar;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parametre basicGetRayonVar()
+  {
+    return rayonVar;
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRayonVar(Parametre newRayonVar)
-	{
-		Parametre oldRayonVar = rayonVar;
-		rayonVar = newRayonVar;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRayonVar(Parametre newRayonVar)
+  {
+    Parametre oldRayonVar = rayonVar;
+    rayonVar = newRayonVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
-		case DrnPackage.CERCLEYZ__RAYON_CST:
-			return getRayonCST();
-		case DrnPackage.CERCLEYZ__RAYON_VAR:
-			if (resolve) return getRayonVar();
-			return basicGetRayonVar();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.CERCLEYZ__RAYON_CST:
+        return getRayonCST();
+      case DrnPackage.CERCLEYZ__RAYON_VAR:
+        if (resolve) return getRayonVar();
+        return basicGetRayonVar();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
-		case DrnPackage.CERCLEYZ__RAYON_CST:
-			setRayonCST((String)newValue);
-			return;
-		case DrnPackage.CERCLEYZ__RAYON_VAR:
-			setRayonVar((Parametre)newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.CERCLEYZ__RAYON_CST:
+        setRayonCST((String)newValue);
+        return;
+      case DrnPackage.CERCLEYZ__RAYON_VAR:
+        setRayonVar((Parametre)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-		case DrnPackage.CERCLEYZ__RAYON_CST:
-			setRayonCST(RAYON_CST_EDEFAULT);
-			return;
-		case DrnPackage.CERCLEYZ__RAYON_VAR:
-			setRayonVar((Parametre)null);
-			return;
-		}
-		super.eUnset(featureID);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.CERCLEYZ__RAYON_CST:
+        setRayonCST(RAYON_CST_EDEFAULT);
+        return;
+      case DrnPackage.CERCLEYZ__RAYON_VAR:
+        setRayonVar((Parametre)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
-		case DrnPackage.CERCLEYZ__RAYON_CST:
-			return RAYON_CST_EDEFAULT == null ? rayonCST != null : !RAYON_CST_EDEFAULT.equals(rayonCST);
-		case DrnPackage.CERCLEYZ__RAYON_VAR:
-			return rayonVar != null;
-		}
-		return super.eIsSet(featureID);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.CERCLEYZ__RAYON_CST:
+        return RAYON_CST_EDEFAULT == null ? rayonCST != null : !RAYON_CST_EDEFAULT.equals(rayonCST);
+      case DrnPackage.CERCLEYZ__RAYON_VAR:
+        return rayonVar != null;
+    }
+    return super.eIsSet(featureID);
+  }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer();
-		result.append("<"+this.name+">\n");
-		result.append("<rayon>");
-		if(rayonCST!=null)
-			result.append(rayonCST);
-		else
-			result.append(rayonVar.getName());
-		result.append("</rayon>\n");
-
-		result.append("<temps>");
-		if(tempsCST!=null)
-			result.append(tempsCST);
-		else
-			result.append(tempsVAR.getName());
-		result.append("</temps>\n");
-		result.append(super.toString());
-		result.append("</"+this.name+">\n");
-		
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (rayonCST: ");
+    result.append(rayonCST);
+    result.append(')');
+    return result.toString();
+  }
 
 } //CERCLEYZImpl

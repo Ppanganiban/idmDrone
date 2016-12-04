@@ -230,15 +230,11 @@ public class WithImpl extends MinimalEObjectImpl.Container implements With
   public String toString()
   {
     if (eIsProxy()) return super.toString();
-    
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">\n");
-    result.append("<option>");
-    for(Option o : this.option) {
-        result.append(o.toString());    	
-    }
-    result.append("</option>\n");
-    result.append("</"+this.name+">\n");
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
     return result.toString();
   }
 

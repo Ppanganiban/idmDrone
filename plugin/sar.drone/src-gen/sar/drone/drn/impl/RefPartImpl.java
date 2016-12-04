@@ -222,19 +222,11 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
   public String toString()
   {
     if (eIsProxy()) return super.toString();
-    
-    StringBuffer result = new StringBuffer();
-    result.append("<ref>");
-    result.append(this.variable_partie.getName());
-    result.append('(');
-    if(this.params !=null){
-    	for (String s : this.params){
-    		result.append(s+",");
-    	}
-    }
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (params: ");
+    result.append(params);
     result.append(')');
-    result.append(super.toString());
-    result.append("</ref>\n");
     return result.toString();
   }
 

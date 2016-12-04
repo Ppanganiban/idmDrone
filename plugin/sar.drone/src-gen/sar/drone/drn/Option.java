@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.Option#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.Option#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getOption()
@@ -24,29 +24,32 @@ import org.eclipse.emf.ecore.EObject;
 public interface Option extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Mode</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.Mode}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Mode</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see sar.drone.drn.DrnPackage#getOption_Name()
+   * @return the value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #setMode(Mode)
+   * @see sar.drone.drn.DrnPackage#getOption_Mode()
    * @model
    * @generated
    */
-  String getName();
+  Mode getMode();
 
   /**
-   * Sets the value of the '{@link sar.drone.drn.Option#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link sar.drone.drn.Option#getMode <em>Mode</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #getMode()
    * @generated
    */
-  void setName(String value);
+  void setMode(Mode value);
 
 } // Option

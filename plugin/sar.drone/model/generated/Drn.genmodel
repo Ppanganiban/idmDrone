@@ -21,20 +21,45 @@
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//EBool/TRUE"/>
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//EBool/FALSE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Drn.ecore#//DirectionType">
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/FRONT"/>
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/BEHIND"/>
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/RIGHT"/>
+    </genEnums>
     <genClasses ecoreClass="Drn.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/devices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/assignement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/main"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Context">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Context/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Context/limit"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Limit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Limit/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Limit/value"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//Vmax"/>
-    <genClasses ecoreClass="Drn.ecore#//Hmax"/>
+    <genClasses ecoreClass="Drn.ecore#//Surface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Surface/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//InitialPosition"/>
+    <genClasses ecoreClass="Drn.ecore#//InitialDirection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//InitialDirection/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//InitialPositionX">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//InitialPositionX/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//InitialPositionY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//InitialPositionY/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//MaxLength"/>
+    <genClasses ecoreClass="Drn.ecore#//MaxWidth"/>
+    <genClasses ecoreClass="Drn.ecore#//MaxSpeed">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//MaxSpeed/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//MaxHeigth"/>
     <genClasses ecoreClass="Drn.ecore#//Assignement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Assignement/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Assignement/parametre"/>
@@ -159,26 +184,55 @@
     <genClasses ecoreClass="Drn.ecore#//Land">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Land/name"/>
     </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Device/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Device/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Declaration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Declaration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Declaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Definition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Definition/left"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Definition/right"/>
+    </genClasses>
     <genClasses ecoreClass="Drn.ecore#//With">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//With/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//With/option"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Option">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Option/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Option/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//RefDevice">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefDevice/dev"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//RefDevice/definitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Attribut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Attribut/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Attribut/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Attribut/elmt"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Led_Impl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Led_Impl/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Led_Impl/color"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//LedBlink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/color"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/blink_per_secCST"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//LedBlink/blink_per_secVAR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//LedBlink/attributs"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//CameraFront">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CameraFront/mode"/>
+    <genClasses ecoreClass="Drn.ecore#//Camera">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Camera/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Camera/attributs"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//CameraBottom">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CameraBottom/mode"/>
+    <genClasses ecoreClass="Drn.ecore#//TypeGeneric">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//TypeGeneric/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//TypeGeneric/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Element/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

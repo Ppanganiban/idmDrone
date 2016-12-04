@@ -167,11 +167,10 @@ public class LandImpl extends ExpressionImpl implements Land
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">\n");
-    result.append(super.toString());
-    result.append("</"+this.name+">\n");
-    
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
     return result.toString();
   }
 

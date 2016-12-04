@@ -232,27 +232,13 @@ public class CERCLEXYImpl extends DepXY_IMPLImpl implements CERCLEXY
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer();
-		result.append("<"+this.name+">\n");
-		result.append("<rayon>");
-		if(rayonCST!=null)
-			result.append(rayonCST);
-		else
-			result.append(rayonVar.getName());
-		result.append("</rayon>\n");
-
-		result.append("<temps>");
-		if(tempsCST!=null)
-			result.append(tempsCST);
-		else
-			result.append(tempsVAR.getName());
-		result.append("</temps>\n");
-		result.append(super.toString());
-		result.append("</"+this.name+">\n");
-		
-		return result.toString();
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (rayonCST: ");
+    result.append(rayonCST);
+    result.append(')');
+    return result.toString();
   }
 
 } //CERCLEXYImpl

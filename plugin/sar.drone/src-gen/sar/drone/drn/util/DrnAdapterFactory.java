@@ -91,14 +91,49 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createLimitAdapter();
       }
       @Override
-      public Adapter caseVmax(Vmax object)
+      public Adapter caseSurface(Surface object)
       {
-        return createVmaxAdapter();
+        return createSurfaceAdapter();
       }
       @Override
-      public Adapter caseHmax(Hmax object)
+      public Adapter caseInitialPosition(InitialPosition object)
       {
-        return createHmaxAdapter();
+        return createInitialPositionAdapter();
+      }
+      @Override
+      public Adapter caseInitialDirection(InitialDirection object)
+      {
+        return createInitialDirectionAdapter();
+      }
+      @Override
+      public Adapter caseInitialPositionX(InitialPositionX object)
+      {
+        return createInitialPositionXAdapter();
+      }
+      @Override
+      public Adapter caseInitialPositionY(InitialPositionY object)
+      {
+        return createInitialPositionYAdapter();
+      }
+      @Override
+      public Adapter caseMaxLength(MaxLength object)
+      {
+        return createMaxLengthAdapter();
+      }
+      @Override
+      public Adapter caseMaxWidth(MaxWidth object)
+      {
+        return createMaxWidthAdapter();
+      }
+      @Override
+      public Adapter caseMaxSpeed(MaxSpeed object)
+      {
+        return createMaxSpeedAdapter();
+      }
+      @Override
+      public Adapter caseMaxHeigth(MaxHeigth object)
+      {
+        return createMaxHeigthAdapter();
       }
       @Override
       public Adapter caseAssignement(Assignement object)
@@ -256,6 +291,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createLandAdapter();
       }
       @Override
+      public Adapter caseDevice(Device object)
+      {
+        return createDeviceAdapter();
+      }
+      @Override
+      public Adapter caseDeclaration(Declaration object)
+      {
+        return createDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseDefinition(Definition object)
+      {
+        return createDefinitionAdapter();
+      }
+      @Override
       public Adapter caseWith(With object)
       {
         return createWithAdapter();
@@ -264,6 +314,16 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOption(Option object)
       {
         return createOptionAdapter();
+      }
+      @Override
+      public Adapter caseRefDevice(RefDevice object)
+      {
+        return createRefDeviceAdapter();
+      }
+      @Override
+      public Adapter caseAttribut(Attribut object)
+      {
+        return createAttributAdapter();
       }
       @Override
       public Adapter caseLed_Impl(Led_Impl object)
@@ -276,14 +336,19 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createLedBlinkAdapter();
       }
       @Override
-      public Adapter caseCameraFront(CameraFront object)
+      public Adapter caseCamera(Camera object)
       {
-        return createCameraFrontAdapter();
+        return createCameraAdapter();
       }
       @Override
-      public Adapter caseCameraBottom(CameraBottom object)
+      public Adapter caseTypeGeneric(TypeGeneric object)
       {
-        return createCameraBottomAdapter();
+        return createTypeGenericAdapter();
+      }
+      @Override
+      public Adapter caseElement(Element object)
+      {
+        return createElementAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -353,31 +418,136 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Vmax <em>Vmax</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Surface <em>Surface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.Vmax
+   * @see sar.drone.drn.Surface
    * @generated
    */
-  public Adapter createVmaxAdapter()
+  public Adapter createSurfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Hmax <em>Hmax</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.InitialPosition <em>Initial Position</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.Hmax
+   * @see sar.drone.drn.InitialPosition
    * @generated
    */
-  public Adapter createHmaxAdapter()
+  public Adapter createInitialPositionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.InitialDirection <em>Initial Direction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.InitialDirection
+   * @generated
+   */
+  public Adapter createInitialDirectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.InitialPositionX <em>Initial Position X</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.InitialPositionX
+   * @generated
+   */
+  public Adapter createInitialPositionXAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.InitialPositionY <em>Initial Position Y</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.InitialPositionY
+   * @generated
+   */
+  public Adapter createInitialPositionYAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxLength <em>Max Length</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.MaxLength
+   * @generated
+   */
+  public Adapter createMaxLengthAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxWidth <em>Max Width</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.MaxWidth
+   * @generated
+   */
+  public Adapter createMaxWidthAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxSpeed <em>Max Speed</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.MaxSpeed
+   * @generated
+   */
+  public Adapter createMaxSpeedAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxHeigth <em>Max Heigth</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.MaxHeigth
+   * @generated
+   */
+  public Adapter createMaxHeigthAdapter()
   {
     return null;
   }
@@ -848,6 +1018,51 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Device <em>Device</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Device
+   * @generated
+   */
+  public Adapter createDeviceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Declaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Declaration
+   * @generated
+   */
+  public Adapter createDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Definition <em>Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Definition
+   * @generated
+   */
+  public Adapter createDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link sar.drone.drn.With <em>With</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -873,6 +1088,36 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.RefDevice <em>Ref Device</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.RefDevice
+   * @generated
+   */
+  public Adapter createRefDeviceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Attribut <em>Attribut</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Attribut
+   * @generated
+   */
+  public Adapter createAttributAdapter()
   {
     return null;
   }
@@ -908,31 +1153,46 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.CameraFront <em>Camera Front</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Camera <em>Camera</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.CameraFront
+   * @see sar.drone.drn.Camera
    * @generated
    */
-  public Adapter createCameraFrontAdapter()
+  public Adapter createCameraAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.CameraBottom <em>Camera Bottom</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.TypeGeneric <em>Type Generic</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.CameraBottom
+   * @see sar.drone.drn.TypeGeneric
    * @generated
    */
-  public Adapter createCameraBottomAdapter()
+  public Adapter createTypeGenericAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Element
+   * @generated
+   */
+  public Adapter createElementAdapter()
   {
     return null;
   }

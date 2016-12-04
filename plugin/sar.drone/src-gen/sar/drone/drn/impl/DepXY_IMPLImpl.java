@@ -286,7 +286,15 @@ public class DepXY_IMPLImpl extends ExpressionImpl implements DepXY_IMPL
   @Override
   public String toString()
   {
-    return super.toString();
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", tempsCST: ");
+    result.append(tempsCST);
+    result.append(')');
+    return result.toString();
   }
 
 } //DepXY_IMPLImpl

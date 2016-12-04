@@ -4,21 +4,42 @@
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Context"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//TypeGeneric" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//Device" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" upperBound="-1"
         eType="#//Assignement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//RefPart"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="limit" upperBound="-1"
         eType="#//Limit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Limit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Surface" eSuperTypes="#//Limit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Vmax" eSuperTypes="#//Limit"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Hmax" eSuperTypes="#//Limit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialPosition" eSuperTypes="#//Limit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialDirection" eSuperTypes="#//InitialPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//DirectionType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialPositionX" eSuperTypes="#//InitialPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialPositionY" eSuperTypes="#//InitialPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxLength" eSuperTypes="#//Surface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxWidth" eSuperTypes="#//Surface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxSpeed" eSuperTypes="#//Limit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxHeigth" eSuperTypes="#//Surface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Assignement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametre" upperBound="-1"
@@ -154,27 +175,62 @@
   <eClassifiers xsi:type="ecore:EClass" name="Land" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
+        eType="#//Declaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeGeneric"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Definition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Declaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="With">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="option" upperBound="-1"
         eType="#//Option" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefDevice" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dev" eType="#//Device"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
+        eType="#//Definition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribut">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypeGeneric"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elmt" unique="false" upperBound="-1"
+        eType="#//Element"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Led_Impl" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ColorLed"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LedBlink" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//ColorLed"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blink_per_secCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blink_per_secVAR" eType="#//Parametre"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributs" upperBound="-1"
+        eType="#//Attribut" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CameraFront" eSuperTypes="#//Option">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Camera" eSuperTypes="#//Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributs" upperBound="-1"
+        eType="#//Attribut" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CameraBottom" eSuperTypes="#//Option">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//Mode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeGeneric">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ColorLed">
     <eLiterals name="BLUE" literal="BLUE"/>
@@ -190,5 +246,11 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EBool">
     <eLiterals name="TRUE" literal="TRUE"/>
     <eLiterals name="FALSE" value="1" literal="FALSE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DirectionType">
+    <eLiterals name="FRONT" literal="FRONT"/>
+    <eLiterals name="BEHIND" value="1" literal="BEHIND"/>
+    <eLiterals name="LEFT" value="2" literal="LEFT"/>
+    <eLiterals name="RIGHT" value="3" literal="RIGHT"/>
   </eClassifiers>
 </ecore:EPackage>

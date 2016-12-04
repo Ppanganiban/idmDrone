@@ -78,13 +78,31 @@ public interface DrnPackage extends EPackage
   int MODEL__CONTEXT = 0;
 
   /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__TYPES = 1;
+
+  /**
+   * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__DEVICES = 2;
+
+  /**
    * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ASSIGNEMENT = 1;
+  int MODEL__ASSIGNEMENT = 3;
 
   /**
    * The feature id for the '<em><b>Main</b></em>' containment reference.
@@ -93,7 +111,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__MAIN = 2;
+  int MODEL__MAIN = 4;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -102,7 +120,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.ContextImpl <em>Context</em>}' class.
@@ -115,13 +133,22 @@ public interface DrnPackage extends EPackage
   int CONTEXT = 1;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Limit</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT__LIMIT = 0;
+  int CONTEXT__LIMIT = 1;
 
   /**
    * The number of structural features of the '<em>Context</em>' class.
@@ -130,7 +157,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTEXT_FEATURE_COUNT = 1;
+  int CONTEXT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LimitImpl <em>Limit</em>}' class.
@@ -152,69 +179,23 @@ public interface DrnPackage extends EPackage
   int LIMIT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LIMIT__VALUE = 1;
-
-  /**
    * The number of structural features of the '<em>Limit</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIMIT_FEATURE_COUNT = 2;
+  int LIMIT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.VmaxImpl <em>Vmax</em>}' class.
+   * The meta object id for the '{@link sar.drone.drn.impl.SurfaceImpl <em>Surface</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.VmaxImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getVmax()
+   * @see sar.drone.drn.impl.SurfaceImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getSurface()
    * @generated
    */
-  int VMAX = 3;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VMAX__NAME = LIMIT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VMAX__VALUE = LIMIT__VALUE;
-
-  /**
-   * The number of structural features of the '<em>Vmax</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VMAX_FEATURE_COUNT = LIMIT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link sar.drone.drn.impl.HmaxImpl <em>Hmax</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.HmaxImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getHmax()
-   * @generated
-   */
-  int HMAX = 4;
+  int SURFACE = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -223,7 +204,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HMAX__NAME = LIMIT__NAME;
+  int SURFACE__NAME = LIMIT__NAME;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -232,16 +213,303 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HMAX__VALUE = LIMIT__VALUE;
+  int SURFACE__VALUE = LIMIT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Hmax</em>' class.
+   * The number of structural features of the '<em>Surface</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HMAX_FEATURE_COUNT = LIMIT_FEATURE_COUNT + 0;
+  int SURFACE_FEATURE_COUNT = LIMIT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.InitialPositionImpl <em>Initial Position</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.InitialPositionImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPosition()
+   * @generated
+   */
+  int INITIAL_POSITION = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION__NAME = LIMIT__NAME;
+
+  /**
+   * The number of structural features of the '<em>Initial Position</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_FEATURE_COUNT = LIMIT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.InitialDirectionImpl <em>Initial Direction</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.InitialDirectionImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getInitialDirection()
+   * @generated
+   */
+  int INITIAL_DIRECTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_DIRECTION__NAME = INITIAL_POSITION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_DIRECTION__VALUE = INITIAL_POSITION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Initial Direction</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_DIRECTION_FEATURE_COUNT = INITIAL_POSITION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.InitialPositionXImpl <em>Initial Position X</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.InitialPositionXImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionX()
+   * @generated
+   */
+  int INITIAL_POSITION_X = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_X__NAME = INITIAL_POSITION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_X__VALUE = INITIAL_POSITION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Initial Position X</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_X_FEATURE_COUNT = INITIAL_POSITION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.InitialPositionYImpl <em>Initial Position Y</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.InitialPositionYImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionY()
+   * @generated
+   */
+  int INITIAL_POSITION_Y = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_Y__NAME = INITIAL_POSITION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_Y__VALUE = INITIAL_POSITION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Initial Position Y</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INITIAL_POSITION_Y_FEATURE_COUNT = INITIAL_POSITION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.MaxLengthImpl <em>Max Length</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.MaxLengthImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getMaxLength()
+   * @generated
+   */
+  int MAX_LENGTH = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_LENGTH__NAME = SURFACE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_LENGTH__VALUE = SURFACE__VALUE;
+
+  /**
+   * The number of structural features of the '<em>Max Length</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_LENGTH_FEATURE_COUNT = SURFACE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.MaxWidthImpl <em>Max Width</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.MaxWidthImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getMaxWidth()
+   * @generated
+   */
+  int MAX_WIDTH = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_WIDTH__NAME = SURFACE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_WIDTH__VALUE = SURFACE__VALUE;
+
+  /**
+   * The number of structural features of the '<em>Max Width</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_WIDTH_FEATURE_COUNT = SURFACE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.MaxSpeedImpl <em>Max Speed</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.MaxSpeedImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getMaxSpeed()
+   * @generated
+   */
+  int MAX_SPEED = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_SPEED__NAME = LIMIT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_SPEED__VALUE = LIMIT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Max Speed</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_SPEED_FEATURE_COUNT = LIMIT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.MaxHeigthImpl <em>Max Heigth</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.MaxHeigthImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getMaxHeigth()
+   * @generated
+   */
+  int MAX_HEIGTH = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_HEIGTH__NAME = SURFACE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_HEIGTH__VALUE = SURFACE__VALUE;
+
+  /**
+   * The number of structural features of the '<em>Max Heigth</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAX_HEIGTH_FEATURE_COUNT = SURFACE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.AssignementImpl <em>Assignement</em>}' class.
@@ -251,7 +519,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAssignement()
    * @generated
    */
-  int ASSIGNEMENT = 5;
+  int ASSIGNEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -297,7 +565,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getParametre()
    * @generated
    */
-  int PARAMETRE = 6;
+  int PARAMETRE = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -325,7 +593,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 7;
+  int EXPRESSION = 14;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -380,7 +648,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefPart()
    * @generated
    */
-  int REF_PART = 8;
+  int REF_PART = 15;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -453,7 +721,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAnd()
    * @generated
    */
-  int AND = 9;
+  int AND = 16;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -571,7 +839,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepY_Impl()
    * @generated
    */
-  int DEP_YIMPL = 10;
+  int DEP_YIMPL = 17;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -671,7 +939,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFORWARD()
    * @generated
    */
-  int FORWARD = 11;
+  int FORWARD = 18;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -771,7 +1039,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getBACKWARD()
    * @generated
    */
-  int BACKWARD = 12;
+  int BACKWARD = 19;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -871,7 +1139,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepX_Impl()
    * @generated
    */
-  int DEP_XIMPL = 13;
+  int DEP_XIMPL = 20;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -971,7 +1239,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLEFT()
    * @generated
    */
-  int LEFT = 14;
+  int LEFT = 21;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1071,7 +1339,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRIGHT()
    * @generated
    */
-  int RIGHT = 15;
+  int RIGHT = 22;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1171,7 +1439,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepZ_Impl()
    * @generated
    */
-  int DEP_ZIMPL = 16;
+  int DEP_ZIMPL = 23;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1271,7 +1539,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getUP()
    * @generated
    */
-  int UP = 17;
+  int UP = 24;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1371,7 +1639,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDOWN()
    * @generated
    */
-  int DOWN = 18;
+  int DOWN = 25;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1471,7 +1739,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY_IMPL()
    * @generated
    */
-  int DEP_XY_IMPL = 19;
+  int DEP_XY_IMPL = 26;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1553,7 +1821,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY()
    * @generated
    */
-  int DEP_XY = 20;
+  int DEP_XY = 27;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1653,7 +1921,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXY()
    * @generated
    */
-  int CERCLEXY = 21;
+  int CERCLEXY = 28;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1753,7 +2021,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXY()
    * @generated
    */
-  int CARREXY = 22;
+  int CARREXY = 29;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1853,7 +2121,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ_IMPL()
    * @generated
    */
-  int DEP_YZ_IMPL = 23;
+  int DEP_YZ_IMPL = 30;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -1935,7 +2203,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ()
    * @generated
    */
-  int DEP_YZ = 24;
+  int DEP_YZ = 31;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2035,7 +2303,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEYZ()
    * @generated
    */
-  int CERCLEYZ = 25;
+  int CERCLEYZ = 32;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2135,7 +2403,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREYZ()
    * @generated
    */
-  int CARREYZ = 26;
+  int CARREYZ = 33;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2235,7 +2503,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ_IMPL()
    * @generated
    */
-  int DEP_XZ_IMPL = 27;
+  int DEP_XZ_IMPL = 34;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2290,7 +2558,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ()
    * @generated
    */
-  int DEP_XZ = 28;
+  int DEP_XZ = 35;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2390,7 +2658,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ_IMPL()
    * @generated
    */
-  int DEP_XYZ_IMPL = 29;
+  int DEP_XYZ_IMPL = 36;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2454,7 +2722,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ()
    * @generated
    */
-  int DEP_XYZ = 30;
+  int DEP_XYZ = 37;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2554,7 +2822,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFlip()
    * @generated
    */
-  int FLIP = 31;
+  int FLIP = 38;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2618,7 +2886,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRotate()
    * @generated
    */
-  int ROTATE = 32;
+  int ROTATE = 39;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2718,7 +2986,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWait()
    * @generated
    */
-  int WAIT = 33;
+  int WAIT = 40;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2800,7 +3068,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTakeOff()
    * @generated
    */
-  int TAKE_OFF = 34;
+  int TAKE_OFF = 41;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2864,7 +3132,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLand()
    * @generated
    */
-  int LAND = 35;
+  int LAND = 42;
 
   /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
@@ -2921,6 +3189,117 @@ public interface DrnPackage extends EPackage
   int LAND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link sar.drone.drn.impl.DeviceImpl <em>Device</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.DeviceImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getDevice()
+   * @generated
+   */
+  int DEVICE = 43;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEVICE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEVICE__DECLARATIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Device</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEVICE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.DeclarationImpl <em>Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.DeclarationImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getDeclaration()
+   * @generated
+   */
+  int DECLARATION = 44;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.DefinitionImpl <em>Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.DefinitionImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getDefinition()
+   * @generated
+   */
+  int DEFINITION = 45;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__LEFT = 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__RIGHT = 1;
+
+  /**
+   * The number of structural features of the '<em>Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link sar.drone.drn.impl.WithImpl <em>With</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2928,7 +3307,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWith()
    * @generated
    */
-  int WITH = 36;
+  int WITH = 46;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2965,16 +3344,16 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getOption()
    * @generated
    */
-  int OPTION = 37;
+  int OPTION = 47;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPTION__NAME = 0;
+  int OPTION__MODE = 0;
 
   /**
    * The number of structural features of the '<em>Option</em>' class.
@@ -2986,14 +3365,60 @@ public interface DrnPackage extends EPackage
   int OPTION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.Led_ImplImpl <em>Led Impl</em>}' class.
+   * The meta object id for the '{@link sar.drone.drn.impl.RefDeviceImpl <em>Ref Device</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.Led_ImplImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getLed_Impl()
+   * @see sar.drone.drn.impl.RefDeviceImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getRefDevice()
    * @generated
    */
-  int LED_IMPL = 38;
+  int REF_DEVICE = 48;
+
+  /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEVICE__MODE = OPTION__MODE;
+
+  /**
+   * The feature id for the '<em><b>Dev</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEVICE__DEV = OPTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEVICE__DEFINITIONS = OPTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Ref Device</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEVICE_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.AttributImpl <em>Attribut</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.AttributImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getAttribut()
+   * @generated
+   */
+  int ATTRIBUT = 49;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3002,7 +3427,62 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_IMPL__NAME = OPTION__NAME;
+  int ATTRIBUT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Elmt</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT__ELMT = 2;
+
+  /**
+   * The number of structural features of the '<em>Attribut</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.Led_ImplImpl <em>Led Impl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.Led_ImplImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getLed_Impl()
+   * @generated
+   */
+  int LED_IMPL = 50;
+
+  /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LED_IMPL__MODE = OPTION__MODE;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LED_IMPL__NAME = OPTION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -3011,7 +3491,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_IMPL__COLOR = OPTION_FEATURE_COUNT + 0;
+  int LED_IMPL__COLOR = OPTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Led Impl</em>' class.
@@ -3020,7 +3500,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_IMPL_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
+  int LED_IMPL_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LedBlinkImpl <em>Led Blink</em>}' class.
@@ -3030,7 +3510,16 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLedBlink()
    * @generated
    */
-  int LED_BLINK = 39;
+  int LED_BLINK = 51;
+
+  /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LED_BLINK__MODE = OPTION__MODE;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3039,7 +3528,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK__NAME = OPTION__NAME;
+  int LED_BLINK__NAME = OPTION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -3048,7 +3537,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK__COLOR = OPTION_FEATURE_COUNT + 0;
+  int LED_BLINK__COLOR = OPTION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Blink per sec CST</b></em>' attribute.
@@ -3057,7 +3546,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK__BLINK_PER_SEC_CST = OPTION_FEATURE_COUNT + 1;
+  int LED_BLINK__BLINK_PER_SEC_CST = OPTION_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Blink per sec VAR</b></em>' reference.
@@ -3066,7 +3555,16 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK__BLINK_PER_SEC_VAR = OPTION_FEATURE_COUNT + 2;
+  int LED_BLINK__BLINK_PER_SEC_VAR = OPTION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Attributs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LED_BLINK__ATTRIBUTS = OPTION_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Led Blink</em>' class.
@@ -3075,26 +3573,17 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK_FEATURE_COUNT = OPTION_FEATURE_COUNT + 3;
+  int LED_BLINK_FEATURE_COUNT = OPTION_FEATURE_COUNT + 5;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.CameraFrontImpl <em>Camera Front</em>}' class.
+   * The meta object id for the '{@link sar.drone.drn.impl.CameraImpl <em>Camera</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.CameraFrontImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getCameraFront()
+   * @see sar.drone.drn.impl.CameraImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
    * @generated
    */
-  int CAMERA_FRONT = 40;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAMERA_FRONT__NAME = OPTION__NAME;
+  int CAMERA = 52;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3103,26 +3592,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAMERA_FRONT__MODE = OPTION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Camera Front</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAMERA_FRONT_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link sar.drone.drn.impl.CameraBottomImpl <em>Camera Bottom</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.CameraBottomImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getCameraBottom()
-   * @generated
-   */
-  int CAMERA_BOTTOM = 41;
+  int CAMERA__MODE = OPTION__MODE;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3131,25 +3601,90 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAMERA_BOTTOM__NAME = OPTION__NAME;
+  int CAMERA__NAME = OPTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * The feature id for the '<em><b>Attributs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAMERA_BOTTOM__MODE = OPTION_FEATURE_COUNT + 0;
+  int CAMERA__ATTRIBUTS = OPTION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Camera Bottom</em>' class.
+   * The number of structural features of the '<em>Camera</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAMERA_BOTTOM_FEATURE_COUNT = OPTION_FEATURE_COUNT + 1;
+  int CAMERA_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.TypeGenericImpl <em>Type Generic</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.TypeGenericImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getTypeGeneric()
+   * @generated
+   */
+  int TYPE_GENERIC = 53;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_GENERIC__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_GENERIC__ELEMENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Type Generic</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_GENERIC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.ElementImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 54;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.ColorLed <em>Color Led</em>}' enum.
@@ -3159,7 +3694,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getColorLed()
    * @generated
    */
-  int COLOR_LED = 42;
+  int COLOR_LED = 55;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -3169,7 +3704,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 43;
+  int MODE = 56;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -3179,7 +3714,17 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 44;
+  int EBOOL = 57;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.DirectionType
+   * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
+   * @generated
+   */
+  int DIRECTION_TYPE = 58;
 
 
   /**
@@ -3202,6 +3747,28 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EReference getModel_Context();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Model#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Types</em>'.
+   * @see sar.drone.drn.Model#getTypes()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Types();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Model#getDevices <em>Devices</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Devices</em>'.
+   * @see sar.drone.drn.Model#getDevices()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Devices();
 
   /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Model#getAssignement <em>Assignement</em>}'.
@@ -3236,6 +3803,17 @@ public interface DrnPackage extends EPackage
   EClass getContext();
 
   /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Context#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Context#getName()
+   * @see #getContext()
+   * @generated
+   */
+  EAttribute getContext_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Context#getLimit <em>Limit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3268,35 +3846,149 @@ public interface DrnPackage extends EPackage
   EAttribute getLimit_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Limit#getValue <em>Value</em>}'.
+   * Returns the meta object for class '{@link sar.drone.drn.Surface <em>Surface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Surface</em>'.
+   * @see sar.drone.drn.Surface
+   * @generated
+   */
+  EClass getSurface();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Surface#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see sar.drone.drn.Limit#getValue()
-   * @see #getLimit()
+   * @see sar.drone.drn.Surface#getValue()
+   * @see #getSurface()
    * @generated
    */
-  EAttribute getLimit_Value();
+  EAttribute getSurface_Value();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.Vmax <em>Vmax</em>}'.
+   * Returns the meta object for class '{@link sar.drone.drn.InitialPosition <em>Initial Position</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Vmax</em>'.
-   * @see sar.drone.drn.Vmax
+   * @return the meta object for class '<em>Initial Position</em>'.
+   * @see sar.drone.drn.InitialPosition
    * @generated
    */
-  EClass getVmax();
+  EClass getInitialPosition();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.Hmax <em>Hmax</em>}'.
+   * Returns the meta object for class '{@link sar.drone.drn.InitialDirection <em>Initial Direction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Hmax</em>'.
-   * @see sar.drone.drn.Hmax
+   * @return the meta object for class '<em>Initial Direction</em>'.
+   * @see sar.drone.drn.InitialDirection
    * @generated
    */
-  EClass getHmax();
+  EClass getInitialDirection();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.InitialDirection#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sar.drone.drn.InitialDirection#getValue()
+   * @see #getInitialDirection()
+   * @generated
+   */
+  EAttribute getInitialDirection_Value();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.InitialPositionX <em>Initial Position X</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Initial Position X</em>'.
+   * @see sar.drone.drn.InitialPositionX
+   * @generated
+   */
+  EClass getInitialPositionX();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.InitialPositionX#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sar.drone.drn.InitialPositionX#getValue()
+   * @see #getInitialPositionX()
+   * @generated
+   */
+  EAttribute getInitialPositionX_Value();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.InitialPositionY <em>Initial Position Y</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Initial Position Y</em>'.
+   * @see sar.drone.drn.InitialPositionY
+   * @generated
+   */
+  EClass getInitialPositionY();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.InitialPositionY#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sar.drone.drn.InitialPositionY#getValue()
+   * @see #getInitialPositionY()
+   * @generated
+   */
+  EAttribute getInitialPositionY_Value();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.MaxLength <em>Max Length</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Max Length</em>'.
+   * @see sar.drone.drn.MaxLength
+   * @generated
+   */
+  EClass getMaxLength();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.MaxWidth <em>Max Width</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Max Width</em>'.
+   * @see sar.drone.drn.MaxWidth
+   * @generated
+   */
+  EClass getMaxWidth();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.MaxSpeed <em>Max Speed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Max Speed</em>'.
+   * @see sar.drone.drn.MaxSpeed
+   * @generated
+   */
+  EClass getMaxSpeed();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.MaxSpeed#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sar.drone.drn.MaxSpeed#getValue()
+   * @see #getMaxSpeed()
+   * @generated
+   */
+  EAttribute getMaxSpeed_Value();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.MaxHeigth <em>Max Heigth</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Max Heigth</em>'.
+   * @see sar.drone.drn.MaxHeigth
+   * @generated
+   */
+  EClass getMaxHeigth();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Assignement <em>Assignement</em>}'.
@@ -4379,6 +5071,102 @@ public interface DrnPackage extends EPackage
   EAttribute getLand_Name();
 
   /**
+   * Returns the meta object for class '{@link sar.drone.drn.Device <em>Device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Device</em>'.
+   * @see sar.drone.drn.Device
+   * @generated
+   */
+  EClass getDevice();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Device#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Device#getName()
+   * @see #getDevice()
+   * @generated
+   */
+  EAttribute getDevice_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Device#getDeclarations <em>Declarations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Declarations</em>'.
+   * @see sar.drone.drn.Device#getDeclarations()
+   * @see #getDevice()
+   * @generated
+   */
+  EReference getDevice_Declarations();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Declaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Declaration</em>'.
+   * @see sar.drone.drn.Declaration
+   * @generated
+   */
+  EClass getDeclaration();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.Declaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sar.drone.drn.Declaration#getType()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EReference getDeclaration_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Declaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Declaration#getName()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EAttribute getDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Definition <em>Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Definition</em>'.
+   * @see sar.drone.drn.Definition
+   * @generated
+   */
+  EClass getDefinition();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.Definition#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Left</em>'.
+   * @see sar.drone.drn.Definition#getLeft()
+   * @see #getDefinition()
+   * @generated
+   */
+  EReference getDefinition_Left();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.Definition#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Right</em>'.
+   * @see sar.drone.drn.Definition#getRight()
+   * @see #getDefinition()
+   * @generated
+   */
+  EReference getDefinition_Right();
+
+  /**
    * Returns the meta object for class '{@link sar.drone.drn.With <em>With</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4421,15 +5209,90 @@ public interface DrnPackage extends EPackage
   EClass getOption();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Option#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Option#getMode <em>Mode</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sar.drone.drn.Option#getName()
+   * @return the meta object for the attribute '<em>Mode</em>'.
+   * @see sar.drone.drn.Option#getMode()
    * @see #getOption()
    * @generated
    */
-  EAttribute getOption_Name();
+  EAttribute getOption_Mode();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.RefDevice <em>Ref Device</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Device</em>'.
+   * @see sar.drone.drn.RefDevice
+   * @generated
+   */
+  EClass getRefDevice();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.RefDevice#getDev <em>Dev</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Dev</em>'.
+   * @see sar.drone.drn.RefDevice#getDev()
+   * @see #getRefDevice()
+   * @generated
+   */
+  EReference getRefDevice_Dev();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.RefDevice#getDefinitions <em>Definitions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Definitions</em>'.
+   * @see sar.drone.drn.RefDevice#getDefinitions()
+   * @see #getRefDevice()
+   * @generated
+   */
+  EReference getRefDevice_Definitions();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Attribut <em>Attribut</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribut</em>'.
+   * @see sar.drone.drn.Attribut
+   * @generated
+   */
+  EClass getAttribut();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Attribut#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Attribut#getName()
+   * @see #getAttribut()
+   * @generated
+   */
+  EAttribute getAttribut_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.Attribut#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see sar.drone.drn.Attribut#getType()
+   * @see #getAttribut()
+   * @generated
+   */
+  EReference getAttribut_Type();
+
+  /**
+   * Returns the meta object for the reference list '{@link sar.drone.drn.Attribut#getElmt <em>Elmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Elmt</em>'.
+   * @see sar.drone.drn.Attribut#getElmt()
+   * @see #getAttribut()
+   * @generated
+   */
+  EReference getAttribut_Elmt();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Led_Impl <em>Led Impl</em>}'.
@@ -4440,6 +5303,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getLed_Impl();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Led_Impl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Led_Impl#getName()
+   * @see #getLed_Impl()
+   * @generated
+   */
+  EAttribute getLed_Impl_Name();
 
   /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.Led_Impl#getColor <em>Color</em>}'.
@@ -4461,6 +5335,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getLedBlink();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.LedBlink#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.LedBlink#getName()
+   * @see #getLedBlink()
+   * @generated
+   */
+  EAttribute getLedBlink_Name();
 
   /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.LedBlink#getColor <em>Color</em>}'.
@@ -4496,46 +5381,100 @@ public interface DrnPackage extends EPackage
   EReference getLedBlink_Blink_per_secVAR();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.CameraFront <em>Camera Front</em>}'.
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.LedBlink#getAttributs <em>Attributs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Camera Front</em>'.
-   * @see sar.drone.drn.CameraFront
+   * @return the meta object for the containment reference list '<em>Attributs</em>'.
+   * @see sar.drone.drn.LedBlink#getAttributs()
+   * @see #getLedBlink()
    * @generated
    */
-  EClass getCameraFront();
+  EReference getLedBlink_Attributs();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.CameraFront#getMode <em>Mode</em>}'.
+   * Returns the meta object for class '{@link sar.drone.drn.Camera <em>Camera</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mode</em>'.
-   * @see sar.drone.drn.CameraFront#getMode()
-   * @see #getCameraFront()
+   * @return the meta object for class '<em>Camera</em>'.
+   * @see sar.drone.drn.Camera
    * @generated
    */
-  EAttribute getCameraFront_Mode();
+  EClass getCamera();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.CameraBottom <em>Camera Bottom</em>}'.
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Camera#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Camera Bottom</em>'.
-   * @see sar.drone.drn.CameraBottom
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Camera#getName()
+   * @see #getCamera()
    * @generated
    */
-  EClass getCameraBottom();
+  EAttribute getCamera_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.CameraBottom#getMode <em>Mode</em>}'.
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Camera#getAttributs <em>Attributs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mode</em>'.
-   * @see sar.drone.drn.CameraBottom#getMode()
-   * @see #getCameraBottom()
+   * @return the meta object for the containment reference list '<em>Attributs</em>'.
+   * @see sar.drone.drn.Camera#getAttributs()
+   * @see #getCamera()
    * @generated
    */
-  EAttribute getCameraBottom_Mode();
+  EReference getCamera_Attributs();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.TypeGeneric <em>Type Generic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Generic</em>'.
+   * @see sar.drone.drn.TypeGeneric
+   * @generated
+   */
+  EClass getTypeGeneric();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.TypeGeneric#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.TypeGeneric#getName()
+   * @see #getTypeGeneric()
+   * @generated
+   */
+  EAttribute getTypeGeneric_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.TypeGeneric#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see sar.drone.drn.TypeGeneric#getElements()
+   * @see #getTypeGeneric()
+   * @generated
+   */
+  EReference getTypeGeneric_Elements();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Element</em>'.
+   * @see sar.drone.drn.Element
+   * @generated
+   */
+  EClass getElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Element#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Element#getName()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Name();
 
   /**
    * Returns the meta object for enum '{@link sar.drone.drn.ColorLed <em>Color Led</em>}'.
@@ -4566,6 +5505,16 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EEnum getEBool();
+
+  /**
+   * Returns the meta object for enum '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Direction Type</em>'.
+   * @see sar.drone.drn.DirectionType
+   * @generated
+   */
+  EEnum getDirectionType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -4609,6 +5558,22 @@ public interface DrnPackage extends EPackage
     EReference MODEL__CONTEXT = eINSTANCE.getModel_Context();
 
     /**
+     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__TYPES = eINSTANCE.getModel_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__DEVICES = eINSTANCE.getModel_Devices();
+
+    /**
      * The meta object literal for the '<em><b>Assignement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4633,6 +5598,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass CONTEXT = eINSTANCE.getContext();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT__NAME = eINSTANCE.getContext_Name();
 
     /**
      * The meta object literal for the '<em><b>Limit</b></em>' containment reference list feature.
@@ -4661,32 +5634,134 @@ public interface DrnPackage extends EPackage
     EAttribute LIMIT__NAME = eINSTANCE.getLimit_Name();
 
     /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.SurfaceImpl <em>Surface</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.SurfaceImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getSurface()
+     * @generated
+     */
+    EClass SURFACE = eINSTANCE.getSurface();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LIMIT__VALUE = eINSTANCE.getLimit_Value();
+    EAttribute SURFACE__VALUE = eINSTANCE.getSurface_Value();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.VmaxImpl <em>Vmax</em>}' class.
+     * The meta object literal for the '{@link sar.drone.drn.impl.InitialPositionImpl <em>Initial Position</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.VmaxImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getVmax()
+     * @see sar.drone.drn.impl.InitialPositionImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPosition()
      * @generated
      */
-    EClass VMAX = eINSTANCE.getVmax();
+    EClass INITIAL_POSITION = eINSTANCE.getInitialPosition();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.HmaxImpl <em>Hmax</em>}' class.
+     * The meta object literal for the '{@link sar.drone.drn.impl.InitialDirectionImpl <em>Initial Direction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.HmaxImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getHmax()
+     * @see sar.drone.drn.impl.InitialDirectionImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getInitialDirection()
      * @generated
      */
-    EClass HMAX = eINSTANCE.getHmax();
+    EClass INITIAL_DIRECTION = eINSTANCE.getInitialDirection();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INITIAL_DIRECTION__VALUE = eINSTANCE.getInitialDirection_Value();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.InitialPositionXImpl <em>Initial Position X</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.InitialPositionXImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionX()
+     * @generated
+     */
+    EClass INITIAL_POSITION_X = eINSTANCE.getInitialPositionX();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INITIAL_POSITION_X__VALUE = eINSTANCE.getInitialPositionX_Value();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.InitialPositionYImpl <em>Initial Position Y</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.InitialPositionYImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionY()
+     * @generated
+     */
+    EClass INITIAL_POSITION_Y = eINSTANCE.getInitialPositionY();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INITIAL_POSITION_Y__VALUE = eINSTANCE.getInitialPositionY_Value();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.MaxLengthImpl <em>Max Length</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.MaxLengthImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getMaxLength()
+     * @generated
+     */
+    EClass MAX_LENGTH = eINSTANCE.getMaxLength();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.MaxWidthImpl <em>Max Width</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.MaxWidthImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getMaxWidth()
+     * @generated
+     */
+    EClass MAX_WIDTH = eINSTANCE.getMaxWidth();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.MaxSpeedImpl <em>Max Speed</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.MaxSpeedImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getMaxSpeed()
+     * @generated
+     */
+    EClass MAX_SPEED = eINSTANCE.getMaxSpeed();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAX_SPEED__VALUE = eINSTANCE.getMaxSpeed_Value();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.MaxHeigthImpl <em>Max Heigth</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.MaxHeigthImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getMaxHeigth()
+     * @generated
+     */
+    EClass MAX_HEIGTH = eINSTANCE.getMaxHeigth();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.AssignementImpl <em>Assignement</em>}' class.
@@ -5559,6 +6634,84 @@ public interface DrnPackage extends EPackage
     EAttribute LAND__NAME = eINSTANCE.getLand_Name();
 
     /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.DeviceImpl <em>Device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.DeviceImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getDevice()
+     * @generated
+     */
+    EClass DEVICE = eINSTANCE.getDevice();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEVICE__NAME = eINSTANCE.getDevice_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Declarations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEVICE__DECLARATIONS = eINSTANCE.getDevice_Declarations();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.DeclarationImpl <em>Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.DeclarationImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getDeclaration()
+     * @generated
+     */
+    EClass DECLARATION = eINSTANCE.getDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATION__TYPE = eINSTANCE.getDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECLARATION__NAME = eINSTANCE.getDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.DefinitionImpl <em>Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.DefinitionImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getDefinition()
+     * @generated
+     */
+    EClass DEFINITION = eINSTANCE.getDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINITION__LEFT = eINSTANCE.getDefinition_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINITION__RIGHT = eINSTANCE.getDefinition_Right();
+
+    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.WithImpl <em>With</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5595,12 +6748,72 @@ public interface DrnPackage extends EPackage
     EClass OPTION = eINSTANCE.getOption();
 
     /**
+     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPTION__MODE = eINSTANCE.getOption_Mode();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.RefDeviceImpl <em>Ref Device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.RefDeviceImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getRefDevice()
+     * @generated
+     */
+    EClass REF_DEVICE = eINSTANCE.getRefDevice();
+
+    /**
+     * The meta object literal for the '<em><b>Dev</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_DEVICE__DEV = eINSTANCE.getRefDevice_Dev();
+
+    /**
+     * The meta object literal for the '<em><b>Definitions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_DEVICE__DEFINITIONS = eINSTANCE.getRefDevice_Definitions();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.AttributImpl <em>Attribut</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.AttributImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getAttribut()
+     * @generated
+     */
+    EClass ATTRIBUT = eINSTANCE.getAttribut();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPTION__NAME = eINSTANCE.getOption_Name();
+    EAttribute ATTRIBUT__NAME = eINSTANCE.getAttribut_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUT__TYPE = eINSTANCE.getAttribut_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Elmt</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUT__ELMT = eINSTANCE.getAttribut_Elmt();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.Led_ImplImpl <em>Led Impl</em>}' class.
@@ -5611,6 +6824,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass LED_IMPL = eINSTANCE.getLed_Impl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LED_IMPL__NAME = eINSTANCE.getLed_Impl_Name();
 
     /**
      * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
@@ -5629,6 +6850,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass LED_BLINK = eINSTANCE.getLedBlink();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LED_BLINK__NAME = eINSTANCE.getLedBlink_Name();
 
     /**
      * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
@@ -5655,40 +6884,82 @@ public interface DrnPackage extends EPackage
     EReference LED_BLINK__BLINK_PER_SEC_VAR = eINSTANCE.getLedBlink_Blink_per_secVAR();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.CameraFrontImpl <em>Camera Front</em>}' class.
+     * The meta object literal for the '<em><b>Attributs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.CameraFrontImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getCameraFront()
      * @generated
      */
-    EClass CAMERA_FRONT = eINSTANCE.getCameraFront();
+    EReference LED_BLINK__ATTRIBUTS = eINSTANCE.getLedBlink_Attributs();
 
     /**
-     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * The meta object literal for the '{@link sar.drone.drn.impl.CameraImpl <em>Camera</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.CameraImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
      * @generated
      */
-    EAttribute CAMERA_FRONT__MODE = eINSTANCE.getCameraFront_Mode();
+    EClass CAMERA = eINSTANCE.getCamera();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.CameraBottomImpl <em>Camera Bottom</em>}' class.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.CameraBottomImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getCameraBottom()
      * @generated
      */
-    EClass CAMERA_BOTTOM = eINSTANCE.getCameraBottom();
+    EAttribute CAMERA__NAME = eINSTANCE.getCamera_Name();
 
     /**
-     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Attributs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CAMERA_BOTTOM__MODE = eINSTANCE.getCameraBottom_Mode();
+    EReference CAMERA__ATTRIBUTS = eINSTANCE.getCamera_Attributs();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.TypeGenericImpl <em>Type Generic</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.TypeGenericImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getTypeGeneric()
+     * @generated
+     */
+    EClass TYPE_GENERIC = eINSTANCE.getTypeGeneric();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_GENERIC__NAME = eINSTANCE.getTypeGeneric_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_GENERIC__ELEMENTS = eINSTANCE.getTypeGeneric_Elements();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.ElementImpl <em>Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.ElementImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getElement()
+     * @generated
+     */
+    EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.ColorLed <em>Color Led</em>}' enum.
@@ -5719,6 +6990,16 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EEnum EBOOL = eINSTANCE.getEBool();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.DirectionType
+     * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
+     * @generated
+     */
+    EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
 
   }
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import sar.drone.drn.DrnPackage;
+import sar.drone.drn.Mode;
 import sar.drone.drn.Option;
 
 /**
@@ -21,7 +22,7 @@ import sar.drone.drn.Option;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.OptionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.OptionImpl#getMode <em>Mode</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +30,24 @@ import sar.drone.drn.Option;
 public class OptionImpl extends MinimalEObjectImpl.Container implements Option
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getMode()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final Mode MODE_EDEFAULT = Mode.OFF;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getMode()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected Mode mode = MODE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +75,9 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Mode getMode()
   {
-    return name;
+    return mode;
   }
 
   /**
@@ -84,12 +85,12 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setMode(Mode newMode)
   {
-    String oldName = name;
-    name = newName;
+    Mode oldMode = mode;
+    mode = newMode == null ? MODE_EDEFAULT : newMode;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.OPTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.OPTION__MODE, oldMode, mode));
   }
 
   /**
@@ -102,8 +103,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
   {
     switch (featureID)
     {
-      case DrnPackage.OPTION__NAME:
-        return getName();
+      case DrnPackage.OPTION__MODE:
+        return getMode();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +119,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
   {
     switch (featureID)
     {
-      case DrnPackage.OPTION__NAME:
-        setName((String)newValue);
+      case DrnPackage.OPTION__MODE:
+        setMode((Mode)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +136,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
   {
     switch (featureID)
     {
-      case DrnPackage.OPTION__NAME:
-        setName(NAME_EDEFAULT);
+      case DrnPackage.OPTION__MODE:
+        setMode(MODE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +153,8 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
   {
     switch (featureID)
     {
-      case DrnPackage.OPTION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.OPTION__MODE:
+        return mode != MODE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -168,9 +169,9 @@ public class OptionImpl extends MinimalEObjectImpl.Container implements Option
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append(" (name: ");
-    result.append(name);
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (mode: ");
+    result.append(mode);
     result.append(')');
     return result.toString();
   }

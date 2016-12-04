@@ -168,12 +168,10 @@ public class ParametreImpl extends MinimalEObjectImpl.Container implements Param
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<parameter>");
-    result.append("<name>");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
     result.append(name);
-    result.append("</name>");
-    result.append("</parameter>\n");
+    result.append(')');
     return result.toString();
   }
 

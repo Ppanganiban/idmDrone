@@ -422,35 +422,14 @@ public class AndImpl extends ExpressionImpl implements And
    */
   @Override
   public String toString()
-	{
-		if (eIsProxy()) return super.toString();
+  {
+    if (eIsProxy()) return super.toString();
 
-		int depx=this.getDepx().size()+this.getDepxy().size()+this.getDepxz().size();
-		int depy=this.getDepxy().size()+this.getDepy().size();
-		int depz=this.getDepxz().size()+this.getDepxz().size()+this.getDepz().size();
-		int rotate=this.getRotate().size();
-		StringBuffer sb=new StringBuffer();
-		if(depx <= 1 && depy <= 1 && depz <= 1 && rotate <= 1 && (depx+depy+depz+rotate>=2) ){
-			sb.append("<and>\n");
-
-			for(int i=0;i<this.getDepx().size();i++){
-				sb.append(this.getDepx().get(i).toString());
-			}
-			for(int i=0;i<this.getDepy().size();i++){
-				sb.append(this.getDepy().get(i).toString());
-			}
-			for(int i=0;i<this.getDepz().size();i++){
-				sb.append(this.getDepz().get(i).toString());
-			}
-			for(int i=0;i<this.getDepxy().size();i++){
-				sb.append(this.getDepxy().get(i).toString());
-			}
-			for(int i=0;i<this.getDepxz().size();i++){
-				sb.append(this.getDepxz().get(i).toString());
-			}
-			sb.append("</and>\n");		 
-		}
-		return sb.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
 
 } //AndImpl

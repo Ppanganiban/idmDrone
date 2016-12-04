@@ -405,27 +405,17 @@ public class DepX_ImplImpl extends ExpressionImpl implements DepX_Impl
   @Override
   public String toString()
   {
-	  if (eIsProxy()) return super.toString();
-	    
-	    StringBuffer result = new StringBuffer();
-	    result.append("<"+this.name+">\n");
-	    result.append("<distance>");
-	    if(distanceCST!=null)
-	    	result.append(distanceCST);
-	    else
-	    	result.append(distanceVar.getName());
-	    result.append("</distance>\n");
-	    
-	    result.append("<temps>");
-	    if(tempsCST!=null)
-	    	result.append(tempsCST);
-	    else
-	    	result.append(tempsVAR.getName());
-	    result.append("</temps>\n");
-	    result.append(super.toString());
-	    result.append("</"+this.name+">\n");
-	    
-	    return result.toString();
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", distanceCST: ");
+    result.append(distanceCST);
+    result.append(", tempsCST: ");
+    result.append(tempsCST);
+    result.append(')');
+    return result.toString();
   }
 
 } //DepX_ImplImpl

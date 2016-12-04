@@ -37,17 +37,5 @@ public class FlipImpl extends DepXYZ_IMPLImpl implements Flip
   {
     return DrnPackage.Literals.FLIP;
   }
-  
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">\n");
-    result.append(super.toString());
-    result.append("</"+this.name+">\n");
-    return result.toString();
-  }
 
 } //FlipImpl

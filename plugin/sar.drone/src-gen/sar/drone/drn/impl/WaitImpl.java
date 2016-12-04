@@ -288,16 +288,12 @@ public class WaitImpl extends ExpressionImpl implements Wait
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<"+this.name+">\n");
-    result.append("<temps>");
-    if(tempsCST!=null)
-    	result.append(tempsCST);
-    else
-    	result.append(tempsVAR.getName());
-    result.append("</temps>\n");
-    result.append(super.toString());
-    result.append("</"+this.name+">\n");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", tempsCST: ");
+    result.append(tempsCST);
+    result.append(')');
     return result.toString();
   }
 
