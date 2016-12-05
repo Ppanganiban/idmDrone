@@ -87,8 +87,8 @@ Parametre :// Parametre:
 
 
 Expression :
-	( move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? (^with+=With)? 
-	| '(' move=Movement ('then'then+=Expression) ('then'then+=Expression)* ')' ('X' (repeatCST=INT | repeatVAR=[Parametre]))? (^with+=With)?
+	( move=Movement ('X' (repeatCST=INT))? (^with+=With)? 
+	| '(' move=Movement ('then'then+=Expression) ('then'then+=Expression)* ')' ('X' (repeatCST=INT))? (^with+=With)?
 	)
 ;
 
