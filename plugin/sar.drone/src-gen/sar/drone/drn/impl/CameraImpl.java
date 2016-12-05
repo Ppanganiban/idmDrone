@@ -31,6 +31,7 @@ import sar.drone.drn.DrnPackage;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.CameraImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.CameraImpl#getId <em>Id</em>}</li>
  *   <li>{@link sar.drone.drn.impl.CameraImpl#getAttributs <em>Attributs</em>}</li>
  * </ul>
  *
@@ -57,6 +58,26 @@ public class CameraImpl extends OptionImpl implements Camera
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final int ID_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected int id = ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAttributs() <em>Attributs</em>}' containment reference list.
@@ -117,6 +138,29 @@ public class CameraImpl extends OptionImpl implements Camera
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(int newId)
+  {
+    int oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CAMERA__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Attribut> getAttributs()
   {
     if (attributs == null)
@@ -154,6 +198,8 @@ public class CameraImpl extends OptionImpl implements Camera
     {
       case DrnPackage.CAMERA__NAME:
         return getName();
+      case DrnPackage.CAMERA__ID:
+        return getId();
       case DrnPackage.CAMERA__ATTRIBUTS:
         return getAttributs();
     }
@@ -173,6 +219,9 @@ public class CameraImpl extends OptionImpl implements Camera
     {
       case DrnPackage.CAMERA__NAME:
         setName((String)newValue);
+        return;
+      case DrnPackage.CAMERA__ID:
+        setId((Integer)newValue);
         return;
       case DrnPackage.CAMERA__ATTRIBUTS:
         getAttributs().clear();
@@ -195,6 +244,9 @@ public class CameraImpl extends OptionImpl implements Camera
       case DrnPackage.CAMERA__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DrnPackage.CAMERA__ID:
+        setId(ID_EDEFAULT);
+        return;
       case DrnPackage.CAMERA__ATTRIBUTS:
         getAttributs().clear();
         return;
@@ -214,6 +266,8 @@ public class CameraImpl extends OptionImpl implements Camera
     {
       case DrnPackage.CAMERA__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.CAMERA__ID:
+        return id != ID_EDEFAULT;
       case DrnPackage.CAMERA__ATTRIBUTS:
         return attributs != null && !attributs.isEmpty();
     }
@@ -233,6 +287,8 @@ public class CameraImpl extends OptionImpl implements Camera
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

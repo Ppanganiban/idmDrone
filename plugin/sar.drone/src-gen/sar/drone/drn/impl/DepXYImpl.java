@@ -6,13 +6,11 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.DepXY;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +21,6 @@ import sar.drone.drn.Parametre;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.DepXYImpl#getDistanceCST <em>Distance CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DepXYImpl#getDistanceVar <em>Distance Var</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,7 +35,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * @generated
    * @ordered
    */
-  protected static final String DISTANCE_CST_EDEFAULT = null;
+  protected static final int DISTANCE_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
@@ -48,17 +45,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * @generated
    * @ordered
    */
-  protected String distanceCST = DISTANCE_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getDistanceVar() <em>Distance Var</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistanceVar()
-   * @generated
-   * @ordered
-   */
-  protected Parametre distanceVar;
+  protected int distanceCST = DISTANCE_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,7 +73,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDistanceCST()
+  public int getDistanceCST()
   {
     return distanceCST;
   }
@@ -96,55 +83,12 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistanceCST(String newDistanceCST)
+  public void setDistanceCST(int newDistanceCST)
   {
-    String oldDistanceCST = distanceCST;
+    int oldDistanceCST = distanceCST;
     distanceCST = newDistanceCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XY__DISTANCE_CST, oldDistanceCST, distanceCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getDistanceVar()
-  {
-    if (distanceVar != null && distanceVar.eIsProxy())
-    {
-      InternalEObject oldDistanceVar = (InternalEObject)distanceVar;
-      distanceVar = (Parametre)eResolveProxy(oldDistanceVar);
-      if (distanceVar != oldDistanceVar)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.DEP_XY__DISTANCE_VAR, oldDistanceVar, distanceVar));
-      }
-    }
-    return distanceVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetDistanceVar()
-  {
-    return distanceVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDistanceVar(Parametre newDistanceVar)
-  {
-    Parametre oldDistanceVar = distanceVar;
-    distanceVar = newDistanceVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XY__DISTANCE_VAR, oldDistanceVar, distanceVar));
   }
 
   /**
@@ -159,9 +103,6 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
     {
       case DrnPackage.DEP_XY__DISTANCE_CST:
         return getDistanceCST();
-      case DrnPackage.DEP_XY__DISTANCE_VAR:
-        if (resolve) return getDistanceVar();
-        return basicGetDistanceVar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,10 +118,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
     switch (featureID)
     {
       case DrnPackage.DEP_XY__DISTANCE_CST:
-        setDistanceCST((String)newValue);
-        return;
-      case DrnPackage.DEP_XY__DISTANCE_VAR:
-        setDistanceVar((Parametre)newValue);
+        setDistanceCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,9 +137,6 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
       case DrnPackage.DEP_XY__DISTANCE_CST:
         setDistanceCST(DISTANCE_CST_EDEFAULT);
         return;
-      case DrnPackage.DEP_XY__DISTANCE_VAR:
-        setDistanceVar((Parametre)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -217,9 +152,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
     switch (featureID)
     {
       case DrnPackage.DEP_XY__DISTANCE_CST:
-        return DISTANCE_CST_EDEFAULT == null ? distanceCST != null : !DISTANCE_CST_EDEFAULT.equals(distanceCST);
-      case DrnPackage.DEP_XY__DISTANCE_VAR:
-        return distanceVar != null;
+        return distanceCST != DISTANCE_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

@@ -22,7 +22,6 @@ import sar.drone.drn.Attribut;
 import sar.drone.drn.ColorLed;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.LedBlink;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +34,6 @@ import sar.drone.drn.Parametre;
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getColor <em>Color</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getBlink_per_secCST <em>Blink per sec CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getBlink_per_secVAR <em>Blink per sec VAR</em>}</li>
  *   <li>{@link sar.drone.drn.impl.LedBlinkImpl#getAttributs <em>Attributs</em>}</li>
  * </ul>
  *
@@ -91,7 +89,7 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * @generated
    * @ordered
    */
-  protected static final String BLINK_PER_SEC_CST_EDEFAULT = null;
+  protected static final int BLINK_PER_SEC_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getBlink_per_secCST() <em>Blink per sec CST</em>}' attribute.
@@ -101,17 +99,7 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * @generated
    * @ordered
    */
-  protected String blink_per_secCST = BLINK_PER_SEC_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getBlink_per_secVAR() <em>Blink per sec VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBlink_per_secVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre blink_per_secVAR;
+  protected int blink_per_secCST = BLINK_PER_SEC_CST_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAttributs() <em>Attributs</em>}' containment reference list.
@@ -195,7 +183,7 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBlink_per_secCST()
+  public int getBlink_per_secCST()
   {
     return blink_per_secCST;
   }
@@ -205,55 +193,12 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlink_per_secCST(String newBlink_per_secCST)
+  public void setBlink_per_secCST(int newBlink_per_secCST)
   {
-    String oldBlink_per_secCST = blink_per_secCST;
+    int oldBlink_per_secCST = blink_per_secCST;
     blink_per_secCST = newBlink_per_secCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.LED_BLINK__BLINK_PER_SEC_CST, oldBlink_per_secCST, blink_per_secCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getBlink_per_secVAR()
-  {
-    if (blink_per_secVAR != null && blink_per_secVAR.eIsProxy())
-    {
-      InternalEObject oldBlink_per_secVAR = (InternalEObject)blink_per_secVAR;
-      blink_per_secVAR = (Parametre)eResolveProxy(oldBlink_per_secVAR);
-      if (blink_per_secVAR != oldBlink_per_secVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR, oldBlink_per_secVAR, blink_per_secVAR));
-      }
-    }
-    return blink_per_secVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetBlink_per_secVAR()
-  {
-    return blink_per_secVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBlink_per_secVAR(Parametre newBlink_per_secVAR)
-  {
-    Parametre oldBlink_per_secVAR = blink_per_secVAR;
-    blink_per_secVAR = newBlink_per_secVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR, oldBlink_per_secVAR, blink_per_secVAR));
   }
 
   /**
@@ -302,9 +247,6 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
         return getColor();
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
         return getBlink_per_secCST();
-      case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
-        if (resolve) return getBlink_per_secVAR();
-        return basicGetBlink_per_secVAR();
       case DrnPackage.LED_BLINK__ATTRIBUTS:
         return getAttributs();
     }
@@ -329,10 +271,7 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
         setColor((ColorLed)newValue);
         return;
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
-        setBlink_per_secCST((String)newValue);
-        return;
-      case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
-        setBlink_per_secVAR((Parametre)newValue);
+        setBlink_per_secCST((Integer)newValue);
         return;
       case DrnPackage.LED_BLINK__ATTRIBUTS:
         getAttributs().clear();
@@ -361,9 +300,6 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
         setBlink_per_secCST(BLINK_PER_SEC_CST_EDEFAULT);
         return;
-      case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
-        setBlink_per_secVAR((Parametre)null);
-        return;
       case DrnPackage.LED_BLINK__ATTRIBUTS:
         getAttributs().clear();
         return;
@@ -386,9 +322,7 @@ public class LedBlinkImpl extends OptionImpl implements LedBlink
       case DrnPackage.LED_BLINK__COLOR:
         return color != COLOR_EDEFAULT;
       case DrnPackage.LED_BLINK__BLINK_PER_SEC_CST:
-        return BLINK_PER_SEC_CST_EDEFAULT == null ? blink_per_secCST != null : !BLINK_PER_SEC_CST_EDEFAULT.equals(blink_per_secCST);
-      case DrnPackage.LED_BLINK__BLINK_PER_SEC_VAR:
-        return blink_per_secVAR != null;
+        return blink_per_secCST != BLINK_PER_SEC_CST_EDEFAULT;
       case DrnPackage.LED_BLINK__ATTRIBUTS:
         return attributs != null && !attributs.isEmpty();
     }

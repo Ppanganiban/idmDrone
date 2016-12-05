@@ -531,22 +531,13 @@ public interface DrnPackage extends EPackage
   int ASSIGNEMENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Parametre</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNEMENT__PARAMETRE = 1;
-
-  /**
    * The feature id for the '<em><b>Operandes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNEMENT__OPERANDES = 2;
+  int ASSIGNEMENT__OPERANDES = 1;
 
   /**
    * The number of structural features of the '<em>Assignement</em>' class.
@@ -555,7 +546,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNEMENT_FEATURE_COUNT = 3;
+  int ASSIGNEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.ParametreImpl <em>Parametre</em>}' class.
@@ -596,13 +587,22 @@ public interface DrnPackage extends EPackage
   int EXPRESSION = 14;
 
   /**
+   * The feature id for the '<em><b>Move</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__MOVE = 0;
+
+  /**
    * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__REPEAT_CST = 0;
+  int EXPRESSION__REPEAT_CST = 1;
 
   /**
    * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
@@ -611,7 +611,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__REPEAT_VAR = 1;
+  int EXPRESSION__REPEAT_VAR = 2;
 
   /**
    * The feature id for the '<em><b>With</b></em>' containment reference list.
@@ -620,7 +620,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__WITH = 2;
+  int EXPRESSION__WITH = 3;
 
   /**
    * The feature id for the '<em><b>Then</b></em>' containment reference list.
@@ -629,7 +629,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__THEN = 3;
+  int EXPRESSION__THEN = 4;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -638,7 +638,26 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 4;
+  int EXPRESSION_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.MovementImpl <em>Movement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.MovementImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getMovement()
+   * @generated
+   */
+  int MOVEMENT = 15;
+
+  /**
+   * The number of structural features of the '<em>Movement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MOVEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.RefPartImpl <em>Ref Part</em>}' class.
@@ -648,43 +667,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefPart()
    * @generated
    */
-  int REF_PART = 15;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_PART__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_PART__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_PART__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_PART__THEN = EXPRESSION__THEN;
+  int REF_PART = 16;
 
   /**
    * The feature id for the '<em><b>Variable partie</b></em>' reference.
@@ -693,16 +676,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_PART__VARIABLE_PARTIE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_PART__PARAMS = EXPRESSION_FEATURE_COUNT + 1;
+  int REF_PART__VARIABLE_PARTIE = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Ref Part</em>' class.
@@ -711,7 +685,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_PART_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int REF_PART_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.AndImpl <em>And</em>}' class.
@@ -721,43 +695,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAnd()
    * @generated
    */
-  int AND = 16;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__THEN = EXPRESSION__THEN;
+  int AND = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -766,7 +704,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int AND__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Rotate</b></em>' containment reference list.
@@ -775,7 +713,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__ROTATE = EXPRESSION_FEATURE_COUNT + 1;
+  int AND__ROTATE = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Depx</b></em>' containment reference list.
@@ -784,7 +722,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPX = EXPRESSION_FEATURE_COUNT + 2;
+  int AND__DEPX = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Depy</b></em>' containment reference list.
@@ -793,7 +731,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPY = EXPRESSION_FEATURE_COUNT + 3;
+  int AND__DEPY = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Depxz</b></em>' containment reference list.
@@ -802,7 +740,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPXZ = EXPRESSION_FEATURE_COUNT + 4;
+  int AND__DEPXZ = MOVEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Depxy</b></em>' containment reference list.
@@ -811,7 +749,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPXY = EXPRESSION_FEATURE_COUNT + 5;
+  int AND__DEPXY = MOVEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Depz</b></em>' containment reference list.
@@ -820,7 +758,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPZ = EXPRESSION_FEATURE_COUNT + 6;
+  int AND__DEPZ = MOVEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>And</em>' class.
@@ -829,7 +767,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 7;
+  int AND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepY_ImplImpl <em>Dep YImpl</em>}' class.
@@ -839,43 +777,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepY_Impl()
    * @generated
    */
-  int DEP_YIMPL = 17;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__THEN = EXPRESSION__THEN;
+  int DEP_YIMPL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -884,16 +786,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YIMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__DISTANCE_VAR = EXPRESSION_FEATURE_COUNT + 1;
+  int DEP_YIMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
@@ -902,7 +795,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YIMPL__DISTANCE_CST = EXPRESSION_FEATURE_COUNT + 2;
+  int DEP_YIMPL__DISTANCE_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -911,16 +804,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YIMPL__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YIMPL__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 4;
+  int DEP_YIMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Dep YImpl</em>' class.
@@ -929,7 +813,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YIMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int DEP_YIMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.FORWARDImpl <em>FORWARD</em>}' class.
@@ -939,43 +823,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFORWARD()
    * @generated
    */
-  int FORWARD = 18;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__REPEAT_CST = DEP_YIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__REPEAT_VAR = DEP_YIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__WITH = DEP_YIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__THEN = DEP_YIMPL__THEN;
+  int FORWARD = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -985,15 +833,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int FORWARD__NAME = DEP_YIMPL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__DISTANCE_VAR = DEP_YIMPL__DISTANCE_VAR;
 
   /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
@@ -1014,15 +853,6 @@ public interface DrnPackage extends EPackage
   int FORWARD__TEMPS_CST = DEP_YIMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FORWARD__TEMPS_VAR = DEP_YIMPL__TEMPS_VAR;
-
-  /**
    * The number of structural features of the '<em>FORWARD</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1039,43 +869,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getBACKWARD()
    * @generated
    */
-  int BACKWARD = 19;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__REPEAT_CST = DEP_YIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__REPEAT_VAR = DEP_YIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__WITH = DEP_YIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__THEN = DEP_YIMPL__THEN;
+  int BACKWARD = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1085,15 +879,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int BACKWARD__NAME = DEP_YIMPL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__DISTANCE_VAR = DEP_YIMPL__DISTANCE_VAR;
 
   /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
@@ -1114,15 +899,6 @@ public interface DrnPackage extends EPackage
   int BACKWARD__TEMPS_CST = DEP_YIMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BACKWARD__TEMPS_VAR = DEP_YIMPL__TEMPS_VAR;
-
-  /**
    * The number of structural features of the '<em>BACKWARD</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1139,43 +915,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepX_Impl()
    * @generated
    */
-  int DEP_XIMPL = 20;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__THEN = EXPRESSION__THEN;
+  int DEP_XIMPL = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1184,7 +924,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XIMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_XIMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
@@ -1193,16 +933,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XIMPL__DISTANCE_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__DISTANCE_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int DEP_XIMPL__DISTANCE_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -1211,16 +942,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XIMPL__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XIMPL__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 4;
+  int DEP_XIMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Dep XImpl</em>' class.
@@ -1229,7 +951,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XIMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int DEP_XIMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LEFTImpl <em>LEFT</em>}' class.
@@ -1239,43 +961,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLEFT()
    * @generated
    */
-  int LEFT = 21;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__REPEAT_CST = DEP_XIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__REPEAT_VAR = DEP_XIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__WITH = DEP_XIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__THEN = DEP_XIMPL__THEN;
+  int LEFT = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1296,15 +982,6 @@ public interface DrnPackage extends EPackage
   int LEFT__DISTANCE_CST = DEP_XIMPL__DISTANCE_CST;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__DISTANCE_VAR = DEP_XIMPL__DISTANCE_VAR;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1312,15 +989,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int LEFT__TEMPS_CST = DEP_XIMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LEFT__TEMPS_VAR = DEP_XIMPL__TEMPS_VAR;
 
   /**
    * The number of structural features of the '<em>LEFT</em>' class.
@@ -1339,43 +1007,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRIGHT()
    * @generated
    */
-  int RIGHT = 22;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__REPEAT_CST = DEP_XIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__REPEAT_VAR = DEP_XIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__WITH = DEP_XIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__THEN = DEP_XIMPL__THEN;
+  int RIGHT = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1396,15 +1028,6 @@ public interface DrnPackage extends EPackage
   int RIGHT__DISTANCE_CST = DEP_XIMPL__DISTANCE_CST;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__DISTANCE_VAR = DEP_XIMPL__DISTANCE_VAR;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1412,15 +1035,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int RIGHT__TEMPS_CST = DEP_XIMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RIGHT__TEMPS_VAR = DEP_XIMPL__TEMPS_VAR;
 
   /**
    * The number of structural features of the '<em>RIGHT</em>' class.
@@ -1439,43 +1053,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepZ_Impl()
    * @generated
    */
-  int DEP_ZIMPL = 23;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__THEN = EXPRESSION__THEN;
+  int DEP_ZIMPL = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1484,7 +1062,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_ZIMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_ZIMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
@@ -1493,16 +1071,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_ZIMPL__DISTANCE_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__DISTANCE_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int DEP_ZIMPL__DISTANCE_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -1511,16 +1080,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_ZIMPL__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_ZIMPL__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 4;
+  int DEP_ZIMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Dep ZImpl</em>' class.
@@ -1529,7 +1089,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_ZIMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int DEP_ZIMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.UPImpl <em>UP</em>}' class.
@@ -1539,43 +1099,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getUP()
    * @generated
    */
-  int UP = 24;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__REPEAT_CST = DEP_ZIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__REPEAT_VAR = DEP_ZIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__WITH = DEP_ZIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__THEN = DEP_ZIMPL__THEN;
+  int UP = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1596,15 +1120,6 @@ public interface DrnPackage extends EPackage
   int UP__DISTANCE_CST = DEP_ZIMPL__DISTANCE_CST;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__DISTANCE_VAR = DEP_ZIMPL__DISTANCE_VAR;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1612,15 +1127,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int UP__TEMPS_CST = DEP_ZIMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UP__TEMPS_VAR = DEP_ZIMPL__TEMPS_VAR;
 
   /**
    * The number of structural features of the '<em>UP</em>' class.
@@ -1639,43 +1145,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDOWN()
    * @generated
    */
-  int DOWN = 25;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__REPEAT_CST = DEP_ZIMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__REPEAT_VAR = DEP_ZIMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__WITH = DEP_ZIMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__THEN = DEP_ZIMPL__THEN;
+  int DOWN = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1696,15 +1166,6 @@ public interface DrnPackage extends EPackage
   int DOWN__DISTANCE_CST = DEP_ZIMPL__DISTANCE_CST;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__DISTANCE_VAR = DEP_ZIMPL__DISTANCE_VAR;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1712,15 +1173,6 @@ public interface DrnPackage extends EPackage
    * @ordered
    */
   int DOWN__TEMPS_CST = DEP_ZIMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOWN__TEMPS_VAR = DEP_ZIMPL__TEMPS_VAR;
 
   /**
    * The number of structural features of the '<em>DOWN</em>' class.
@@ -1739,43 +1191,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY_IMPL()
    * @generated
    */
-  int DEP_XY_IMPL = 26;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_IMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_IMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_IMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_IMPL__THEN = EXPRESSION__THEN;
+  int DEP_XY_IMPL = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1784,7 +1200,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XY_IMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_XY_IMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -1793,16 +1209,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XY_IMPL__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_IMPL__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int DEP_XY_IMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Dep XY IMPL</em>' class.
@@ -1811,7 +1218,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XY_IMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int DEP_XY_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXYImpl <em>Dep XY</em>}' class.
@@ -1821,43 +1228,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY()
    * @generated
    */
-  int DEP_XY = 27;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__REPEAT_CST = DEP_XY_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__REPEAT_VAR = DEP_XY_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__WITH = DEP_XY_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__THEN = DEP_XY_IMPL__THEN;
+  int DEP_XY = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1878,15 +1249,6 @@ public interface DrnPackage extends EPackage
   int DEP_XY__TEMPS_CST = DEP_XY_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__TEMPS_VAR = DEP_XY_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1896,22 +1258,13 @@ public interface DrnPackage extends EPackage
   int DEP_XY__DISTANCE_CST = DEP_XY_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__DISTANCE_VAR = DEP_XY_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Dep XY</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEP_XY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 2;
+  int DEP_XY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.CERCLEXYImpl <em>CERCLEXY</em>}' class.
@@ -1921,43 +1274,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXY()
    * @generated
    */
-  int CERCLEXY = 28;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__REPEAT_CST = DEP_XY_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__REPEAT_VAR = DEP_XY_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__WITH = DEP_XY_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__THEN = DEP_XY_IMPL__THEN;
+  int CERCLEXY = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1978,15 +1295,6 @@ public interface DrnPackage extends EPackage
   int CERCLEXY__TEMPS_CST = DEP_XY_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__TEMPS_VAR = DEP_XY_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Rayon CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1996,22 +1304,13 @@ public interface DrnPackage extends EPackage
   int CERCLEXY__RAYON_CST = DEP_XY_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Rayon Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEXY__RAYON_VAR = DEP_XY_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>CERCLEXY</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CERCLEXY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 2;
+  int CERCLEXY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.CARREXYImpl <em>CARREXY</em>}' class.
@@ -2021,43 +1320,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXY()
    * @generated
    */
-  int CARREXY = 29;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__REPEAT_CST = DEP_XY_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__REPEAT_VAR = DEP_XY_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__WITH = DEP_XY_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__THEN = DEP_XY_IMPL__THEN;
+  int CARREXY = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2078,15 +1341,6 @@ public interface DrnPackage extends EPackage
   int CARREXY__TEMPS_CST = DEP_XY_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__TEMPS_VAR = DEP_XY_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Cote CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2096,22 +1350,13 @@ public interface DrnPackage extends EPackage
   int CARREXY__COTE_CST = DEP_XY_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Cote VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREXY__COTE_VAR = DEP_XY_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>CARREXY</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CARREXY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 2;
+  int CARREXY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepYZ_IMPLImpl <em>Dep YZ IMPL</em>}' class.
@@ -2121,43 +1366,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ_IMPL()
    * @generated
    */
-  int DEP_YZ_IMPL = 30;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_IMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_IMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_IMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_IMPL__THEN = EXPRESSION__THEN;
+  int DEP_YZ_IMPL = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2166,7 +1375,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YZ_IMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_YZ_IMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -2175,16 +1384,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YZ_IMPL__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_IMPL__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int DEP_YZ_IMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Dep YZ IMPL</em>' class.
@@ -2193,7 +1393,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_YZ_IMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int DEP_YZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepYZImpl <em>Dep YZ</em>}' class.
@@ -2203,43 +1403,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ()
    * @generated
    */
-  int DEP_YZ = 31;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__REPEAT_CST = DEP_YZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__REPEAT_VAR = DEP_YZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__WITH = DEP_YZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__THEN = DEP_YZ_IMPL__THEN;
+  int DEP_YZ = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2260,15 +1424,6 @@ public interface DrnPackage extends EPackage
   int DEP_YZ__TEMPS_CST = DEP_YZ_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__TEMPS_VAR = DEP_YZ_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Distance CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2278,22 +1433,13 @@ public interface DrnPackage extends EPackage
   int DEP_YZ__DISTANCE_CST = DEP_YZ_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__DISTANCE_VAR = DEP_YZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Dep YZ</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEP_YZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 2;
+  int DEP_YZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.CERCLEYZImpl <em>CERCLEYZ</em>}' class.
@@ -2303,43 +1449,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEYZ()
    * @generated
    */
-  int CERCLEYZ = 32;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__REPEAT_CST = DEP_YZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__REPEAT_VAR = DEP_YZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__WITH = DEP_YZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__THEN = DEP_YZ_IMPL__THEN;
+  int CERCLEYZ = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2360,15 +1470,6 @@ public interface DrnPackage extends EPackage
   int CERCLEYZ__TEMPS_CST = DEP_YZ_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__TEMPS_VAR = DEP_YZ_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Rayon CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2378,22 +1479,13 @@ public interface DrnPackage extends EPackage
   int CERCLEYZ__RAYON_CST = DEP_YZ_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Rayon Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CERCLEYZ__RAYON_VAR = DEP_YZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>CERCLEYZ</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CERCLEYZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 2;
+  int CERCLEYZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.CARREYZImpl <em>CARREYZ</em>}' class.
@@ -2403,43 +1495,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREYZ()
    * @generated
    */
-  int CARREYZ = 33;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__REPEAT_CST = DEP_YZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__REPEAT_VAR = DEP_YZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__WITH = DEP_YZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__THEN = DEP_YZ_IMPL__THEN;
+  int CARREYZ = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2460,15 +1516,6 @@ public interface DrnPackage extends EPackage
   int CARREYZ__TEMPS_CST = DEP_YZ_IMPL__TEMPS_CST;
 
   /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__TEMPS_VAR = DEP_YZ_IMPL__TEMPS_VAR;
-
-  /**
    * The feature id for the '<em><b>Cote CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2478,22 +1525,13 @@ public interface DrnPackage extends EPackage
   int CARREYZ__COTE_CST = DEP_YZ_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Cote VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CARREYZ__COTE_VAR = DEP_YZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>CARREYZ</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CARREYZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 2;
+  int CARREYZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXZ_IMPLImpl <em>Dep XZ IMPL</em>}' class.
@@ -2503,43 +1541,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ_IMPL()
    * @generated
    */
-  int DEP_XZ_IMPL = 34;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ_IMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ_IMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ_IMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ_IMPL__THEN = EXPRESSION__THEN;
+  int DEP_XZ_IMPL = 35;
 
   /**
    * The number of structural features of the '<em>Dep XZ IMPL</em>' class.
@@ -2548,7 +1550,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XZ_IMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_XZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXZImpl <em>Dep XZ</em>}' class.
@@ -2558,43 +1560,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ()
    * @generated
    */
-  int DEP_XZ = 35;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__REPEAT_CST = DEP_XZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__REPEAT_VAR = DEP_XZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__WITH = DEP_XZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__THEN = DEP_XZ_IMPL__THEN;
+  int DEP_XZ = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2615,31 +1581,13 @@ public interface DrnPackage extends EPackage
   int DEP_XZ__DISTANCE_CST = DEP_XZ_IMPL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__DISTANCE_VAR = DEP_XZ_IMPL_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEP_XZ__TEMPS_CST = DEP_XZ_IMPL_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__TEMPS_VAR = DEP_XZ_IMPL_FEATURE_COUNT + 4;
+  int DEP_XZ__TEMPS_CST = DEP_XZ_IMPL_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Dep XZ</em>' class.
@@ -2648,7 +1596,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XZ_FEATURE_COUNT = DEP_XZ_IMPL_FEATURE_COUNT + 5;
+  int DEP_XZ_FEATURE_COUNT = DEP_XZ_IMPL_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXYZ_IMPLImpl <em>Dep XYZ IMPL</em>}' class.
@@ -2658,43 +1606,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ_IMPL()
    * @generated
    */
-  int DEP_XYZ_IMPL = 36;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_IMPL__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_IMPL__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_IMPL__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_IMPL__THEN = EXPRESSION__THEN;
+  int DEP_XYZ_IMPL = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2703,7 +1615,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XYZ_IMPL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int DEP_XYZ_IMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Dep XYZ IMPL</em>' class.
@@ -2712,7 +1624,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XYZ_IMPL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int DEP_XYZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXYZImpl <em>Dep XYZ</em>}' class.
@@ -2722,43 +1634,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ()
    * @generated
    */
-  int DEP_XYZ = 37;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__REPEAT_CST = DEP_XYZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__REPEAT_VAR = DEP_XYZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__WITH = DEP_XYZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__THEN = DEP_XYZ_IMPL__THEN;
+  int DEP_XYZ = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2779,31 +1655,13 @@ public interface DrnPackage extends EPackage
   int DEP_XYZ__DISTANCE_CST = DEP_XYZ_IMPL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__DISTANCE_VAR = DEP_XYZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEP_XYZ__TEMPS_CST = DEP_XYZ_IMPL_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__TEMPS_VAR = DEP_XYZ_IMPL_FEATURE_COUNT + 3;
+  int DEP_XYZ__TEMPS_CST = DEP_XYZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Dep XYZ</em>' class.
@@ -2812,7 +1670,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XYZ_FEATURE_COUNT = DEP_XYZ_IMPL_FEATURE_COUNT + 4;
+  int DEP_XYZ_FEATURE_COUNT = DEP_XYZ_IMPL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.FlipImpl <em>Flip</em>}' class.
@@ -2822,43 +1680,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFlip()
    * @generated
    */
-  int FLIP = 38;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FLIP__REPEAT_CST = DEP_XYZ_IMPL__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FLIP__REPEAT_VAR = DEP_XYZ_IMPL__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FLIP__WITH = DEP_XYZ_IMPL__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FLIP__THEN = DEP_XYZ_IMPL__THEN;
+  int FLIP = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2886,43 +1708,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRotate()
    * @generated
    */
-  int ROTATE = 39;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__THEN = EXPRESSION__THEN;
+  int ROTATE = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2931,7 +1717,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int ROTATE__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Angle CST</b></em>' attribute.
@@ -2940,16 +1726,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE__ANGLE_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Angle VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__ANGLE_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int ROTATE__ANGLE_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -2958,16 +1735,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROTATE__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 4;
+  int ROTATE__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Rotate</em>' class.
@@ -2976,7 +1744,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROTATE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int ROTATE_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.WaitImpl <em>Wait</em>}' class.
@@ -2986,43 +1754,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWait()
    * @generated
    */
-  int WAIT = 40;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WAIT__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WAIT__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WAIT__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WAIT__THEN = EXPRESSION__THEN;
+  int WAIT = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3031,7 +1763,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WAIT__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int WAIT__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -3040,16 +1772,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WAIT__TEMPS_CST = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WAIT__TEMPS_VAR = EXPRESSION_FEATURE_COUNT + 2;
+  int WAIT__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Wait</em>' class.
@@ -3058,7 +1781,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WAIT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int WAIT_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.TakeOffImpl <em>Take Off</em>}' class.
@@ -3068,43 +1791,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTakeOff()
    * @generated
    */
-  int TAKE_OFF = 41;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAKE_OFF__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAKE_OFF__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAKE_OFF__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAKE_OFF__THEN = EXPRESSION__THEN;
+  int TAKE_OFF = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3113,7 +1800,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TAKE_OFF__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int TAKE_OFF__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Take Off</em>' class.
@@ -3122,7 +1809,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TAKE_OFF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int TAKE_OFF_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LandImpl <em>Land</em>}' class.
@@ -3132,43 +1819,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLand()
    * @generated
    */
-  int LAND = 42;
-
-  /**
-   * The feature id for the '<em><b>Repeat CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAND__REPEAT_CST = EXPRESSION__REPEAT_CST;
-
-  /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAND__REPEAT_VAR = EXPRESSION__REPEAT_VAR;
-
-  /**
-   * The feature id for the '<em><b>With</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAND__WITH = EXPRESSION__WITH;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAND__THEN = EXPRESSION__THEN;
+  int LAND = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3177,7 +1828,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAND__NAME = EXPRESSION_FEATURE_COUNT + 0;
+  int LAND__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Land</em>' class.
@@ -3186,7 +1837,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int LAND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DeviceImpl <em>Device</em>}' class.
@@ -3196,7 +1847,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDevice()
    * @generated
    */
-  int DEVICE = 43;
+  int DEVICE = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3233,7 +1884,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 44;
+  int DECLARATION = 45;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -3270,7 +1921,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDefinition()
    * @generated
    */
-  int DEFINITION = 45;
+  int DEFINITION = 46;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' reference.
@@ -3307,7 +1958,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWith()
    * @generated
    */
-  int WITH = 46;
+  int WITH = 47;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3344,7 +1995,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getOption()
    * @generated
    */
-  int OPTION = 47;
+  int OPTION = 48;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3372,7 +2023,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefDevice()
    * @generated
    */
-  int REF_DEVICE = 48;
+  int REF_DEVICE = 49;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3418,7 +2069,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAttribut()
    * @generated
    */
-  int ATTRIBUT = 49;
+  int ATTRIBUT = 50;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3448,13 +2099,40 @@ public interface DrnPackage extends EPackage
   int ATTRIBUT__ELMT = 2;
 
   /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT__MODE = 3;
+
+  /**
+   * The feature id for the '<em><b>Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT__INT = 4;
+
+  /**
+   * The feature id for the '<em><b>Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUT__BOOL = 5;
+
+  /**
    * The number of structural features of the '<em>Attribut</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUT_FEATURE_COUNT = 3;
+  int ATTRIBUT_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.Led_ImplImpl <em>Led Impl</em>}' class.
@@ -3464,7 +2142,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLed_Impl()
    * @generated
    */
-  int LED_IMPL = 50;
+  int LED_IMPL = 51;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3510,7 +2188,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLedBlink()
    * @generated
    */
-  int LED_BLINK = 51;
+  int LED_BLINK = 52;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3549,22 +2227,13 @@ public interface DrnPackage extends EPackage
   int LED_BLINK__BLINK_PER_SEC_CST = OPTION_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Blink per sec VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LED_BLINK__BLINK_PER_SEC_VAR = OPTION_FEATURE_COUNT + 3;
-
-  /**
    * The feature id for the '<em><b>Attributs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LED_BLINK__ATTRIBUTS = OPTION_FEATURE_COUNT + 4;
+  int LED_BLINK__ATTRIBUTS = OPTION_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Led Blink</em>' class.
@@ -3573,7 +2242,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LED_BLINK_FEATURE_COUNT = OPTION_FEATURE_COUNT + 5;
+  int LED_BLINK_FEATURE_COUNT = OPTION_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.CameraImpl <em>Camera</em>}' class.
@@ -3583,7 +2252,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
    * @generated
    */
-  int CAMERA = 52;
+  int CAMERA = 53;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -3604,13 +2273,22 @@ public interface DrnPackage extends EPackage
   int CAMERA__NAME = OPTION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAMERA__ID = OPTION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Attributs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAMERA__ATTRIBUTS = OPTION_FEATURE_COUNT + 1;
+  int CAMERA__ATTRIBUTS = OPTION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Camera</em>' class.
@@ -3619,7 +2297,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAMERA_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
+  int CAMERA_FEATURE_COUNT = OPTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.TypeGenericImpl <em>Type Generic</em>}' class.
@@ -3629,7 +2307,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTypeGeneric()
    * @generated
    */
-  int TYPE_GENERIC = 53;
+  int TYPE_GENERIC = 54;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3666,7 +2344,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 54;
+  int ELEMENT = 55;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3694,7 +2372,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getColorLed()
    * @generated
    */
-  int COLOR_LED = 55;
+  int COLOR_LED = 56;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -3704,7 +2382,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 56;
+  int MODE = 57;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -3714,7 +2392,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 57;
+  int EBOOL = 58;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
@@ -3724,7 +2402,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
    * @generated
    */
-  int DIRECTION_TYPE = 58;
+  int DIRECTION_TYPE = 59;
 
 
   /**
@@ -4012,17 +2690,6 @@ public interface DrnPackage extends EPackage
   EAttribute getAssignement_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Assignement#getParametre <em>Parametre</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parametre</em>'.
-   * @see sar.drone.drn.Assignement#getParametre()
-   * @see #getAssignement()
-   * @generated
-   */
-  EReference getAssignement_Parametre();
-
-  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Assignement#getOperandes <em>Operandes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4063,6 +2730,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link sar.drone.drn.Expression#getMove <em>Move</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Move</em>'.
+   * @see sar.drone.drn.Expression#getMove()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Move();
 
   /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.Expression#getRepeatCST <em>Repeat CST</em>}'.
@@ -4109,6 +2787,16 @@ public interface DrnPackage extends EPackage
   EReference getExpression_Then();
 
   /**
+   * Returns the meta object for class '{@link sar.drone.drn.Movement <em>Movement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Movement</em>'.
+   * @see sar.drone.drn.Movement
+   * @generated
+   */
+  EClass getMovement();
+
+  /**
    * Returns the meta object for class '{@link sar.drone.drn.RefPart <em>Ref Part</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4128,17 +2816,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EReference getRefPart_Variable_partie();
-
-  /**
-   * Returns the meta object for the attribute list '{@link sar.drone.drn.RefPart#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Params</em>'.
-   * @see sar.drone.drn.RefPart#getParams()
-   * @see #getRefPart()
-   * @generated
-   */
-  EAttribute getRefPart_Params();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.And <em>And</em>}'.
@@ -4249,17 +2926,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepY_Impl_Name();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepY_Impl#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepY_Impl#getDistanceVar()
-   * @see #getDepY_Impl()
-   * @generated
-   */
-  EReference getDepY_Impl_DistanceVar();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.DepY_Impl#getDistanceCST <em>Distance CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4280,17 +2946,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepY_Impl_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepY_Impl#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepY_Impl#getTempsVAR()
-   * @see #getDepY_Impl()
-   * @generated
-   */
-  EReference getDepY_Impl_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.FORWARD <em>FORWARD</em>}'.
@@ -4345,17 +3000,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepX_Impl_DistanceCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepX_Impl#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepX_Impl#getDistanceVar()
-   * @see #getDepX_Impl()
-   * @generated
-   */
-  EReference getDepX_Impl_DistanceVar();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.DepX_Impl#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4365,17 +3009,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepX_Impl_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepX_Impl#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepX_Impl#getTempsVAR()
-   * @see #getDepX_Impl()
-   * @generated
-   */
-  EReference getDepX_Impl_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.LEFT <em>LEFT</em>}'.
@@ -4430,17 +3063,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepZ_Impl_DistanceCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepZ_Impl#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepZ_Impl#getDistanceVar()
-   * @see #getDepZ_Impl()
-   * @generated
-   */
-  EReference getDepZ_Impl_DistanceVar();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.DepZ_Impl#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4450,17 +3072,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepZ_Impl_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepZ_Impl#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepZ_Impl#getTempsVAR()
-   * @see #getDepZ_Impl()
-   * @generated
-   */
-  EReference getDepZ_Impl_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.UP <em>UP</em>}'.
@@ -4515,17 +3126,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepXY_IMPL_TempsCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXY_IMPL#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepXY_IMPL#getTempsVAR()
-   * @see #getDepXY_IMPL()
-   * @generated
-   */
-  EReference getDepXY_IMPL_TempsVAR();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.DepXY <em>Dep XY</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4545,17 +3145,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepXY_DistanceCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXY#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepXY#getDistanceVar()
-   * @see #getDepXY()
-   * @generated
-   */
-  EReference getDepXY_DistanceVar();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.CERCLEXY <em>CERCLEXY</em>}'.
@@ -4579,17 +3168,6 @@ public interface DrnPackage extends EPackage
   EAttribute getCERCLEXY_RayonCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.CERCLEXY#getRayonVar <em>Rayon Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Rayon Var</em>'.
-   * @see sar.drone.drn.CERCLEXY#getRayonVar()
-   * @see #getCERCLEXY()
-   * @generated
-   */
-  EReference getCERCLEXY_RayonVar();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.CARREXY <em>CARREXY</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4609,17 +3187,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getCARREXY_CoteCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.CARREXY#getCoteVAR <em>Cote VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Cote VAR</em>'.
-   * @see sar.drone.drn.CARREXY#getCoteVAR()
-   * @see #getCARREXY()
-   * @generated
-   */
-  EReference getCARREXY_CoteVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.DepYZ_IMPL <em>Dep YZ IMPL</em>}'.
@@ -4654,17 +3221,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepYZ_IMPL_TempsCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepYZ_IMPL#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepYZ_IMPL#getTempsVAR()
-   * @see #getDepYZ_IMPL()
-   * @generated
-   */
-  EReference getDepYZ_IMPL_TempsVAR();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.DepYZ <em>Dep YZ</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4684,17 +3240,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepYZ_DistanceCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepYZ#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepYZ#getDistanceVar()
-   * @see #getDepYZ()
-   * @generated
-   */
-  EReference getDepYZ_DistanceVar();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.CERCLEYZ <em>CERCLEYZ</em>}'.
@@ -4718,17 +3263,6 @@ public interface DrnPackage extends EPackage
   EAttribute getCERCLEYZ_RayonCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.CERCLEYZ#getRayonVar <em>Rayon Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Rayon Var</em>'.
-   * @see sar.drone.drn.CERCLEYZ#getRayonVar()
-   * @see #getCERCLEYZ()
-   * @generated
-   */
-  EReference getCERCLEYZ_RayonVar();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.CARREYZ <em>CARREYZ</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4748,17 +3282,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getCARREYZ_CoteCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.CARREYZ#getCoteVAR <em>Cote VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Cote VAR</em>'.
-   * @see sar.drone.drn.CARREYZ#getCoteVAR()
-   * @see #getCARREYZ()
-   * @generated
-   */
-  EReference getCARREYZ_CoteVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.DepXZ_IMPL <em>Dep XZ IMPL</em>}'.
@@ -4803,17 +3326,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepXZ_DistanceCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXZ#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepXZ#getDistanceVar()
-   * @see #getDepXZ()
-   * @generated
-   */
-  EReference getDepXZ_DistanceVar();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4823,17 +3335,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepXZ_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXZ#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepXZ#getTempsVAR()
-   * @see #getDepXZ()
-   * @generated
-   */
-  EReference getDepXZ_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.DepXYZ_IMPL <em>Dep XYZ IMPL</em>}'.
@@ -4878,17 +3379,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepXYZ_DistanceCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXYZ#getDistanceVar <em>Distance Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Distance Var</em>'.
-   * @see sar.drone.drn.DepXYZ#getDistanceVar()
-   * @see #getDepXYZ()
-   * @generated
-   */
-  EReference getDepXYZ_DistanceVar();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.DepXYZ#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4898,17 +3388,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDepXYZ_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.DepXYZ#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.DepXYZ#getTempsVAR()
-   * @see #getDepXYZ()
-   * @generated
-   */
-  EReference getDepXYZ_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Flip <em>Flip</em>}'.
@@ -4953,17 +3432,6 @@ public interface DrnPackage extends EPackage
   EAttribute getRotate_AngleCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.Rotate#getAngleVAR <em>Angle VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Angle VAR</em>'.
-   * @see sar.drone.drn.Rotate#getAngleVAR()
-   * @see #getRotate()
-   * @generated
-   */
-  EReference getRotate_AngleVAR();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.Rotate#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4973,17 +3441,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getRotate_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.Rotate#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.Rotate#getTempsVAR()
-   * @see #getRotate()
-   * @generated
-   */
-  EReference getRotate_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Wait <em>Wait</em>}'.
@@ -5016,17 +3473,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getWait_TempsCST();
-
-  /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.Wait#getTempsVAR <em>Temps VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Temps VAR</em>'.
-   * @see sar.drone.drn.Wait#getTempsVAR()
-   * @see #getWait()
-   * @generated
-   */
-  EReference getWait_TempsVAR();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.TakeOff <em>Take Off</em>}'.
@@ -5295,6 +3741,39 @@ public interface DrnPackage extends EPackage
   EReference getAttribut_Elmt();
 
   /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Attribut#getMode <em>Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mode</em>'.
+   * @see sar.drone.drn.Attribut#getMode()
+   * @see #getAttribut()
+   * @generated
+   */
+  EAttribute getAttribut_Mode();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Attribut#getInt <em>Int</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int</em>'.
+   * @see sar.drone.drn.Attribut#getInt()
+   * @see #getAttribut()
+   * @generated
+   */
+  EAttribute getAttribut_Int();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Attribut#getBool <em>Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bool</em>'.
+   * @see sar.drone.drn.Attribut#getBool()
+   * @see #getAttribut()
+   * @generated
+   */
+  EAttribute getAttribut_Bool();
+
+  /**
    * Returns the meta object for class '{@link sar.drone.drn.Led_Impl <em>Led Impl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5370,17 +3849,6 @@ public interface DrnPackage extends EPackage
   EAttribute getLedBlink_Blink_per_secCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.LedBlink#getBlink_per_secVAR <em>Blink per sec VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Blink per sec VAR</em>'.
-   * @see sar.drone.drn.LedBlink#getBlink_per_secVAR()
-   * @see #getLedBlink()
-   * @generated
-   */
-  EReference getLedBlink_Blink_per_secVAR();
-
-  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.LedBlink#getAttributs <em>Attributs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5411,6 +3879,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getCamera_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Camera#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see sar.drone.drn.Camera#getId()
+   * @see #getCamera()
+   * @generated
+   */
+  EAttribute getCamera_Id();
 
   /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Camera#getAttributs <em>Attributs</em>}'.
@@ -5782,14 +4261,6 @@ public interface DrnPackage extends EPackage
     EAttribute ASSIGNEMENT__NAME = eINSTANCE.getAssignement_Name();
 
     /**
-     * The meta object literal for the '<em><b>Parametre</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSIGNEMENT__PARAMETRE = eINSTANCE.getAssignement_Parametre();
-
-    /**
      * The meta object literal for the '<em><b>Operandes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5826,6 +4297,14 @@ public interface DrnPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
+     * The meta object literal for the '<em><b>Move</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__MOVE = eINSTANCE.getExpression_Move();
+
+    /**
      * The meta object literal for the '<em><b>Repeat CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5858,6 +4337,16 @@ public interface DrnPackage extends EPackage
     EReference EXPRESSION__THEN = eINSTANCE.getExpression_Then();
 
     /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.MovementImpl <em>Movement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.MovementImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getMovement()
+     * @generated
+     */
+    EClass MOVEMENT = eINSTANCE.getMovement();
+
+    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.RefPartImpl <em>Ref Part</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5874,14 +4363,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EReference REF_PART__VARIABLE_PARTIE = eINSTANCE.getRefPart_Variable_partie();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REF_PART__PARAMS = eINSTANCE.getRefPart_Params();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.AndImpl <em>And</em>}' class.
@@ -5968,14 +4449,6 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_YIMPL__NAME = eINSTANCE.getDepY_Impl_Name();
 
     /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_YIMPL__DISTANCE_VAR = eINSTANCE.getDepY_Impl_DistanceVar();
-
-    /**
      * The meta object literal for the '<em><b>Distance CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5990,14 +4463,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute DEP_YIMPL__TEMPS_CST = eINSTANCE.getDepY_Impl_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_YIMPL__TEMPS_VAR = eINSTANCE.getDepY_Impl_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.FORWARDImpl <em>FORWARD</em>}' class.
@@ -6046,28 +4511,12 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_XIMPL__DISTANCE_CST = eINSTANCE.getDepX_Impl_DistanceCST();
 
     /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XIMPL__DISTANCE_VAR = eINSTANCE.getDepX_Impl_DistanceVar();
-
-    /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DEP_XIMPL__TEMPS_CST = eINSTANCE.getDepX_Impl_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XIMPL__TEMPS_VAR = eINSTANCE.getDepX_Impl_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.LEFTImpl <em>LEFT</em>}' class.
@@ -6116,28 +4565,12 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_ZIMPL__DISTANCE_CST = eINSTANCE.getDepZ_Impl_DistanceCST();
 
     /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_ZIMPL__DISTANCE_VAR = eINSTANCE.getDepZ_Impl_DistanceVar();
-
-    /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DEP_ZIMPL__TEMPS_CST = eINSTANCE.getDepZ_Impl_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_ZIMPL__TEMPS_VAR = eINSTANCE.getDepZ_Impl_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.UPImpl <em>UP</em>}' class.
@@ -6186,14 +4619,6 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_XY_IMPL__TEMPS_CST = eINSTANCE.getDepXY_IMPL_TempsCST();
 
     /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XY_IMPL__TEMPS_VAR = eINSTANCE.getDepXY_IMPL_TempsVAR();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepXYImpl <em>Dep XY</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6210,14 +4635,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute DEP_XY__DISTANCE_CST = eINSTANCE.getDepXY_DistanceCST();
-
-    /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XY__DISTANCE_VAR = eINSTANCE.getDepXY_DistanceVar();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CERCLEXYImpl <em>CERCLEXY</em>}' class.
@@ -6238,14 +4655,6 @@ public interface DrnPackage extends EPackage
     EAttribute CERCLEXY__RAYON_CST = eINSTANCE.getCERCLEXY_RayonCST();
 
     /**
-     * The meta object literal for the '<em><b>Rayon Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CERCLEXY__RAYON_VAR = eINSTANCE.getCERCLEXY_RayonVar();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CARREXYImpl <em>CARREXY</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6262,14 +4671,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute CARREXY__COTE_CST = eINSTANCE.getCARREXY_CoteCST();
-
-    /**
-     * The meta object literal for the '<em><b>Cote VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CARREXY__COTE_VAR = eINSTANCE.getCARREXY_CoteVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepYZ_IMPLImpl <em>Dep YZ IMPL</em>}' class.
@@ -6298,14 +4699,6 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_YZ_IMPL__TEMPS_CST = eINSTANCE.getDepYZ_IMPL_TempsCST();
 
     /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_YZ_IMPL__TEMPS_VAR = eINSTANCE.getDepYZ_IMPL_TempsVAR();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepYZImpl <em>Dep YZ</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6322,14 +4715,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute DEP_YZ__DISTANCE_CST = eINSTANCE.getDepYZ_DistanceCST();
-
-    /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_YZ__DISTANCE_VAR = eINSTANCE.getDepYZ_DistanceVar();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CERCLEYZImpl <em>CERCLEYZ</em>}' class.
@@ -6350,14 +4735,6 @@ public interface DrnPackage extends EPackage
     EAttribute CERCLEYZ__RAYON_CST = eINSTANCE.getCERCLEYZ_RayonCST();
 
     /**
-     * The meta object literal for the '<em><b>Rayon Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CERCLEYZ__RAYON_VAR = eINSTANCE.getCERCLEYZ_RayonVar();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CARREYZImpl <em>CARREYZ</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6374,14 +4751,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute CARREYZ__COTE_CST = eINSTANCE.getCARREYZ_CoteCST();
-
-    /**
-     * The meta object literal for the '<em><b>Cote VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CARREYZ__COTE_VAR = eINSTANCE.getCARREYZ_CoteVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepXZ_IMPLImpl <em>Dep XZ IMPL</em>}' class.
@@ -6420,28 +4789,12 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_XZ__DISTANCE_CST = eINSTANCE.getDepXZ_DistanceCST();
 
     /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XZ__DISTANCE_VAR = eINSTANCE.getDepXZ_DistanceVar();
-
-    /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DEP_XZ__TEMPS_CST = eINSTANCE.getDepXZ_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XZ__TEMPS_VAR = eINSTANCE.getDepXZ_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepXYZ_IMPLImpl <em>Dep XYZ IMPL</em>}' class.
@@ -6480,28 +4833,12 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_XYZ__DISTANCE_CST = eINSTANCE.getDepXYZ_DistanceCST();
 
     /**
-     * The meta object literal for the '<em><b>Distance Var</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XYZ__DISTANCE_VAR = eINSTANCE.getDepXYZ_DistanceVar();
-
-    /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DEP_XYZ__TEMPS_CST = eINSTANCE.getDepXYZ_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEP_XYZ__TEMPS_VAR = eINSTANCE.getDepXYZ_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.FlipImpl <em>Flip</em>}' class.
@@ -6540,28 +4877,12 @@ public interface DrnPackage extends EPackage
     EAttribute ROTATE__ANGLE_CST = eINSTANCE.getRotate_AngleCST();
 
     /**
-     * The meta object literal for the '<em><b>Angle VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ROTATE__ANGLE_VAR = eINSTANCE.getRotate_AngleVAR();
-
-    /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ROTATE__TEMPS_CST = eINSTANCE.getRotate_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ROTATE__TEMPS_VAR = eINSTANCE.getRotate_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.WaitImpl <em>Wait</em>}' class.
@@ -6588,14 +4909,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute WAIT__TEMPS_CST = eINSTANCE.getWait_TempsCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WAIT__TEMPS_VAR = eINSTANCE.getWait_TempsVAR();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.TakeOffImpl <em>Take Off</em>}' class.
@@ -6816,6 +5129,30 @@ public interface DrnPackage extends EPackage
     EReference ATTRIBUT__ELMT = eINSTANCE.getAttribut_Elmt();
 
     /**
+     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUT__MODE = eINSTANCE.getAttribut_Mode();
+
+    /**
+     * The meta object literal for the '<em><b>Int</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUT__INT = eINSTANCE.getAttribut_Int();
+
+    /**
+     * The meta object literal for the '<em><b>Bool</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUT__BOOL = eINSTANCE.getAttribut_Bool();
+
+    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.Led_ImplImpl <em>Led Impl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6876,14 +5213,6 @@ public interface DrnPackage extends EPackage
     EAttribute LED_BLINK__BLINK_PER_SEC_CST = eINSTANCE.getLedBlink_Blink_per_secCST();
 
     /**
-     * The meta object literal for the '<em><b>Blink per sec VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LED_BLINK__BLINK_PER_SEC_VAR = eINSTANCE.getLedBlink_Blink_per_secVAR();
-
-    /**
      * The meta object literal for the '<em><b>Attributs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6908,6 +5237,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute CAMERA__NAME = eINSTANCE.getCamera_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CAMERA__ID = eINSTANCE.getCamera_Id();
 
     /**
      * The meta object literal for the '<em><b>Attributs</b></em>' containment reference list feature.

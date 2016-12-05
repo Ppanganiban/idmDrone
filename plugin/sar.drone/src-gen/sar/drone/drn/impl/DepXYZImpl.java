@@ -6,13 +6,11 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.DepXYZ;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,9 +21,7 @@ import sar.drone.drn.Parametre;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.DepXYZImpl#getDistanceCST <em>Distance CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DepXYZImpl#getDistanceVar <em>Distance Var</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DepXYZImpl#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DepXYZImpl#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,7 +36,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * @generated
    * @ordered
    */
-  protected static final String DISTANCE_CST_EDEFAULT = null;
+  protected static final int DISTANCE_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
@@ -50,17 +46,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * @generated
    * @ordered
    */
-  protected String distanceCST = DISTANCE_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getDistanceVar() <em>Distance Var</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistanceVar()
-   * @generated
-   * @ordered
-   */
-  protected Parametre distanceVar;
+  protected int distanceCST = DISTANCE_CST_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
@@ -70,7 +56,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * @generated
    * @ordered
    */
-  protected static final String TEMPS_CST_EDEFAULT = null;
+  protected static final int TEMPS_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
@@ -80,17 +66,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * @generated
    * @ordered
    */
-  protected String tempsCST = TEMPS_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getTempsVAR() <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTempsVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre tempsVAR;
+  protected int tempsCST = TEMPS_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,7 +94,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDistanceCST()
+  public int getDistanceCST()
   {
     return distanceCST;
   }
@@ -128,9 +104,9 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistanceCST(String newDistanceCST)
+  public void setDistanceCST(int newDistanceCST)
   {
-    String oldDistanceCST = distanceCST;
+    int oldDistanceCST = distanceCST;
     distanceCST = newDistanceCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XYZ__DISTANCE_CST, oldDistanceCST, distanceCST));
@@ -141,50 +117,7 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parametre getDistanceVar()
-  {
-    if (distanceVar != null && distanceVar.eIsProxy())
-    {
-      InternalEObject oldDistanceVar = (InternalEObject)distanceVar;
-      distanceVar = (Parametre)eResolveProxy(oldDistanceVar);
-      if (distanceVar != oldDistanceVar)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.DEP_XYZ__DISTANCE_VAR, oldDistanceVar, distanceVar));
-      }
-    }
-    return distanceVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetDistanceVar()
-  {
-    return distanceVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDistanceVar(Parametre newDistanceVar)
-  {
-    Parametre oldDistanceVar = distanceVar;
-    distanceVar = newDistanceVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XYZ__DISTANCE_VAR, oldDistanceVar, distanceVar));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getTempsCST()
+  public int getTempsCST()
   {
     return tempsCST;
   }
@@ -194,55 +127,12 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTempsCST(String newTempsCST)
+  public void setTempsCST(int newTempsCST)
   {
-    String oldTempsCST = tempsCST;
+    int oldTempsCST = tempsCST;
     tempsCST = newTempsCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XYZ__TEMPS_CST, oldTempsCST, tempsCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getTempsVAR()
-  {
-    if (tempsVAR != null && tempsVAR.eIsProxy())
-    {
-      InternalEObject oldTempsVAR = (InternalEObject)tempsVAR;
-      tempsVAR = (Parametre)eResolveProxy(oldTempsVAR);
-      if (tempsVAR != oldTempsVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.DEP_XYZ__TEMPS_VAR, oldTempsVAR, tempsVAR));
-      }
-    }
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetTempsVAR()
-  {
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTempsVAR(Parametre newTempsVAR)
-  {
-    Parametre oldTempsVAR = tempsVAR;
-    tempsVAR = newTempsVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XYZ__TEMPS_VAR, oldTempsVAR, tempsVAR));
   }
 
   /**
@@ -257,14 +147,8 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
     {
       case DrnPackage.DEP_XYZ__DISTANCE_CST:
         return getDistanceCST();
-      case DrnPackage.DEP_XYZ__DISTANCE_VAR:
-        if (resolve) return getDistanceVar();
-        return basicGetDistanceVar();
       case DrnPackage.DEP_XYZ__TEMPS_CST:
         return getTempsCST();
-      case DrnPackage.DEP_XYZ__TEMPS_VAR:
-        if (resolve) return getTempsVAR();
-        return basicGetTempsVAR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,16 +164,10 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
     switch (featureID)
     {
       case DrnPackage.DEP_XYZ__DISTANCE_CST:
-        setDistanceCST((String)newValue);
-        return;
-      case DrnPackage.DEP_XYZ__DISTANCE_VAR:
-        setDistanceVar((Parametre)newValue);
+        setDistanceCST((Integer)newValue);
         return;
       case DrnPackage.DEP_XYZ__TEMPS_CST:
-        setTempsCST((String)newValue);
-        return;
-      case DrnPackage.DEP_XYZ__TEMPS_VAR:
-        setTempsVAR((Parametre)newValue);
+        setTempsCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,14 +186,8 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
       case DrnPackage.DEP_XYZ__DISTANCE_CST:
         setDistanceCST(DISTANCE_CST_EDEFAULT);
         return;
-      case DrnPackage.DEP_XYZ__DISTANCE_VAR:
-        setDistanceVar((Parametre)null);
-        return;
       case DrnPackage.DEP_XYZ__TEMPS_CST:
         setTempsCST(TEMPS_CST_EDEFAULT);
-        return;
-      case DrnPackage.DEP_XYZ__TEMPS_VAR:
-        setTempsVAR((Parametre)null);
         return;
     }
     super.eUnset(featureID);
@@ -332,13 +204,9 @@ public class DepXYZImpl extends DepXYZ_IMPLImpl implements DepXYZ
     switch (featureID)
     {
       case DrnPackage.DEP_XYZ__DISTANCE_CST:
-        return DISTANCE_CST_EDEFAULT == null ? distanceCST != null : !DISTANCE_CST_EDEFAULT.equals(distanceCST);
-      case DrnPackage.DEP_XYZ__DISTANCE_VAR:
-        return distanceVar != null;
+        return distanceCST != DISTANCE_CST_EDEFAULT;
       case DrnPackage.DEP_XYZ__TEMPS_CST:
-        return TEMPS_CST_EDEFAULT == null ? tempsCST != null : !TEMPS_CST_EDEFAULT.equals(tempsCST);
-      case DrnPackage.DEP_XYZ__TEMPS_VAR:
-        return tempsVAR != null;
+        return tempsCST != TEMPS_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

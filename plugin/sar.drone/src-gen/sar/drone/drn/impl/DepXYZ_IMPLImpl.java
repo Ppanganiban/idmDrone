@@ -25,7 +25,7 @@ import sar.drone.drn.DrnPackage;
  *
  * @generated
  */
-public class DepXYZ_IMPLImpl extends ExpressionImpl implements DepXYZ_IMPL
+public class DepXYZ_IMPLImpl extends MovementImpl implements DepXYZ_IMPL
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

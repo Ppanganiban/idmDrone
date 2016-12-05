@@ -52,6 +52,7 @@ import sar.drone.drn.MaxSpeed;
 import sar.drone.drn.MaxWidth;
 import sar.drone.drn.Mode;
 import sar.drone.drn.Model;
+import sar.drone.drn.Movement;
 import sar.drone.drn.Option;
 import sar.drone.drn.Parametre;
 import sar.drone.drn.RefDevice;
@@ -175,6 +176,13 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass movementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -822,19 +830,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssignement_Parametre()
-  {
-    return (EReference)assignementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAssignement_Operandes()
   {
-    return (EReference)assignementEClass.getEStructuralFeatures().get(2);
+    return (EReference)assignementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -872,9 +870,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpression_Move()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getExpression_RepeatCST()
   {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -884,7 +892,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    */
   public EReference getExpression_RepeatVAR()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -894,7 +902,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    */
   public EReference getExpression_With()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -904,7 +912,17 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    */
   public EReference getExpression_Then()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMovement()
+  {
+    return movementEClass;
   }
 
   /**
@@ -925,16 +943,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EReference getRefPart_Variable_partie()
   {
     return (EReference)refPartEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRefPart_Params()
-  {
-    return (EAttribute)refPartEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1042,19 +1050,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepY_Impl_DistanceVar()
-  {
-    return (EReference)depY_ImplEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDepY_Impl_DistanceCST()
   {
-    return (EAttribute)depY_ImplEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)depY_ImplEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1064,17 +1062,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    */
   public EAttribute getDepY_Impl_TempsCST()
   {
-    return (EAttribute)depY_ImplEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepY_Impl_TempsVAR()
-  {
-    return (EReference)depY_ImplEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)depY_ImplEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1132,29 +1120,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepX_Impl_DistanceVar()
-  {
-    return (EReference)depX_ImplEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDepX_Impl_TempsCST()
   {
-    return (EAttribute)depX_ImplEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepX_Impl_TempsVAR()
-  {
-    return (EReference)depX_ImplEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)depX_ImplEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1212,29 +1180,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepZ_Impl_DistanceVar()
-  {
-    return (EReference)depZ_ImplEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDepZ_Impl_TempsCST()
   {
-    return (EAttribute)depZ_ImplEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepZ_Impl_TempsVAR()
-  {
-    return (EReference)depZ_ImplEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)depZ_ImplEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1292,16 +1240,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepXY_IMPL_TempsVAR()
-  {
-    return (EReference)depXY_IMPLEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDepXY()
   {
     return depXYEClass;
@@ -1315,16 +1253,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getDepXY_DistanceCST()
   {
     return (EAttribute)depXYEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepXY_DistanceVar()
-  {
-    return (EReference)depXYEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1352,16 +1280,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCERCLEXY_RayonVar()
-  {
-    return (EReference)cerclexyEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getCARREXY()
   {
     return carrexyEClass;
@@ -1375,16 +1293,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getCARREXY_CoteCST()
   {
     return (EAttribute)carrexyEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCARREXY_CoteVAR()
-  {
-    return (EReference)carrexyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1422,16 +1330,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepYZ_IMPL_TempsVAR()
-  {
-    return (EReference)depYZ_IMPLEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDepYZ()
   {
     return depYZEClass;
@@ -1445,16 +1343,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getDepYZ_DistanceCST()
   {
     return (EAttribute)depYZEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepYZ_DistanceVar()
-  {
-    return (EReference)depYZEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1482,16 +1370,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCERCLEYZ_RayonVar()
-  {
-    return (EReference)cercleyzEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getCARREYZ()
   {
     return carreyzEClass;
@@ -1505,16 +1383,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getCARREYZ_CoteCST()
   {
     return (EAttribute)carreyzEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCARREYZ_CoteVAR()
-  {
-    return (EReference)carreyzEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1562,29 +1430,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepXZ_DistanceVar()
-  {
-    return (EReference)depXZEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDepXZ_TempsCST()
   {
-    return (EAttribute)depXZEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepXZ_TempsVAR()
-  {
-    return (EReference)depXZEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)depXZEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1632,29 +1480,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDepXYZ_DistanceVar()
-  {
-    return (EReference)depXYZEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDepXYZ_TempsCST()
   {
-    return (EAttribute)depXYZEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDepXYZ_TempsVAR()
-  {
-    return (EReference)depXYZEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)depXYZEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1702,29 +1530,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRotate_AngleVAR()
-  {
-    return (EReference)rotateEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getRotate_TempsCST()
   {
-    return (EAttribute)rotateEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRotate_TempsVAR()
-  {
-    return (EReference)rotateEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)rotateEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1755,16 +1563,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getWait_TempsCST()
   {
     return (EAttribute)waitEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWait_TempsVAR()
-  {
-    return (EReference)waitEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2022,6 +1820,36 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAttribut_Mode()
+  {
+    return (EAttribute)attributEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttribut_Int()
+  {
+    return (EAttribute)attributEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttribut_Bool()
+  {
+    return (EAttribute)attributEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLed_Impl()
   {
     return led_ImplEClass;
@@ -2092,19 +1920,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLedBlink_Blink_per_secVAR()
-  {
-    return (EReference)ledBlinkEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getLedBlink_Attributs()
   {
-    return (EReference)ledBlinkEClass.getEStructuralFeatures().get(4);
+    return (EReference)ledBlinkEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2132,9 +1950,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCamera_Id()
+  {
+    return (EAttribute)cameraEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getCamera_Attributs()
   {
-    return (EReference)cameraEClass.getEStructuralFeatures().get(1);
+    return (EReference)cameraEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2296,21 +2124,22 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     assignementEClass = createEClass(ASSIGNEMENT);
     createEAttribute(assignementEClass, ASSIGNEMENT__NAME);
-    createEReference(assignementEClass, ASSIGNEMENT__PARAMETRE);
     createEReference(assignementEClass, ASSIGNEMENT__OPERANDES);
 
     parametreEClass = createEClass(PARAMETRE);
     createEAttribute(parametreEClass, PARAMETRE__NAME);
 
     expressionEClass = createEClass(EXPRESSION);
+    createEReference(expressionEClass, EXPRESSION__MOVE);
     createEAttribute(expressionEClass, EXPRESSION__REPEAT_CST);
     createEReference(expressionEClass, EXPRESSION__REPEAT_VAR);
     createEReference(expressionEClass, EXPRESSION__WITH);
     createEReference(expressionEClass, EXPRESSION__THEN);
 
+    movementEClass = createEClass(MOVEMENT);
+
     refPartEClass = createEClass(REF_PART);
     createEReference(refPartEClass, REF_PART__VARIABLE_PARTIE);
-    createEAttribute(refPartEClass, REF_PART__PARAMS);
 
     andEClass = createEClass(AND);
     createEAttribute(andEClass, AND__NAME);
@@ -2323,10 +2152,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     depY_ImplEClass = createEClass(DEP_YIMPL);
     createEAttribute(depY_ImplEClass, DEP_YIMPL__NAME);
-    createEReference(depY_ImplEClass, DEP_YIMPL__DISTANCE_VAR);
     createEAttribute(depY_ImplEClass, DEP_YIMPL__DISTANCE_CST);
     createEAttribute(depY_ImplEClass, DEP_YIMPL__TEMPS_CST);
-    createEReference(depY_ImplEClass, DEP_YIMPL__TEMPS_VAR);
 
     forwardEClass = createEClass(FORWARD);
 
@@ -2335,9 +2162,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     depX_ImplEClass = createEClass(DEP_XIMPL);
     createEAttribute(depX_ImplEClass, DEP_XIMPL__NAME);
     createEAttribute(depX_ImplEClass, DEP_XIMPL__DISTANCE_CST);
-    createEReference(depX_ImplEClass, DEP_XIMPL__DISTANCE_VAR);
     createEAttribute(depX_ImplEClass, DEP_XIMPL__TEMPS_CST);
-    createEReference(depX_ImplEClass, DEP_XIMPL__TEMPS_VAR);
 
     leftEClass = createEClass(LEFT);
 
@@ -2346,9 +2171,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     depZ_ImplEClass = createEClass(DEP_ZIMPL);
     createEAttribute(depZ_ImplEClass, DEP_ZIMPL__NAME);
     createEAttribute(depZ_ImplEClass, DEP_ZIMPL__DISTANCE_CST);
-    createEReference(depZ_ImplEClass, DEP_ZIMPL__DISTANCE_VAR);
     createEAttribute(depZ_ImplEClass, DEP_ZIMPL__TEMPS_CST);
-    createEReference(depZ_ImplEClass, DEP_ZIMPL__TEMPS_VAR);
 
     upEClass = createEClass(UP);
 
@@ -2357,68 +2180,53 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     depXY_IMPLEClass = createEClass(DEP_XY_IMPL);
     createEAttribute(depXY_IMPLEClass, DEP_XY_IMPL__NAME);
     createEAttribute(depXY_IMPLEClass, DEP_XY_IMPL__TEMPS_CST);
-    createEReference(depXY_IMPLEClass, DEP_XY_IMPL__TEMPS_VAR);
 
     depXYEClass = createEClass(DEP_XY);
     createEAttribute(depXYEClass, DEP_XY__DISTANCE_CST);
-    createEReference(depXYEClass, DEP_XY__DISTANCE_VAR);
 
     cerclexyEClass = createEClass(CERCLEXY);
     createEAttribute(cerclexyEClass, CERCLEXY__RAYON_CST);
-    createEReference(cerclexyEClass, CERCLEXY__RAYON_VAR);
 
     carrexyEClass = createEClass(CARREXY);
     createEAttribute(carrexyEClass, CARREXY__COTE_CST);
-    createEReference(carrexyEClass, CARREXY__COTE_VAR);
 
     depYZ_IMPLEClass = createEClass(DEP_YZ_IMPL);
     createEAttribute(depYZ_IMPLEClass, DEP_YZ_IMPL__NAME);
     createEAttribute(depYZ_IMPLEClass, DEP_YZ_IMPL__TEMPS_CST);
-    createEReference(depYZ_IMPLEClass, DEP_YZ_IMPL__TEMPS_VAR);
 
     depYZEClass = createEClass(DEP_YZ);
     createEAttribute(depYZEClass, DEP_YZ__DISTANCE_CST);
-    createEReference(depYZEClass, DEP_YZ__DISTANCE_VAR);
 
     cercleyzEClass = createEClass(CERCLEYZ);
     createEAttribute(cercleyzEClass, CERCLEYZ__RAYON_CST);
-    createEReference(cercleyzEClass, CERCLEYZ__RAYON_VAR);
 
     carreyzEClass = createEClass(CARREYZ);
     createEAttribute(carreyzEClass, CARREYZ__COTE_CST);
-    createEReference(carreyzEClass, CARREYZ__COTE_VAR);
 
     depXZ_IMPLEClass = createEClass(DEP_XZ_IMPL);
 
     depXZEClass = createEClass(DEP_XZ);
     createEAttribute(depXZEClass, DEP_XZ__NAME);
     createEAttribute(depXZEClass, DEP_XZ__DISTANCE_CST);
-    createEReference(depXZEClass, DEP_XZ__DISTANCE_VAR);
     createEAttribute(depXZEClass, DEP_XZ__TEMPS_CST);
-    createEReference(depXZEClass, DEP_XZ__TEMPS_VAR);
 
     depXYZ_IMPLEClass = createEClass(DEP_XYZ_IMPL);
     createEAttribute(depXYZ_IMPLEClass, DEP_XYZ_IMPL__NAME);
 
     depXYZEClass = createEClass(DEP_XYZ);
     createEAttribute(depXYZEClass, DEP_XYZ__DISTANCE_CST);
-    createEReference(depXYZEClass, DEP_XYZ__DISTANCE_VAR);
     createEAttribute(depXYZEClass, DEP_XYZ__TEMPS_CST);
-    createEReference(depXYZEClass, DEP_XYZ__TEMPS_VAR);
 
     flipEClass = createEClass(FLIP);
 
     rotateEClass = createEClass(ROTATE);
     createEAttribute(rotateEClass, ROTATE__NAME);
     createEAttribute(rotateEClass, ROTATE__ANGLE_CST);
-    createEReference(rotateEClass, ROTATE__ANGLE_VAR);
     createEAttribute(rotateEClass, ROTATE__TEMPS_CST);
-    createEReference(rotateEClass, ROTATE__TEMPS_VAR);
 
     waitEClass = createEClass(WAIT);
     createEAttribute(waitEClass, WAIT__NAME);
     createEAttribute(waitEClass, WAIT__TEMPS_CST);
-    createEReference(waitEClass, WAIT__TEMPS_VAR);
 
     takeOffEClass = createEClass(TAKE_OFF);
     createEAttribute(takeOffEClass, TAKE_OFF__NAME);
@@ -2453,6 +2261,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEAttribute(attributEClass, ATTRIBUT__NAME);
     createEReference(attributEClass, ATTRIBUT__TYPE);
     createEReference(attributEClass, ATTRIBUT__ELMT);
+    createEAttribute(attributEClass, ATTRIBUT__MODE);
+    createEAttribute(attributEClass, ATTRIBUT__INT);
+    createEAttribute(attributEClass, ATTRIBUT__BOOL);
 
     led_ImplEClass = createEClass(LED_IMPL);
     createEAttribute(led_ImplEClass, LED_IMPL__NAME);
@@ -2462,11 +2273,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEAttribute(ledBlinkEClass, LED_BLINK__NAME);
     createEAttribute(ledBlinkEClass, LED_BLINK__COLOR);
     createEAttribute(ledBlinkEClass, LED_BLINK__BLINK_PER_SEC_CST);
-    createEReference(ledBlinkEClass, LED_BLINK__BLINK_PER_SEC_VAR);
     createEReference(ledBlinkEClass, LED_BLINK__ATTRIBUTS);
 
     cameraEClass = createEClass(CAMERA);
     createEAttribute(cameraEClass, CAMERA__NAME);
+    createEAttribute(cameraEClass, CAMERA__ID);
     createEReference(cameraEClass, CAMERA__ATTRIBUTS);
 
     typeGenericEClass = createEClass(TYPE_GENERIC);
@@ -2521,34 +2332,34 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     maxWidthEClass.getESuperTypes().add(this.getSurface());
     maxSpeedEClass.getESuperTypes().add(this.getLimit());
     maxHeigthEClass.getESuperTypes().add(this.getSurface());
-    refPartEClass.getESuperTypes().add(this.getExpression());
-    andEClass.getESuperTypes().add(this.getExpression());
-    depY_ImplEClass.getESuperTypes().add(this.getExpression());
+    refPartEClass.getESuperTypes().add(this.getMovement());
+    andEClass.getESuperTypes().add(this.getMovement());
+    depY_ImplEClass.getESuperTypes().add(this.getMovement());
     forwardEClass.getESuperTypes().add(this.getDepY_Impl());
     backwardEClass.getESuperTypes().add(this.getDepY_Impl());
-    depX_ImplEClass.getESuperTypes().add(this.getExpression());
+    depX_ImplEClass.getESuperTypes().add(this.getMovement());
     leftEClass.getESuperTypes().add(this.getDepX_Impl());
     rightEClass.getESuperTypes().add(this.getDepX_Impl());
-    depZ_ImplEClass.getESuperTypes().add(this.getExpression());
+    depZ_ImplEClass.getESuperTypes().add(this.getMovement());
     upEClass.getESuperTypes().add(this.getDepZ_Impl());
     downEClass.getESuperTypes().add(this.getDepZ_Impl());
-    depXY_IMPLEClass.getESuperTypes().add(this.getExpression());
+    depXY_IMPLEClass.getESuperTypes().add(this.getMovement());
     depXYEClass.getESuperTypes().add(this.getDepXY_IMPL());
     cerclexyEClass.getESuperTypes().add(this.getDepXY_IMPL());
     carrexyEClass.getESuperTypes().add(this.getDepXY_IMPL());
-    depYZ_IMPLEClass.getESuperTypes().add(this.getExpression());
+    depYZ_IMPLEClass.getESuperTypes().add(this.getMovement());
     depYZEClass.getESuperTypes().add(this.getDepYZ_IMPL());
     cercleyzEClass.getESuperTypes().add(this.getDepYZ_IMPL());
     carreyzEClass.getESuperTypes().add(this.getDepYZ_IMPL());
-    depXZ_IMPLEClass.getESuperTypes().add(this.getExpression());
+    depXZ_IMPLEClass.getESuperTypes().add(this.getMovement());
     depXZEClass.getESuperTypes().add(this.getDepXZ_IMPL());
-    depXYZ_IMPLEClass.getESuperTypes().add(this.getExpression());
+    depXYZ_IMPLEClass.getESuperTypes().add(this.getMovement());
     depXYZEClass.getESuperTypes().add(this.getDepXYZ_IMPL());
     flipEClass.getESuperTypes().add(this.getDepXYZ_IMPL());
-    rotateEClass.getESuperTypes().add(this.getExpression());
-    waitEClass.getESuperTypes().add(this.getExpression());
-    takeOffEClass.getESuperTypes().add(this.getExpression());
-    landEClass.getESuperTypes().add(this.getExpression());
+    rotateEClass.getESuperTypes().add(this.getMovement());
+    waitEClass.getESuperTypes().add(this.getMovement());
+    takeOffEClass.getESuperTypes().add(this.getMovement());
+    landEClass.getESuperTypes().add(this.getMovement());
     refDeviceEClass.getESuperTypes().add(this.getOption());
     led_ImplEClass.getESuperTypes().add(this.getOption());
     ledBlinkEClass.getESuperTypes().add(this.getOption());
@@ -2570,7 +2381,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getLimit_Name(), ecorePackage.getEString(), "name", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(surfaceEClass, Surface.class, "Surface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSurface_Value(), ecorePackage.getEString(), "value", null, 0, 1, Surface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSurface_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Surface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initialPositionEClass, InitialPosition.class, "InitialPosition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2578,37 +2389,38 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getInitialDirection_Value(), this.getDirectionType(), "value", null, 0, 1, InitialDirection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initialPositionXEClass, InitialPositionX.class, "InitialPositionX", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInitialPositionX_Value(), ecorePackage.getEString(), "value", null, 0, 1, InitialPositionX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInitialPositionX_Value(), ecorePackage.getEInt(), "value", null, 0, 1, InitialPositionX.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initialPositionYEClass, InitialPositionY.class, "InitialPositionY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInitialPositionY_Value(), ecorePackage.getEString(), "value", null, 0, 1, InitialPositionY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInitialPositionY_Value(), ecorePackage.getEInt(), "value", null, 0, 1, InitialPositionY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(maxLengthEClass, MaxLength.class, "MaxLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(maxWidthEClass, MaxWidth.class, "MaxWidth", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(maxSpeedEClass, MaxSpeed.class, "MaxSpeed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMaxSpeed_Value(), ecorePackage.getEString(), "value", null, 0, 1, MaxSpeed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMaxSpeed_Value(), ecorePackage.getEInt(), "value", null, 0, 1, MaxSpeed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(maxHeigthEClass, MaxHeigth.class, "MaxHeigth", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assignementEClass, Assignement.class, "Assignement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssignement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assignement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssignement_Parametre(), this.getParametre(), null, "parametre", null, 0, -1, Assignement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssignement_Operandes(), this.getExpression(), null, "operandes", null, 0, -1, Assignement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parametreEClass, Parametre.class, "Parametre", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParametre_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExpression_RepeatCST(), ecorePackage.getEString(), "repeatCST", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Move(), this.getMovement(), null, "move", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_RepeatCST(), ecorePackage.getEInt(), "repeatCST", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_RepeatVAR(), this.getParametre(), null, "repeatVAR", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_With(), this.getWith(), null, "with", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Then(), this.getExpression(), null, "then", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(movementEClass, Movement.class, "Movement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(refPartEClass, RefPart.class, "RefPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefPart_Variable_partie(), this.getAssignement(), null, "variable_partie", null, 0, 1, RefPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRefPart_Params(), ecorePackage.getEString(), "params", null, 0, -1, RefPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2621,10 +2433,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(depY_ImplEClass, DepY_Impl.class, "DepY_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepY_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepY_Impl_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepY_Impl_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepY_Impl_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepY_Impl_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepY_Impl_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepY_Impl_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forwardEClass, sar.drone.drn.FORWARD.class, "FORWARD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2632,10 +2442,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(depX_ImplEClass, DepX_Impl.class, "DepX_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepX_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepX_Impl_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepX_Impl_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepX_Impl_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepX_Impl_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepX_Impl_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepX_Impl_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepX_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(leftEClass, sar.drone.drn.LEFT.class, "LEFT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2643,10 +2451,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(depZ_ImplEClass, DepZ_Impl.class, "DepZ_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepZ_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepZ_Impl_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepZ_Impl_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepZ_Impl_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepZ_Impl_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepZ_Impl_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepZ_Impl_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepZ_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(upEClass, sar.drone.drn.UP.class, "UP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2654,69 +2460,54 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(depXY_IMPLEClass, DepXY_IMPL.class, "DepXY_IMPL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepXY_IMPL_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepXY_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepXY_IMPL_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepXY_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXY_IMPL_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepXY_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXY_IMPL_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepXY_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depXYEClass, DepXY.class, "DepXY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDepXY_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXY_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXY_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cerclexyEClass, sar.drone.drn.CERCLEXY.class, "CERCLEXY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCERCLEXY_RayonCST(), ecorePackage.getEString(), "rayonCST", null, 0, 1, sar.drone.drn.CERCLEXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCERCLEXY_RayonVar(), this.getParametre(), null, "rayonVar", null, 0, 1, sar.drone.drn.CERCLEXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCERCLEXY_RayonCST(), ecorePackage.getEInt(), "rayonCST", null, 0, 1, sar.drone.drn.CERCLEXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(carrexyEClass, sar.drone.drn.CARREXY.class, "CARREXY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCARREXY_CoteCST(), ecorePackage.getEString(), "coteCST", null, 0, 1, sar.drone.drn.CARREXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCARREXY_CoteVAR(), this.getParametre(), null, "coteVAR", null, 0, 1, sar.drone.drn.CARREXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCARREXY_CoteCST(), ecorePackage.getEInt(), "coteCST", null, 0, 1, sar.drone.drn.CARREXY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depYZ_IMPLEClass, DepYZ_IMPL.class, "DepYZ_IMPL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepYZ_IMPL_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepYZ_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepYZ_IMPL_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepYZ_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepYZ_IMPL_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepYZ_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepYZ_IMPL_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepYZ_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depYZEClass, DepYZ.class, "DepYZ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDepYZ_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepYZ_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepYZ_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cercleyzEClass, sar.drone.drn.CERCLEYZ.class, "CERCLEYZ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCERCLEYZ_RayonCST(), ecorePackage.getEString(), "rayonCST", null, 0, 1, sar.drone.drn.CERCLEYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCERCLEYZ_RayonVar(), this.getParametre(), null, "rayonVar", null, 0, 1, sar.drone.drn.CERCLEYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCERCLEYZ_RayonCST(), ecorePackage.getEInt(), "rayonCST", null, 0, 1, sar.drone.drn.CERCLEYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(carreyzEClass, sar.drone.drn.CARREYZ.class, "CARREYZ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCARREYZ_CoteCST(), ecorePackage.getEString(), "coteCST", null, 0, 1, sar.drone.drn.CARREYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCARREYZ_CoteVAR(), this.getParametre(), null, "coteVAR", null, 0, 1, sar.drone.drn.CARREYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCARREYZ_CoteCST(), ecorePackage.getEInt(), "coteCST", null, 0, 1, sar.drone.drn.CARREYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depXZ_IMPLEClass, DepXZ_IMPL.class, "DepXZ_IMPL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(depXZEClass, DepXZ.class, "DepXZ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepXZ_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepXZ_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXZ_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepXZ_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXZ_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXZ_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXZ_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepXZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depXYZ_IMPLEClass, DepXYZ_IMPL.class, "DepXYZ_IMPL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepXYZ_IMPL_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepXYZ_IMPL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depXYZEClass, DepXYZ.class, "DepXYZ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDepXYZ_DistanceCST(), ecorePackage.getEString(), "distanceCST", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXYZ_DistanceVar(), this.getParametre(), null, "distanceVar", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDepXYZ_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDepXYZ_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXYZ_DistanceCST(), ecorePackage.getEInt(), "distanceCST", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDepXYZ_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, DepXYZ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(flipEClass, Flip.class, "Flip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(rotateEClass, Rotate.class, "Rotate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRotate_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRotate_AngleCST(), ecorePackage.getEString(), "angleCST", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRotate_AngleVAR(), this.getParametre(), null, "angleVAR", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRotate_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRotate_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRotate_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(waitEClass, Wait.class, "Wait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWait_Name(), ecorePackage.getEString(), "name", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWait_TempsCST(), ecorePackage.getEString(), "tempsCST", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWait_TempsVAR(), this.getParametre(), null, "tempsVAR", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWait_TempsCST(), ecorePackage.getEInt(), "tempsCST", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(takeOffEClass, TakeOff.class, "TakeOff", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTakeOff_Name(), ecorePackage.getEString(), "name", null, 0, 1, TakeOff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2751,6 +2542,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getAttribut_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribut_Type(), this.getTypeGeneric(), null, "type", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribut_Elmt(), this.getElement(), null, "elmt", null, 0, -1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribut_Mode(), this.getMode(), "mode", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribut_Int(), ecorePackage.getEString(), "int", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribut_Bool(), this.getEBool(), "bool", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(led_ImplEClass, Led_Impl.class, "Led_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLed_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Led_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2759,12 +2553,12 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEClass(ledBlinkEClass, LedBlink.class, "LedBlink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLedBlink_Name(), ecorePackage.getEString(), "name", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLedBlink_Color(), this.getColorLed(), "color", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLedBlink_Blink_per_secCST(), ecorePackage.getEString(), "blink_per_secCST", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLedBlink_Blink_per_secVAR(), this.getParametre(), null, "blink_per_secVAR", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLedBlink_Blink_per_secCST(), ecorePackage.getEInt(), "blink_per_secCST", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLedBlink_Attributs(), this.getAttribut(), null, "attributs", null, 0, -1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCamera_Name(), ecorePackage.getEString(), "name", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCamera_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCamera_Attributs(), this.getAttribut(), null, "attributs", null, 0, -1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeGenericEClass, TypeGeneric.class, "TypeGeneric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

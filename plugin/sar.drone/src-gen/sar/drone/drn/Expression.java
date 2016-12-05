@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.Expression#getMove <em>Move</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getRepeatCST <em>Repeat CST</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getRepeatVAR <em>Repeat VAR</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getWith <em>With</em>}</li>
@@ -29,6 +30,32 @@ import org.eclipse.emf.ecore.EObject;
 public interface Expression extends EObject
 {
   /**
+   * Returns the value of the '<em><b>Move</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Move</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Move</em>' containment reference.
+   * @see #setMove(Movement)
+   * @see sar.drone.drn.DrnPackage#getExpression_Move()
+   * @model containment="true"
+   * @generated
+   */
+  Movement getMove();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Expression#getMove <em>Move</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Move</em>' containment reference.
+   * @see #getMove()
+   * @generated
+   */
+  void setMove(Movement value);
+
+  /**
    * Returns the value of the '<em><b>Repeat CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -37,12 +64,12 @@ public interface Expression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Repeat CST</em>' attribute.
-   * @see #setRepeatCST(String)
+   * @see #setRepeatCST(int)
    * @see sar.drone.drn.DrnPackage#getExpression_RepeatCST()
    * @model
    * @generated
    */
-  String getRepeatCST();
+  int getRepeatCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.Expression#getRepeatCST <em>Repeat CST</em>}' attribute.
@@ -52,7 +79,7 @@ public interface Expression extends EObject
    * @see #getRepeatCST()
    * @generated
    */
-  void setRepeatCST(String value);
+  void setRepeatCST(int value);
 
   /**
    * Returns the value of the '<em><b>Repeat VAR</b></em>' reference.

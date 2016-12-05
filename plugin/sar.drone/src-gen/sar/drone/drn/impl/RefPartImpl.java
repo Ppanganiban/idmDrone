@@ -3,18 +3,12 @@
  */
 package sar.drone.drn.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import sar.drone.drn.Assignement;
 import sar.drone.drn.DrnPackage;
@@ -29,12 +23,11 @@ import sar.drone.drn.RefPart;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.RefPartImpl#getVariable_partie <em>Variable partie</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RefPartImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RefPartImpl extends ExpressionImpl implements RefPart
+public class RefPartImpl extends MovementImpl implements RefPart
 {
   /**
    * The cached value of the '{@link #getVariable_partie() <em>Variable partie</em>}' reference.
@@ -45,16 +38,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
    * @ordered
    */
   protected Assignement variable_partie;
-
-  /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> params;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,20 +108,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getParams()
-  {
-    if (params == null)
-    {
-      params = new EDataTypeEList<String>(String.class, this, DrnPackage.REF_PART__PARAMS);
-    }
-    return params;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -147,8 +116,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
       case DrnPackage.REF_PART__VARIABLE_PARTIE:
         if (resolve) return getVariable_partie();
         return basicGetVariable_partie();
-      case DrnPackage.REF_PART__PARAMS:
-        return getParams();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -158,7 +125,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -166,10 +132,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
     {
       case DrnPackage.REF_PART__VARIABLE_PARTIE:
         setVariable_partie((Assignement)newValue);
-        return;
-      case DrnPackage.REF_PART__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,9 +150,6 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
       case DrnPackage.REF_PART__VARIABLE_PARTIE:
         setVariable_partie((Assignement)null);
         return;
-      case DrnPackage.REF_PART__PARAMS:
-        getParams().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -207,27 +166,8 @@ public class RefPartImpl extends ExpressionImpl implements RefPart
     {
       case DrnPackage.REF_PART__VARIABLE_PARTIE:
         return variable_partie != null;
-      case DrnPackage.REF_PART__PARAMS:
-        return params != null && !params.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (params: ");
-    result.append(params);
-    result.append(')');
-    return result.toString();
   }
 
 } //RefPartImpl

@@ -34,6 +34,7 @@ import sar.drone.drn.DepYZ;
 import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Element;
+import sar.drone.drn.Expression;
 import sar.drone.drn.FORWARD;
 import sar.drone.drn.Flip;
 import sar.drone.drn.InitialDirection;
@@ -75,15 +76,8 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (epackage == DrnPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DrnPackage.AND:
-				if (rule == grammarAccess.getAndRule()) {
-					sequence_And(context, (And) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_And_Expression(context, (And) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_And(context, (And) semanticObject); 
+				return; 
 			case DrnPackage.ASSIGNEMENT:
 				sequence_Assignement(context, (Assignement) semanticObject); 
 				return; 
@@ -91,60 +85,20 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Attribut(context, (Attribut) semanticObject); 
 				return; 
 			case DrnPackage.BACKWARD:
-				if (rule == grammarAccess.getDepY_ImplRule()
-						|| rule == grammarAccess.getBACKWARDRule()) {
-					sequence_BACKWARD(context, (BACKWARD) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_BACKWARD_Expression(context, (BACKWARD) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_BACKWARD(context, (BACKWARD) semanticObject); 
+				return; 
 			case DrnPackage.CARREXY:
-				if (rule == grammarAccess.getDepXY_IMPLRule()
-						|| rule == grammarAccess.getCARREXYRule()) {
-					sequence_CARREXY(context, (CARREXY) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_CARREXY_Expression(context, (CARREXY) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_CARREXY(context, (CARREXY) semanticObject); 
+				return; 
 			case DrnPackage.CARREYZ:
-				if (rule == grammarAccess.getDepYZ_IMPLRule()
-						|| rule == grammarAccess.getCARREYZRule()) {
-					sequence_CARREYZ(context, (CARREYZ) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_CARREYZ_Expression(context, (CARREYZ) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_CARREYZ(context, (CARREYZ) semanticObject); 
+				return; 
 			case DrnPackage.CERCLEXY:
-				if (rule == grammarAccess.getDepXY_IMPLRule()
-						|| rule == grammarAccess.getCERCLEXYRule()) {
-					sequence_CERCLEXY(context, (CERCLEXY) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_CERCLEXY_Expression(context, (CERCLEXY) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_CERCLEXY(context, (CERCLEXY) semanticObject); 
+				return; 
 			case DrnPackage.CERCLEYZ:
-				if (rule == grammarAccess.getDepYZ_IMPLRule()
-						|| rule == grammarAccess.getCERCLEYZRule()) {
-					sequence_CERCLEYZ(context, (CERCLEYZ) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_CERCLEYZ_Expression(context, (CERCLEYZ) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_CERCLEYZ(context, (CERCLEYZ) semanticObject); 
+				return; 
 			case DrnPackage.CAMERA:
 				sequence_Camera(context, (Camera) semanticObject); 
 				return; 
@@ -152,16 +106,8 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Context(context, (Context) semanticObject); 
 				return; 
 			case DrnPackage.DOWN:
-				if (rule == grammarAccess.getDepZ_ImplRule()
-						|| rule == grammarAccess.getDOWNRule()) {
-					sequence_DOWN(context, (DOWN) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_DOWN_Expression(context, (DOWN) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DOWN(context, (DOWN) semanticObject); 
+				return; 
 			case DrnPackage.DECLARATION:
 				sequence_Declaration(context, (Declaration) semanticObject); 
 				return; 
@@ -169,77 +115,32 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Definition(context, (Definition) semanticObject); 
 				return; 
 			case DrnPackage.DEP_XY:
-				if (rule == grammarAccess.getDepXY_IMPLRule()
-						|| rule == grammarAccess.getDepXYRule()) {
-					sequence_DepXY(context, (DepXY) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_DepXY_Expression(context, (DepXY) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DepXY(context, (DepXY) semanticObject); 
+				return; 
 			case DrnPackage.DEP_XYZ:
-				if (rule == grammarAccess.getDepXYZ_IMPLRule()
-						|| rule == grammarAccess.getDepXYZRule()) {
-					sequence_DepXYZ(context, (DepXYZ) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_DepXYZ_Expression(context, (DepXYZ) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DepXYZ(context, (DepXYZ) semanticObject); 
+				return; 
 			case DrnPackage.DEP_XZ:
-				if (rule == grammarAccess.getDepXZ_IMPLRule()
-						|| rule == grammarAccess.getDepXZRule()) {
-					sequence_DepXZ(context, (DepXZ) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_DepXZ_Expression(context, (DepXZ) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DepXZ(context, (DepXZ) semanticObject); 
+				return; 
 			case DrnPackage.DEP_YZ:
-				if (rule == grammarAccess.getDepYZ_IMPLRule()
-						|| rule == grammarAccess.getDepYZRule()) {
-					sequence_DepYZ(context, (DepYZ) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()) {
-					sequence_DepYZ_Expression(context, (DepYZ) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DepYZ(context, (DepYZ) semanticObject); 
+				return; 
 			case DrnPackage.DEVICE:
 				sequence_Device(context, (Device) semanticObject); 
 				return; 
 			case DrnPackage.ELEMENT:
 				sequence_Element(context, (Element) semanticObject); 
 				return; 
+			case DrnPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
+				return; 
 			case DrnPackage.FORWARD:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_FORWARD(context, (FORWARD) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDepY_ImplRule()
-						|| rule == grammarAccess.getFORWARDRule()) {
-					sequence_FORWARD(context, (FORWARD) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_FORWARD(context, (FORWARD) semanticObject); 
+				return; 
 			case DrnPackage.FLIP:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_Flip(context, (Flip) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDepXYZ_IMPLRule()
-						|| rule == grammarAccess.getFlipRule()) {
-					sequence_Flip(context, (Flip) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Flip(context, (Flip) semanticObject); 
+				return; 
 			case DrnPackage.INITIAL_DIRECTION:
 				sequence_InitialDirection(context, (InitialDirection) semanticObject); 
 				return; 
@@ -250,26 +151,11 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_InitialPositionY(context, (InitialPositionY) semanticObject); 
 				return; 
 			case DrnPackage.LEFT:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_LEFT(context, (LEFT) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDepX_ImplRule()
-						|| rule == grammarAccess.getLEFTRule()) {
-					sequence_LEFT(context, (LEFT) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_LEFT(context, (LEFT) semanticObject); 
+				return; 
 			case DrnPackage.LAND:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_Land(context, (Land) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getLandRule()) {
-					sequence_Land(context, (Land) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Land(context, (Land) semanticObject); 
+				return; 
 			case DrnPackage.LED_BLINK:
 				sequence_LedBlink(context, (LedBlink) semanticObject); 
 				return; 
@@ -295,73 +181,29 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Parametre(context, (Parametre) semanticObject); 
 				return; 
 			case DrnPackage.RIGHT:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_RIGHT(context, (RIGHT) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDepX_ImplRule()
-						|| rule == grammarAccess.getRIGHTRule()) {
-					sequence_RIGHT(context, (RIGHT) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_RIGHT(context, (RIGHT) semanticObject); 
+				return; 
 			case DrnPackage.REF_DEVICE:
 				sequence_RefDevice(context, (RefDevice) semanticObject); 
 				return; 
 			case DrnPackage.REF_PART:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_RefPart(context, (RefPart) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getRefPartRule()) {
-					sequence_RefPart(context, (RefPart) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_RefPart(context, (RefPart) semanticObject); 
+				return; 
 			case DrnPackage.ROTATE:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_Rotate(context, (Rotate) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getRotateRule()) {
-					sequence_Rotate(context, (Rotate) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Rotate(context, (Rotate) semanticObject); 
+				return; 
 			case DrnPackage.TAKE_OFF:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_TakeOff(context, (TakeOff) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTakeOffRule()) {
-					sequence_TakeOff(context, (TakeOff) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_TakeOff(context, (TakeOff) semanticObject); 
+				return; 
 			case DrnPackage.TYPE_GENERIC:
 				sequence_TypeGeneric(context, (TypeGeneric) semanticObject); 
 				return; 
 			case DrnPackage.UP:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_UP(context, (UP) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getDepZ_ImplRule()
-						|| rule == grammarAccess.getUPRule()) {
-					sequence_UP(context, (UP) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_UP(context, (UP) semanticObject); 
+				return; 
 			case DrnPackage.WAIT:
-				if (rule == grammarAccess.getExpressionRule()) {
-					sequence_Expression_Wait(context, (Wait) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getWaitRule()) {
-					sequence_Wait(context, (Wait) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Wait(context, (Wait) semanticObject); 
+				return; 
 			case DrnPackage.WITH:
 				sequence_With(context, (With) semanticObject); 
 				return; 
@@ -372,6 +214,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns And
 	 *     And returns And
 	 *
 	 * Constraint:
@@ -410,46 +253,10 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns And
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='merge' 
-	 *         (
-	 *             rotate+=Rotate | 
-	 *             depx+=DepX_Impl | 
-	 *             depy+=DepY_Impl | 
-	 *             depxz+=DepXZ_IMPL | 
-	 *             depxy+=DepXY_IMPL | 
-	 *             depz+=DepZ_Impl
-	 *         ) 
-	 *         (
-	 *             rotate+=Rotate | 
-	 *             depx+=DepX_Impl | 
-	 *             depy+=DepY_Impl | 
-	 *             depxz+=DepXZ_IMPL | 
-	 *             depxy+=DepXY_IMPL | 
-	 *             depz+=DepZ_Impl
-	 *         ) 
-	 *         rotate+=Rotate? 
-	 *         ((depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depz+=DepZ_Impl)? rotate+=Rotate?)* 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_And_Expression(ISerializationContext context, And semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Assignement returns Assignement
 	 *
 	 * Constraint:
-	 *     (name=ID (parametre+=Parametre parametre+=Parametre*)? operandes+=Expression operandes+=Expression*)
+	 *     (name=ID operandes+=Expression operandes+=Expression*)
 	 */
 	protected void sequence_Assignement(ISerializationContext context, Assignement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -461,7 +268,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Attribut returns Attribut
 	 *
 	 * Constraint:
-	 *     (name=ID type=[TypeGeneric|ID] elmt+=[Element|ID])
+	 *     ((name=ID type=[TypeGeneric|ID] elmt+=[Element|ID]) | mode=Mode | int=EInt | bool=EBool)
 	 */
 	protected void sequence_Attribut(ISerializationContext context, Attribut semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -470,166 +277,131 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns BACKWARD
 	 *     DepY_Impl returns BACKWARD
 	 *     BACKWARD returns BACKWARD
 	 *
 	 * Constraint:
-	 *     (name='backward' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='backward' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_BACKWARD(ISerializationContext context, BACKWARD semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBACKWARDAccess().getNameBackwardKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBACKWARDAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getBACKWARDAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns BACKWARD
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='backward' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_BACKWARD_Expression(ISerializationContext context, BACKWARD semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns CARREXY
 	 *     DepXY_IMPL returns CARREXY
 	 *     CARREXY returns CARREXY
 	 *
 	 * Constraint:
-	 *     (name='carreXY' (coteCST=EInt | coteVAR=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='carreXY' coteCST=INT tempsCST=INT)
 	 */
 	protected void sequence_CARREXY(ISerializationContext context, CARREXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CARREXY__COTE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CARREXY__COTE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCARREXYAccess().getNameCarreXYKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCARREXYAccess().getCoteCSTINTTerminalRuleCall_4_0(), semanticObject.getCoteCST());
+		feeder.accept(grammarAccess.getCARREXYAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns CARREXY
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='carreXY' 
-	 *         (coteCST=EInt | coteVAR=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_CARREXY_Expression(ISerializationContext context, CARREXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns CARREYZ
 	 *     DepYZ_IMPL returns CARREYZ
 	 *     CARREYZ returns CARREYZ
 	 *
 	 * Constraint:
-	 *     (name='carreYZ' (coteCST=EInt | coteVAR=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='carreYZ' coteCST=INT tempsCST=INT)
 	 */
 	protected void sequence_CARREYZ(ISerializationContext context, CARREYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CARREYZ__COTE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CARREYZ__COTE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCARREYZAccess().getNameCarreYZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCARREYZAccess().getCoteCSTINTTerminalRuleCall_4_0(), semanticObject.getCoteCST());
+		feeder.accept(grammarAccess.getCARREYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns CARREYZ
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='carreYZ' 
-	 *         (coteCST=EInt | coteVAR=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_CARREYZ_Expression(ISerializationContext context, CARREYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns CERCLEXY
 	 *     DepXY_IMPL returns CERCLEXY
 	 *     CERCLEXY returns CERCLEXY
 	 *
 	 * Constraint:
-	 *     (name='cercleXY' (rayonCST=EInt | rayonVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='cercleXY' rayonCST=INT tempsCST=INT)
 	 */
 	protected void sequence_CERCLEXY(ISerializationContext context, CERCLEXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CERCLEXY__RAYON_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CERCLEXY__RAYON_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCERCLEXYAccess().getNameCercleXYKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCERCLEXYAccess().getRayonCSTINTTerminalRuleCall_4_0(), semanticObject.getRayonCST());
+		feeder.accept(grammarAccess.getCERCLEXYAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns CERCLEXY
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='cercleXY' 
-	 *         (rayonCST=EInt | rayonVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_CERCLEXY_Expression(ISerializationContext context, CERCLEXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns CERCLEYZ
 	 *     DepYZ_IMPL returns CERCLEYZ
 	 *     CERCLEYZ returns CERCLEYZ
 	 *
 	 * Constraint:
-	 *     (name='cercleYZ' (rayonCST=EInt | rayonVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='cercleYZ' rayonCST=INT tempsCST=INT)
 	 */
 	protected void sequence_CERCLEYZ(ISerializationContext context, CERCLEYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns CERCLEYZ
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='cercleYZ' 
-	 *         (rayonCST=EInt | rayonVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_CERCLEYZ_Expression(ISerializationContext context, CERCLEYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CERCLEYZ__RAYON_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CERCLEYZ__RAYON_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCERCLEYZAccess().getNameCercleYZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCERCLEYZAccess().getRayonCSTINTTerminalRuleCall_4_0(), semanticObject.getRayonCST());
+		feeder.accept(grammarAccess.getCERCLEYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
@@ -639,7 +411,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Camera returns Camera
 	 *
 	 * Constraint:
-	 *     (name='camera' mode=Mode attributs+=Attribut*)
+	 *     (name='camera' id=INT mode=Mode attributs+=Attribut*)
 	 */
 	protected void sequence_Camera(ISerializationContext context, Camera semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -660,34 +432,27 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns DOWN
 	 *     DepZ_Impl returns DOWN
 	 *     DOWN returns DOWN
 	 *
 	 * Constraint:
-	 *     (name='down' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='down' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_DOWN(ISerializationContext context, DOWN semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns DOWN
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='down' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_DOWN_Expression(ISerializationContext context, DOWN semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDOWNAccess().getNameDownKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDOWNAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getDOWNAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
@@ -735,133 +500,105 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns DepXYZ
 	 *     DepXYZ_IMPL returns DepXYZ
 	 *     DepXYZ returns DepXYZ
 	 *
 	 * Constraint:
-	 *     (name='depXYZ' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='depXYZ' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_DepXYZ(ISerializationContext context, DepXYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDepXYZAccess().getNameDepXYZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDepXYZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getDepXYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns DepXYZ
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='depXYZ' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_DepXYZ_Expression(ISerializationContext context, DepXYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns DepXY
 	 *     DepXY_IMPL returns DepXY
 	 *     DepXY returns DepXY
 	 *
 	 * Constraint:
-	 *     (name='depXY' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='depXY' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_DepXY(ISerializationContext context, DepXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDepXYAccess().getNameDepXYKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDepXYAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getDepXYAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns DepXY
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='depXY' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_DepXY_Expression(ISerializationContext context, DepXY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns DepXZ
 	 *     DepXZ_IMPL returns DepXZ
 	 *     DepXZ returns DepXZ
 	 *
 	 * Constraint:
-	 *     (name='depXZ' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='depXZ' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_DepXZ(ISerializationContext context, DepXZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDepXZAccess().getNameDepXZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDepXZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getDepXZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns DepXZ
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='depXZ' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_DepXZ_Expression(ISerializationContext context, DepXZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns DepYZ
 	 *     DepYZ_IMPL returns DepYZ
 	 *     DepYZ returns DepYZ
 	 *
 	 * Constraint:
-	 *     (name='depYZ' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='depYZ' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_DepYZ(ISerializationContext context, DepYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns DepYZ
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='depYZ' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_DepYZ_Expression(ISerializationContext context, DepYZ semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDepYZAccess().getNameDepYZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDepYZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getDepYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
@@ -897,211 +634,48 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns FORWARD
+	 *     Expression returns Expression
 	 *
 	 * Constraint:
 	 *     (
-	 *         name='forward' 
-	 *         (distanceVar=[Parametre|ID] | distanceCST=EInt) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
+	 *         (move=Movement (repeatCST=INT | repeatVAR=[Parametre|ID])? with+=With?) | 
+	 *         (move=Movement then+=Expression then+=Expression* (repeatCST=INT | repeatVAR=[Parametre|ID])? with+=With?)
 	 *     )
 	 */
-	protected void sequence_Expression_FORWARD(ISerializationContext context, FORWARD semanticObject) {
+	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Flip
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='flip' 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_Flip(ISerializationContext context, Flip semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns LEFT
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='left' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_LEFT(ISerializationContext context, LEFT semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Land
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='land' 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_Land(ISerializationContext context, Land semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns RIGHT
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='right' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_RIGHT(ISerializationContext context, RIGHT semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns RefPart
-	 *
-	 * Constraint:
-	 *     (
-	 *         variable_partie=[Assignement|ID] 
-	 *         params+=EInt* 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_RefPart(ISerializationContext context, RefPart semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Rotate
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='rotate' 
-	 *         (angleCST=EInt | angleVAR=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_Rotate(ISerializationContext context, Rotate semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns TakeOff
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='takeoff' 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_TakeOff(ISerializationContext context, TakeOff semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns UP
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='up' 
-	 *         (distanceCST=EInt | distanceVar=[Parametre|ID]) 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_UP(ISerializationContext context, UP semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Wait
-	 *
-	 * Constraint:
-	 *     (
-	 *         name='wait' 
-	 *         (tempsCST=EInt | tempsVAR=[Parametre|ID]) 
-	 *         (
-	 *             ((repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *             (then+=Expression then+=Expression* (repeatCST=EInt | repeatVAR=[Parametre|ID])? with+=With?)
-	 *         )
-	 *     )
-	 */
-	protected void sequence_Expression_Wait(ISerializationContext context, Wait semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Movement returns FORWARD
 	 *     DepY_Impl returns FORWARD
 	 *     FORWARD returns FORWARD
 	 *
 	 * Constraint:
-	 *     (name='forward' (distanceVar=[Parametre|ID] | distanceCST=EInt) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='forward' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_FORWARD(ISerializationContext context, FORWARD semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFORWARDAccess().getNameForwardKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFORWARDAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getFORWARDAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns Flip
 	 *     DepXYZ_IMPL returns Flip
 	 *     Flip returns Flip
 	 *
@@ -1149,7 +723,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     InitialPositionX returns InitialPositionX
 	 *
 	 * Constraint:
-	 *     (name='positionX' value=EInt)
+	 *     (name='positionX' value=INT)
 	 */
 	protected void sequence_InitialPositionX(ISerializationContext context, InitialPositionX semanticObject) {
 		if (errorAcceptor != null) {
@@ -1160,7 +734,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getInitialPositionXAccess().getNamePositionXKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getInitialPositionXAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getInitialPositionXAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1172,7 +746,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     InitialPositionY returns InitialPositionY
 	 *
 	 * Constraint:
-	 *     (name='positionY' value=EInt)
+	 *     (name='positionY' value=INT)
 	 */
 	protected void sequence_InitialPositionY(ISerializationContext context, InitialPositionY semanticObject) {
 		if (errorAcceptor != null) {
@@ -1183,26 +757,40 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getInitialPositionYAccess().getNamePositionYKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getInitialPositionYAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getInitialPositionYAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns LEFT
 	 *     DepX_Impl returns LEFT
 	 *     LEFT returns LEFT
 	 *
 	 * Constraint:
-	 *     (name='left' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='left' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_LEFT(ISerializationContext context, LEFT semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLEFTAccess().getNameLeftKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLEFTAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getLEFTAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns Land
 	 *     Land returns Land
 	 *
 	 * Constraint:
@@ -1225,7 +813,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LedBlink returns LedBlink
 	 *
 	 * Constraint:
-	 *     (name='ledBlink' mode=Mode color=ColorLed (blink_per_secCST=EInt | blink_per_secVAR=[Parametre|ID]) attributs+=Attribut*)
+	 *     (name='ledBlink' mode=Mode color=ColorLed blink_per_secCST=INT attributs+=Attribut*)
 	 */
 	protected void sequence_LedBlink(ISerializationContext context, LedBlink semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1264,7 +852,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MaxHeigth returns MaxHeigth
 	 *
 	 * Constraint:
-	 *     (name='maxHeigth' value=EInt)
+	 *     (name='maxHeigth' value=INT)
 	 */
 	protected void sequence_MaxHeigth(ISerializationContext context, MaxHeigth semanticObject) {
 		if (errorAcceptor != null) {
@@ -1275,7 +863,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMaxHeigthAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1287,7 +875,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MaxLength returns MaxLength
 	 *
 	 * Constraint:
-	 *     (name='maxLength' value=EInt)
+	 *     (name='maxLength' value=INT)
 	 */
 	protected void sequence_MaxLength(ISerializationContext context, MaxLength semanticObject) {
 		if (errorAcceptor != null) {
@@ -1298,7 +886,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMaxLengthAccess().getNameMaxLengthKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMaxLengthAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMaxLengthAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1309,7 +897,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MaxSpeed returns MaxSpeed
 	 *
 	 * Constraint:
-	 *     (name='maxSpeed' value=EInt)
+	 *     (name='maxSpeed' value=INT)
 	 */
 	protected void sequence_MaxSpeed(ISerializationContext context, MaxSpeed semanticObject) {
 		if (errorAcceptor != null) {
@@ -1320,7 +908,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMaxSpeedAccess().getNameMaxSpeedKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMaxSpeedAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMaxSpeedAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1332,7 +920,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MaxWidth returns MaxWidth
 	 *
 	 * Constraint:
-	 *     (name='maxWidth' value=EInt)
+	 *     (name='maxWidth' value=INT)
 	 */
 	protected void sequence_MaxWidth(ISerializationContext context, MaxWidth semanticObject) {
 		if (errorAcceptor != null) {
@@ -1343,7 +931,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMaxWidthAccess().getNameMaxWidthKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMaxWidthAccess().getValueEIntParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMaxWidthAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1387,14 +975,27 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns RIGHT
 	 *     DepX_Impl returns RIGHT
 	 *     RIGHT returns RIGHT
 	 *
 	 * Constraint:
-	 *     (name='right' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='right' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_RIGHT(ISerializationContext context, RIGHT semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRIGHTAccess().getNameRightKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRIGHTAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getRIGHTAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
@@ -1413,30 +1014,51 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns RefPart
 	 *     RefPart returns RefPart
 	 *
 	 * Constraint:
-	 *     (variable_partie=[Assignement|ID] params+=EInt*)
+	 *     variable_partie=[Assignement|ID]
 	 */
 	protected void sequence_RefPart(ISerializationContext context, RefPart semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART__VARIABLE_PARTIE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART__VARIABLE_PARTIE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRefPartAccess().getVariable_partieAssignementIDTerminalRuleCall_0_1(), semanticObject.getVariable_partie());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns Rotate
 	 *     Rotate returns Rotate
 	 *
 	 * Constraint:
-	 *     (name='rotate' (angleCST=EInt | angleVAR=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='rotate' angleCST=EInt tempsCST=INT)
 	 */
 	protected void sequence_Rotate(ISerializationContext context, Rotate semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.ROTATE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.ROTATE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.ROTATE__ANGLE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.ROTATE__ANGLE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.ROTATE__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.ROTATE__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRotateAccess().getNameRotateKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRotateAccess().getAngleCSTEIntParserRuleCall_4_0(), semanticObject.getAngleCST());
+		feeder.accept(grammarAccess.getRotateAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns TakeOff
 	 *     TakeOff returns TakeOff
 	 *
 	 * Constraint:
@@ -1467,26 +1089,49 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns UP
 	 *     DepZ_Impl returns UP
 	 *     UP returns UP
 	 *
 	 * Constraint:
-	 *     (name='up' (distanceCST=EInt | distanceVar=[Parametre|ID]) (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='up' distanceCST=INT tempsCST=INT)
 	 */
 	protected void sequence_UP(ISerializationContext context, UP semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__DISTANCE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__DISTANCE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_ZIMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_ZIMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUPAccess().getNameUpKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUPAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
+		feeder.accept(grammarAccess.getUPAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Movement returns Wait
 	 *     Wait returns Wait
 	 *
 	 * Constraint:
-	 *     (name='wait' (tempsCST=EInt | tempsVAR=[Parametre|ID]))
+	 *     (name='wait' tempsCST=INT)
 	 */
 	protected void sequence_Wait(ISerializationContext context, Wait semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.WAIT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.WAIT__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.WAIT__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.WAIT__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWaitAccess().getNameWaitKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getWaitAccess().getTempsCSTINTTerminalRuleCall_4_0(), semanticObject.getTempsCST());
+		feeder.finish();
 	}
 	
 	

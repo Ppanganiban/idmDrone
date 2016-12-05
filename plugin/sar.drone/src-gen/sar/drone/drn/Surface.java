@@ -31,12 +31,12 @@ public interface Surface extends Limit
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
+   * @see #setValue(int)
    * @see sar.drone.drn.DrnPackage#getSurface_Value()
    * @model
    * @generated
    */
-  String getValue();
+  int getValue();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.Surface#getValue <em>Value</em>}' attribute.
@@ -46,6 +46,6 @@ public interface Surface extends Limit
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(int value);
 
 } // Surface

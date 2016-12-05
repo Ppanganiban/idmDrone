@@ -62,21 +62,21 @@
     <genClasses ecoreClass="Drn.ecore#//MaxHeigth"/>
     <genClasses ecoreClass="Drn.ecore#//Assignement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Assignement/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Assignement/parametre"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Assignement/operandes"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Parametre">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Parametre/name"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/move"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Expression/repeatCST"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/repeatVAR"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/with"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/then"/>
     </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Movement"/>
     <genClasses ecoreClass="Drn.ecore#//RefPart">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPart/variable_partie"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//RefPart/params"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//And">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//And/name"/>
@@ -89,94 +89,73 @@
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepY_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepY_Impl/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepY_Impl/distanceVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepY_Impl/distanceCST"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepY_Impl/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepY_Impl/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//FORWARD"/>
     <genClasses ecoreClass="Drn.ecore#//BACKWARD"/>
     <genClasses ecoreClass="Drn.ecore#//DepX_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepX_Impl/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepX_Impl/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepX_Impl/distanceVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepX_Impl/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepX_Impl/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//LEFT"/>
     <genClasses ecoreClass="Drn.ecore#//RIGHT"/>
     <genClasses ecoreClass="Drn.ecore#//DepZ_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepZ_Impl/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepZ_Impl/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepZ_Impl/distanceVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepZ_Impl/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepZ_Impl/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//UP"/>
     <genClasses ecoreClass="Drn.ecore#//DOWN"/>
     <genClasses ecoreClass="Drn.ecore#//DepXY_IMPL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY_IMPL/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY_IMPL/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXY_IMPL/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepXY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXY/distanceVar"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CERCLEXY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CERCLEXY/rayonCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//CERCLEXY/rayonVar"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CARREXY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CARREXY/coteCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//CARREXY/coteVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepYZ_IMPL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ_IMPL/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ_IMPL/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepYZ_IMPL/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepYZ/distanceVar"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CERCLEYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CERCLEYZ/rayonCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//CERCLEYZ/rayonVar"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CARREYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CARREYZ/coteCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//CARREYZ/coteVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepXZ_IMPL"/>
     <genClasses ecoreClass="Drn.ecore#//DepXZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXZ/distanceVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXZ/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepXYZ_IMPL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ_IMPL/name"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepXYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ/distanceCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXYZ/distanceVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//DepXYZ/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Flip"/>
     <genClasses ecoreClass="Drn.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Rotate/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Rotate/angleCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Rotate/angleVAR"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Rotate/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Rotate/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Wait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Wait/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Wait/tempsCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Wait/tempsVAR"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//TakeOff">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//TakeOff/name"/>
@@ -211,6 +190,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Attribut/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Attribut/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Attribut/elmt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Attribut/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Attribut/int"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Attribut/bool"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Led_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Led_Impl/name"/>
@@ -220,11 +202,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/color"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//LedBlink/blink_per_secCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//LedBlink/blink_per_secVAR"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//LedBlink/attributs"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Camera">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Camera/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Camera/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Camera/attributs"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//TypeGeneric">

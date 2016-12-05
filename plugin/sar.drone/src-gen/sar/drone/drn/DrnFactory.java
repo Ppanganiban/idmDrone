@@ -159,6 +159,15 @@ public interface DrnFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Movement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Movement</em>'.
+   * @generated
+   */
+  Movement createMovement();
+
+  /**
    * Returns a new object of class '<em>Ref Part</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

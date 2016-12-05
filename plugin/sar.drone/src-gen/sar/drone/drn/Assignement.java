@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Assignement#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.Assignement#getParametre <em>Parametre</em>}</li>
  *   <li>{@link sar.drone.drn.Assignement#getOperandes <em>Operandes</em>}</li>
  * </ul>
  *
@@ -52,22 +51,6 @@ public interface Assignement extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Parametre</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.Parametre}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parametre</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parametre</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getAssignement_Parametre()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Parametre> getParametre();
 
   /**
    * Returns the value of the '<em><b>Operandes</b></em>' containment reference list.

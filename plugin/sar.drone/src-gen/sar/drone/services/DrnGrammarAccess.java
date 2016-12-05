@@ -20,7 +20,6 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -284,14 +283,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNamePositionXKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//InitialPositionX:
 		//	name="positionX"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="positionX" '=' value=EInt
+		//name="positionX" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="positionX"
@@ -303,11 +302,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class InitialPositionYElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.InitialPositionY");
@@ -316,14 +315,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNamePositionYKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//InitialPositionY:
 		//	name="positionY"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="positionY" '=' value=EInt
+		//name="positionY" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="positionY"
@@ -335,11 +334,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class MaxLengthElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxLength");
@@ -348,14 +347,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameMaxLengthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//MaxLength:
 		//	name="maxLength"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="maxLength" '=' value=EInt
+		//name="maxLength" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="maxLength"
@@ -367,11 +366,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class MaxWidthElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxWidth");
@@ -380,14 +379,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameMaxWidthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//MaxWidth:
 		//	name="maxWidth"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="maxWidth" '=' value=EInt
+		//name="maxWidth" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="maxWidth"
@@ -399,11 +398,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class MaxSpeedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxSpeed");
@@ -412,14 +411,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameMaxSpeedKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//MaxSpeed:
 		//	name="maxSpeed"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="maxSpeed" '=' value=EInt
+		//name="maxSpeed" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="maxSpeed"
@@ -431,11 +430,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class MaxHeigthElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxHeigth");
@@ -444,14 +443,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameMaxHeigthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueEIntParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//MaxHeigth:
 		//	name="maxHeigth"
-		//	'=' value=EInt;
+		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="maxHeigth" '=' value=EInt
+		//name="maxHeigth" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
 		//name="maxHeigth"
@@ -463,46 +462,34 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//value=EInt
+		//value=INT
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//EInt
-		public RuleCall getValueEIntParserRuleCall_2_0() { return cValueEIntParserRuleCall_2_0; }
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
 	public class AssignementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Assignement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cParametreAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cParametreParametreParserRuleCall_2_0_0 = (RuleCall)cParametreAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cParametreAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cParametreParametreParserRuleCall_2_1_1_0 = (RuleCall)cParametreAssignment_2_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cOperandesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cOperandesExpressionParserRuleCall_5_0 = (RuleCall)cOperandesAssignment_5.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Assignment cOperandesAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
-		private final RuleCall cOperandesExpressionParserRuleCall_7_0_0 = (RuleCall)cOperandesAssignment_7_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cOperandesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOperandesExpressionParserRuleCall_2_0 = (RuleCall)cOperandesAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cOperandesAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cOperandesExpressionParserRuleCall_4_0_0 = (RuleCall)cOperandesAssignment_4_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// ******************* Alias ********************* / Assignement:
-		//	name=ID
-		//	'(' (parametre+=Parametre ("," parametre+=Parametre)*)?
-		//	')' '{'
+		//	name=ID '{'
 		//	operandes+=Expression ';' (operandes+=Expression ';')*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '(' (parametre+=Parametre ("," parametre+=Parametre)*)? ')' '{' operandes+=Expression ';' (operandes+=Expression
-		//';')* '}'
+		//name=ID '{' operandes+=Expression ';' (operandes+=Expression ';')* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -511,59 +498,32 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//(parametre+=Parametre ("," parametre+=Parametre)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//parametre+=Parametre
-		public Assignment getParametreAssignment_2_0() { return cParametreAssignment_2_0; }
-		
-		//Parametre
-		public RuleCall getParametreParametreParserRuleCall_2_0_0() { return cParametreParametreParserRuleCall_2_0_0; }
-		
-		//("," parametre+=Parametre)*
-		public Group getGroup_2_1() { return cGroup_2_1; }
-		
-		//","
-		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
-		
-		//parametre+=Parametre
-		public Assignment getParametreAssignment_2_1_1() { return cParametreAssignment_2_1_1; }
-		
-		//Parametre
-		public RuleCall getParametreParametreParserRuleCall_2_1_1_0() { return cParametreParametreParserRuleCall_2_1_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
 		//operandes+=Expression
-		public Assignment getOperandesAssignment_5() { return cOperandesAssignment_5; }
+		public Assignment getOperandesAssignment_2() { return cOperandesAssignment_2; }
 		
 		//Expression
-		public RuleCall getOperandesExpressionParserRuleCall_5_0() { return cOperandesExpressionParserRuleCall_5_0; }
+		public RuleCall getOperandesExpressionParserRuleCall_2_0() { return cOperandesExpressionParserRuleCall_2_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 		
 		//(operandes+=Expression ';')*
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//operandes+=Expression
-		public Assignment getOperandesAssignment_7_0() { return cOperandesAssignment_7_0; }
+		public Assignment getOperandesAssignment_4_0() { return cOperandesAssignment_4_0; }
 		
 		//Expression
-		public RuleCall getOperandesExpressionParserRuleCall_7_0_0() { return cOperandesExpressionParserRuleCall_7_0_0; }
+		public RuleCall getOperandesExpressionParserRuleCall_4_0_0() { return cOperandesExpressionParserRuleCall_4_0_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
+		public Keyword getSemicolonKeyword_4_1() { return cSemicolonKeyword_4_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class ParametreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Parametre");
@@ -585,25 +545,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Alternatives cAlternatives_0_0 = (Alternatives)cGroup_0.eContents().get(0);
-		private final RuleCall cAndParserRuleCall_0_0_0 = (RuleCall)cAlternatives_0_0.eContents().get(0);
-		private final RuleCall cRefPartParserRuleCall_0_0_1 = (RuleCall)cAlternatives_0_0.eContents().get(1);
-		private final RuleCall cDepX_ImplParserRuleCall_0_0_2 = (RuleCall)cAlternatives_0_0.eContents().get(2);
-		private final RuleCall cDepY_ImplParserRuleCall_0_0_3 = (RuleCall)cAlternatives_0_0.eContents().get(3);
-		private final RuleCall cDepZ_ImplParserRuleCall_0_0_4 = (RuleCall)cAlternatives_0_0.eContents().get(4);
-		private final RuleCall cDepXY_IMPLParserRuleCall_0_0_5 = (RuleCall)cAlternatives_0_0.eContents().get(5);
-		private final RuleCall cDepXZ_IMPLParserRuleCall_0_0_6 = (RuleCall)cAlternatives_0_0.eContents().get(6);
-		private final RuleCall cDepYZ_IMPLParserRuleCall_0_0_7 = (RuleCall)cAlternatives_0_0.eContents().get(7);
-		private final RuleCall cDepXYZ_IMPLParserRuleCall_0_0_8 = (RuleCall)cAlternatives_0_0.eContents().get(8);
-		private final RuleCall cTakeOffParserRuleCall_0_0_9 = (RuleCall)cAlternatives_0_0.eContents().get(9);
-		private final RuleCall cWaitParserRuleCall_0_0_10 = (RuleCall)cAlternatives_0_0.eContents().get(10);
-		private final RuleCall cRotateParserRuleCall_0_0_11 = (RuleCall)cAlternatives_0_0.eContents().get(11);
-		private final RuleCall cLandParserRuleCall_0_0_12 = (RuleCall)cAlternatives_0_0.eContents().get(12);
+		private final Assignment cMoveAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cMoveMovementParserRuleCall_0_0_0 = (RuleCall)cMoveAssignment_0_0.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
 		private final Keyword cXKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
 		private final Alternatives cAlternatives_0_1_1 = (Alternatives)cGroup_0_1.eContents().get(1);
 		private final Assignment cRepeatCSTAssignment_0_1_1_0 = (Assignment)cAlternatives_0_1_1.eContents().get(0);
-		private final RuleCall cRepeatCSTEIntParserRuleCall_0_1_1_0_0 = (RuleCall)cRepeatCSTAssignment_0_1_1_0.eContents().get(0);
+		private final RuleCall cRepeatCSTINTTerminalRuleCall_0_1_1_0_0 = (RuleCall)cRepeatCSTAssignment_0_1_1_0.eContents().get(0);
 		private final Assignment cRepeatVARAssignment_0_1_1_1 = (Assignment)cAlternatives_0_1_1.eContents().get(1);
 		private final CrossReference cRepeatVARParametreCrossReference_0_1_1_1_0 = (CrossReference)cRepeatVARAssignment_0_1_1_1.eContents().get(0);
 		private final RuleCall cRepeatVARParametreIDTerminalRuleCall_0_1_1_1_0_1 = (RuleCall)cRepeatVARParametreCrossReference_0_1_1_1_0.eContents().get(1);
@@ -611,20 +559,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWithWithParserRuleCall_0_2_0 = (RuleCall)cWithAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final RuleCall cAndParserRuleCall_1_1_0 = (RuleCall)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cRefPartParserRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cDepX_ImplParserRuleCall_1_1_2 = (RuleCall)cAlternatives_1_1.eContents().get(2);
-		private final RuleCall cDepY_ImplParserRuleCall_1_1_3 = (RuleCall)cAlternatives_1_1.eContents().get(3);
-		private final RuleCall cDepZ_ImplParserRuleCall_1_1_4 = (RuleCall)cAlternatives_1_1.eContents().get(4);
-		private final RuleCall cDepXY_IMPLParserRuleCall_1_1_5 = (RuleCall)cAlternatives_1_1.eContents().get(5);
-		private final RuleCall cDepXZ_IMPLParserRuleCall_1_1_6 = (RuleCall)cAlternatives_1_1.eContents().get(6);
-		private final RuleCall cDepYZ_IMPLParserRuleCall_1_1_7 = (RuleCall)cAlternatives_1_1.eContents().get(7);
-		private final RuleCall cDepXYZ_IMPLParserRuleCall_1_1_8 = (RuleCall)cAlternatives_1_1.eContents().get(8);
-		private final RuleCall cTakeOffParserRuleCall_1_1_9 = (RuleCall)cAlternatives_1_1.eContents().get(9);
-		private final RuleCall cWaitParserRuleCall_1_1_10 = (RuleCall)cAlternatives_1_1.eContents().get(10);
-		private final RuleCall cRotateParserRuleCall_1_1_11 = (RuleCall)cAlternatives_1_1.eContents().get(11);
-		private final RuleCall cLandParserRuleCall_1_1_12 = (RuleCall)cAlternatives_1_1.eContents().get(12);
+		private final Assignment cMoveAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cMoveMovementParserRuleCall_1_1_0 = (RuleCall)cMoveAssignment_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
 		private final Keyword cThenKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cThenAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
@@ -638,7 +574,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cXKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
 		private final Alternatives cAlternatives_1_5_1 = (Alternatives)cGroup_1_5.eContents().get(1);
 		private final Assignment cRepeatCSTAssignment_1_5_1_0 = (Assignment)cAlternatives_1_5_1.eContents().get(0);
-		private final RuleCall cRepeatCSTEIntParserRuleCall_1_5_1_0_0 = (RuleCall)cRepeatCSTAssignment_1_5_1_0.eContents().get(0);
+		private final RuleCall cRepeatCSTINTTerminalRuleCall_1_5_1_0_0 = (RuleCall)cRepeatCSTAssignment_1_5_1_0.eContents().get(0);
 		private final Assignment cRepeatVARAssignment_1_5_1_1 = (Assignment)cAlternatives_1_5_1.eContents().get(1);
 		private final CrossReference cRepeatVARParametreCrossReference_1_5_1_1_0 = (CrossReference)cRepeatVARAssignment_1_5_1_1.eContents().get(0);
 		private final RuleCall cRepeatVARParametreIDTerminalRuleCall_1_5_1_1_0_1 = (RuleCall)cRepeatVARParametreCrossReference_1_5_1_1_0.eContents().get(1);
@@ -646,80 +582,38 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWithWithParserRuleCall_1_6_0 = (RuleCall)cWithAssignment_1_6.eContents().get(0);
 		
 		/// ******************* Expression ********************* / Expression:
-		//	(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
-		//	Wait | Rotate | Land) ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? ^with+=With?
-		//	| '(' (And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL |
-		//	TakeOff | Wait | Rotate | Land) ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=EInt |
+		//	move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
+		//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
 		//	repeatVAR=[Parametre]))? ^with+=With?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
-		//| Rotate | Land) ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? ^with+=With? | '(' (And | RefPart | DepX_Impl |
-		//DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait | Rotate | Land) ('then'
-		//then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? ^with+=With?
+		//move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With? | '(' move=Movement ('then' then+=Expression)
+		//('then' then+=Expression)* ')' ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
-		//| Rotate | Land) ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? ^with+=With?
+		//move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
-		//| Rotate | Land)
-		public Alternatives getAlternatives_0_0() { return cAlternatives_0_0; }
+		//move=Movement
+		public Assignment getMoveAssignment_0_0() { return cMoveAssignment_0_0; }
 		
-		//And
-		public RuleCall getAndParserRuleCall_0_0_0() { return cAndParserRuleCall_0_0_0; }
+		//Movement
+		public RuleCall getMoveMovementParserRuleCall_0_0_0() { return cMoveMovementParserRuleCall_0_0_0; }
 		
-		//RefPart
-		public RuleCall getRefPartParserRuleCall_0_0_1() { return cRefPartParserRuleCall_0_0_1; }
-		
-		//DepX_Impl
-		public RuleCall getDepX_ImplParserRuleCall_0_0_2() { return cDepX_ImplParserRuleCall_0_0_2; }
-		
-		//DepY_Impl
-		public RuleCall getDepY_ImplParserRuleCall_0_0_3() { return cDepY_ImplParserRuleCall_0_0_3; }
-		
-		//DepZ_Impl
-		public RuleCall getDepZ_ImplParserRuleCall_0_0_4() { return cDepZ_ImplParserRuleCall_0_0_4; }
-		
-		//DepXY_IMPL
-		public RuleCall getDepXY_IMPLParserRuleCall_0_0_5() { return cDepXY_IMPLParserRuleCall_0_0_5; }
-		
-		//DepXZ_IMPL
-		public RuleCall getDepXZ_IMPLParserRuleCall_0_0_6() { return cDepXZ_IMPLParserRuleCall_0_0_6; }
-		
-		//DepYZ_IMPL
-		public RuleCall getDepYZ_IMPLParserRuleCall_0_0_7() { return cDepYZ_IMPLParserRuleCall_0_0_7; }
-		
-		//DepXYZ_IMPL
-		public RuleCall getDepXYZ_IMPLParserRuleCall_0_0_8() { return cDepXYZ_IMPLParserRuleCall_0_0_8; }
-		
-		//TakeOff
-		public RuleCall getTakeOffParserRuleCall_0_0_9() { return cTakeOffParserRuleCall_0_0_9; }
-		
-		//Wait
-		public RuleCall getWaitParserRuleCall_0_0_10() { return cWaitParserRuleCall_0_0_10; }
-		
-		//Rotate
-		public RuleCall getRotateParserRuleCall_0_0_11() { return cRotateParserRuleCall_0_0_11; }
-		
-		//Land
-		public RuleCall getLandParserRuleCall_0_0_12() { return cLandParserRuleCall_0_0_12; }
-		
-		//('X' (repeatCST=EInt | repeatVAR=[Parametre]))?
+		//('X' (repeatCST=INT | repeatVAR=[Parametre]))?
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//'X'
 		public Keyword getXKeyword_0_1_0() { return cXKeyword_0_1_0; }
 		
-		//(repeatCST=EInt | repeatVAR=[Parametre])
+		//(repeatCST=INT | repeatVAR=[Parametre])
 		public Alternatives getAlternatives_0_1_1() { return cAlternatives_0_1_1; }
 		
-		//repeatCST=EInt
+		//repeatCST=INT
 		public Assignment getRepeatCSTAssignment_0_1_1_0() { return cRepeatCSTAssignment_0_1_1_0; }
 		
-		//EInt
-		public RuleCall getRepeatCSTEIntParserRuleCall_0_1_1_0_0() { return cRepeatCSTEIntParserRuleCall_0_1_1_0_0; }
+		//INT
+		public RuleCall getRepeatCSTINTTerminalRuleCall_0_1_1_0_0() { return cRepeatCSTINTTerminalRuleCall_0_1_1_0_0; }
 		
 		//repeatVAR=[Parametre]
 		public Assignment getRepeatVARAssignment_0_1_1_1() { return cRepeatVARAssignment_0_1_1_1; }
@@ -736,56 +630,18 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//With
 		public RuleCall getWithWithParserRuleCall_0_2_0() { return cWithWithParserRuleCall_0_2_0; }
 		
-		//'(' (And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
-		//Wait | Rotate | Land) ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=EInt |
+		//'(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
 		//repeatVAR=[Parametre]))? ^with+=With?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
 		
-		//(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
-		//| Rotate | Land)
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		//move=Movement
+		public Assignment getMoveAssignment_1_1() { return cMoveAssignment_1_1; }
 		
-		//And
-		public RuleCall getAndParserRuleCall_1_1_0() { return cAndParserRuleCall_1_1_0; }
-		
-		//RefPart
-		public RuleCall getRefPartParserRuleCall_1_1_1() { return cRefPartParserRuleCall_1_1_1; }
-		
-		//DepX_Impl
-		public RuleCall getDepX_ImplParserRuleCall_1_1_2() { return cDepX_ImplParserRuleCall_1_1_2; }
-		
-		//DepY_Impl
-		public RuleCall getDepY_ImplParserRuleCall_1_1_3() { return cDepY_ImplParserRuleCall_1_1_3; }
-		
-		//DepZ_Impl
-		public RuleCall getDepZ_ImplParserRuleCall_1_1_4() { return cDepZ_ImplParserRuleCall_1_1_4; }
-		
-		//DepXY_IMPL
-		public RuleCall getDepXY_IMPLParserRuleCall_1_1_5() { return cDepXY_IMPLParserRuleCall_1_1_5; }
-		
-		//DepXZ_IMPL
-		public RuleCall getDepXZ_IMPLParserRuleCall_1_1_6() { return cDepXZ_IMPLParserRuleCall_1_1_6; }
-		
-		//DepYZ_IMPL
-		public RuleCall getDepYZ_IMPLParserRuleCall_1_1_7() { return cDepYZ_IMPLParserRuleCall_1_1_7; }
-		
-		//DepXYZ_IMPL
-		public RuleCall getDepXYZ_IMPLParserRuleCall_1_1_8() { return cDepXYZ_IMPLParserRuleCall_1_1_8; }
-		
-		//TakeOff
-		public RuleCall getTakeOffParserRuleCall_1_1_9() { return cTakeOffParserRuleCall_1_1_9; }
-		
-		//Wait
-		public RuleCall getWaitParserRuleCall_1_1_10() { return cWaitParserRuleCall_1_1_10; }
-		
-		//Rotate
-		public RuleCall getRotateParserRuleCall_1_1_11() { return cRotateParserRuleCall_1_1_11; }
-		
-		//Land
-		public RuleCall getLandParserRuleCall_1_1_12() { return cLandParserRuleCall_1_1_12; }
+		//Movement
+		public RuleCall getMoveMovementParserRuleCall_1_1_0() { return cMoveMovementParserRuleCall_1_1_0; }
 		
 		//('then' then+=Expression)
 		public Group getGroup_1_2() { return cGroup_1_2; }
@@ -814,20 +670,20 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
 		
-		//('X' (repeatCST=EInt | repeatVAR=[Parametre]))?
+		//('X' (repeatCST=INT | repeatVAR=[Parametre]))?
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
 		//'X'
 		public Keyword getXKeyword_1_5_0() { return cXKeyword_1_5_0; }
 		
-		//(repeatCST=EInt | repeatVAR=[Parametre])
+		//(repeatCST=INT | repeatVAR=[Parametre])
 		public Alternatives getAlternatives_1_5_1() { return cAlternatives_1_5_1; }
 		
-		//repeatCST=EInt
+		//repeatCST=INT
 		public Assignment getRepeatCSTAssignment_1_5_1_0() { return cRepeatCSTAssignment_1_5_1_0; }
 		
-		//EInt
-		public RuleCall getRepeatCSTEIntParserRuleCall_1_5_1_0_0() { return cRepeatCSTEIntParserRuleCall_1_5_1_0_0; }
+		//INT
+		public RuleCall getRepeatCSTINTTerminalRuleCall_1_5_1_0_0() { return cRepeatCSTINTTerminalRuleCall_1_5_1_0_0; }
 		
 		//repeatVAR=[Parametre]
 		public Assignment getRepeatVARAssignment_1_5_1_1() { return cRepeatVARAssignment_1_5_1_1; }
@@ -844,54 +700,89 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//With
 		public RuleCall getWithWithParserRuleCall_1_6_0() { return cWithWithParserRuleCall_1_6_0; }
 	}
-	public class RefPartElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefPart");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVariable_partieAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cVariable_partieAssignementCrossReference_0_0 = (CrossReference)cVariable_partieAssignment_0.eContents().get(0);
-		private final RuleCall cVariable_partieAssignementIDTerminalRuleCall_0_0_1 = (RuleCall)cVariable_partieAssignementCrossReference_0_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cParamsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cParamsEIntParserRuleCall_2_0_0 = (RuleCall)cParamsAssignment_2_0.eContents().get(0);
-		private final Keyword cCommaKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+	public class MovementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Movement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAndParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRefPartParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDepX_ImplParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDepY_ImplParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDepZ_ImplParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDepXY_IMPLParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cDepXZ_IMPLParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cDepYZ_IMPLParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cDepXYZ_IMPLParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cTakeOffParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cWaitParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cRotateParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cLandParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		
-		//RefPart:
-		//	variable_partie=[Assignement]
-		//	'(' (params+=EInt ',')*
-		//	")";
+		//Movement:
+		//	And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
+		//	Wait | Rotate | Land;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//variable_partie=[Assignement] '(' (params+=EInt ',')* ")"
-		public Group getGroup() { return cGroup; }
+		//And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
+		//| Rotate | Land
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//And
+		public RuleCall getAndParserRuleCall_0() { return cAndParserRuleCall_0; }
+		
+		//RefPart
+		public RuleCall getRefPartParserRuleCall_1() { return cRefPartParserRuleCall_1; }
+		
+		//DepX_Impl
+		public RuleCall getDepX_ImplParserRuleCall_2() { return cDepX_ImplParserRuleCall_2; }
+		
+		//DepY_Impl
+		public RuleCall getDepY_ImplParserRuleCall_3() { return cDepY_ImplParserRuleCall_3; }
+		
+		//DepZ_Impl
+		public RuleCall getDepZ_ImplParserRuleCall_4() { return cDepZ_ImplParserRuleCall_4; }
+		
+		//DepXY_IMPL
+		public RuleCall getDepXY_IMPLParserRuleCall_5() { return cDepXY_IMPLParserRuleCall_5; }
+		
+		//DepXZ_IMPL
+		public RuleCall getDepXZ_IMPLParserRuleCall_6() { return cDepXZ_IMPLParserRuleCall_6; }
+		
+		//DepYZ_IMPL
+		public RuleCall getDepYZ_IMPLParserRuleCall_7() { return cDepYZ_IMPLParserRuleCall_7; }
+		
+		//DepXYZ_IMPL
+		public RuleCall getDepXYZ_IMPLParserRuleCall_8() { return cDepXYZ_IMPLParserRuleCall_8; }
+		
+		//TakeOff
+		public RuleCall getTakeOffParserRuleCall_9() { return cTakeOffParserRuleCall_9; }
+		
+		//Wait
+		public RuleCall getWaitParserRuleCall_10() { return cWaitParserRuleCall_10; }
+		
+		//Rotate
+		public RuleCall getRotateParserRuleCall_11() { return cRotateParserRuleCall_11; }
+		
+		//Land
+		public RuleCall getLandParserRuleCall_12() { return cLandParserRuleCall_12; }
+	}
+	public class RefPartElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefPart");
+		private final Assignment cVariable_partieAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cVariable_partieAssignementCrossReference_0 = (CrossReference)cVariable_partieAssignment.eContents().get(0);
+		private final RuleCall cVariable_partieAssignementIDTerminalRuleCall_0_1 = (RuleCall)cVariable_partieAssignementCrossReference_0.eContents().get(1);
+		
+		//RefPart:
+		//	variable_partie=[Assignement];
+		@Override public ParserRule getRule() { return rule; }
 		
 		//variable_partie=[Assignement]
-		public Assignment getVariable_partieAssignment_0() { return cVariable_partieAssignment_0; }
+		public Assignment getVariable_partieAssignment() { return cVariable_partieAssignment; }
 		
 		//[Assignement]
-		public CrossReference getVariable_partieAssignementCrossReference_0_0() { return cVariable_partieAssignementCrossReference_0_0; }
+		public CrossReference getVariable_partieAssignementCrossReference_0() { return cVariable_partieAssignementCrossReference_0; }
 		
 		//ID
-		public RuleCall getVariable_partieAssignementIDTerminalRuleCall_0_0_1() { return cVariable_partieAssignementIDTerminalRuleCall_0_0_1; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//(params+=EInt ',')*
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//params+=EInt
-		public Assignment getParamsAssignment_2_0() { return cParamsAssignment_2_0; }
-		
-		//EInt
-		public RuleCall getParamsEIntParserRuleCall_2_0_0() { return cParamsEIntParserRuleCall_2_0_0; }
-		
-		//','
-		public Keyword getCommaKeyword_2_1() { return cCommaKeyword_2_1; }
-		
-		//")"
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		public RuleCall getVariable_partieAssignementIDTerminalRuleCall_0_1() { return cVariable_partieAssignementIDTerminalRuleCall_0_1; }
 	}
 	public class AndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.And");
@@ -1126,31 +1017,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceVarAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final CrossReference cDistanceVarParametreCrossReference_4_0_0 = (CrossReference)cDistanceVarAssignment_4_0.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_0_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_0_0.eContents().get(1);
-		private final Assignment cDistanceCSTAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_1_0 = (RuleCall)cDistanceCSTAssignment_4_1.eContents().get(0);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//FORWARD:
 		//	name="forward" '('
-		//	'distance' '=' (distanceVar=[Parametre] | distanceCST=EInt)
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="forward" '(' 'distance' '=' (distanceVar=[Parametre] | distanceCST=EInt) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="forward" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="forward"
@@ -1168,23 +1050,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceVar=[Parametre] | distanceCST=EInt)
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_0() { return cDistanceVarAssignment_4_0; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_0_0() { return cDistanceVarParametreCrossReference_4_0_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_0_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_0_0_1; }
-		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_1() { return cDistanceCSTAssignment_4_1; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_1_0() { return cDistanceCSTEIntParserRuleCall_4_1_0; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1192,23 +1062,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1221,31 +1079,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//BACKWARD:
 		//	name="backward" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="backward" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="backward" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="backward"
@@ -1263,23 +1112,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1287,23 +1124,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1335,31 +1160,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//LEFT:
 		//	name="left" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="left" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="left" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="left"
@@ -1377,23 +1193,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1401,23 +1205,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1430,31 +1222,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//RIGHT:
 		//	name="right" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="right" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="right" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="right"
@@ -1472,23 +1255,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1496,23 +1267,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1544,31 +1303,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//UP:
 		//	name="up" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="up" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="up" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="up"
@@ -1586,23 +1336,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1610,23 +1348,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1639,31 +1365,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DOWN:
 		//	name="down" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="down" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="down" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="down"
@@ -1681,23 +1398,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1705,23 +1410,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1757,31 +1450,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DepXY:
 		//	name="depXY" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="depXY" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="depXY" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="depXY"
@@ -1799,23 +1483,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1823,23 +1495,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1852,31 +1512,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cRayonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cRayonCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cRayonCSTEIntParserRuleCall_4_0_0 = (RuleCall)cRayonCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cRayonVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cRayonVarParametreCrossReference_4_1_0 = (CrossReference)cRayonVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cRayonVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cRayonVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cRayonCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRayonCSTINTTerminalRuleCall_4_0 = (RuleCall)cRayonCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CERCLEXY:
 		//	name="cercleXY" '('
-		//	'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'rayon' '=' rayonCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="cercleXY" '(' 'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="cercleXY" '(' 'rayon' '=' rayonCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="cercleXY"
@@ -1894,23 +1545,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(rayonCST=EInt | rayonVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//rayonCST=INT
+		public Assignment getRayonCSTAssignment_4() { return cRayonCSTAssignment_4; }
 		
-		//rayonCST=EInt
-		public Assignment getRayonCSTAssignment_4_0() { return cRayonCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getRayonCSTEIntParserRuleCall_4_0_0() { return cRayonCSTEIntParserRuleCall_4_0_0; }
-		
-		//rayonVar=[Parametre]
-		public Assignment getRayonVarAssignment_4_1() { return cRayonVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getRayonVarParametreCrossReference_4_1_0() { return cRayonVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getRayonVarParametreIDTerminalRuleCall_4_1_0_1() { return cRayonVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getRayonCSTINTTerminalRuleCall_4_0() { return cRayonCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1918,23 +1557,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -1947,31 +1574,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cCoteKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cCoteCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cCoteCSTEIntParserRuleCall_4_0_0 = (RuleCall)cCoteCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cCoteVARAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cCoteVARParametreCrossReference_4_1_0 = (CrossReference)cCoteVARAssignment_4_1.eContents().get(0);
-		private final RuleCall cCoteVARParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cCoteVARParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cCoteCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCoteCSTINTTerminalRuleCall_4_0 = (RuleCall)cCoteCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CARREXY:
 		//	name="carreXY" '('
-		//	'cote' '=' (coteCST=EInt | coteVAR=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'cote' '=' coteCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="carreXY" '(' 'cote' '=' (coteCST=EInt | coteVAR=[Parametre]) 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
-		//')'
+		//name="carreXY" '(' 'cote' '=' coteCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="carreXY"
@@ -1989,23 +1607,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(coteCST=EInt | coteVAR=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//coteCST=INT
+		public Assignment getCoteCSTAssignment_4() { return cCoteCSTAssignment_4; }
 		
-		//coteCST=EInt
-		public Assignment getCoteCSTAssignment_4_0() { return cCoteCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getCoteCSTEIntParserRuleCall_4_0_0() { return cCoteCSTEIntParserRuleCall_4_0_0; }
-		
-		//coteVAR=[Parametre]
-		public Assignment getCoteVARAssignment_4_1() { return cCoteVARAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getCoteVARParametreCrossReference_4_1_0() { return cCoteVARParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getCoteVARParametreIDTerminalRuleCall_4_1_0_1() { return cCoteVARParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getCoteCSTINTTerminalRuleCall_4_0() { return cCoteCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2013,23 +1619,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2065,31 +1659,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DepYZ:
 		//	name="depYZ" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="depYZ" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="depYZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="depYZ"
@@ -2107,23 +1692,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2131,23 +1704,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2160,31 +1721,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cRayonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cRayonCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cRayonCSTEIntParserRuleCall_4_0_0 = (RuleCall)cRayonCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cRayonVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cRayonVarParametreCrossReference_4_1_0 = (CrossReference)cRayonVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cRayonVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cRayonVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cRayonCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRayonCSTINTTerminalRuleCall_4_0 = (RuleCall)cRayonCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CERCLEYZ:
 		//	name="cercleYZ" '('
-		//	'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'rayon' '=' rayonCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="cercleYZ" '(' 'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="cercleYZ" '(' 'rayon' '=' rayonCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="cercleYZ"
@@ -2202,23 +1754,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(rayonCST=EInt | rayonVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//rayonCST=INT
+		public Assignment getRayonCSTAssignment_4() { return cRayonCSTAssignment_4; }
 		
-		//rayonCST=EInt
-		public Assignment getRayonCSTAssignment_4_0() { return cRayonCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getRayonCSTEIntParserRuleCall_4_0_0() { return cRayonCSTEIntParserRuleCall_4_0_0; }
-		
-		//rayonVar=[Parametre]
-		public Assignment getRayonVarAssignment_4_1() { return cRayonVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getRayonVarParametreCrossReference_4_1_0() { return cRayonVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getRayonVarParametreIDTerminalRuleCall_4_1_0_1() { return cRayonVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getRayonCSTINTTerminalRuleCall_4_0() { return cRayonCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2226,23 +1766,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2255,31 +1783,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cCoteKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cCoteCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cCoteCSTEIntParserRuleCall_4_0_0 = (RuleCall)cCoteCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cCoteVARAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cCoteVARParametreCrossReference_4_1_0 = (CrossReference)cCoteVARAssignment_4_1.eContents().get(0);
-		private final RuleCall cCoteVARParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cCoteVARParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cCoteCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCoteCSTINTTerminalRuleCall_4_0 = (RuleCall)cCoteCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//CARREYZ:
 		//	name="carreYZ" '('
-		//	'cote' '=' (coteCST=EInt | coteVAR=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'cote' '=' coteCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="carreYZ" '(' 'cote' '=' (coteCST=EInt | coteVAR=[Parametre]) 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
-		//')'
+		//name="carreYZ" '(' 'cote' '=' coteCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="carreYZ"
@@ -2297,23 +1816,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(coteCST=EInt | coteVAR=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//coteCST=INT
+		public Assignment getCoteCSTAssignment_4() { return cCoteCSTAssignment_4; }
 		
-		//coteCST=EInt
-		public Assignment getCoteCSTAssignment_4_0() { return cCoteCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getCoteCSTEIntParserRuleCall_4_0_0() { return cCoteCSTEIntParserRuleCall_4_0_0; }
-		
-		//coteVAR=[Parametre]
-		public Assignment getCoteVARAssignment_4_1() { return cCoteVARAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getCoteVARParametreCrossReference_4_1_0() { return cCoteVARParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getCoteVARParametreIDTerminalRuleCall_4_1_0_1() { return cCoteVARParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getCoteCSTINTTerminalRuleCall_4_0() { return cCoteCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2321,23 +1828,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2361,31 +1856,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DepXZ:
 		//	name="depXZ" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="depXZ" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="depXZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="depXZ"
@@ -2403,23 +1889,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2427,23 +1901,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2475,31 +1937,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cDistanceCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cDistanceCSTEIntParserRuleCall_4_0_0 = (RuleCall)cDistanceCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cDistanceVarAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cDistanceVarParametreCrossReference_4_1_0 = (CrossReference)cDistanceVarAssignment_4_1.eContents().get(0);
-		private final RuleCall cDistanceVarParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDistanceVarParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DepXYZ:
 		//	name="depXYZ" '('
-		//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-		//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+		//	'distance' '=' distanceCST=INT
+		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="depXYZ" '(' 'distance' '=' (distanceCST=EInt | distanceVar=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//tempsVAR=[Parametre]) ')'
+		//name="depXYZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="depXYZ"
@@ -2517,23 +1970,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(distanceCST=EInt | distanceVar=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//distanceCST=INT
+		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
 		
-		//distanceCST=EInt
-		public Assignment getDistanceCSTAssignment_4_0() { return cDistanceCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getDistanceCSTEIntParserRuleCall_4_0_0() { return cDistanceCSTEIntParserRuleCall_4_0_0; }
-		
-		//distanceVar=[Parametre]
-		public Assignment getDistanceVarAssignment_4_1() { return cDistanceVarAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getDistanceVarParametreCrossReference_4_1_0() { return cDistanceVarParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getDistanceVarParametreIDTerminalRuleCall_4_1_0_1() { return cDistanceVarParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2541,23 +1982,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2597,30 +2026,19 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cAngleKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cAngleCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cAngleCSTEIntParserRuleCall_4_0_0 = (RuleCall)cAngleCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cAngleVARAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cAngleVARParametreCrossReference_4_1_0 = (CrossReference)cAngleVARAssignment_4_1.eContents().get(0);
-		private final RuleCall cAngleVARParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cAngleVARParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cAngleCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAngleCSTEIntParserRuleCall_4_0 = (RuleCall)cAngleCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cTempsCSTAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_7_0_0 = (RuleCall)cTempsCSTAssignment_7_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_7_1_0 = (CrossReference)cTempsVARAssignment_7_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Rotate:
-		//	name="rotate" '(' 'angle' '=' (angleCST=EInt | angleVAR=[Parametre]) 'temps' '=' (tempsCST=EInt |
-		//	tempsVAR=[Parametre])
-		//	')';
+		//	name="rotate" '(' 'angle' '=' angleCST=EInt 'temps' '=' tempsCST=INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="rotate" '(' 'angle' '=' (angleCST=EInt | angleVAR=[Parametre]) 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
-		//')'
+		//name="rotate" '(' 'angle' '=' angleCST=EInt 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="rotate"
@@ -2638,23 +2056,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(angleCST=EInt | angleVAR=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
-		
 		//angleCST=EInt
-		public Assignment getAngleCSTAssignment_4_0() { return cAngleCSTAssignment_4_0; }
+		public Assignment getAngleCSTAssignment_4() { return cAngleCSTAssignment_4; }
 		
 		//EInt
-		public RuleCall getAngleCSTEIntParserRuleCall_4_0_0() { return cAngleCSTEIntParserRuleCall_4_0_0; }
-		
-		//angleVAR=[Parametre]
-		public Assignment getAngleVARAssignment_4_1() { return cAngleVARAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getAngleVARParametreCrossReference_4_1_0() { return cAngleVARParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getAngleVARParametreIDTerminalRuleCall_4_1_0_1() { return cAngleVARParametreIDTerminalRuleCall_4_1_0_1; }
+		public RuleCall getAngleCSTEIntParserRuleCall_4_0() { return cAngleCSTEIntParserRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -2662,23 +2068,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_7_0() { return cTempsCSTAssignment_7_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_7_0_0() { return cTempsCSTEIntParserRuleCall_7_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_7_1() { return cTempsVARAssignment_7_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_7_1_0() { return cTempsVARParametreCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_7_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_7_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -2691,19 +2085,15 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTempsKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cTempsCSTAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cTempsCSTEIntParserRuleCall_4_0_0 = (RuleCall)cTempsCSTAssignment_4_0.eContents().get(0);
-		private final Assignment cTempsVARAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final CrossReference cTempsVARParametreCrossReference_4_1_0 = (CrossReference)cTempsVARAssignment_4_1.eContents().get(0);
-		private final RuleCall cTempsVARParametreIDTerminalRuleCall_4_1_0_1 = (RuleCall)cTempsVARParametreCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cTempsCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_4_0 = (RuleCall)cTempsCSTAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Wait:
-		//	name="wait" '(' 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre]) ')';
+		//	name="wait" '(' 'temps' '=' tempsCST=INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="wait" '(' 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre]) ')'
+		//name="wait" '(' 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name="wait"
@@ -2721,23 +2111,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//(tempsCST=EInt | tempsVAR=[Parametre])
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_4() { return cTempsCSTAssignment_4; }
 		
-		//tempsCST=EInt
-		public Assignment getTempsCSTAssignment_4_0() { return cTempsCSTAssignment_4_0; }
-		
-		//EInt
-		public RuleCall getTempsCSTEIntParserRuleCall_4_0_0() { return cTempsCSTEIntParserRuleCall_4_0_0; }
-		
-		//tempsVAR=[Parametre]
-		public Assignment getTempsVARAssignment_4_1() { return cTempsVARAssignment_4_1; }
-		
-		//[Parametre]
-		public CrossReference getTempsVARParametreCrossReference_4_1_0() { return cTempsVARParametreCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getTempsVARParametreIDTerminalRuleCall_4_1_0_1() { return cTempsVARParametreIDTerminalRuleCall_4_1_0_1; }
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_4_0() { return cTempsCSTINTTerminalRuleCall_4_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -3065,58 +2443,92 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class AttributElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Attribut");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAttributeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTypeTypeGenericCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
-		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeTypeGenericCrossReference_3_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cElmtAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cElmtElementCrossReference_5_0 = (CrossReference)cElmtAssignment_5.eContents().get(0);
-		private final RuleCall cElmtElementIDTerminalRuleCall_5_0_1 = (RuleCall)cElmtElementCrossReference_5_0.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAttributeKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
+		private final Assignment cTypeAssignment_0_3_0 = (Assignment)cGroup_0_3.eContents().get(0);
+		private final CrossReference cTypeTypeGenericCrossReference_0_3_0_0 = (CrossReference)cTypeAssignment_0_3_0.eContents().get(0);
+		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1 = (RuleCall)cTypeTypeGenericCrossReference_0_3_0_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
+		private final Assignment cElmtAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
+		private final CrossReference cElmtElementCrossReference_0_3_2_0 = (CrossReference)cElmtAssignment_0_3_2.eContents().get(0);
+		private final RuleCall cElmtElementIDTerminalRuleCall_0_3_2_0_1 = (RuleCall)cElmtElementCrossReference_0_3_2_0.eContents().get(1);
+		private final Assignment cModeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cModeModeEnumRuleCall_1_0 = (RuleCall)cModeAssignment_1.eContents().get(0);
+		private final Assignment cIntAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cIntEIntParserRuleCall_2_0 = (RuleCall)cIntAssignment_2.eContents().get(0);
+		private final Assignment cBoolAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cBoolEBoolEnumRuleCall_3_0 = (RuleCall)cBoolAssignment_3.eContents().get(0);
 		
 		//Attribut:
-		//	'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element];
+		//	'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode
+		//	| int=EInt
+		//	| bool=EBool;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element]
-		public Group getGroup() { return cGroup; }
+		//'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode | int=EInt | bool=EBool
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element])
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'attribute'
-		public Keyword getAttributeKeyword_0() { return cAttributeKeyword_0; }
+		public Keyword getAttributeKeyword_0_0() { return cAttributeKeyword_0_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		public Keyword getEqualsSignKeyword_0_2() { return cEqualsSignKeyword_0_2; }
+		
+		//(type=[TypeGeneric] '.' elmt+=[Element])
+		public Group getGroup_0_3() { return cGroup_0_3; }
 		
 		//type=[TypeGeneric]
-		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		public Assignment getTypeAssignment_0_3_0() { return cTypeAssignment_0_3_0; }
 		
 		//[TypeGeneric]
-		public CrossReference getTypeTypeGenericCrossReference_3_0() { return cTypeTypeGenericCrossReference_3_0; }
+		public CrossReference getTypeTypeGenericCrossReference_0_3_0_0() { return cTypeTypeGenericCrossReference_0_3_0_0; }
 		
 		//ID
-		public RuleCall getTypeTypeGenericIDTerminalRuleCall_3_0_1() { return cTypeTypeGenericIDTerminalRuleCall_3_0_1; }
+		public RuleCall getTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1() { return cTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_4() { return cFullStopKeyword_4; }
+		public Keyword getFullStopKeyword_0_3_1() { return cFullStopKeyword_0_3_1; }
 		
 		//elmt+=[Element]
-		public Assignment getElmtAssignment_5() { return cElmtAssignment_5; }
+		public Assignment getElmtAssignment_0_3_2() { return cElmtAssignment_0_3_2; }
 		
 		//[Element]
-		public CrossReference getElmtElementCrossReference_5_0() { return cElmtElementCrossReference_5_0; }
+		public CrossReference getElmtElementCrossReference_0_3_2_0() { return cElmtElementCrossReference_0_3_2_0; }
 		
 		//ID
-		public RuleCall getElmtElementIDTerminalRuleCall_5_0_1() { return cElmtElementIDTerminalRuleCall_5_0_1; }
+		public RuleCall getElmtElementIDTerminalRuleCall_0_3_2_0_1() { return cElmtElementIDTerminalRuleCall_0_3_2_0_1; }
+		
+		//mode=Mode
+		public Assignment getModeAssignment_1() { return cModeAssignment_1; }
+		
+		//Mode
+		public RuleCall getModeModeEnumRuleCall_1_0() { return cModeModeEnumRuleCall_1_0; }
+		
+		//int=EInt
+		public Assignment getIntAssignment_2() { return cIntAssignment_2; }
+		
+		//EInt
+		public RuleCall getIntEIntParserRuleCall_2_0() { return cIntEIntParserRuleCall_2_0; }
+		
+		//bool=EBool
+		public Assignment getBoolAssignment_3() { return cBoolAssignment_3; }
+		
+		//EBool
+		public RuleCall getBoolEBoolEnumRuleCall_3_0() { return cBoolEBoolEnumRuleCall_3_0; }
 	}
 	public class Led_ImplElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Led_Impl");
@@ -3201,12 +2613,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cBlink_per_secKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Alternatives cAlternatives_6_2 = (Alternatives)cGroup_6.eContents().get(2);
-		private final Assignment cBlink_per_secCSTAssignment_6_2_0 = (Assignment)cAlternatives_6_2.eContents().get(0);
-		private final RuleCall cBlink_per_secCSTEIntParserRuleCall_6_2_0_0 = (RuleCall)cBlink_per_secCSTAssignment_6_2_0.eContents().get(0);
-		private final Assignment cBlink_per_secVARAssignment_6_2_1 = (Assignment)cAlternatives_6_2.eContents().get(1);
-		private final CrossReference cBlink_per_secVARParametreCrossReference_6_2_1_0 = (CrossReference)cBlink_per_secVARAssignment_6_2_1.eContents().get(0);
-		private final RuleCall cBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1 = (RuleCall)cBlink_per_secVARParametreCrossReference_6_2_1_0.eContents().get(1);
+		private final Assignment cBlink_per_secCSTAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cBlink_per_secCSTINTTerminalRuleCall_6_2_0 = (RuleCall)cBlink_per_secCSTAssignment_6_2.eContents().get(0);
 		private final Assignment cAttributsAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cAttributsAttributParserRuleCall_7_0 = (RuleCall)cAttributsAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
@@ -3214,14 +2622,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//LedBlink:
 		//	name='ledBlink'
 		//	'('
-		//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
-		//	blink_per_secVAR=[Parametre])) attributs+=Attribut*
+		//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT) attributs+=Attribut*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// LedBlink:
-		//name='ledBlink' '(' 'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
-		//blink_per_secVAR=[Parametre])) attributs+=Attribut* ')'
+		//name='ledBlink' '(' 'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT)
+		//attributs+=Attribut* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// LedBlink:
@@ -3261,7 +2668,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//ColorLed
 		public RuleCall getColorColorLedEnumRuleCall_5_2_0() { return cColorColorLedEnumRuleCall_5_2_0; }
 		
-		//('blink_per_sec' '=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre]))
+		//('blink_per_sec' '=' blink_per_secCST=INT)
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'blink_per_sec'
@@ -3270,23 +2677,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_6_1() { return cEqualsSignKeyword_6_1; }
 		
-		//(blink_per_secCST=EInt | blink_per_secVAR=[Parametre])
-		public Alternatives getAlternatives_6_2() { return cAlternatives_6_2; }
+		//blink_per_secCST=INT
+		public Assignment getBlink_per_secCSTAssignment_6_2() { return cBlink_per_secCSTAssignment_6_2; }
 		
-		//blink_per_secCST=EInt
-		public Assignment getBlink_per_secCSTAssignment_6_2_0() { return cBlink_per_secCSTAssignment_6_2_0; }
-		
-		//EInt
-		public RuleCall getBlink_per_secCSTEIntParserRuleCall_6_2_0_0() { return cBlink_per_secCSTEIntParserRuleCall_6_2_0_0; }
-		
-		//blink_per_secVAR=[Parametre]
-		public Assignment getBlink_per_secVARAssignment_6_2_1() { return cBlink_per_secVARAssignment_6_2_1; }
-		
-		//[Parametre]
-		public CrossReference getBlink_per_secVARParametreCrossReference_6_2_1_0() { return cBlink_per_secVARParametreCrossReference_6_2_1_0; }
-		
-		//ID
-		public RuleCall getBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1() { return cBlink_per_secVARParametreIDTerminalRuleCall_6_2_1_0_1; }
+		//INT
+		public RuleCall getBlink_per_secCSTINTTerminalRuleCall_6_2_0() { return cBlink_per_secCSTINTTerminalRuleCall_6_2_0; }
 		
 		//attributs+=Attribut*
 		public Assignment getAttributsAssignment_7() { return cAttributsAssignment_7; }
@@ -3303,24 +2698,29 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNameCameraKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
-		private final Assignment cAttributsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAttributsAttributParserRuleCall_5_0 = (RuleCall)cAttributsAssignment_5.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cIdAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIdINTTerminalRuleCall_4_0 = (RuleCall)cIdAssignment_4.eContents().get(0);
+		private final Keyword cModeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cModeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cModeModeEnumRuleCall_7_0 = (RuleCall)cModeAssignment_7.eContents().get(0);
+		private final Assignment cAttributsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cAttributsAttributParserRuleCall_8_0 = (RuleCall)cAttributsAssignment_8.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Camera:
 		//	name='camera'
 		//	'('
+		//	'id' '=' id=INT
 		//	'mode' '=' mode=Mode
 		//	attributs+=Attribut*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// Camera:
-		//name='camera' '(' 'mode' '=' mode=Mode attributs+=Attribut* ')'
+		//name='camera' '(' 'id' '=' id=INT 'mode' '=' mode=Mode attributs+=Attribut* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//// Camera:
@@ -3333,26 +2733,38 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//'mode'
-		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
+		//'id'
+		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
+		//id=INT
+		public Assignment getIdAssignment_4() { return cIdAssignment_4; }
+		
+		//INT
+		public RuleCall getIdINTTerminalRuleCall_4_0() { return cIdINTTerminalRuleCall_4_0; }
+		
+		//'mode'
+		public Keyword getModeKeyword_5() { return cModeKeyword_5; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+		
 		//mode=Mode
-		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
+		public Assignment getModeAssignment_7() { return cModeAssignment_7; }
 		
 		//Mode
-		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
+		public RuleCall getModeModeEnumRuleCall_7_0() { return cModeModeEnumRuleCall_7_0; }
 		
 		//attributs+=Attribut*
-		public Assignment getAttributsAssignment_5() { return cAttributsAssignment_5; }
+		public Assignment getAttributsAssignment_8() { return cAttributsAssignment_8; }
 		
 		//Attribut
-		public RuleCall getAttributsAttributParserRuleCall_5_0() { return cAttributsAttributParserRuleCall_5_0; }
+		public RuleCall getAttributsAttributParserRuleCall_8_0() { return cAttributsAttributParserRuleCall_8_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
 	}
 	public class TypeGenericElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.TypeGeneric");
@@ -3364,7 +2776,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cElementsElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cElementsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cElementsElementParserRuleCall_4_1_0 = (RuleCall)cElementsAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
@@ -3372,11 +2784,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		/// ******************* Type ********************* / TypeGeneric:
 		//	'Type' name=ID
 		//	'{'
-		//	elements+=Element (',' elements+=Element)*
+		//	elements+=Element (';' elements+=Element)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Type' name=ID '{' elements+=Element (',' elements+=Element)* '}'
+		//'Type' name=ID '{' elements+=Element (';' elements+=Element)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Type'
@@ -3397,11 +2809,11 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//Element
 		public RuleCall getElementsElementParserRuleCall_3_0() { return cElementsElementParserRuleCall_3_0; }
 		
-		//(',' elements+=Element)*
+		//(';' elements+=Element)*
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//','
-		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		//';'
+		public Keyword getSemicolonKeyword_4_0() { return cSemicolonKeyword_4_0; }
 		
 		//elements+=Element
 		public Assignment getElementsAssignment_4_1() { return cElementsAssignment_4_1; }
@@ -3623,6 +3035,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final AssignementElements pAssignement;
 	private final ParametreElements pParametre;
 	private final ExpressionElements pExpression;
+	private final MovementElements pMovement;
 	private final RefPartElements pRefPart;
 	private final AndElements pAnd;
 	private final DepY_ImplElements pDepY_Impl;
@@ -3693,6 +3106,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAssignement = new AssignementElements();
 		this.pParametre = new ParametreElements();
 		this.pExpression = new ExpressionElements();
+		this.pMovement = new MovementElements();
 		this.pRefPart = new RefPartElements();
 		this.pAnd = new AndElements();
 		this.pDepY_Impl = new DepY_ImplElements();
@@ -3840,7 +3254,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//InitialPositionX:
 	//	name="positionX"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public InitialPositionXElements getInitialPositionXAccess() {
 		return pInitialPositionX;
 	}
@@ -3851,7 +3265,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//InitialPositionY:
 	//	name="positionY"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public InitialPositionYElements getInitialPositionYAccess() {
 		return pInitialPositionY;
 	}
@@ -3862,7 +3276,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MaxLength:
 	//	name="maxLength"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public MaxLengthElements getMaxLengthAccess() {
 		return pMaxLength;
 	}
@@ -3873,7 +3287,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MaxWidth:
 	//	name="maxWidth"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public MaxWidthElements getMaxWidthAccess() {
 		return pMaxWidth;
 	}
@@ -3884,7 +3298,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MaxSpeed:
 	//	name="maxSpeed"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public MaxSpeedElements getMaxSpeedAccess() {
 		return pMaxSpeed;
 	}
@@ -3895,7 +3309,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MaxHeigth:
 	//	name="maxHeigth"
-	//	'=' value=EInt;
+	//	'=' value=INT;
 	public MaxHeigthElements getMaxHeigthAccess() {
 		return pMaxHeigth;
 	}
@@ -3905,9 +3319,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	/// ******************* Alias ********************* / Assignement:
-	//	name=ID
-	//	'(' (parametre+=Parametre ("," parametre+=Parametre)*)?
-	//	')' '{'
+	//	name=ID '{'
 	//	operandes+=Expression ';' (operandes+=Expression ';')*
 	//	'}';
 	public AssignementElements getAssignementAccess() {
@@ -3929,10 +3341,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	/// ******************* Expression ********************* / Expression:
-	//	(And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
-	//	Wait | Rotate | Land) ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? ^with+=With?
-	//	| '(' (And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL |
-	//	TakeOff | Wait | Rotate | Land) ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=EInt |
+	//	move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
+	//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
 	//	repeatVAR=[Parametre]))? ^with+=With?;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
@@ -3942,10 +3352,19 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
+	//Movement:
+	//	And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
+	//	Wait | Rotate | Land;
+	public MovementElements getMovementAccess() {
+		return pMovement;
+	}
+	
+	public ParserRule getMovementRule() {
+		return getMovementAccess().getRule();
+	}
+	
 	//RefPart:
-	//	variable_partie=[Assignement]
-	//	'(' (params+=EInt ',')*
-	//	")";
+	//	variable_partie=[Assignement];
 	public RefPartElements getRefPartAccess() {
 		return pRefPart;
 	}
@@ -3980,8 +3399,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//FORWARD:
 	//	name="forward" '('
-	//	'distance' '=' (distanceVar=[Parametre] | distanceCST=EInt)
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public FORWARDElements getFORWARDAccess() {
 		return pFORWARD;
@@ -3993,8 +3412,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BACKWARD:
 	//	name="backward" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public BACKWARDElements getBACKWARDAccess() {
 		return pBACKWARD;
@@ -4016,8 +3435,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//LEFT:
 	//	name="left" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public LEFTElements getLEFTAccess() {
 		return pLEFT;
@@ -4029,8 +3448,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//RIGHT:
 	//	name="right" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public RIGHTElements getRIGHTAccess() {
 		return pRIGHT;
@@ -4052,8 +3471,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//UP:
 	//	name="up" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public UPElements getUPAccess() {
 		return pUP;
@@ -4065,8 +3484,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DOWN:
 	//	name="down" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public DOWNElements getDOWNAccess() {
 		return pDOWN;
@@ -4088,8 +3507,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DepXY:
 	//	name="depXY" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public DepXYElements getDepXYAccess() {
 		return pDepXY;
@@ -4101,8 +3520,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//CERCLEXY:
 	//	name="cercleXY" '('
-	//	'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'rayon' '=' rayonCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public CERCLEXYElements getCERCLEXYAccess() {
 		return pCERCLEXY;
@@ -4114,8 +3533,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//CARREXY:
 	//	name="carreXY" '('
-	//	'cote' '=' (coteCST=EInt | coteVAR=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'cote' '=' coteCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public CARREXYElements getCARREXYAccess() {
 		return pCARREXY;
@@ -4137,8 +3556,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DepYZ:
 	//	name="depYZ" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public DepYZElements getDepYZAccess() {
 		return pDepYZ;
@@ -4150,8 +3569,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//CERCLEYZ:
 	//	name="cercleYZ" '('
-	//	'rayon' '=' (rayonCST=EInt | rayonVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'rayon' '=' rayonCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public CERCLEYZElements getCERCLEYZAccess() {
 		return pCERCLEYZ;
@@ -4163,8 +3582,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//CARREYZ:
 	//	name="carreYZ" '('
-	//	'cote' '=' (coteCST=EInt | coteVAR=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'cote' '=' coteCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public CARREYZElements getCARREYZAccess() {
 		return pCARREYZ;
@@ -4186,8 +3605,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DepXZ:
 	//	name="depXZ" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public DepXZElements getDepXZAccess() {
 		return pDepXZ;
@@ -4209,8 +3628,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DepXYZ:
 	//	name="depXYZ" '('
-	//	'distance' '=' (distanceCST=EInt | distanceVar=[Parametre])
-	//	'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre])
+	//	'distance' '=' distanceCST=INT
+	//	'temps' '=' tempsCST=INT
 	//	')';
 	public DepXYZElements getDepXYZAccess() {
 		return pDepXYZ;
@@ -4231,9 +3650,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rotate:
-	//	name="rotate" '(' 'angle' '=' (angleCST=EInt | angleVAR=[Parametre]) 'temps' '=' (tempsCST=EInt |
-	//	tempsVAR=[Parametre])
-	//	')';
+	//	name="rotate" '(' 'angle' '=' angleCST=EInt 'temps' '=' tempsCST=INT ')';
 	public RotateElements getRotateAccess() {
 		return pRotate;
 	}
@@ -4243,7 +3660,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Wait:
-	//	name="wait" '(' 'temps' '=' (tempsCST=EInt | tempsVAR=[Parametre]) ')';
+	//	name="wait" '(' 'temps' '=' tempsCST=INT ')';
 	public WaitElements getWaitAccess() {
 		return pWait;
 	}
@@ -4342,7 +3759,9 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Attribut:
-	//	'attribute' name=ID '=' type=[TypeGeneric] '.' elmt+=[Element];
+	//	'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode
+	//	| int=EInt
+	//	| bool=EBool;
 	public AttributElements getAttributAccess() {
 		return pAttribut;
 	}
@@ -4368,8 +3787,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	//LedBlink:
 	//	name='ledBlink'
 	//	'('
-	//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' (blink_per_secCST=EInt |
-	//	blink_per_secVAR=[Parametre])) attributs+=Attribut*
+	//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT) attributs+=Attribut*
 	//	')';
 	public LedBlinkElements getLedBlinkAccess() {
 		return pLedBlink;
@@ -4382,6 +3800,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	//Camera:
 	//	name='camera'
 	//	'('
+	//	'id' '=' id=INT
 	//	'mode' '=' mode=Mode
 	//	attributs+=Attribut*
 	//	')';
@@ -4396,7 +3815,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	/// ******************* Type ********************* / TypeGeneric:
 	//	'Type' name=ID
 	//	'{'
-	//	elements+=Element (',' elements+=Element)*
+	//	elements+=Element (';' elements+=Element)*
 	//	'}';
 	public TypeGenericElements getTypeGenericAccess() {
 		return pTypeGeneric;

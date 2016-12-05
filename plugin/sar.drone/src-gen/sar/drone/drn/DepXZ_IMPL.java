@@ -14,6 +14,6 @@ package sar.drone.drn;
  * @model
  * @generated
  */
-public interface DepXZ_IMPL extends Expression
+public interface DepXZ_IMPL extends Movement
 {
 } // DepXZ_IMPL

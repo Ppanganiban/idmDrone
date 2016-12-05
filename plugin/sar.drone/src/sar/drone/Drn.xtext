@@ -42,40 +42,37 @@ InitialDirection:
 
 InitialPositionX:
 	name = "positionX"
-	'=' (value=EInt)
+	'=' (value=INT)
 ;
 
 InitialPositionY:
 	name = "positionY"
-	'=' (value=EInt)
+	'=' (value=INT)
 ;
 MaxLength:
 	name = "maxLength"
-	'='(value=EInt)
+	'='(value=INT)
 ;
 
 MaxWidth:
 	name = "maxWidth"
-	'='(value=EInt)		
+	'='(value=INT)		
 ;
 
 MaxSpeed :
 	name="maxSpeed"
-	'='(value=EInt)	
+	'='(value=INT)	
 ;
 
 MaxHeigth :
 	name="maxHeigth"
-	'='(value=EInt)
+	'='(value=INT)
 ;
 
 /******************* Alias *********************/
 
 Assignement :
-	name=ID
-	'('
-		(parametre+=Parametre ( "," parametre+=Parametre)*)?
-	')''{'
+	name=ID'{'
 		operandes+=Expression ';'
 		(operandes+=Expression ';')*
 	'}'
@@ -90,16 +87,17 @@ Parametre :// Parametre:
 
 
 Expression :
-	( (And|RefPart|DepX_Impl|DepY_Impl|DepZ_Impl|DepXY_IMPL|DepXZ_IMPL|DepYZ_IMPL|DepXYZ_IMPL|TakeOff|Wait|Rotate|Land) ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? (^with+=With)? 
-	| '(' (And|RefPart|DepX_Impl|DepY_Impl|DepZ_Impl|DepXY_IMPL|DepXZ_IMPL|DepYZ_IMPL|DepXYZ_IMPL|TakeOff|Wait|Rotate|Land) ('then'then+=Expression) ('then'then+=Expression)* ')' ('X' (repeatCST=EInt | repeatVAR=[Parametre]))? (^with+=With)?
+	( move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? (^with+=With)? 
+	| '(' move=Movement ('then'then+=Expression) ('then'then+=Expression)* ')' ('X' (repeatCST=INT | repeatVAR=[Parametre]))? (^with+=With)?
 	)
+;
+
+Movement:
+	And|RefPart|DepX_Impl|DepY_Impl|DepZ_Impl|DepXY_IMPL|DepXZ_IMPL|DepYZ_IMPL|DepXYZ_IMPL|TakeOff|Wait|Rotate|Land
 ;
 
 RefPart :
 	variable_partie=[Assignement]
-	'(' 
-	(params+=EInt ',')*
-	")"
 ;
 
 And :
@@ -108,7 +106,7 @@ And :
 	 (rotate+=Rotate|depx+=DepX_Impl|depy+=DepY_Impl|depxz+=DepXZ_IMPL|depxy+=DepXY_IMPL|depz+=DepZ_Impl)','
 	 (rotate+=Rotate|depx+=DepX_Impl|depy+=DepY_Impl|depxz+=DepXZ_IMPL|depxy+=DepXY_IMPL|depz+=DepZ_Impl)
 	 (','(rotate+=Rotate|depx+=DepX_Impl|depy+=DepY_Impl|depxz+=DepXZ_IMPL|depxy+=DepXY_IMPL|depz+=DepZ_Impl) )*
-	')'		
+	')'
 ;
 
 /******************* Action *********************/
@@ -119,14 +117,14 @@ DepY_Impl: FORWARD | BACKWARD;
 
 FORWARD:
 	name="forward" '('
-		'distance''=' (distanceVar=[Parametre] | distanceCST=EInt )
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT 
 	')'
 ;
 BACKWARD:
 	 name="backward" '('
-		'distance''=' ( distanceCST=EInt | distanceVar=[Parametre] )
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 
@@ -134,14 +132,14 @@ DepX_Impl : LEFT | RIGHT
 ;
 LEFT:
 	 name="left" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 RIGHT:
 	 name="right" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 
@@ -150,14 +148,14 @@ DepZ_Impl : UP|DOWN;
 
 UP:
 	 name="up" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 DOWN:
 	 name="down" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 
@@ -167,42 +165,42 @@ DOWN:
 DepXY_IMPL: DepXY | CERCLEXY | CARREXY;
 DepXY :
 	 name="depXY"'('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 	;
 
 CERCLEXY:
 	 name="cercleXY" '('
-		'rayon''=' (rayonCST=EInt | rayonVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'rayon''=' rayonCST=INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 CARREXY:
 	 name="carreXY" '('
-		'cote''=' (coteCST = EInt | coteVAR = [Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'cote''=' coteCST = INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 
 DepYZ_IMPL: DepYZ | CERCLEYZ | CARREYZ;
 DepYZ :
 	 name="depYZ" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT 
 	')'
 	;
 
 CERCLEYZ:
 	 name="cercleYZ" '('
-		'rayon''=' (rayonCST=EInt | rayonVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre])  
+		'rayon''=' rayonCST=INT
+		'temps''=' tempsCST=INT  
 	')'
 ;
 CARREYZ:
 	 name="carreYZ" '('
-		'cote''=' (coteCST = EInt | coteVAR = [Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre])
+		'cote''=' coteCST = INT
+		'temps''=' tempsCST=INT
 	')'
 ;
 
@@ -211,8 +209,8 @@ DepXZ_IMPL: DepXZ ;
 
 DepXZ :
 	 name="depXZ" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT 
+		'temps''=' tempsCST=INT
 	')'
 	;
 
@@ -221,8 +219,8 @@ DepXYZ_IMPL: DepXYZ | Flip;
 
 DepXYZ :
 	 name="depXYZ" '('
-		'distance''=' (distanceCST=EInt | distanceVar=[Parametre])
-		'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
+		'distance''=' distanceCST=INT
+		'temps''=' tempsCST=INT
 	')'
 	;
 	
@@ -231,11 +229,10 @@ Flip :
 ;
 
 Rotate :
-	 name="rotate" '(''angle''=' (angleCST=EInt| angleVAR= [Parametre])  'temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) 
-	')';
+	 name="rotate" '(''angle''=' angleCST=EInt  'temps''=' tempsCST=INT ')';
 	
 Wait :
-	 name="wait" '(''temps''=' (tempsCST=EInt | tempsVAR=[Parametre]) ')';
+	 name="wait" '(''temps''=' tempsCST=INT')';
 
 TakeOff :
 	 name="takeoff" '('')' 
@@ -256,7 +253,7 @@ Device:
 ;
 
 Declaration:
-	'type' type=[TypeGeneric] name=ID
+	'type' type=([TypeGeneric]) name=ID
 ;
 
 Definition :
@@ -282,7 +279,11 @@ RefDevice :
 ;
 
 Attribut :
-	'attribute' name = ID '=' type=[TypeGeneric]'.'(elmt+=[Element])
+	'attribute' name = ID '=' (type=[TypeGeneric]'.'(elmt+=[Element]))
+							| mode=Mode
+							| int = EInt
+							| bool = EBool
+							 
 ;
 Led_Impl :// Led:
 	name='led'
@@ -297,15 +298,16 @@ LedBlink :// LedBlink:
 	'('
 	'mode''=' mode=Mode
 	('color''=' color=ColorLed)
-	('blink_per_sec''=' (blink_per_secCST=EInt | blink_per_secVAR=[Parametre] ) )
+	('blink_per_sec''=' blink_per_secCST=INT )
 	(attributs+=Attribut)*
 	')';
 
 Camera :// Camera:
 	name='camera'
 	'('
+	'id''=' id=INT
 	'mode''=' mode=Mode
-	(attributs+=Attribut)*
+	(attributs += Attribut)*
 	')'
 ;
 /******************* Type *********************/
@@ -314,7 +316,7 @@ TypeGeneric :
 	'Type' name = ID
 	'{'
 		elements+= Element
-		(',' elements+= Element)*
+		(';' elements+= Element)*
 	'}'
 ;
 

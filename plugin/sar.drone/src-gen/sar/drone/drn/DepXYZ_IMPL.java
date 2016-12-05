@@ -20,7 +20,7 @@ package sar.drone.drn;
  * @model
  * @generated
  */
-public interface DepXYZ_IMPL extends Expression
+public interface DepXYZ_IMPL extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

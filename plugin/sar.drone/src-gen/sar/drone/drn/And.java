@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface And extends Expression
+public interface And extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link sar.drone.drn.Attribut#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.Attribut#getType <em>Type</em>}</li>
  *   <li>{@link sar.drone.drn.Attribut#getElmt <em>Elmt</em>}</li>
+ *   <li>{@link sar.drone.drn.Attribut#getMode <em>Mode</em>}</li>
+ *   <li>{@link sar.drone.drn.Attribut#getInt <em>Int</em>}</li>
+ *   <li>{@link sar.drone.drn.Attribut#getBool <em>Bool</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getAttribut()
@@ -94,5 +97,89 @@ public interface Attribut extends EObject
    * @generated
    */
   EList<Element> getElmt();
+
+  /**
+   * Returns the value of the '<em><b>Mode</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.Mode}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mode</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #setMode(Mode)
+   * @see sar.drone.drn.DrnPackage#getAttribut_Mode()
+   * @model
+   * @generated
+   */
+  Mode getMode();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Attribut#getMode <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #getMode()
+   * @generated
+   */
+  void setMode(Mode value);
+
+  /**
+   * Returns the value of the '<em><b>Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Int</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Int</em>' attribute.
+   * @see #setInt(String)
+   * @see sar.drone.drn.DrnPackage#getAttribut_Int()
+   * @model
+   * @generated
+   */
+  String getInt();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Attribut#getInt <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Int</em>' attribute.
+   * @see #getInt()
+   * @generated
+   */
+  void setInt(String value);
+
+  /**
+   * Returns the value of the '<em><b>Bool</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.EBool}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bool</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bool</em>' attribute.
+   * @see sar.drone.drn.EBool
+   * @see #setBool(EBool)
+   * @see sar.drone.drn.DrnPackage#getAttribut_Bool()
+   * @model
+   * @generated
+   */
+  EBool getBool();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Attribut#getBool <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Bool</em>' attribute.
+   * @see sar.drone.drn.EBool
+   * @see #getBool()
+   * @generated
+   */
+  void setBool(EBool value);
 
 } // Attribut

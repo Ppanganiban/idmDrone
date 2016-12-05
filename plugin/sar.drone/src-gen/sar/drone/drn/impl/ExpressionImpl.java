@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Expression;
+import sar.drone.drn.Movement;
 import sar.drone.drn.Parametre;
 import sar.drone.drn.With;
 
@@ -32,6 +33,7 @@ import sar.drone.drn.With;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getMove <em>Move</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getRepeatCST <em>Repeat CST</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getRepeatVAR <em>Repeat VAR</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getWith <em>With</em>}</li>
@@ -43,6 +45,16 @@ import sar.drone.drn.With;
 public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
+   * The cached value of the '{@link #getMove() <em>Move</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMove()
+   * @generated
+   * @ordered
+   */
+  protected Movement move;
+
+  /**
    * The default value of the '{@link #getRepeatCST() <em>Repeat CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -50,7 +62,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    * @ordered
    */
-  protected static final String REPEAT_CST_EDEFAULT = null;
+  protected static final int REPEAT_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getRepeatCST() <em>Repeat CST</em>}' attribute.
@@ -60,7 +72,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    * @ordered
    */
-  protected String repeatCST = REPEAT_CST_EDEFAULT;
+  protected int repeatCST = REPEAT_CST_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRepeatVAR() <em>Repeat VAR</em>}' reference.
@@ -118,7 +130,55 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRepeatCST()
+  public Movement getMove()
+  {
+    return move;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMove(Movement newMove, NotificationChain msgs)
+  {
+    Movement oldMove = move;
+    move = newMove;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DrnPackage.EXPRESSION__MOVE, oldMove, newMove);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMove(Movement newMove)
+  {
+    if (newMove != move)
+    {
+      NotificationChain msgs = null;
+      if (move != null)
+        msgs = ((InternalEObject)move).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DrnPackage.EXPRESSION__MOVE, null, msgs);
+      if (newMove != null)
+        msgs = ((InternalEObject)newMove).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DrnPackage.EXPRESSION__MOVE, null, msgs);
+      msgs = basicSetMove(newMove, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.EXPRESSION__MOVE, newMove, newMove));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getRepeatCST()
   {
     return repeatCST;
   }
@@ -128,9 +188,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRepeatCST(String newRepeatCST)
+  public void setRepeatCST(int newRepeatCST)
   {
-    String oldRepeatCST = repeatCST;
+    int oldRepeatCST = repeatCST;
     repeatCST = newRepeatCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.EXPRESSION__REPEAT_CST, oldRepeatCST, repeatCST));
@@ -217,6 +277,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case DrnPackage.EXPRESSION__MOVE:
+        return basicSetMove(null, msgs);
       case DrnPackage.EXPRESSION__WITH:
         return ((InternalEList<?>)getWith()).basicRemove(otherEnd, msgs);
       case DrnPackage.EXPRESSION__THEN:
@@ -235,6 +297,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case DrnPackage.EXPRESSION__MOVE:
+        return getMove();
       case DrnPackage.EXPRESSION__REPEAT_CST:
         return getRepeatCST();
       case DrnPackage.EXPRESSION__REPEAT_VAR:
@@ -259,8 +323,11 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case DrnPackage.EXPRESSION__MOVE:
+        setMove((Movement)newValue);
+        return;
       case DrnPackage.EXPRESSION__REPEAT_CST:
-        setRepeatCST((String)newValue);
+        setRepeatCST((Integer)newValue);
         return;
       case DrnPackage.EXPRESSION__REPEAT_VAR:
         setRepeatVAR((Parametre)newValue);
@@ -287,6 +354,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case DrnPackage.EXPRESSION__MOVE:
+        setMove((Movement)null);
+        return;
       case DrnPackage.EXPRESSION__REPEAT_CST:
         setRepeatCST(REPEAT_CST_EDEFAULT);
         return;
@@ -313,8 +383,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case DrnPackage.EXPRESSION__MOVE:
+        return move != null;
       case DrnPackage.EXPRESSION__REPEAT_CST:
-        return REPEAT_CST_EDEFAULT == null ? repeatCST != null : !REPEAT_CST_EDEFAULT.equals(repeatCST);
+        return repeatCST != REPEAT_CST_EDEFAULT;
       case DrnPackage.EXPRESSION__REPEAT_VAR:
         return repeatVAR != null;
       case DrnPackage.EXPRESSION__WITH:

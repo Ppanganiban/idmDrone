@@ -6,12 +6,10 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 import sar.drone.drn.Wait;
 
 /**
@@ -24,12 +22,11 @@ import sar.drone.drn.Wait;
  * <ul>
  *   <li>{@link sar.drone.drn.impl.WaitImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.WaitImpl#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.WaitImpl#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class WaitImpl extends ExpressionImpl implements Wait
+public class WaitImpl extends MovementImpl implements Wait
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -59,7 +56,7 @@ public class WaitImpl extends ExpressionImpl implements Wait
    * @generated
    * @ordered
    */
-  protected static final String TEMPS_CST_EDEFAULT = null;
+  protected static final int TEMPS_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
@@ -69,17 +66,7 @@ public class WaitImpl extends ExpressionImpl implements Wait
    * @generated
    * @ordered
    */
-  protected String tempsCST = TEMPS_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getTempsVAR() <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTempsVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre tempsVAR;
+  protected int tempsCST = TEMPS_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,7 +117,7 @@ public class WaitImpl extends ExpressionImpl implements Wait
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTempsCST()
+  public int getTempsCST()
   {
     return tempsCST;
   }
@@ -140,55 +127,12 @@ public class WaitImpl extends ExpressionImpl implements Wait
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTempsCST(String newTempsCST)
+  public void setTempsCST(int newTempsCST)
   {
-    String oldTempsCST = tempsCST;
+    int oldTempsCST = tempsCST;
     tempsCST = newTempsCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.WAIT__TEMPS_CST, oldTempsCST, tempsCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getTempsVAR()
-  {
-    if (tempsVAR != null && tempsVAR.eIsProxy())
-    {
-      InternalEObject oldTempsVAR = (InternalEObject)tempsVAR;
-      tempsVAR = (Parametre)eResolveProxy(oldTempsVAR);
-      if (tempsVAR != oldTempsVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.WAIT__TEMPS_VAR, oldTempsVAR, tempsVAR));
-      }
-    }
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetTempsVAR()
-  {
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTempsVAR(Parametre newTempsVAR)
-  {
-    Parametre oldTempsVAR = tempsVAR;
-    tempsVAR = newTempsVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.WAIT__TEMPS_VAR, oldTempsVAR, tempsVAR));
   }
 
   /**
@@ -205,9 +149,6 @@ public class WaitImpl extends ExpressionImpl implements Wait
         return getName();
       case DrnPackage.WAIT__TEMPS_CST:
         return getTempsCST();
-      case DrnPackage.WAIT__TEMPS_VAR:
-        if (resolve) return getTempsVAR();
-        return basicGetTempsVAR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -226,10 +167,7 @@ public class WaitImpl extends ExpressionImpl implements Wait
         setName((String)newValue);
         return;
       case DrnPackage.WAIT__TEMPS_CST:
-        setTempsCST((String)newValue);
-        return;
-      case DrnPackage.WAIT__TEMPS_VAR:
-        setTempsVAR((Parametre)newValue);
+        setTempsCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -251,9 +189,6 @@ public class WaitImpl extends ExpressionImpl implements Wait
       case DrnPackage.WAIT__TEMPS_CST:
         setTempsCST(TEMPS_CST_EDEFAULT);
         return;
-      case DrnPackage.WAIT__TEMPS_VAR:
-        setTempsVAR((Parametre)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -271,9 +206,7 @@ public class WaitImpl extends ExpressionImpl implements Wait
       case DrnPackage.WAIT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DrnPackage.WAIT__TEMPS_CST:
-        return TEMPS_CST_EDEFAULT == null ? tempsCST != null : !TEMPS_CST_EDEFAULT.equals(tempsCST);
-      case DrnPackage.WAIT__TEMPS_VAR:
-        return tempsVAR != null;
+        return tempsCST != TEMPS_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

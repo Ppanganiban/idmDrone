@@ -6,12 +6,10 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 import sar.drone.drn.Rotate;
 
 /**
@@ -24,14 +22,12 @@ import sar.drone.drn.Rotate;
  * <ul>
  *   <li>{@link sar.drone.drn.impl.RotateImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.RotateImpl#getAngleCST <em>Angle CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RotateImpl#getAngleVAR <em>Angle VAR</em>}</li>
  *   <li>{@link sar.drone.drn.impl.RotateImpl#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RotateImpl#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RotateImpl extends ExpressionImpl implements Rotate
+public class RotateImpl extends MovementImpl implements Rotate
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -74,16 +70,6 @@ public class RotateImpl extends ExpressionImpl implements Rotate
   protected String angleCST = ANGLE_CST_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAngleVAR() <em>Angle VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAngleVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre angleVAR;
-
-  /**
    * The default value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -91,7 +77,7 @@ public class RotateImpl extends ExpressionImpl implements Rotate
    * @generated
    * @ordered
    */
-  protected static final String TEMPS_CST_EDEFAULT = null;
+  protected static final int TEMPS_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
@@ -101,17 +87,7 @@ public class RotateImpl extends ExpressionImpl implements Rotate
    * @generated
    * @ordered
    */
-  protected String tempsCST = TEMPS_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getTempsVAR() <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTempsVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre tempsVAR;
+  protected int tempsCST = TEMPS_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,50 +161,7 @@ public class RotateImpl extends ExpressionImpl implements Rotate
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parametre getAngleVAR()
-  {
-    if (angleVAR != null && angleVAR.eIsProxy())
-    {
-      InternalEObject oldAngleVAR = (InternalEObject)angleVAR;
-      angleVAR = (Parametre)eResolveProxy(oldAngleVAR);
-      if (angleVAR != oldAngleVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.ROTATE__ANGLE_VAR, oldAngleVAR, angleVAR));
-      }
-    }
-    return angleVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetAngleVAR()
-  {
-    return angleVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAngleVAR(Parametre newAngleVAR)
-  {
-    Parametre oldAngleVAR = angleVAR;
-    angleVAR = newAngleVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ROTATE__ANGLE_VAR, oldAngleVAR, angleVAR));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getTempsCST()
+  public int getTempsCST()
   {
     return tempsCST;
   }
@@ -238,55 +171,12 @@ public class RotateImpl extends ExpressionImpl implements Rotate
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTempsCST(String newTempsCST)
+  public void setTempsCST(int newTempsCST)
   {
-    String oldTempsCST = tempsCST;
+    int oldTempsCST = tempsCST;
     tempsCST = newTempsCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ROTATE__TEMPS_CST, oldTempsCST, tempsCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getTempsVAR()
-  {
-    if (tempsVAR != null && tempsVAR.eIsProxy())
-    {
-      InternalEObject oldTempsVAR = (InternalEObject)tempsVAR;
-      tempsVAR = (Parametre)eResolveProxy(oldTempsVAR);
-      if (tempsVAR != oldTempsVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.ROTATE__TEMPS_VAR, oldTempsVAR, tempsVAR));
-      }
-    }
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetTempsVAR()
-  {
-    return tempsVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTempsVAR(Parametre newTempsVAR)
-  {
-    Parametre oldTempsVAR = tempsVAR;
-    tempsVAR = newTempsVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ROTATE__TEMPS_VAR, oldTempsVAR, tempsVAR));
   }
 
   /**
@@ -303,14 +193,8 @@ public class RotateImpl extends ExpressionImpl implements Rotate
         return getName();
       case DrnPackage.ROTATE__ANGLE_CST:
         return getAngleCST();
-      case DrnPackage.ROTATE__ANGLE_VAR:
-        if (resolve) return getAngleVAR();
-        return basicGetAngleVAR();
       case DrnPackage.ROTATE__TEMPS_CST:
         return getTempsCST();
-      case DrnPackage.ROTATE__TEMPS_VAR:
-        if (resolve) return getTempsVAR();
-        return basicGetTempsVAR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -331,14 +215,8 @@ public class RotateImpl extends ExpressionImpl implements Rotate
       case DrnPackage.ROTATE__ANGLE_CST:
         setAngleCST((String)newValue);
         return;
-      case DrnPackage.ROTATE__ANGLE_VAR:
-        setAngleVAR((Parametre)newValue);
-        return;
       case DrnPackage.ROTATE__TEMPS_CST:
-        setTempsCST((String)newValue);
-        return;
-      case DrnPackage.ROTATE__TEMPS_VAR:
-        setTempsVAR((Parametre)newValue);
+        setTempsCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -360,14 +238,8 @@ public class RotateImpl extends ExpressionImpl implements Rotate
       case DrnPackage.ROTATE__ANGLE_CST:
         setAngleCST(ANGLE_CST_EDEFAULT);
         return;
-      case DrnPackage.ROTATE__ANGLE_VAR:
-        setAngleVAR((Parametre)null);
-        return;
       case DrnPackage.ROTATE__TEMPS_CST:
         setTempsCST(TEMPS_CST_EDEFAULT);
-        return;
-      case DrnPackage.ROTATE__TEMPS_VAR:
-        setTempsVAR((Parametre)null);
         return;
     }
     super.eUnset(featureID);
@@ -387,12 +259,8 @@ public class RotateImpl extends ExpressionImpl implements Rotate
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DrnPackage.ROTATE__ANGLE_CST:
         return ANGLE_CST_EDEFAULT == null ? angleCST != null : !ANGLE_CST_EDEFAULT.equals(angleCST);
-      case DrnPackage.ROTATE__ANGLE_VAR:
-        return angleVAR != null;
       case DrnPackage.ROTATE__TEMPS_CST:
-        return TEMPS_CST_EDEFAULT == null ? tempsCST != null : !TEMPS_CST_EDEFAULT.equals(tempsCST);
-      case DrnPackage.ROTATE__TEMPS_VAR:
-        return tempsVAR != null;
+        return tempsCST != TEMPS_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

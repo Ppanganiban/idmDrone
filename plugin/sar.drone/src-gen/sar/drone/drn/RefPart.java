@@ -3,7 +3,6 @@
  */
 package sar.drone.drn;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,14 +14,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.RefPart#getVariable_partie <em>Variable partie</em>}</li>
- *   <li>{@link sar.drone.drn.RefPart#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getRefPart()
  * @model
  * @generated
  */
-public interface RefPart extends Expression
+public interface RefPart extends Movement
 {
   /**
    * Returns the value of the '<em><b>Variable partie</b></em>' reference.
@@ -49,21 +47,5 @@ public interface RefPart extends Expression
    * @generated
    */
   void setVariable_partie(Assignement value);
-
-  /**
-   * Returns the value of the '<em><b>Params</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Params</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' attribute list.
-   * @see sar.drone.drn.DrnPackage#getRefPart_Params()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getParams();
 
 } // RefPart

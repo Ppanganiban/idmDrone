@@ -151,6 +151,11 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseMovement(Movement object)
+      {
+        return createMovementAdapter();
+      }
+      @Override
       public Adapter caseRefPart(RefPart object)
       {
         return createRefPartAdapter();
@@ -593,6 +598,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Movement <em>Movement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Movement
+   * @generated
+   */
+  public Adapter createMovementAdapter()
   {
     return null;
   }

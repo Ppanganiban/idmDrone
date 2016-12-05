@@ -6,13 +6,11 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.CERCLEYZ;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +21,6 @@ import sar.drone.drn.Parametre;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.CERCLEYZImpl#getRayonCST <em>Rayon CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.CERCLEYZImpl#getRayonVar <em>Rayon Var</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,7 +35,7 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
    * @generated
    * @ordered
    */
-  protected static final String RAYON_CST_EDEFAULT = null;
+  protected static final int RAYON_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
@@ -48,17 +45,7 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
    * @generated
    * @ordered
    */
-  protected String rayonCST = RAYON_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRayonVar() <em>Rayon Var</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRayonVar()
-   * @generated
-   * @ordered
-   */
-  protected Parametre rayonVar;
+  protected int rayonCST = RAYON_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,7 +73,7 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRayonCST()
+  public int getRayonCST()
   {
     return rayonCST;
   }
@@ -96,55 +83,12 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRayonCST(String newRayonCST)
+  public void setRayonCST(int newRayonCST)
   {
-    String oldRayonCST = rayonCST;
+    int oldRayonCST = rayonCST;
     rayonCST = newRayonCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_CST, oldRayonCST, rayonCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getRayonVar()
-  {
-    if (rayonVar != null && rayonVar.eIsProxy())
-    {
-      InternalEObject oldRayonVar = (InternalEObject)rayonVar;
-      rayonVar = (Parametre)eResolveProxy(oldRayonVar);
-      if (rayonVar != oldRayonVar)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
-      }
-    }
-    return rayonVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetRayonVar()
-  {
-    return rayonVar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRayonVar(Parametre newRayonVar)
-  {
-    Parametre oldRayonVar = rayonVar;
-    rayonVar = newRayonVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEYZ__RAYON_VAR, oldRayonVar, rayonVar));
   }
 
   /**
@@ -159,9 +103,6 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
     {
       case DrnPackage.CERCLEYZ__RAYON_CST:
         return getRayonCST();
-      case DrnPackage.CERCLEYZ__RAYON_VAR:
-        if (resolve) return getRayonVar();
-        return basicGetRayonVar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,10 +118,7 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
     switch (featureID)
     {
       case DrnPackage.CERCLEYZ__RAYON_CST:
-        setRayonCST((String)newValue);
-        return;
-      case DrnPackage.CERCLEYZ__RAYON_VAR:
-        setRayonVar((Parametre)newValue);
+        setRayonCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,9 +137,6 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
       case DrnPackage.CERCLEYZ__RAYON_CST:
         setRayonCST(RAYON_CST_EDEFAULT);
         return;
-      case DrnPackage.CERCLEYZ__RAYON_VAR:
-        setRayonVar((Parametre)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -217,9 +152,7 @@ public class CERCLEYZImpl extends DepYZ_IMPLImpl implements CERCLEYZ
     switch (featureID)
     {
       case DrnPackage.CERCLEYZ__RAYON_CST:
-        return RAYON_CST_EDEFAULT == null ? rayonCST != null : !RAYON_CST_EDEFAULT.equals(rayonCST);
-      case DrnPackage.CERCLEYZ__RAYON_VAR:
-        return rayonVar != null;
+        return rayonCST != RAYON_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

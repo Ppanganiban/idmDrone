@@ -14,7 +14,6 @@ package sar.drone.drn;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.CARREXY#getCoteCST <em>Cote CST</em>}</li>
- *   <li>{@link sar.drone.drn.CARREXY#getCoteVAR <em>Cote VAR</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getCARREXY()
@@ -32,12 +31,12 @@ public interface CARREXY extends DepXY_IMPL
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Cote CST</em>' attribute.
-   * @see #setCoteCST(String)
+   * @see #setCoteCST(int)
    * @see sar.drone.drn.DrnPackage#getCARREXY_CoteCST()
    * @model
    * @generated
    */
-  String getCoteCST();
+  int getCoteCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.CARREXY#getCoteCST <em>Cote CST</em>}' attribute.
@@ -47,32 +46,6 @@ public interface CARREXY extends DepXY_IMPL
    * @see #getCoteCST()
    * @generated
    */
-  void setCoteCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Cote VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Cote VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Cote VAR</em>' reference.
-   * @see #setCoteVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getCARREXY_CoteVAR()
-   * @model
-   * @generated
-   */
-  Parametre getCoteVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.CARREXY#getCoteVAR <em>Cote VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cote VAR</em>' reference.
-   * @see #getCoteVAR()
-   * @generated
-   */
-  void setCoteVAR(Parametre value);
+  void setCoteCST(int value);
 
 } // CARREXY

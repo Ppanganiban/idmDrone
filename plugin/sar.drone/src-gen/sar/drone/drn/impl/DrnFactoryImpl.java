@@ -81,6 +81,7 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.ASSIGNEMENT: return createAssignement();
       case DrnPackage.PARAMETRE: return createParametre();
       case DrnPackage.EXPRESSION: return createExpression();
+      case DrnPackage.MOVEMENT: return createMovement();
       case DrnPackage.REF_PART: return createRefPart();
       case DrnPackage.AND: return createAnd();
       case DrnPackage.DEP_YIMPL: return createDepY_Impl();
@@ -335,6 +336,17 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Movement createMovement()
+  {
+    MovementImpl movement = new MovementImpl();
+    return movement;
   }
 
   /**

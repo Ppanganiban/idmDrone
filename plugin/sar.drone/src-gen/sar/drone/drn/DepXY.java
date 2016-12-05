@@ -14,7 +14,6 @@ package sar.drone.drn;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.DepXY#getDistanceCST <em>Distance CST</em>}</li>
- *   <li>{@link sar.drone.drn.DepXY#getDistanceVar <em>Distance Var</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getDepXY()
@@ -32,12 +31,12 @@ public interface DepXY extends DepXY_IMPL
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Distance CST</em>' attribute.
-   * @see #setDistanceCST(String)
+   * @see #setDistanceCST(int)
    * @see sar.drone.drn.DrnPackage#getDepXY_DistanceCST()
    * @model
    * @generated
    */
-  String getDistanceCST();
+  int getDistanceCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.DepXY#getDistanceCST <em>Distance CST</em>}' attribute.
@@ -47,32 +46,6 @@ public interface DepXY extends DepXY_IMPL
    * @see #getDistanceCST()
    * @generated
    */
-  void setDistanceCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Distance Var</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Distance Var</em>' reference.
-   * @see #setDistanceVar(Parametre)
-   * @see sar.drone.drn.DrnPackage#getDepXY_DistanceVar()
-   * @model
-   * @generated
-   */
-  Parametre getDistanceVar();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.DepXY#getDistanceVar <em>Distance Var</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Distance Var</em>' reference.
-   * @see #getDistanceVar()
-   * @generated
-   */
-  void setDistanceVar(Parametre value);
+  void setDistanceCST(int value);
 
 } // DepXY

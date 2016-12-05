@@ -15,14 +15,13 @@ package sar.drone.drn;
  * <ul>
  *   <li>{@link sar.drone.drn.Wait#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.Wait#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.Wait#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getWait()
  * @model
  * @generated
  */
-public interface Wait extends Expression
+public interface Wait extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -59,12 +58,12 @@ public interface Wait extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Temps CST</em>' attribute.
-   * @see #setTempsCST(String)
+   * @see #setTempsCST(int)
    * @see sar.drone.drn.DrnPackage#getWait_TempsCST()
    * @model
    * @generated
    */
-  String getTempsCST();
+  int getTempsCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.Wait#getTempsCST <em>Temps CST</em>}' attribute.
@@ -74,32 +73,6 @@ public interface Wait extends Expression
    * @see #getTempsCST()
    * @generated
    */
-  void setTempsCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Temps VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Temps VAR</em>' reference.
-   * @see #setTempsVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getWait_TempsVAR()
-   * @model
-   * @generated
-   */
-  Parametre getTempsVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Wait#getTempsVAR <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Temps VAR</em>' reference.
-   * @see #getTempsVAR()
-   * @generated
-   */
-  void setTempsVAR(Parametre value);
+  void setTempsCST(int value);
 
 } // Wait

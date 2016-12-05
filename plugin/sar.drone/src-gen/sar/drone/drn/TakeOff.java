@@ -20,7 +20,7 @@ package sar.drone.drn;
  * @model
  * @generated
  */
-public interface TakeOff extends Expression
+public interface TakeOff extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

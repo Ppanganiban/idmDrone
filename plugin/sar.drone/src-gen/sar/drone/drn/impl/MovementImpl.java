@@ -5,24 +5,26 @@ package sar.drone.drn.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import sar.drone.drn.DepXZ_IMPL;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import sar.drone.drn.DrnPackage;
+import sar.drone.drn.Movement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dep XZ IMPL</b></em>'.
+ * An implementation of the model object '<em><b>Movement</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DepXZ_IMPLImpl extends MovementImpl implements DepXZ_IMPL
+public class MovementImpl extends MinimalEObjectImpl.Container implements Movement
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DepXZ_IMPLImpl()
+  protected MovementImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class DepXZ_IMPLImpl extends MovementImpl implements DepXZ_IMPL
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.DEP_XZ_IMPL;
+    return DrnPackage.Literals.MOVEMENT;
   }
 
-} //DepXZ_IMPLImpl
+} //MovementImpl

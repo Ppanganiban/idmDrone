@@ -6,13 +6,11 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.CARREXY;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +21,6 @@ import sar.drone.drn.Parametre;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.CARREXYImpl#getCoteCST <em>Cote CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.CARREXYImpl#getCoteVAR <em>Cote VAR</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,7 +35,7 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
    * @generated
    * @ordered
    */
-  protected static final String COTE_CST_EDEFAULT = null;
+  protected static final int COTE_CST_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getCoteCST() <em>Cote CST</em>}' attribute.
@@ -48,17 +45,7 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
    * @generated
    * @ordered
    */
-  protected String coteCST = COTE_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getCoteVAR() <em>Cote VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCoteVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre coteVAR;
+  protected int coteCST = COTE_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,7 +73,7 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCoteCST()
+  public int getCoteCST()
   {
     return coteCST;
   }
@@ -96,55 +83,12 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCoteCST(String newCoteCST)
+  public void setCoteCST(int newCoteCST)
   {
-    String oldCoteCST = coteCST;
+    int oldCoteCST = coteCST;
     coteCST = newCoteCST;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CARREXY__COTE_CST, oldCoteCST, coteCST));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre getCoteVAR()
-  {
-    if (coteVAR != null && coteVAR.eIsProxy())
-    {
-      InternalEObject oldCoteVAR = (InternalEObject)coteVAR;
-      coteVAR = (Parametre)eResolveProxy(oldCoteVAR);
-      if (coteVAR != oldCoteVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.CARREXY__COTE_VAR, oldCoteVAR, coteVAR));
-      }
-    }
-    return coteVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetCoteVAR()
-  {
-    return coteVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCoteVAR(Parametre newCoteVAR)
-  {
-    Parametre oldCoteVAR = coteVAR;
-    coteVAR = newCoteVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CARREXY__COTE_VAR, oldCoteVAR, coteVAR));
   }
 
   /**
@@ -159,9 +103,6 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
     {
       case DrnPackage.CARREXY__COTE_CST:
         return getCoteCST();
-      case DrnPackage.CARREXY__COTE_VAR:
-        if (resolve) return getCoteVAR();
-        return basicGetCoteVAR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,10 +118,7 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
     switch (featureID)
     {
       case DrnPackage.CARREXY__COTE_CST:
-        setCoteCST((String)newValue);
-        return;
-      case DrnPackage.CARREXY__COTE_VAR:
-        setCoteVAR((Parametre)newValue);
+        setCoteCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,9 +137,6 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
       case DrnPackage.CARREXY__COTE_CST:
         setCoteCST(COTE_CST_EDEFAULT);
         return;
-      case DrnPackage.CARREXY__COTE_VAR:
-        setCoteVAR((Parametre)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -217,9 +152,7 @@ public class CARREXYImpl extends DepXY_IMPLImpl implements CARREXY
     switch (featureID)
     {
       case DrnPackage.CARREXY__COTE_CST:
-        return COTE_CST_EDEFAULT == null ? coteCST != null : !COTE_CST_EDEFAULT.equals(coteCST);
-      case DrnPackage.CARREXY__COTE_VAR:
-        return coteVAR != null;
+        return coteCST != COTE_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

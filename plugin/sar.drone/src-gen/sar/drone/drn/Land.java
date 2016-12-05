@@ -20,7 +20,7 @@ package sar.drone.drn;
  * @model
  * @generated
  */
-public interface Land extends Expression
+public interface Land extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

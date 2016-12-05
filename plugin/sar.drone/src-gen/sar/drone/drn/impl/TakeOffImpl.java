@@ -25,7 +25,7 @@ import sar.drone.drn.TakeOff;
  *
  * @generated
  */
-public class TakeOffImpl extends ExpressionImpl implements TakeOff
+public class TakeOffImpl extends MovementImpl implements TakeOff
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

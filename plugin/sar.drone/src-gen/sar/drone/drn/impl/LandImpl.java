@@ -25,7 +25,7 @@ import sar.drone.drn.Land;
  *
  * @generated
  */
-public class LandImpl extends ExpressionImpl implements Land
+public class LandImpl extends MovementImpl implements Land
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

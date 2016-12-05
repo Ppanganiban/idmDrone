@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link sar.drone.drn.LedBlink#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getColor <em>Color</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getBlink_per_secCST <em>Blink per sec CST</em>}</li>
- *   <li>{@link sar.drone.drn.LedBlink#getBlink_per_secVAR <em>Blink per sec VAR</em>}</li>
  *   <li>{@link sar.drone.drn.LedBlink#getAttributs <em>Attributs</em>}</li>
  * </ul>
  *
@@ -91,12 +90,12 @@ public interface LedBlink extends Option
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Blink per sec CST</em>' attribute.
-   * @see #setBlink_per_secCST(String)
+   * @see #setBlink_per_secCST(int)
    * @see sar.drone.drn.DrnPackage#getLedBlink_Blink_per_secCST()
    * @model
    * @generated
    */
-  String getBlink_per_secCST();
+  int getBlink_per_secCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.LedBlink#getBlink_per_secCST <em>Blink per sec CST</em>}' attribute.
@@ -106,33 +105,7 @@ public interface LedBlink extends Option
    * @see #getBlink_per_secCST()
    * @generated
    */
-  void setBlink_per_secCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Blink per sec VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Blink per sec VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Blink per sec VAR</em>' reference.
-   * @see #setBlink_per_secVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getLedBlink_Blink_per_secVAR()
-   * @model
-   * @generated
-   */
-  Parametre getBlink_per_secVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.LedBlink#getBlink_per_secVAR <em>Blink per sec VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Blink per sec VAR</em>' reference.
-   * @see #getBlink_per_secVAR()
-   * @generated
-   */
-  void setBlink_per_secVAR(Parametre value);
+  void setBlink_per_secCST(int value);
 
   /**
    * Returns the value of the '<em><b>Attributs</b></em>' containment reference list.

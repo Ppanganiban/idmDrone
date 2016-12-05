@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import sar.drone.drn.Attribut;
 import sar.drone.drn.DrnPackage;
+import sar.drone.drn.EBool;
 import sar.drone.drn.Element;
+import sar.drone.drn.Mode;
 import sar.drone.drn.TypeGeneric;
 
 /**
@@ -33,6 +35,9 @@ import sar.drone.drn.TypeGeneric;
  *   <li>{@link sar.drone.drn.impl.AttributImpl#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AttributImpl#getType <em>Type</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AttributImpl#getElmt <em>Elmt</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.AttributImpl#getMode <em>Mode</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.AttributImpl#getInt <em>Int</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.AttributImpl#getBool <em>Bool</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +83,66 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
    * @ordered
    */
   protected EList<Element> elmt;
+
+  /**
+   * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMode()
+   * @generated
+   * @ordered
+   */
+  protected static final Mode MODE_EDEFAULT = Mode.OFF;
+
+  /**
+   * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMode()
+   * @generated
+   * @ordered
+   */
+  protected Mode mode = MODE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getInt() <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInt()
+   * @generated
+   * @ordered
+   */
+  protected static final String INT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInt() <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInt()
+   * @generated
+   * @ordered
+   */
+  protected String int_ = INT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBool() <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBool()
+   * @generated
+   * @ordered
+   */
+  protected static final EBool BOOL_EDEFAULT = EBool.TRUE;
+
+  /**
+   * The cached value of the '{@link #getBool() <em>Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBool()
+   * @generated
+   * @ordered
+   */
+  protected EBool bool = BOOL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,6 +250,75 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
    * <!-- end-user-doc -->
    * @generated
    */
+  public Mode getMode()
+  {
+    return mode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMode(Mode newMode)
+  {
+    Mode oldMode = mode;
+    mode = newMode == null ? MODE_EDEFAULT : newMode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ATTRIBUT__MODE, oldMode, mode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getInt()
+  {
+    return int_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInt(String newInt)
+  {
+    String oldInt = int_;
+    int_ = newInt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ATTRIBUT__INT, oldInt, int_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EBool getBool()
+  {
+    return bool;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBool(EBool newBool)
+  {
+    EBool oldBool = bool;
+    bool = newBool == null ? BOOL_EDEFAULT : newBool;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ATTRIBUT__BOOL, oldBool, bool));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -197,6 +331,12 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
         return basicGetType();
       case DrnPackage.ATTRIBUT__ELMT:
         return getElmt();
+      case DrnPackage.ATTRIBUT__MODE:
+        return getMode();
+      case DrnPackage.ATTRIBUT__INT:
+        return getInt();
+      case DrnPackage.ATTRIBUT__BOOL:
+        return getBool();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -222,6 +362,15 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
         getElmt().clear();
         getElmt().addAll((Collection<? extends Element>)newValue);
         return;
+      case DrnPackage.ATTRIBUT__MODE:
+        setMode((Mode)newValue);
+        return;
+      case DrnPackage.ATTRIBUT__INT:
+        setInt((String)newValue);
+        return;
+      case DrnPackage.ATTRIBUT__BOOL:
+        setBool((EBool)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -245,6 +394,15 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
       case DrnPackage.ATTRIBUT__ELMT:
         getElmt().clear();
         return;
+      case DrnPackage.ATTRIBUT__MODE:
+        setMode(MODE_EDEFAULT);
+        return;
+      case DrnPackage.ATTRIBUT__INT:
+        setInt(INT_EDEFAULT);
+        return;
+      case DrnPackage.ATTRIBUT__BOOL:
+        setBool(BOOL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -265,6 +423,12 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
         return type != null;
       case DrnPackage.ATTRIBUT__ELMT:
         return elmt != null && !elmt.isEmpty();
+      case DrnPackage.ATTRIBUT__MODE:
+        return mode != MODE_EDEFAULT;
+      case DrnPackage.ATTRIBUT__INT:
+        return INT_EDEFAULT == null ? int_ != null : !INT_EDEFAULT.equals(int_);
+      case DrnPackage.ATTRIBUT__BOOL:
+        return bool != BOOL_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -282,6 +446,12 @@ public class AttributImpl extends MinimalEObjectImpl.Container implements Attrib
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", mode: ");
+    result.append(mode);
+    result.append(", int: ");
+    result.append(int_);
+    result.append(", bool: ");
+    result.append(bool);
     result.append(')');
     return result.toString();
   }

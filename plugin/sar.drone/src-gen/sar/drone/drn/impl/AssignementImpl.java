@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import sar.drone.drn.Assignement;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Expression;
-import sar.drone.drn.Parametre;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +32,6 @@ import sar.drone.drn.Parametre;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.AssignementImpl#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AssignementImpl#getParametre <em>Parametre</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AssignementImpl#getOperandes <em>Operandes</em>}</li>
  * </ul>
  *
@@ -60,16 +58,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParametre() <em>Parametre</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParametre()
-   * @generated
-   * @ordered
-   */
-  protected EList<Parametre> parametre;
 
   /**
    * The cached value of the '{@link #getOperandes() <em>Operandes</em>}' containment reference list.
@@ -130,20 +118,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parametre> getParametre()
-  {
-    if (parametre == null)
-    {
-      parametre = new EObjectContainmentEList<Parametre>(Parametre.class, this, DrnPackage.ASSIGNEMENT__PARAMETRE);
-    }
-    return parametre;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Expression> getOperandes()
   {
     if (operandes == null)
@@ -163,8 +137,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__PARAMETRE:
-        return ((InternalEList<?>)getParametre()).basicRemove(otherEnd, msgs);
       case DrnPackage.ASSIGNEMENT__OPERANDES:
         return ((InternalEList<?>)getOperandes()).basicRemove(otherEnd, msgs);
     }
@@ -183,8 +155,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     {
       case DrnPackage.ASSIGNEMENT__NAME:
         return getName();
-      case DrnPackage.ASSIGNEMENT__PARAMETRE:
-        return getParametre();
       case DrnPackage.ASSIGNEMENT__OPERANDES:
         return getOperandes();
     }
@@ -204,10 +174,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     {
       case DrnPackage.ASSIGNEMENT__NAME:
         setName((String)newValue);
-        return;
-      case DrnPackage.ASSIGNEMENT__PARAMETRE:
-        getParametre().clear();
-        getParametre().addAll((Collection<? extends Parametre>)newValue);
         return;
       case DrnPackage.ASSIGNEMENT__OPERANDES:
         getOperandes().clear();
@@ -230,9 +196,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
       case DrnPackage.ASSIGNEMENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DrnPackage.ASSIGNEMENT__PARAMETRE:
-        getParametre().clear();
-        return;
       case DrnPackage.ASSIGNEMENT__OPERANDES:
         getOperandes().clear();
         return;
@@ -252,8 +215,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     {
       case DrnPackage.ASSIGNEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.ASSIGNEMENT__PARAMETRE:
-        return parametre != null && !parametre.isEmpty();
       case DrnPackage.ASSIGNEMENT__OPERANDES:
         return operandes != null && !operandes.isEmpty();
     }

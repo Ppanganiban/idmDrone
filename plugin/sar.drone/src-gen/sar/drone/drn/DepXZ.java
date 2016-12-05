@@ -15,9 +15,7 @@ package sar.drone.drn;
  * <ul>
  *   <li>{@link sar.drone.drn.DepXZ#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.DepXZ#getDistanceCST <em>Distance CST</em>}</li>
- *   <li>{@link sar.drone.drn.DepXZ#getDistanceVar <em>Distance Var</em>}</li>
  *   <li>{@link sar.drone.drn.DepXZ#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.DepXZ#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getDepXZ()
@@ -61,12 +59,12 @@ public interface DepXZ extends DepXZ_IMPL
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Distance CST</em>' attribute.
-   * @see #setDistanceCST(String)
+   * @see #setDistanceCST(int)
    * @see sar.drone.drn.DrnPackage#getDepXZ_DistanceCST()
    * @model
    * @generated
    */
-  String getDistanceCST();
+  int getDistanceCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.DepXZ#getDistanceCST <em>Distance CST</em>}' attribute.
@@ -76,33 +74,7 @@ public interface DepXZ extends DepXZ_IMPL
    * @see #getDistanceCST()
    * @generated
    */
-  void setDistanceCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Distance Var</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Distance Var</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Distance Var</em>' reference.
-   * @see #setDistanceVar(Parametre)
-   * @see sar.drone.drn.DrnPackage#getDepXZ_DistanceVar()
-   * @model
-   * @generated
-   */
-  Parametre getDistanceVar();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.DepXZ#getDistanceVar <em>Distance Var</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Distance Var</em>' reference.
-   * @see #getDistanceVar()
-   * @generated
-   */
-  void setDistanceVar(Parametre value);
+  void setDistanceCST(int value);
 
   /**
    * Returns the value of the '<em><b>Temps CST</b></em>' attribute.
@@ -113,12 +85,12 @@ public interface DepXZ extends DepXZ_IMPL
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Temps CST</em>' attribute.
-   * @see #setTempsCST(String)
+   * @see #setTempsCST(int)
    * @see sar.drone.drn.DrnPackage#getDepXZ_TempsCST()
    * @model
    * @generated
    */
-  String getTempsCST();
+  int getTempsCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.DepXZ#getTempsCST <em>Temps CST</em>}' attribute.
@@ -128,32 +100,6 @@ public interface DepXZ extends DepXZ_IMPL
    * @see #getTempsCST()
    * @generated
    */
-  void setTempsCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Temps VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Temps VAR</em>' reference.
-   * @see #setTempsVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getDepXZ_TempsVAR()
-   * @model
-   * @generated
-   */
-  Parametre getTempsVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.DepXZ#getTempsVAR <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Temps VAR</em>' reference.
-   * @see #getTempsVAR()
-   * @generated
-   */
-  void setTempsVAR(Parametre value);
+  void setTempsCST(int value);
 
 } // DepXZ

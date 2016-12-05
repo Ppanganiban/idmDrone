@@ -193,11 +193,18 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DrnPackage.MOVEMENT:
+      {
+        Movement movement = (Movement)theEObject;
+        T result = caseMovement(movement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DrnPackage.REF_PART:
       {
         RefPart refPart = (RefPart)theEObject;
         T result = caseRefPart(refPart);
-        if (result == null) result = caseExpression(refPart);
+        if (result == null) result = caseMovement(refPart);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -205,7 +212,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         And and = (And)theEObject;
         T result = caseAnd(and);
-        if (result == null) result = caseExpression(and);
+        if (result == null) result = caseMovement(and);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -213,7 +220,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepY_Impl depY_Impl = (DepY_Impl)theEObject;
         T result = caseDepY_Impl(depY_Impl);
-        if (result == null) result = caseExpression(depY_Impl);
+        if (result == null) result = caseMovement(depY_Impl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -222,7 +229,7 @@ public class DrnSwitch<T> extends Switch<T>
         FORWARD forward = (FORWARD)theEObject;
         T result = caseFORWARD(forward);
         if (result == null) result = caseDepY_Impl(forward);
-        if (result == null) result = caseExpression(forward);
+        if (result == null) result = caseMovement(forward);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,7 +238,7 @@ public class DrnSwitch<T> extends Switch<T>
         BACKWARD backward = (BACKWARD)theEObject;
         T result = caseBACKWARD(backward);
         if (result == null) result = caseDepY_Impl(backward);
-        if (result == null) result = caseExpression(backward);
+        if (result == null) result = caseMovement(backward);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,7 +246,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepX_Impl depX_Impl = (DepX_Impl)theEObject;
         T result = caseDepX_Impl(depX_Impl);
-        if (result == null) result = caseExpression(depX_Impl);
+        if (result == null) result = caseMovement(depX_Impl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,7 +255,7 @@ public class DrnSwitch<T> extends Switch<T>
         LEFT left = (LEFT)theEObject;
         T result = caseLEFT(left);
         if (result == null) result = caseDepX_Impl(left);
-        if (result == null) result = caseExpression(left);
+        if (result == null) result = caseMovement(left);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -257,7 +264,7 @@ public class DrnSwitch<T> extends Switch<T>
         RIGHT right = (RIGHT)theEObject;
         T result = caseRIGHT(right);
         if (result == null) result = caseDepX_Impl(right);
-        if (result == null) result = caseExpression(right);
+        if (result == null) result = caseMovement(right);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -265,7 +272,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepZ_Impl depZ_Impl = (DepZ_Impl)theEObject;
         T result = caseDepZ_Impl(depZ_Impl);
-        if (result == null) result = caseExpression(depZ_Impl);
+        if (result == null) result = caseMovement(depZ_Impl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -274,7 +281,7 @@ public class DrnSwitch<T> extends Switch<T>
         UP up = (UP)theEObject;
         T result = caseUP(up);
         if (result == null) result = caseDepZ_Impl(up);
-        if (result == null) result = caseExpression(up);
+        if (result == null) result = caseMovement(up);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -283,7 +290,7 @@ public class DrnSwitch<T> extends Switch<T>
         DOWN down = (DOWN)theEObject;
         T result = caseDOWN(down);
         if (result == null) result = caseDepZ_Impl(down);
-        if (result == null) result = caseExpression(down);
+        if (result == null) result = caseMovement(down);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -291,7 +298,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepXY_IMPL depXY_IMPL = (DepXY_IMPL)theEObject;
         T result = caseDepXY_IMPL(depXY_IMPL);
-        if (result == null) result = caseExpression(depXY_IMPL);
+        if (result == null) result = caseMovement(depXY_IMPL);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -300,7 +307,7 @@ public class DrnSwitch<T> extends Switch<T>
         DepXY depXY = (DepXY)theEObject;
         T result = caseDepXY(depXY);
         if (result == null) result = caseDepXY_IMPL(depXY);
-        if (result == null) result = caseExpression(depXY);
+        if (result == null) result = caseMovement(depXY);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,7 +316,7 @@ public class DrnSwitch<T> extends Switch<T>
         CERCLEXY cerclexy = (CERCLEXY)theEObject;
         T result = caseCERCLEXY(cerclexy);
         if (result == null) result = caseDepXY_IMPL(cerclexy);
-        if (result == null) result = caseExpression(cerclexy);
+        if (result == null) result = caseMovement(cerclexy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -318,7 +325,7 @@ public class DrnSwitch<T> extends Switch<T>
         CARREXY carrexy = (CARREXY)theEObject;
         T result = caseCARREXY(carrexy);
         if (result == null) result = caseDepXY_IMPL(carrexy);
-        if (result == null) result = caseExpression(carrexy);
+        if (result == null) result = caseMovement(carrexy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -326,7 +333,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepYZ_IMPL depYZ_IMPL = (DepYZ_IMPL)theEObject;
         T result = caseDepYZ_IMPL(depYZ_IMPL);
-        if (result == null) result = caseExpression(depYZ_IMPL);
+        if (result == null) result = caseMovement(depYZ_IMPL);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -335,7 +342,7 @@ public class DrnSwitch<T> extends Switch<T>
         DepYZ depYZ = (DepYZ)theEObject;
         T result = caseDepYZ(depYZ);
         if (result == null) result = caseDepYZ_IMPL(depYZ);
-        if (result == null) result = caseExpression(depYZ);
+        if (result == null) result = caseMovement(depYZ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -344,7 +351,7 @@ public class DrnSwitch<T> extends Switch<T>
         CERCLEYZ cercleyz = (CERCLEYZ)theEObject;
         T result = caseCERCLEYZ(cercleyz);
         if (result == null) result = caseDepYZ_IMPL(cercleyz);
-        if (result == null) result = caseExpression(cercleyz);
+        if (result == null) result = caseMovement(cercleyz);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -353,7 +360,7 @@ public class DrnSwitch<T> extends Switch<T>
         CARREYZ carreyz = (CARREYZ)theEObject;
         T result = caseCARREYZ(carreyz);
         if (result == null) result = caseDepYZ_IMPL(carreyz);
-        if (result == null) result = caseExpression(carreyz);
+        if (result == null) result = caseMovement(carreyz);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -361,7 +368,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepXZ_IMPL depXZ_IMPL = (DepXZ_IMPL)theEObject;
         T result = caseDepXZ_IMPL(depXZ_IMPL);
-        if (result == null) result = caseExpression(depXZ_IMPL);
+        if (result == null) result = caseMovement(depXZ_IMPL);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -370,7 +377,7 @@ public class DrnSwitch<T> extends Switch<T>
         DepXZ depXZ = (DepXZ)theEObject;
         T result = caseDepXZ(depXZ);
         if (result == null) result = caseDepXZ_IMPL(depXZ);
-        if (result == null) result = caseExpression(depXZ);
+        if (result == null) result = caseMovement(depXZ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -378,7 +385,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         DepXYZ_IMPL depXYZ_IMPL = (DepXYZ_IMPL)theEObject;
         T result = caseDepXYZ_IMPL(depXYZ_IMPL);
-        if (result == null) result = caseExpression(depXYZ_IMPL);
+        if (result == null) result = caseMovement(depXYZ_IMPL);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -387,7 +394,7 @@ public class DrnSwitch<T> extends Switch<T>
         DepXYZ depXYZ = (DepXYZ)theEObject;
         T result = caseDepXYZ(depXYZ);
         if (result == null) result = caseDepXYZ_IMPL(depXYZ);
-        if (result == null) result = caseExpression(depXYZ);
+        if (result == null) result = caseMovement(depXYZ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -396,7 +403,7 @@ public class DrnSwitch<T> extends Switch<T>
         Flip flip = (Flip)theEObject;
         T result = caseFlip(flip);
         if (result == null) result = caseDepXYZ_IMPL(flip);
-        if (result == null) result = caseExpression(flip);
+        if (result == null) result = caseMovement(flip);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -404,7 +411,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         Rotate rotate = (Rotate)theEObject;
         T result = caseRotate(rotate);
-        if (result == null) result = caseExpression(rotate);
+        if (result == null) result = caseMovement(rotate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -412,7 +419,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         Wait wait = (Wait)theEObject;
         T result = caseWait(wait);
-        if (result == null) result = caseExpression(wait);
+        if (result == null) result = caseMovement(wait);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -420,7 +427,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         TakeOff takeOff = (TakeOff)theEObject;
         T result = caseTakeOff(takeOff);
-        if (result == null) result = caseExpression(takeOff);
+        if (result == null) result = caseMovement(takeOff);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -428,7 +435,7 @@ public class DrnSwitch<T> extends Switch<T>
       {
         Land land = (Land)theEObject;
         T result = caseLand(land);
-        if (result == null) result = caseExpression(land);
+        if (result == null) result = caseMovement(land);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -760,6 +767,22 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Movement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Movement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMovement(Movement object)
   {
     return null;
   }

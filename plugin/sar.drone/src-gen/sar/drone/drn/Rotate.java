@@ -15,16 +15,14 @@ package sar.drone.drn;
  * <ul>
  *   <li>{@link sar.drone.drn.Rotate#getName <em>Name</em>}</li>
  *   <li>{@link sar.drone.drn.Rotate#getAngleCST <em>Angle CST</em>}</li>
- *   <li>{@link sar.drone.drn.Rotate#getAngleVAR <em>Angle VAR</em>}</li>
  *   <li>{@link sar.drone.drn.Rotate#getTempsCST <em>Temps CST</em>}</li>
- *   <li>{@link sar.drone.drn.Rotate#getTempsVAR <em>Temps VAR</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getRotate()
  * @model
  * @generated
  */
-public interface Rotate extends Expression
+public interface Rotate extends Movement
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -79,32 +77,6 @@ public interface Rotate extends Expression
   void setAngleCST(String value);
 
   /**
-   * Returns the value of the '<em><b>Angle VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Angle VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Angle VAR</em>' reference.
-   * @see #setAngleVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getRotate_AngleVAR()
-   * @model
-   * @generated
-   */
-  Parametre getAngleVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Rotate#getAngleVAR <em>Angle VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Angle VAR</em>' reference.
-   * @see #getAngleVAR()
-   * @generated
-   */
-  void setAngleVAR(Parametre value);
-
-  /**
    * Returns the value of the '<em><b>Temps CST</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -113,12 +85,12 @@ public interface Rotate extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Temps CST</em>' attribute.
-   * @see #setTempsCST(String)
+   * @see #setTempsCST(int)
    * @see sar.drone.drn.DrnPackage#getRotate_TempsCST()
    * @model
    * @generated
    */
-  String getTempsCST();
+  int getTempsCST();
 
   /**
    * Sets the value of the '{@link sar.drone.drn.Rotate#getTempsCST <em>Temps CST</em>}' attribute.
@@ -128,32 +100,6 @@ public interface Rotate extends Expression
    * @see #getTempsCST()
    * @generated
    */
-  void setTempsCST(String value);
-
-  /**
-   * Returns the value of the '<em><b>Temps VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Temps VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Temps VAR</em>' reference.
-   * @see #setTempsVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getRotate_TempsVAR()
-   * @model
-   * @generated
-   */
-  Parametre getTempsVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Rotate#getTempsVAR <em>Temps VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Temps VAR</em>' reference.
-   * @see #getTempsVAR()
-   * @generated
-   */
-  void setTempsVAR(Parametre value);
+  void setTempsCST(int value);
 
 } // Rotate

@@ -46,7 +46,7 @@ import sar.drone.drn.Rotate;
  *
  * @generated
  */
-public class AndImpl extends ExpressionImpl implements And
+public class AndImpl extends MovementImpl implements And
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
