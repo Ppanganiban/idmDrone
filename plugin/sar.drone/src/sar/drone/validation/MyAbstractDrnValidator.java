@@ -22,7 +22,6 @@ import sar.drone.drn.DepY_Impl;
 import sar.drone.drn.DepZ_Impl;
 import sar.drone.drn.DirectionType;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.FORWARD;
 import sar.drone.drn.InitialDirection;
 import sar.drone.drn.InitialPositionX;
 import sar.drone.drn.InitialPositionY;
@@ -137,8 +136,6 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	    	this.error("Too many arguments", ref, _get_1);
 	    }
 	    else{
-	    	System.out.println("nb declation = "+ref.getDev().getDeclarations().size()
-	    			+ "/ nb definition = "+ref.getDefinitions().size());
 	    	Boolean ok;
 	    	int i;
 	    	for( Declaration d : ref.getDev().getDeclarations()) {
@@ -234,14 +231,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
   	    	this.error("Too many initial direction", ref, _get_1);
 		  }
 		  
-		  if (toCheck) {
-			 System.out.println("Width : "+maxWidth);
-			 System.out.println("Length : "+maxLength);
-			 System.out.println("Length : "+maxHeigth);
-			 System.out.println("Initial X : "+x);
-			 System.out.println("Initial Y : "+y);
-			 System.out.println("Initial D : "+d);
-			 
+		  if (toCheck) {	 
 			  //Check if there are intial position X, position Y and an initial direction
 			  if (countX == 0) {
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
@@ -276,34 +266,70 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 	  @Check
 	  public void checkContext(final DepX_Impl ref) {
-		  if (ref instanceof LEFT)
-			  xCurr -= ((LEFT)ref).getDistanceCST();
-		  else if (ref instanceof RIGHT)
-			  xCurr += ((RIGHT)ref).getDistanceCST();
+		  int angleTMP = angleCurr;
+		  int l = ref.getDistanceCST();
 		  
+		  if (ref instanceof LEFT)
+			  angleTMP = (270 + angleTMP) % 361;
+		  else if (ref instanceof RIGHT)
+			  angleTMP = (90 + angleTMP) % 361;
+
+		  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+		  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+
 		  if(MAXW > 0)
 			  if(xCurr < 0 || xCurr > MAXW) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
 		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	      this.error("Drone is out of width", ref, _get_1);
+		  	      this.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 			  }
-		  System.out.println("xCurr : "+xCurr);
+		  
+		  if(MAXL > 0)
+			  if(yCurr < 0 || yCurr > MAXL) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
+		  if(MAXZ > 0)
+			  if(zCurr < 0 || zCurr > MAXZ) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
+		  System.out.println(ref.getClass()+":: ("+xCurr+","+yCurr+","+zCurr+")("+angleCurr+")");
 	  }
 	  
 	  @Check
 	  public void checkContext(final DepY_Impl ref) {
+		  int angleTMP = angleCurr;
+		  int l = ref.getDistanceCST();
+		  
 		  if (ref instanceof BACKWARD)
-			  yCurr -= ((BACKWARD)ref).getDistanceCST();
-		  else if (ref instanceof FORWARD)
-			  yCurr += ((FORWARD)ref).getDistanceCST();
+			  angleTMP = (180 + angleTMP) % 361 ;
+
+		  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+		  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+
+		  if(MAXW > 0)
+			  if(xCurr < 0 || xCurr > MAXW) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
 		  
 		  if(MAXL > 0)
 			  if(yCurr < 0 || yCurr > MAXL) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
 		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	      this.error("Drone is out of length", ref, _get_1);
+		  	      this.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 			  }
-		  System.out.println("yCurr : "+yCurr);
+		  if(MAXZ > 0)
+			  if(zCurr < 0 || zCurr > MAXZ) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
+		  System.out.println(ref.getClass()+":: ("+xCurr+","+yCurr+","+zCurr+")("+angleCurr+")");
 	  }
 	  
 	  @Check
@@ -313,14 +339,39 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  else if (ref instanceof UP)
 			  zCurr += ((UP)ref).getDistanceCST();
 		  
+		  if(MAXW > 0)
+			  if(xCurr < 0 || xCurr > MAXW) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
+		  
+		  if(MAXL > 0)
+			  if(yCurr < 0 || yCurr > MAXL) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      this.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
 		  if(MAXZ > 0)
 			  if(zCurr < 0 || zCurr > MAXZ) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
 		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	      this.error("Drone is out of height", ref, _get_1);
+		  	      this.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 			  }
-		  
-		  System.out.println("zCurr : "+zCurr);
+		  System.out.println(ref.getClass()+":: ("+xCurr+","+yCurr+","+zCurr+")("+angleCurr+")");
+	  }
+
+	  @Check
+	  public void checkContext(final Rotate ref) {
+		  angleCurr = ((angleCurr + Integer.parseInt(ref.getAngleCST())) + 361) % 361;
+		  System.out.println(ref.getClass()+":: ("+xCurr+","+yCurr+","+zCurr+")("+angleCurr+")");
+	  }
+	  static int calculX(int angle, int l , int x){
+		  return (int) (Math.sin(Math.toRadians(angle)) * l + x);
+	  }
+	  
+	  static int calculY(int angle, int l , int y){
+		  return (int) (Math.cos(Math.toRadians(angle)) * l + y);
 	  }
 }
 
