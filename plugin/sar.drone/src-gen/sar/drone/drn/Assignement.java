@@ -26,6 +26,9 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Assignement extends EObject
 {
+	Boolean mark = true;
+	Boolean isMark();
+	void setMark(Boolean b);
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
