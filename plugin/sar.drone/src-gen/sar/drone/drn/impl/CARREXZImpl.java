@@ -9,50 +9,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import sar.drone.drn.DepXY;
+import sar.drone.drn.CARREXZ;
 import sar.drone.drn.DrnPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dep XY</b></em>'.
+ * An implementation of the model object '<em><b>CARREXZ</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.DepXYImpl#getDistanceCST <em>Distance CST</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.CARREXZImpl#getCoteCST <em>Cote CST</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
+public class CARREXZImpl extends DepXZ_IMPLImpl implements CARREXZ
 {
   /**
-   * The default value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
+   * The default value of the '{@link #getCoteCST() <em>Cote CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistanceCST()
+   * @see #getCoteCST()
    * @generated
    * @ordered
    */
-  protected static final int DISTANCE_CST_EDEFAULT = 0;
+  protected static final int COTE_CST_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
+   * The cached value of the '{@link #getCoteCST() <em>Cote CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistanceCST()
+   * @see #getCoteCST()
    * @generated
    * @ordered
    */
-  protected int distanceCST = DISTANCE_CST_EDEFAULT;
+  protected int coteCST = COTE_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DepXYImpl()
+  protected CARREXZImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.DEP_XY;
+    return DrnPackage.Literals.CARREXZ;
   }
 
   /**
@@ -73,9 +73,9 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getDistanceCST()
+  public int getCoteCST()
   {
-    return distanceCST;
+    return coteCST;
   }
 
   /**
@@ -83,12 +83,12 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistanceCST(int newDistanceCST)
+  public void setCoteCST(int newCoteCST)
   {
-    int oldDistanceCST = distanceCST;
-    distanceCST = newDistanceCST;
+    int oldCoteCST = coteCST;
+    coteCST = newCoteCST;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XY__DISTANCE_CST, oldDistanceCST, distanceCST));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CARREXZ__COTE_CST, oldCoteCST, coteCST));
   }
 
   /**
@@ -101,8 +101,8 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_XY__DISTANCE_CST:
-        return getDistanceCST();
+      case DrnPackage.CARREXZ__COTE_CST:
+        return getCoteCST();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_XY__DISTANCE_CST:
-        setDistanceCST((Integer)newValue);
+      case DrnPackage.CARREXZ__COTE_CST:
+        setCoteCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_XY__DISTANCE_CST:
-        setDistanceCST(DISTANCE_CST_EDEFAULT);
+      case DrnPackage.CARREXZ__COTE_CST:
+        setCoteCST(COTE_CST_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_XY__DISTANCE_CST:
-        return distanceCST != DISTANCE_CST_EDEFAULT;
+      case DrnPackage.CARREXZ__COTE_CST:
+        return coteCST != COTE_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +168,10 @@ public class DepXYImpl extends DepXY_IMPLImpl implements DepXY
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (distanceCST: ");
-    result.append(distanceCST);
+    result.append(" (coteCST: ");
+    result.append(coteCST);
     result.append(')');
     return result.toString();
   }
 
-} //DepXYImpl
+} //CARREXZImpl

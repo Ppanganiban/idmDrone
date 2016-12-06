@@ -39,7 +39,6 @@ import sar.drone.drn.Expression;
  */
 public class AssignementImpl extends MinimalEObjectImpl.Container implements Assignement
 {
-	protected Boolean mark = true;
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -238,17 +237,16 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     result.append(')');
     return result.toString();
   }
-
-@Override
-public Boolean isMark() {
-	// TODO Auto-generated method stub
-	return mark;
-}
-
-@Override
-public void setMark(Boolean b) {
-	// TODO Auto-generated method stub
-	mark = b;
-}
-
+  protected boolean mark = true;
+	@Override
+	public boolean isMark() {
+		// TODO Auto-generated method stub
+		return mark;
+	}
+	
+	@Override
+	public void setMark(boolean b) {
+		// TODO Auto-generated method stub
+		mark = b;
+	}
 } //AssignementImpl

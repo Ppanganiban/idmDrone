@@ -605,22 +605,13 @@ public interface DrnPackage extends EPackage
   int EXPRESSION__REPEAT_CST = 1;
 
   /**
-   * The feature id for the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__REPEAT_VAR = 2;
-
-  /**
    * The feature id for the '<em><b>With</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__WITH = 3;
+  int EXPRESSION__WITH = 2;
 
   /**
    * The feature id for the '<em><b>Then</b></em>' containment reference list.
@@ -629,7 +620,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__THEN = 4;
+  int EXPRESSION__THEN = 3;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -638,7 +629,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 5;
+  int EXPRESSION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.MovementImpl <em>Movement</em>}' class.
@@ -734,13 +725,22 @@ public interface DrnPackage extends EPackage
   int AND__DEPY = MOVEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Depz</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND__DEPZ = MOVEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Depxz</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND__DEPXZ = MOVEMENT_FEATURE_COUNT + 4;
+  int AND__DEPXZ = MOVEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Depxy</b></em>' containment reference list.
@@ -749,16 +749,16 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND__DEPXY = MOVEMENT_FEATURE_COUNT + 5;
+  int AND__DEPXY = MOVEMENT_FEATURE_COUNT + 6;
 
   /**
-   * The feature id for the '<em><b>Depz</b></em>' containment reference list.
+   * The feature id for the '<em><b>Depyz</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND__DEPZ = MOVEMENT_FEATURE_COUNT + 6;
+  int AND__DEPYZ = MOVEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>And</em>' class.
@@ -767,7 +767,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 7;
+  int AND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepY_ImplImpl <em>Dep YImpl</em>}' class.
@@ -1221,52 +1221,6 @@ public interface DrnPackage extends EPackage
   int DEP_XY_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.DepXYImpl <em>Dep XY</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.DepXYImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY()
-   * @generated
-   */
-  int DEP_XY = 28;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__NAME = DEP_XY_IMPL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Temps CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__TEMPS_CST = DEP_XY_IMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Distance CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY__DISTANCE_CST = DEP_XY_IMPL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Dep XY</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XY_FEATURE_COUNT = DEP_XY_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link sar.drone.drn.impl.CERCLEXYImpl <em>CERCLEXY</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1274,7 +1228,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXY()
    * @generated
    */
-  int CERCLEXY = 29;
+  int CERCLEXY = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1320,7 +1274,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXY()
    * @generated
    */
-  int CARREXY = 30;
+  int CARREXY = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1366,7 +1320,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ_IMPL()
    * @generated
    */
-  int DEP_YZ_IMPL = 31;
+  int DEP_YZ_IMPL = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1396,52 +1350,6 @@ public interface DrnPackage extends EPackage
   int DEP_YZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link sar.drone.drn.impl.DepYZImpl <em>Dep YZ</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.DepYZImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ()
-   * @generated
-   */
-  int DEP_YZ = 32;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__NAME = DEP_YZ_IMPL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Temps CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__TEMPS_CST = DEP_YZ_IMPL__TEMPS_CST;
-
-  /**
-   * The feature id for the '<em><b>Distance CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ__DISTANCE_CST = DEP_YZ_IMPL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Dep YZ</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_YZ_FEATURE_COUNT = DEP_YZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link sar.drone.drn.impl.CERCLEYZImpl <em>CERCLEYZ</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1449,7 +1357,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEYZ()
    * @generated
    */
-  int CERCLEYZ = 33;
+  int CERCLEYZ = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1495,7 +1403,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREYZ()
    * @generated
    */
-  int CARREYZ = 34;
+  int CARREYZ = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1541,26 +1449,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ_IMPL()
    * @generated
    */
-  int DEP_XZ_IMPL = 35;
-
-  /**
-   * The number of structural features of the '<em>Dep XZ IMPL</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link sar.drone.drn.impl.DepXZImpl <em>Dep XZ</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.DepXZImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ()
-   * @generated
-   */
-  int DEP_XZ = 36;
+  int DEP_XZ_IMPL = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1569,16 +1458,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XZ__NAME = DEP_XZ_IMPL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Distance CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XZ__DISTANCE_CST = DEP_XZ_IMPL_FEATURE_COUNT + 1;
+  int DEP_XZ_IMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Temps CST</b></em>' attribute.
@@ -1587,16 +1467,108 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XZ__TEMPS_CST = DEP_XZ_IMPL_FEATURE_COUNT + 2;
+  int DEP_XZ_IMPL__TEMPS_CST = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Dep XZ</em>' class.
+   * The number of structural features of the '<em>Dep XZ IMPL</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEP_XZ_FEATURE_COUNT = DEP_XZ_IMPL_FEATURE_COUNT + 3;
+  int DEP_XZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.CERCLEXZImpl <em>CERCLEXZ</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.CERCLEXZImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXZ()
+   * @generated
+   */
+  int CERCLEXZ = 34;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CERCLEXZ__NAME = DEP_XZ_IMPL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Temps CST</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CERCLEXZ__TEMPS_CST = DEP_XZ_IMPL__TEMPS_CST;
+
+  /**
+   * The feature id for the '<em><b>Rayon CST</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CERCLEXZ__RAYON_CST = DEP_XZ_IMPL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>CERCLEXZ</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CERCLEXZ_FEATURE_COUNT = DEP_XZ_IMPL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.CARREXZImpl <em>CARREXZ</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.CARREXZImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXZ()
+   * @generated
+   */
+  int CARREXZ = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARREXZ__NAME = DEP_XZ_IMPL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Temps CST</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARREXZ__TEMPS_CST = DEP_XZ_IMPL__TEMPS_CST;
+
+  /**
+   * The feature id for the '<em><b>Cote CST</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARREXZ__COTE_CST = DEP_XZ_IMPL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>CARREXZ</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARREXZ_FEATURE_COUNT = DEP_XZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepXYZ_IMPLImpl <em>Dep XYZ IMPL</em>}' class.
@@ -1606,16 +1578,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ_IMPL()
    * @generated
    */
-  int DEP_XYZ_IMPL = 37;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_IMPL__NAME = MOVEMENT_FEATURE_COUNT + 0;
+  int DEP_XYZ_IMPL = 36;
 
   /**
    * The number of structural features of the '<em>Dep XYZ IMPL</em>' class.
@@ -1624,53 +1587,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEP_XYZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link sar.drone.drn.impl.DepXYZImpl <em>Dep XYZ</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.impl.DepXYZImpl
-   * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ()
-   * @generated
-   */
-  int DEP_XYZ = 38;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__NAME = DEP_XYZ_IMPL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Distance CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__DISTANCE_CST = DEP_XYZ_IMPL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Temps CST</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ__TEMPS_CST = DEP_XYZ_IMPL_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Dep XYZ</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEP_XYZ_FEATURE_COUNT = DEP_XYZ_IMPL_FEATURE_COUNT + 2;
+  int DEP_XYZ_IMPL_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.FlipImpl <em>Flip</em>}' class.
@@ -1680,7 +1597,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFlip()
    * @generated
    */
-  int FLIP = 39;
+  int FLIP = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1689,7 +1606,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FLIP__NAME = DEP_XYZ_IMPL__NAME;
+  int FLIP__NAME = DEP_XYZ_IMPL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Flip</em>' class.
@@ -1698,7 +1615,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FLIP_FEATURE_COUNT = DEP_XYZ_IMPL_FEATURE_COUNT + 0;
+  int FLIP_FEATURE_COUNT = DEP_XYZ_IMPL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.RotateImpl <em>Rotate</em>}' class.
@@ -1708,7 +1625,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRotate()
    * @generated
    */
-  int ROTATE = 40;
+  int ROTATE = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1754,7 +1671,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWait()
    * @generated
    */
-  int WAIT = 41;
+  int WAIT = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1791,7 +1708,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTakeOff()
    * @generated
    */
-  int TAKE_OFF = 42;
+  int TAKE_OFF = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1819,7 +1736,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLand()
    * @generated
    */
-  int LAND = 43;
+  int LAND = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1847,7 +1764,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDevice()
    * @generated
    */
-  int DEVICE = 44;
+  int DEVICE = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1884,7 +1801,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 45;
+  int DECLARATION = 43;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1921,7 +1838,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDefinition()
    * @generated
    */
-  int DEFINITION = 46;
+  int DEFINITION = 44;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' reference.
@@ -1958,7 +1875,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWith()
    * @generated
    */
-  int WITH = 47;
+  int WITH = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1995,7 +1912,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getOption()
    * @generated
    */
-  int OPTION = 48;
+  int OPTION = 46;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -2023,7 +1940,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefDevice()
    * @generated
    */
-  int REF_DEVICE = 49;
+  int REF_DEVICE = 47;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -2069,7 +1986,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAttribut()
    * @generated
    */
-  int ATTRIBUT = 50;
+  int ATTRIBUT = 48;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2142,7 +2059,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLed_Impl()
    * @generated
    */
-  int LED_IMPL = 51;
+  int LED_IMPL = 49;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -2188,7 +2105,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLedBlink()
    * @generated
    */
-  int LED_BLINK = 52;
+  int LED_BLINK = 50;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -2252,7 +2169,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCamera()
    * @generated
    */
-  int CAMERA = 53;
+  int CAMERA = 51;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -2307,7 +2224,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTypeGeneric()
    * @generated
    */
-  int TYPE_GENERIC = 54;
+  int TYPE_GENERIC = 52;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2344,7 +2261,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 55;
+  int ELEMENT = 53;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2372,7 +2289,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getColorLed()
    * @generated
    */
-  int COLOR_LED = 56;
+  int COLOR_LED = 54;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -2382,7 +2299,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 57;
+  int MODE = 55;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -2392,7 +2309,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 58;
+  int EBOOL = 56;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
@@ -2402,7 +2319,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
    * @generated
    */
-  int DIRECTION_TYPE = 59;
+  int DIRECTION_TYPE = 57;
 
 
   /**
@@ -2754,17 +2671,6 @@ public interface DrnPackage extends EPackage
   EAttribute getExpression_RepeatCST();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.Expression#getRepeatVAR <em>Repeat VAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Repeat VAR</em>'.
-   * @see sar.drone.drn.Expression#getRepeatVAR()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_RepeatVAR();
-
-  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Expression#getWith <em>With</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2872,6 +2778,17 @@ public interface DrnPackage extends EPackage
   EReference getAnd_Depy();
 
   /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepz <em>Depz</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Depz</em>'.
+   * @see sar.drone.drn.And#getDepz()
+   * @see #getAnd()
+   * @generated
+   */
+  EReference getAnd_Depz();
+
+  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepxz <em>Depxz</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2894,15 +2811,15 @@ public interface DrnPackage extends EPackage
   EReference getAnd_Depxy();
 
   /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepz <em>Depz</em>}'.
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepyz <em>Depyz</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Depz</em>'.
-   * @see sar.drone.drn.And#getDepz()
+   * @return the meta object for the containment reference list '<em>Depyz</em>'.
+   * @see sar.drone.drn.And#getDepyz()
    * @see #getAnd()
    * @generated
    */
-  EReference getAnd_Depz();
+  EReference getAnd_Depyz();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.DepY_Impl <em>Dep YImpl</em>}'.
@@ -3126,27 +3043,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepXY_IMPL_TempsCST();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.DepXY <em>Dep XY</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dep XY</em>'.
-   * @see sar.drone.drn.DepXY
-   * @generated
-   */
-  EClass getDepXY();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXY#getDistanceCST <em>Distance CST</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Distance CST</em>'.
-   * @see sar.drone.drn.DepXY#getDistanceCST()
-   * @see #getDepXY()
-   * @generated
-   */
-  EAttribute getDepXY_DistanceCST();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.CERCLEXY <em>CERCLEXY</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3221,27 +3117,6 @@ public interface DrnPackage extends EPackage
   EAttribute getDepYZ_IMPL_TempsCST();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.DepYZ <em>Dep YZ</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dep YZ</em>'.
-   * @see sar.drone.drn.DepYZ
-   * @generated
-   */
-  EClass getDepYZ();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepYZ#getDistanceCST <em>Distance CST</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Distance CST</em>'.
-   * @see sar.drone.drn.DepYZ#getDistanceCST()
-   * @see #getDepYZ()
-   * @generated
-   */
-  EAttribute getDepYZ_DistanceCST();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.CERCLEYZ <em>CERCLEYZ</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3294,47 +3169,68 @@ public interface DrnPackage extends EPackage
   EClass getDepXZ_IMPL();
 
   /**
-   * Returns the meta object for class '{@link sar.drone.drn.DepXZ <em>Dep XZ</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dep XZ</em>'.
-   * @see sar.drone.drn.DepXZ
-   * @generated
-   */
-  EClass getDepXZ();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ_IMPL#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sar.drone.drn.DepXZ#getName()
-   * @see #getDepXZ()
+   * @see sar.drone.drn.DepXZ_IMPL#getName()
+   * @see #getDepXZ_IMPL()
    * @generated
    */
-  EAttribute getDepXZ_Name();
+  EAttribute getDepXZ_IMPL_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ#getDistanceCST <em>Distance CST</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Distance CST</em>'.
-   * @see sar.drone.drn.DepXZ#getDistanceCST()
-   * @see #getDepXZ()
-   * @generated
-   */
-  EAttribute getDepXZ_DistanceCST();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ#getTempsCST <em>Temps CST</em>}'.
+   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXZ_IMPL#getTempsCST <em>Temps CST</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Temps CST</em>'.
-   * @see sar.drone.drn.DepXZ#getTempsCST()
-   * @see #getDepXZ()
+   * @see sar.drone.drn.DepXZ_IMPL#getTempsCST()
+   * @see #getDepXZ_IMPL()
    * @generated
    */
-  EAttribute getDepXZ_TempsCST();
+  EAttribute getDepXZ_IMPL_TempsCST();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.CERCLEXZ <em>CERCLEXZ</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>CERCLEXZ</em>'.
+   * @see sar.drone.drn.CERCLEXZ
+   * @generated
+   */
+  EClass getCERCLEXZ();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.CERCLEXZ#getRayonCST <em>Rayon CST</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rayon CST</em>'.
+   * @see sar.drone.drn.CERCLEXZ#getRayonCST()
+   * @see #getCERCLEXZ()
+   * @generated
+   */
+  EAttribute getCERCLEXZ_RayonCST();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.CARREXZ <em>CARREXZ</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>CARREXZ</em>'.
+   * @see sar.drone.drn.CARREXZ
+   * @generated
+   */
+  EClass getCARREXZ();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.CARREXZ#getCoteCST <em>Cote CST</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cote CST</em>'.
+   * @see sar.drone.drn.CARREXZ#getCoteCST()
+   * @see #getCARREXZ()
+   * @generated
+   */
+  EAttribute getCARREXZ_CoteCST();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.DepXYZ_IMPL <em>Dep XYZ IMPL</em>}'.
@@ -3347,49 +3243,6 @@ public interface DrnPackage extends EPackage
   EClass getDepXYZ_IMPL();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXYZ_IMPL#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sar.drone.drn.DepXYZ_IMPL#getName()
-   * @see #getDepXYZ_IMPL()
-   * @generated
-   */
-  EAttribute getDepXYZ_IMPL_Name();
-
-  /**
-   * Returns the meta object for class '{@link sar.drone.drn.DepXYZ <em>Dep XYZ</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dep XYZ</em>'.
-   * @see sar.drone.drn.DepXYZ
-   * @generated
-   */
-  EClass getDepXYZ();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXYZ#getDistanceCST <em>Distance CST</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Distance CST</em>'.
-   * @see sar.drone.drn.DepXYZ#getDistanceCST()
-   * @see #getDepXYZ()
-   * @generated
-   */
-  EAttribute getDepXYZ_DistanceCST();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.DepXYZ#getTempsCST <em>Temps CST</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Temps CST</em>'.
-   * @see sar.drone.drn.DepXYZ#getTempsCST()
-   * @see #getDepXYZ()
-   * @generated
-   */
-  EAttribute getDepXYZ_TempsCST();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.Flip <em>Flip</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3398,6 +3251,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getFlip();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Flip#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Flip#getName()
+   * @see #getFlip()
+   * @generated
+   */
+  EAttribute getFlip_Name();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Rotate <em>Rotate</em>}'.
@@ -4313,14 +4177,6 @@ public interface DrnPackage extends EPackage
     EAttribute EXPRESSION__REPEAT_CST = eINSTANCE.getExpression_RepeatCST();
 
     /**
-     * The meta object literal for the '<em><b>Repeat VAR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__REPEAT_VAR = eINSTANCE.getExpression_RepeatVAR();
-
-    /**
      * The meta object literal for the '<em><b>With</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4407,6 +4263,14 @@ public interface DrnPackage extends EPackage
     EReference AND__DEPY = eINSTANCE.getAnd_Depy();
 
     /**
+     * The meta object literal for the '<em><b>Depz</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND__DEPZ = eINSTANCE.getAnd_Depz();
+
+    /**
      * The meta object literal for the '<em><b>Depxz</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4423,12 +4287,12 @@ public interface DrnPackage extends EPackage
     EReference AND__DEPXY = eINSTANCE.getAnd_Depxy();
 
     /**
-     * The meta object literal for the '<em><b>Depz</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Depyz</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AND__DEPZ = eINSTANCE.getAnd_Depz();
+    EReference AND__DEPYZ = eINSTANCE.getAnd_Depyz();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepY_ImplImpl <em>Dep YImpl</em>}' class.
@@ -4619,24 +4483,6 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_XY_IMPL__TEMPS_CST = eINSTANCE.getDepXY_IMPL_TempsCST();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.DepXYImpl <em>Dep XY</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.DepXYImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY()
-     * @generated
-     */
-    EClass DEP_XY = eINSTANCE.getDepXY();
-
-    /**
-     * The meta object literal for the '<em><b>Distance CST</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_XY__DISTANCE_CST = eINSTANCE.getDepXY_DistanceCST();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CERCLEXYImpl <em>CERCLEXY</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4699,24 +4545,6 @@ public interface DrnPackage extends EPackage
     EAttribute DEP_YZ_IMPL__TEMPS_CST = eINSTANCE.getDepYZ_IMPL_TempsCST();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.DepYZImpl <em>Dep YZ</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.DepYZImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ()
-     * @generated
-     */
-    EClass DEP_YZ = eINSTANCE.getDepYZ();
-
-    /**
-     * The meta object literal for the '<em><b>Distance CST</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_YZ__DISTANCE_CST = eINSTANCE.getDepYZ_DistanceCST();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.CERCLEYZImpl <em>CERCLEYZ</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4763,30 +4591,12 @@ public interface DrnPackage extends EPackage
     EClass DEP_XZ_IMPL = eINSTANCE.getDepXZ_IMPL();
 
     /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.DepXZImpl <em>Dep XZ</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.DepXZImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ()
-     * @generated
-     */
-    EClass DEP_XZ = eINSTANCE.getDepXZ();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEP_XZ__NAME = eINSTANCE.getDepXZ_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Distance CST</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_XZ__DISTANCE_CST = eINSTANCE.getDepXZ_DistanceCST();
+    EAttribute DEP_XZ_IMPL__NAME = eINSTANCE.getDepXZ_IMPL_Name();
 
     /**
      * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
@@ -4794,7 +4604,43 @@ public interface DrnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEP_XZ__TEMPS_CST = eINSTANCE.getDepXZ_TempsCST();
+    EAttribute DEP_XZ_IMPL__TEMPS_CST = eINSTANCE.getDepXZ_IMPL_TempsCST();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.CERCLEXZImpl <em>CERCLEXZ</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.CERCLEXZImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXZ()
+     * @generated
+     */
+    EClass CERCLEXZ = eINSTANCE.getCERCLEXZ();
+
+    /**
+     * The meta object literal for the '<em><b>Rayon CST</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CERCLEXZ__RAYON_CST = eINSTANCE.getCERCLEXZ_RayonCST();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.CARREXZImpl <em>CARREXZ</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.CARREXZImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXZ()
+     * @generated
+     */
+    EClass CARREXZ = eINSTANCE.getCARREXZ();
+
+    /**
+     * The meta object literal for the '<em><b>Cote CST</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CARREXZ__COTE_CST = eINSTANCE.getCARREXZ_CoteCST();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepXYZ_IMPLImpl <em>Dep XYZ IMPL</em>}' class.
@@ -4807,40 +4653,6 @@ public interface DrnPackage extends EPackage
     EClass DEP_XYZ_IMPL = eINSTANCE.getDepXYZ_IMPL();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_XYZ_IMPL__NAME = eINSTANCE.getDepXYZ_IMPL_Name();
-
-    /**
-     * The meta object literal for the '{@link sar.drone.drn.impl.DepXYZImpl <em>Dep XYZ</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sar.drone.drn.impl.DepXYZImpl
-     * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ()
-     * @generated
-     */
-    EClass DEP_XYZ = eINSTANCE.getDepXYZ();
-
-    /**
-     * The meta object literal for the '<em><b>Distance CST</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_XYZ__DISTANCE_CST = eINSTANCE.getDepXYZ_DistanceCST();
-
-    /**
-     * The meta object literal for the '<em><b>Temps CST</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEP_XYZ__TEMPS_CST = eINSTANCE.getDepXYZ_TempsCST();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.FlipImpl <em>Flip</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4849,6 +4661,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass FLIP = eINSTANCE.getFlip();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FLIP__NAME = eINSTANCE.getFlip_Name();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.RotateImpl <em>Rotate</em>}' class.

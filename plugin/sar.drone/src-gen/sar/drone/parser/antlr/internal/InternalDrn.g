@@ -964,36 +964,20 @@ ruleExpression returns [EObject current=null]
 				}
 				(
 					(
-						(
-							lv_repeatCST_2_0=RULE_INT
-							{
-								newLeafNode(lv_repeatCST_2_0, grammarAccess.getExpressionAccess().getRepeatCSTINTTerminalRuleCall_0_1_1_0_0());
+						lv_repeatCST_2_0=RULE_INT
+						{
+							newLeafNode(lv_repeatCST_2_0, grammarAccess.getExpressionAccess().getRepeatCSTINTTerminalRuleCall_0_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getExpressionRule());
 							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getExpressionRule());
-								}
-								setWithLastConsumed(
-									$current,
-									"repeatCST",
-									lv_repeatCST_2_0,
-									"org.eclipse.xtext.common.Terminals.INT");
-							}
-						)
-					)
-					    |
-					(
-						(
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getExpressionRule());
-								}
-							}
-							otherlv_3=RULE_ID
-							{
-								newLeafNode(otherlv_3, grammarAccess.getExpressionAccess().getRepeatVARParametreCrossReference_0_1_1_1_0());
-							}
-						)
+							setWithLastConsumed(
+								$current,
+								"repeatCST",
+								lv_repeatCST_2_0,
+								"org.eclipse.xtext.common.Terminals.INT");
+						}
 					)
 				)
 			)?
@@ -1002,7 +986,7 @@ ruleExpression returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getExpressionAccess().getWithWithParserRuleCall_0_2_0());
 					}
-					lv_with_4_0=ruleWith
+					lv_with_3_0=ruleWith
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExpressionRule());
@@ -1010,7 +994,7 @@ ruleExpression returns [EObject current=null]
 						add(
 							$current,
 							"with",
-							lv_with_4_0,
+							lv_with_3_0,
 							"sar.drone.Drn.With");
 						afterParserOrEnumRuleCall();
 					}
@@ -1019,16 +1003,16 @@ ruleExpression returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_5='('
+			otherlv_4='('
 			{
-				newLeafNode(otherlv_5, grammarAccess.getExpressionAccess().getLeftParenthesisKeyword_1_0());
+				newLeafNode(otherlv_4, grammarAccess.getExpressionAccess().getLeftParenthesisKeyword_1_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getExpressionAccess().getMoveMovementParserRuleCall_1_1_0());
 					}
-					lv_move_6_0=ruleMovement
+					lv_move_5_0=ruleMovement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExpressionRule());
@@ -1036,23 +1020,23 @@ ruleExpression returns [EObject current=null]
 						set(
 							$current,
 							"move",
-							lv_move_6_0,
+							lv_move_5_0,
 							"sar.drone.Drn.Movement");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_7='then'
+				otherlv_6='then'
 				{
-					newLeafNode(otherlv_7, grammarAccess.getExpressionAccess().getThenKeyword_1_2_0());
+					newLeafNode(otherlv_6, grammarAccess.getExpressionAccess().getThenKeyword_1_2_0());
 				}
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getExpressionAccess().getThenExpressionParserRuleCall_1_2_1_0());
 						}
-						lv_then_8_0=ruleExpression
+						lv_then_7_0=ruleExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getExpressionRule());
@@ -1060,7 +1044,7 @@ ruleExpression returns [EObject current=null]
 							add(
 								$current,
 								"then",
-								lv_then_8_0,
+								lv_then_7_0,
 								"sar.drone.Drn.Expression");
 							afterParserOrEnumRuleCall();
 						}
@@ -1068,16 +1052,16 @@ ruleExpression returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_9='then'
+				otherlv_8='then'
 				{
-					newLeafNode(otherlv_9, grammarAccess.getExpressionAccess().getThenKeyword_1_3_0());
+					newLeafNode(otherlv_8, grammarAccess.getExpressionAccess().getThenKeyword_1_3_0());
 				}
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getExpressionAccess().getThenExpressionParserRuleCall_1_3_1_0());
 						}
-						lv_then_10_0=ruleExpression
+						lv_then_9_0=ruleExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getExpressionRule());
@@ -1085,54 +1069,38 @@ ruleExpression returns [EObject current=null]
 							add(
 								$current,
 								"then",
-								lv_then_10_0,
+								lv_then_9_0,
 								"sar.drone.Drn.Expression");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_11=')'
+			otherlv_10=')'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getExpressionAccess().getRightParenthesisKeyword_1_4());
+				newLeafNode(otherlv_10, grammarAccess.getExpressionAccess().getRightParenthesisKeyword_1_4());
 			}
 			(
-				otherlv_12='X'
+				otherlv_11='X'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getExpressionAccess().getXKeyword_1_5_0());
+					newLeafNode(otherlv_11, grammarAccess.getExpressionAccess().getXKeyword_1_5_0());
 				}
 				(
 					(
-						(
-							lv_repeatCST_13_0=RULE_INT
-							{
-								newLeafNode(lv_repeatCST_13_0, grammarAccess.getExpressionAccess().getRepeatCSTINTTerminalRuleCall_1_5_1_0_0());
+						lv_repeatCST_12_0=RULE_INT
+						{
+							newLeafNode(lv_repeatCST_12_0, grammarAccess.getExpressionAccess().getRepeatCSTINTTerminalRuleCall_1_5_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getExpressionRule());
 							}
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getExpressionRule());
-								}
-								setWithLastConsumed(
-									$current,
-									"repeatCST",
-									lv_repeatCST_13_0,
-									"org.eclipse.xtext.common.Terminals.INT");
-							}
-						)
-					)
-					    |
-					(
-						(
-							{
-								if ($current==null) {
-									$current = createModelElement(grammarAccess.getExpressionRule());
-								}
-							}
-							otherlv_14=RULE_ID
-							{
-								newLeafNode(otherlv_14, grammarAccess.getExpressionAccess().getRepeatVARParametreCrossReference_1_5_1_1_0());
-							}
-						)
+							setWithLastConsumed(
+								$current,
+								"repeatCST",
+								lv_repeatCST_12_0,
+								"org.eclipse.xtext.common.Terminals.INT");
+						}
 					)
 				)
 			)?
@@ -1141,7 +1109,7 @@ ruleExpression returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getExpressionAccess().getWithWithParserRuleCall_1_6_0());
 					}
-					lv_with_15_0=ruleWith
+					lv_with_13_0=ruleWith
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExpressionRule());
@@ -1149,7 +1117,7 @@ ruleExpression returns [EObject current=null]
 						add(
 							$current,
 							"with",
-							lv_with_15_0,
+							lv_with_13_0,
 							"sar.drone.Drn.With");
 						afterParserOrEnumRuleCall();
 					}
@@ -1429,9 +1397,29 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_3_3_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_3_3_0());
 					}
-					lv_depxz_6_0=ruleDepXZ_IMPL
+					lv_depz_6_0=ruleDepZ_Impl
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAndRule());
+						}
+						add(
+							$current,
+							"depz",
+							lv_depz_6_0,
+							"sar.drone.Drn.DepZ_Impl");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_3_4_0());
+					}
+					lv_depxz_7_0=ruleDepXZ_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1439,7 +1427,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depxz",
-							lv_depxz_6_0,
+							lv_depxz_7_0,
 							"sar.drone.Drn.DepXZ_IMPL");
 						afterParserOrEnumRuleCall();
 					}
@@ -1449,9 +1437,9 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_3_4_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_3_5_0());
 					}
-					lv_depxy_7_0=ruleDepXY_IMPL
+					lv_depxy_8_0=ruleDepXY_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1459,7 +1447,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depxy",
-							lv_depxy_7_0,
+							lv_depxy_8_0,
 							"sar.drone.Drn.DepXY_IMPL");
 						afterParserOrEnumRuleCall();
 					}
@@ -1469,26 +1457,26 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_3_5_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_3_6_0());
 					}
-					lv_depz_8_0=ruleDepZ_Impl
+					lv_depyz_9_0=ruleDepYZ_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
 						}
 						add(
 							$current,
-							"depz",
-							lv_depz_8_0,
-							"sar.drone.Drn.DepZ_Impl");
+							"depyz",
+							lv_depyz_9_0,
+							"sar.drone.Drn.DepYZ_IMPL");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
-		otherlv_9=','
+		otherlv_10=','
 		{
-			newLeafNode(otherlv_9, grammarAccess.getAndAccess().getCommaKeyword_4());
+			newLeafNode(otherlv_10, grammarAccess.getAndAccess().getCommaKeyword_4());
 		}
 		(
 			(
@@ -1496,7 +1484,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getRotateRotateParserRuleCall_5_0_0());
 					}
-					lv_rotate_10_0=ruleRotate
+					lv_rotate_11_0=ruleRotate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1504,7 +1492,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"rotate",
-							lv_rotate_10_0,
+							lv_rotate_11_0,
 							"sar.drone.Drn.Rotate");
 						afterParserOrEnumRuleCall();
 					}
@@ -1516,7 +1504,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getDepxDepX_ImplParserRuleCall_5_1_0());
 					}
-					lv_depx_11_0=ruleDepX_Impl
+					lv_depx_12_0=ruleDepX_Impl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1524,7 +1512,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depx",
-							lv_depx_11_0,
+							lv_depx_12_0,
 							"sar.drone.Drn.DepX_Impl");
 						afterParserOrEnumRuleCall();
 					}
@@ -1536,7 +1524,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getDepyDepY_ImplParserRuleCall_5_2_0());
 					}
-					lv_depy_12_0=ruleDepY_Impl
+					lv_depy_13_0=ruleDepY_Impl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1544,7 +1532,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depy",
-							lv_depy_12_0,
+							lv_depy_13_0,
 							"sar.drone.Drn.DepY_Impl");
 						afterParserOrEnumRuleCall();
 					}
@@ -1554,9 +1542,29 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_5_3_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_5_3_0());
 					}
-					lv_depxz_13_0=ruleDepXZ_IMPL
+					lv_depz_14_0=ruleDepZ_Impl
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAndRule());
+						}
+						add(
+							$current,
+							"depz",
+							lv_depz_14_0,
+							"sar.drone.Drn.DepZ_Impl");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_5_4_0());
+					}
+					lv_depxz_15_0=ruleDepXZ_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1564,7 +1572,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depxz",
-							lv_depxz_13_0,
+							lv_depxz_15_0,
 							"sar.drone.Drn.DepXZ_IMPL");
 						afterParserOrEnumRuleCall();
 					}
@@ -1574,9 +1582,9 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_5_4_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_5_5_0());
 					}
-					lv_depxy_14_0=ruleDepXY_IMPL
+					lv_depxy_16_0=ruleDepXY_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1584,7 +1592,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depxy",
-							lv_depxy_14_0,
+							lv_depxy_16_0,
 							"sar.drone.Drn.DepXY_IMPL");
 						afterParserOrEnumRuleCall();
 					}
@@ -1594,27 +1602,27 @@ ruleAnd returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_5_5_0());
+						newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_5_6_0());
 					}
-					lv_depz_15_0=ruleDepZ_Impl
+					lv_depyz_17_0=ruleDepYZ_IMPL
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
 						}
 						add(
 							$current,
-							"depz",
-							lv_depz_15_0,
-							"sar.drone.Drn.DepZ_Impl");
+							"depyz",
+							lv_depyz_17_0,
+							"sar.drone.Drn.DepYZ_IMPL");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
 		(
-			otherlv_16=','
+			otherlv_18=','
 			{
-				newLeafNode(otherlv_16, grammarAccess.getAndAccess().getCommaKeyword_6_0());
+				newLeafNode(otherlv_18, grammarAccess.getAndAccess().getCommaKeyword_6_0());
 			}
 			(
 				(
@@ -1622,7 +1630,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getRotateRotateParserRuleCall_6_1_0_0());
 						}
-						lv_rotate_17_0=ruleRotate
+						lv_rotate_19_0=ruleRotate
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1630,7 +1638,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"rotate",
-								lv_rotate_17_0,
+								lv_rotate_19_0,
 								"sar.drone.Drn.Rotate");
 							afterParserOrEnumRuleCall();
 						}
@@ -1642,7 +1650,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getDepxDepX_ImplParserRuleCall_6_1_1_0());
 						}
-						lv_depx_18_0=ruleDepX_Impl
+						lv_depx_20_0=ruleDepX_Impl
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1650,7 +1658,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"depx",
-								lv_depx_18_0,
+								lv_depx_20_0,
 								"sar.drone.Drn.DepX_Impl");
 							afterParserOrEnumRuleCall();
 						}
@@ -1662,7 +1670,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getDepyDepY_ImplParserRuleCall_6_1_2_0());
 						}
-						lv_depy_19_0=ruleDepY_Impl
+						lv_depy_21_0=ruleDepY_Impl
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1670,7 +1678,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"depy",
-								lv_depy_19_0,
+								lv_depy_21_0,
 								"sar.drone.Drn.DepY_Impl");
 							afterParserOrEnumRuleCall();
 						}
@@ -1680,47 +1688,7 @@ ruleAnd returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_6_1_3_0());
-						}
-						lv_depxz_20_0=ruleDepXZ_IMPL
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"depxz",
-								lv_depxz_20_0,
-								"sar.drone.Drn.DepXZ_IMPL");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_6_1_4_0());
-						}
-						lv_depxy_21_0=ruleDepXY_IMPL
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"depxy",
-								lv_depxy_21_0,
-								"sar.drone.Drn.DepXY_IMPL");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_6_1_5_0());
+							newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_6_1_3_0());
 						}
 						lv_depz_22_0=ruleDepZ_Impl
 						{
@@ -1736,11 +1704,71 @@ ruleAnd returns [EObject current=null]
 						}
 					)
 				)
+				    |
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_6_1_4_0());
+						}
+						lv_depxz_23_0=ruleDepXZ_IMPL
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAndRule());
+							}
+							add(
+								$current,
+								"depxz",
+								lv_depxz_23_0,
+								"sar.drone.Drn.DepXZ_IMPL");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				    |
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_6_1_5_0());
+						}
+						lv_depxy_24_0=ruleDepXY_IMPL
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAndRule());
+							}
+							add(
+								$current,
+								"depxy",
+								lv_depxy_24_0,
+								"sar.drone.Drn.DepXY_IMPL");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				    |
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_6_1_6_0());
+						}
+						lv_depyz_25_0=ruleDepYZ_IMPL
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAndRule());
+							}
+							add(
+								$current,
+								"depyz",
+								lv_depyz_25_0,
+								"sar.drone.Drn.DepYZ_IMPL");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
 		)*
-		otherlv_23=')'
+		otherlv_26=')'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getAndAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_26, grammarAccess.getAndAccess().getRightParenthesisKeyword_7());
 		}
 	)
 ;
@@ -2428,123 +2456,21 @@ ruleDepXY_IMPL returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getDepXY_IMPLAccess().getDepXYParserRuleCall_0());
+			newCompositeNode(grammarAccess.getDepXY_IMPLAccess().getCERCLEXYParserRuleCall_0());
 		}
-		this_DepXY_0=ruleDepXY
+		this_CERCLEXY_0=ruleCERCLEXY
 		{
-			$current = $this_DepXY_0.current;
+			$current = $this_CERCLEXY_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDepXY_IMPLAccess().getCERCLEXYParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDepXY_IMPLAccess().getCARREXYParserRuleCall_1());
 		}
-		this_CERCLEXY_1=ruleCERCLEXY
+		this_CARREXY_1=ruleCARREXY
 		{
-			$current = $this_CERCLEXY_1.current;
+			$current = $this_CARREXY_1.current;
 			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getDepXY_IMPLAccess().getCARREXYParserRuleCall_2());
-		}
-		this_CARREXY_2=ruleCARREXY
-		{
-			$current = $this_CARREXY_2.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleDepXY
-entryRuleDepXY returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDepXYRule()); }
-	iv_ruleDepXY=ruleDepXY
-	{ $current=$iv_ruleDepXY.current; }
-	EOF;
-
-// Rule DepXY
-ruleDepXY returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_name_0_0='depXY'
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDepXYAccess().getNameDepXYKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYRule());
-					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "depXY");
-				}
-			)
-		)
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getDepXYAccess().getLeftParenthesisKeyword_1());
-		}
-		otherlv_2='distance'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDepXYAccess().getDistanceKeyword_2());
-		}
-		otherlv_3='='
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDepXYAccess().getEqualsSignKeyword_3());
-		}
-		(
-			(
-				lv_distanceCST_4_0=RULE_INT
-				{
-					newLeafNode(lv_distanceCST_4_0, grammarAccess.getDepXYAccess().getDistanceCSTINTTerminalRuleCall_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"distanceCST",
-						lv_distanceCST_4_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_5='temps'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getDepXYAccess().getTempsKeyword_5());
-		}
-		otherlv_6='='
-		{
-			newLeafNode(otherlv_6, grammarAccess.getDepXYAccess().getEqualsSignKeyword_6());
-		}
-		(
-			(
-				lv_tempsCST_7_0=RULE_INT
-				{
-					newLeafNode(lv_tempsCST_7_0, grammarAccess.getDepXYAccess().getTempsCSTINTTerminalRuleCall_7_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"tempsCST",
-						lv_tempsCST_7_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_8=')'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getDepXYAccess().getRightParenthesisKeyword_8());
 		}
 	)
 ;
@@ -2752,123 +2678,21 @@ ruleDepYZ_IMPL returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getDepYZ_IMPLAccess().getDepYZParserRuleCall_0());
+			newCompositeNode(grammarAccess.getDepYZ_IMPLAccess().getCERCLEYZParserRuleCall_0());
 		}
-		this_DepYZ_0=ruleDepYZ
+		this_CERCLEYZ_0=ruleCERCLEYZ
 		{
-			$current = $this_DepYZ_0.current;
+			$current = $this_CERCLEYZ_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDepYZ_IMPLAccess().getCERCLEYZParserRuleCall_1());
+			newCompositeNode(grammarAccess.getDepYZ_IMPLAccess().getCARREYZParserRuleCall_1());
 		}
-		this_CERCLEYZ_1=ruleCERCLEYZ
+		this_CARREYZ_1=ruleCARREYZ
 		{
-			$current = $this_CERCLEYZ_1.current;
+			$current = $this_CARREYZ_1.current;
 			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getDepYZ_IMPLAccess().getCARREYZParserRuleCall_2());
-		}
-		this_CARREYZ_2=ruleCARREYZ
-		{
-			$current = $this_CARREYZ_2.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleDepYZ
-entryRuleDepYZ returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDepYZRule()); }
-	iv_ruleDepYZ=ruleDepYZ
-	{ $current=$iv_ruleDepYZ.current; }
-	EOF;
-
-// Rule DepYZ
-ruleDepYZ returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_name_0_0='depYZ'
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDepYZAccess().getNameDepYZKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepYZRule());
-					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "depYZ");
-				}
-			)
-		)
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getDepYZAccess().getLeftParenthesisKeyword_1());
-		}
-		otherlv_2='distance'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDepYZAccess().getDistanceKeyword_2());
-		}
-		otherlv_3='='
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDepYZAccess().getEqualsSignKeyword_3());
-		}
-		(
-			(
-				lv_distanceCST_4_0=RULE_INT
-				{
-					newLeafNode(lv_distanceCST_4_0, grammarAccess.getDepYZAccess().getDistanceCSTINTTerminalRuleCall_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepYZRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"distanceCST",
-						lv_distanceCST_4_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_5='temps'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getDepYZAccess().getTempsKeyword_5());
-		}
-		otherlv_6='='
-		{
-			newLeafNode(otherlv_6, grammarAccess.getDepYZAccess().getEqualsSignKeyword_6());
-		}
-		(
-			(
-				lv_tempsCST_7_0=RULE_INT
-				{
-					newLeafNode(lv_tempsCST_7_0, grammarAccess.getDepYZAccess().getTempsCSTINTTerminalRuleCall_7_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepYZRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"tempsCST",
-						lv_tempsCST_7_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_8=')'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getDepYZAccess().getRightParenthesisKeyword_8());
 		}
 	)
 ;
@@ -3074,25 +2898,36 @@ ruleDepXZ_IMPL returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getDepXZ_IMPLAccess().getDepXZParserRuleCall());
-	}
-	this_DepXZ_0=ruleDepXZ
-	{
-		$current = $this_DepXZ_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getDepXZ_IMPLAccess().getCERCLEXZParserRuleCall_0());
+		}
+		this_CERCLEXZ_0=ruleCERCLEXZ
+		{
+			$current = $this_CERCLEXZ_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDepXZ_IMPLAccess().getCARREXZParserRuleCall_1());
+		}
+		this_CARREXZ_1=ruleCARREXZ
+		{
+			$current = $this_CARREXZ_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
-// Entry rule entryRuleDepXZ
-entryRuleDepXZ returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDepXZRule()); }
-	iv_ruleDepXZ=ruleDepXZ
-	{ $current=$iv_ruleDepXZ.current; }
+// Entry rule entryRuleCERCLEXZ
+entryRuleCERCLEXZ returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCERCLEXZRule()); }
+	iv_ruleCERCLEXZ=ruleCERCLEXZ
+	{ $current=$iv_ruleCERCLEXZ.current; }
 	EOF;
 
-// Rule DepXZ
-ruleDepXZ returns [EObject current=null]
+// Rule CERCLEXZ
+ruleCERCLEXZ returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -3102,65 +2937,65 @@ ruleDepXZ returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0='depXZ'
+				lv_name_0_0='cercleXZ'
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDepXZAccess().getNameDepXZKeyword_0_0());
+					newLeafNode(lv_name_0_0, grammarAccess.getCERCLEXZAccess().getNameCercleXZKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXZRule());
+						$current = createModelElement(grammarAccess.getCERCLEXZRule());
 					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "depXZ");
+					setWithLastConsumed($current, "name", lv_name_0_0, "cercleXZ");
 				}
 			)
 		)
 		otherlv_1='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDepXZAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getCERCLEXZAccess().getLeftParenthesisKeyword_1());
 		}
-		otherlv_2='distance'
+		otherlv_2='rayon'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getDepXZAccess().getDistanceKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getCERCLEXZAccess().getRayonKeyword_2());
 		}
 		otherlv_3='='
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDepXZAccess().getEqualsSignKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getCERCLEXZAccess().getEqualsSignKeyword_3());
 		}
 		(
 			(
-				lv_distanceCST_4_0=RULE_INT
+				lv_rayonCST_4_0=RULE_INT
 				{
-					newLeafNode(lv_distanceCST_4_0, grammarAccess.getDepXZAccess().getDistanceCSTINTTerminalRuleCall_4_0());
+					newLeafNode(lv_rayonCST_4_0, grammarAccess.getCERCLEXZAccess().getRayonCSTINTTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXZRule());
+						$current = createModelElement(grammarAccess.getCERCLEXZRule());
 					}
 					setWithLastConsumed(
 						$current,
-						"distanceCST",
-						lv_distanceCST_4_0,
+						"rayonCST",
+						lv_rayonCST_4_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
 		otherlv_5='temps'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getDepXZAccess().getTempsKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getCERCLEXZAccess().getTempsKeyword_5());
 		}
 		otherlv_6='='
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDepXZAccess().getEqualsSignKeyword_6());
+			newLeafNode(otherlv_6, grammarAccess.getCERCLEXZAccess().getEqualsSignKeyword_6());
 		}
 		(
 			(
 				lv_tempsCST_7_0=RULE_INT
 				{
-					newLeafNode(lv_tempsCST_7_0, grammarAccess.getDepXZAccess().getTempsCSTINTTerminalRuleCall_7_0());
+					newLeafNode(lv_tempsCST_7_0, grammarAccess.getCERCLEXZAccess().getTempsCSTINTTerminalRuleCall_7_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXZRule());
+						$current = createModelElement(grammarAccess.getCERCLEXZRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -3172,7 +3007,100 @@ ruleDepXZ returns [EObject current=null]
 		)
 		otherlv_8=')'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getDepXZAccess().getRightParenthesisKeyword_8());
+			newLeafNode(otherlv_8, grammarAccess.getCERCLEXZAccess().getRightParenthesisKeyword_8());
+		}
+	)
+;
+
+// Entry rule entryRuleCARREXZ
+entryRuleCARREXZ returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCARREXZRule()); }
+	iv_ruleCARREXZ=ruleCARREXZ
+	{ $current=$iv_ruleCARREXZ.current; }
+	EOF;
+
+// Rule CARREXZ
+ruleCARREXZ returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0='carreXZ'
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getCARREXZAccess().getNameCarreXZKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCARREXZRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "carreXZ");
+				}
+			)
+		)
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCARREXZAccess().getLeftParenthesisKeyword_1());
+		}
+		otherlv_2='cote'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCARREXZAccess().getCoteKeyword_2());
+		}
+		otherlv_3='='
+		{
+			newLeafNode(otherlv_3, grammarAccess.getCARREXZAccess().getEqualsSignKeyword_3());
+		}
+		(
+			(
+				lv_coteCST_4_0=RULE_INT
+				{
+					newLeafNode(lv_coteCST_4_0, grammarAccess.getCARREXZAccess().getCoteCSTINTTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCARREXZRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"coteCST",
+						lv_coteCST_4_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_5='temps'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getCARREXZAccess().getTempsKeyword_5());
+		}
+		otherlv_6='='
+		{
+			newLeafNode(otherlv_6, grammarAccess.getCARREXZAccess().getEqualsSignKeyword_6());
+		}
+		(
+			(
+				lv_tempsCST_7_0=RULE_INT
+				{
+					newLeafNode(lv_tempsCST_7_0, grammarAccess.getCARREXZAccess().getTempsCSTINTTerminalRuleCall_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCARREXZRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"tempsCST",
+						lv_tempsCST_7_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_8=')'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getCARREXZAccess().getRightParenthesisKeyword_8());
 		}
 	)
 ;
@@ -3192,118 +3120,14 @@ ruleDepXYZ_IMPL returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	(
-		{
-			newCompositeNode(grammarAccess.getDepXYZ_IMPLAccess().getDepXYZParserRuleCall_0());
-		}
-		this_DepXYZ_0=ruleDepXYZ
-		{
-			$current = $this_DepXYZ_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getDepXYZ_IMPLAccess().getFlipParserRuleCall_1());
-		}
-		this_Flip_1=ruleFlip
-		{
-			$current = $this_Flip_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleDepXYZ
-entryRuleDepXYZ returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDepXYZRule()); }
-	iv_ruleDepXYZ=ruleDepXYZ
-	{ $current=$iv_ruleDepXYZ.current; }
-	EOF;
-
-// Rule DepXYZ
-ruleDepXYZ returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_name_0_0='depXYZ'
-				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDepXYZAccess().getNameDepXYZKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYZRule());
-					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "depXYZ");
-				}
-			)
-		)
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getDepXYZAccess().getLeftParenthesisKeyword_1());
-		}
-		otherlv_2='distance'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDepXYZAccess().getDistanceKeyword_2());
-		}
-		otherlv_3='='
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDepXYZAccess().getEqualsSignKeyword_3());
-		}
-		(
-			(
-				lv_distanceCST_4_0=RULE_INT
-				{
-					newLeafNode(lv_distanceCST_4_0, grammarAccess.getDepXYZAccess().getDistanceCSTINTTerminalRuleCall_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYZRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"distanceCST",
-						lv_distanceCST_4_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_5='temps'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getDepXYZAccess().getTempsKeyword_5());
-		}
-		otherlv_6='='
-		{
-			newLeafNode(otherlv_6, grammarAccess.getDepXYZAccess().getEqualsSignKeyword_6());
-		}
-		(
-			(
-				lv_tempsCST_7_0=RULE_INT
-				{
-					newLeafNode(lv_tempsCST_7_0, grammarAccess.getDepXYZAccess().getTempsCSTINTTerminalRuleCall_7_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDepXYZRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"tempsCST",
-						lv_tempsCST_7_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_8=')'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getDepXYZAccess().getRightParenthesisKeyword_8());
-		}
-	)
+	{
+		newCompositeNode(grammarAccess.getDepXYZ_IMPLAccess().getFlipParserRuleCall());
+	}
+	this_Flip_0=ruleFlip
+	{
+		$current = $this_Flip_0.current;
+		afterParserOrEnumRuleCall();
+	}
 ;
 
 // Entry rule entryRuleFlip

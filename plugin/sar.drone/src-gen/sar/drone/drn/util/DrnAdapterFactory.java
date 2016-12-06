@@ -216,11 +216,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createDepXY_IMPLAdapter();
       }
       @Override
-      public Adapter caseDepXY(DepXY object)
-      {
-        return createDepXYAdapter();
-      }
-      @Override
       public Adapter caseCERCLEXY(CERCLEXY object)
       {
         return createCERCLEXYAdapter();
@@ -234,11 +229,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDepYZ_IMPL(DepYZ_IMPL object)
       {
         return createDepYZ_IMPLAdapter();
-      }
-      @Override
-      public Adapter caseDepYZ(DepYZ object)
-      {
-        return createDepYZAdapter();
       }
       @Override
       public Adapter caseCERCLEYZ(CERCLEYZ object)
@@ -256,19 +246,19 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createDepXZ_IMPLAdapter();
       }
       @Override
-      public Adapter caseDepXZ(DepXZ object)
+      public Adapter caseCERCLEXZ(CERCLEXZ object)
       {
-        return createDepXZAdapter();
+        return createCERCLEXZAdapter();
+      }
+      @Override
+      public Adapter caseCARREXZ(CARREXZ object)
+      {
+        return createCARREXZAdapter();
       }
       @Override
       public Adapter caseDepXYZ_IMPL(DepXYZ_IMPL object)
       {
         return createDepXYZ_IMPLAdapter();
-      }
-      @Override
-      public Adapter caseDepXYZ(DepXYZ object)
-      {
-        return createDepXYZAdapter();
       }
       @Override
       public Adapter caseFlip(Flip object)
@@ -798,21 +788,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.DepXY <em>Dep XY</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.DepXY
-   * @generated
-   */
-  public Adapter createDepXYAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link sar.drone.drn.CERCLEXY <em>CERCLEXY</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -853,21 +828,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDepYZ_IMPLAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.DepYZ <em>Dep YZ</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.DepYZ
-   * @generated
-   */
-  public Adapter createDepYZAdapter()
   {
     return null;
   }
@@ -918,16 +878,31 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.DepXZ <em>Dep XZ</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.CERCLEXZ <em>CERCLEXZ</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.DepXZ
+   * @see sar.drone.drn.CERCLEXZ
    * @generated
    */
-  public Adapter createDepXZAdapter()
+  public Adapter createCERCLEXZAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.CARREXZ <em>CARREXZ</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.CARREXZ
+   * @generated
+   */
+  public Adapter createCARREXZAdapter()
   {
     return null;
   }
@@ -943,21 +918,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDepXYZ_IMPLAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.DepXYZ <em>Dep XYZ</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.DepXYZ
-   * @generated
-   */
-  public Adapter createDepXYZAdapter()
   {
     return null;
   }

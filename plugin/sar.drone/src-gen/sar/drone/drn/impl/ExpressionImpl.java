@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Expression;
 import sar.drone.drn.Movement;
-import sar.drone.drn.Parametre;
 import sar.drone.drn.With;
 
 /**
@@ -35,7 +34,6 @@ import sar.drone.drn.With;
  * <ul>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getMove <em>Move</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getRepeatCST <em>Repeat CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getRepeatVAR <em>Repeat VAR</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getWith <em>With</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ExpressionImpl#getThen <em>Then</em>}</li>
  * </ul>
@@ -73,16 +71,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected int repeatCST = REPEAT_CST_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRepeatVAR() <em>Repeat VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRepeatVAR()
-   * @generated
-   * @ordered
-   */
-  protected Parametre repeatVAR;
 
   /**
    * The cached value of the '{@link #getWith() <em>With</em>}' containment reference list.
@@ -201,49 +189,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parametre getRepeatVAR()
-  {
-    if (repeatVAR != null && repeatVAR.eIsProxy())
-    {
-      InternalEObject oldRepeatVAR = (InternalEObject)repeatVAR;
-      repeatVAR = (Parametre)eResolveProxy(oldRepeatVAR);
-      if (repeatVAR != oldRepeatVAR)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.EXPRESSION__REPEAT_VAR, oldRepeatVAR, repeatVAR));
-      }
-    }
-    return repeatVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre basicGetRepeatVAR()
-  {
-    return repeatVAR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRepeatVAR(Parametre newRepeatVAR)
-  {
-    Parametre oldRepeatVAR = repeatVAR;
-    repeatVAR = newRepeatVAR;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.EXPRESSION__REPEAT_VAR, oldRepeatVAR, repeatVAR));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<With> getWith()
   {
     if (with == null)
@@ -301,9 +246,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getMove();
       case DrnPackage.EXPRESSION__REPEAT_CST:
         return getRepeatCST();
-      case DrnPackage.EXPRESSION__REPEAT_VAR:
-        if (resolve) return getRepeatVAR();
-        return basicGetRepeatVAR();
       case DrnPackage.EXPRESSION__WITH:
         return getWith();
       case DrnPackage.EXPRESSION__THEN:
@@ -328,9 +270,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case DrnPackage.EXPRESSION__REPEAT_CST:
         setRepeatCST((Integer)newValue);
-        return;
-      case DrnPackage.EXPRESSION__REPEAT_VAR:
-        setRepeatVAR((Parametre)newValue);
         return;
       case DrnPackage.EXPRESSION__WITH:
         getWith().clear();
@@ -360,9 +299,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case DrnPackage.EXPRESSION__REPEAT_CST:
         setRepeatCST(REPEAT_CST_EDEFAULT);
         return;
-      case DrnPackage.EXPRESSION__REPEAT_VAR:
-        setRepeatVAR((Parametre)null);
-        return;
       case DrnPackage.EXPRESSION__WITH:
         getWith().clear();
         return;
@@ -387,8 +323,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return move != null;
       case DrnPackage.EXPRESSION__REPEAT_CST:
         return repeatCST != REPEAT_CST_EDEFAULT;
-      case DrnPackage.EXPRESSION__REPEAT_VAR:
-        return repeatVAR != null;
       case DrnPackage.EXPRESSION__WITH:
         return with != null && !with.isEmpty();
       case DrnPackage.EXPRESSION__THEN:

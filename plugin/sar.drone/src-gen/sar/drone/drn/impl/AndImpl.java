@@ -22,6 +22,7 @@ import sar.drone.drn.And;
 import sar.drone.drn.DepXY_IMPL;
 import sar.drone.drn.DepXZ_IMPL;
 import sar.drone.drn.DepX_Impl;
+import sar.drone.drn.DepYZ_IMPL;
 import sar.drone.drn.DepY_Impl;
 import sar.drone.drn.DepZ_Impl;
 import sar.drone.drn.DrnPackage;
@@ -39,9 +40,10 @@ import sar.drone.drn.Rotate;
  *   <li>{@link sar.drone.drn.impl.AndImpl#getRotate <em>Rotate</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepx <em>Depx</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepy <em>Depy</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.AndImpl#getDepz <em>Depz</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepxz <em>Depxz</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepxy <em>Depxy</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AndImpl#getDepz <em>Depz</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.AndImpl#getDepyz <em>Depyz</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,16 @@ public class AndImpl extends MovementImpl implements And
   protected EList<DepY_Impl> depy;
 
   /**
+   * The cached value of the '{@link #getDepz() <em>Depz</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDepz()
+   * @generated
+   * @ordered
+   */
+  protected EList<DepZ_Impl> depz;
+
+  /**
    * The cached value of the '{@link #getDepxz() <em>Depxz</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -119,14 +131,14 @@ public class AndImpl extends MovementImpl implements And
   protected EList<DepXY_IMPL> depxy;
 
   /**
-   * The cached value of the '{@link #getDepz() <em>Depz</em>}' containment reference list.
+   * The cached value of the '{@link #getDepyz() <em>Depyz</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDepz()
+   * @see #getDepyz()
    * @generated
    * @ordered
    */
-  protected EList<DepZ_Impl> depz;
+  protected EList<DepYZ_IMPL> depyz;
 
   /**
    * <!-- begin-user-doc -->
@@ -219,6 +231,20 @@ public class AndImpl extends MovementImpl implements And
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<DepZ_Impl> getDepz()
+  {
+    if (depz == null)
+    {
+      depz = new EObjectContainmentEList<DepZ_Impl>(DepZ_Impl.class, this, DrnPackage.AND__DEPZ);
+    }
+    return depz;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<DepXZ_IMPL> getDepxz()
   {
     if (depxz == null)
@@ -247,13 +273,13 @@ public class AndImpl extends MovementImpl implements And
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DepZ_Impl> getDepz()
+  public EList<DepYZ_IMPL> getDepyz()
   {
-    if (depz == null)
+    if (depyz == null)
     {
-      depz = new EObjectContainmentEList<DepZ_Impl>(DepZ_Impl.class, this, DrnPackage.AND__DEPZ);
+      depyz = new EObjectContainmentEList<DepYZ_IMPL>(DepYZ_IMPL.class, this, DrnPackage.AND__DEPYZ);
     }
-    return depz;
+    return depyz;
   }
 
   /**
@@ -272,12 +298,14 @@ public class AndImpl extends MovementImpl implements And
         return ((InternalEList<?>)getDepx()).basicRemove(otherEnd, msgs);
       case DrnPackage.AND__DEPY:
         return ((InternalEList<?>)getDepy()).basicRemove(otherEnd, msgs);
+      case DrnPackage.AND__DEPZ:
+        return ((InternalEList<?>)getDepz()).basicRemove(otherEnd, msgs);
       case DrnPackage.AND__DEPXZ:
         return ((InternalEList<?>)getDepxz()).basicRemove(otherEnd, msgs);
       case DrnPackage.AND__DEPXY:
         return ((InternalEList<?>)getDepxy()).basicRemove(otherEnd, msgs);
-      case DrnPackage.AND__DEPZ:
-        return ((InternalEList<?>)getDepz()).basicRemove(otherEnd, msgs);
+      case DrnPackage.AND__DEPYZ:
+        return ((InternalEList<?>)getDepyz()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -300,12 +328,14 @@ public class AndImpl extends MovementImpl implements And
         return getDepx();
       case DrnPackage.AND__DEPY:
         return getDepy();
+      case DrnPackage.AND__DEPZ:
+        return getDepz();
       case DrnPackage.AND__DEPXZ:
         return getDepxz();
       case DrnPackage.AND__DEPXY:
         return getDepxy();
-      case DrnPackage.AND__DEPZ:
-        return getDepz();
+      case DrnPackage.AND__DEPYZ:
+        return getDepyz();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -336,6 +366,10 @@ public class AndImpl extends MovementImpl implements And
         getDepy().clear();
         getDepy().addAll((Collection<? extends DepY_Impl>)newValue);
         return;
+      case DrnPackage.AND__DEPZ:
+        getDepz().clear();
+        getDepz().addAll((Collection<? extends DepZ_Impl>)newValue);
+        return;
       case DrnPackage.AND__DEPXZ:
         getDepxz().clear();
         getDepxz().addAll((Collection<? extends DepXZ_IMPL>)newValue);
@@ -344,9 +378,9 @@ public class AndImpl extends MovementImpl implements And
         getDepxy().clear();
         getDepxy().addAll((Collection<? extends DepXY_IMPL>)newValue);
         return;
-      case DrnPackage.AND__DEPZ:
-        getDepz().clear();
-        getDepz().addAll((Collection<? extends DepZ_Impl>)newValue);
+      case DrnPackage.AND__DEPYZ:
+        getDepyz().clear();
+        getDepyz().addAll((Collection<? extends DepYZ_IMPL>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -374,14 +408,17 @@ public class AndImpl extends MovementImpl implements And
       case DrnPackage.AND__DEPY:
         getDepy().clear();
         return;
+      case DrnPackage.AND__DEPZ:
+        getDepz().clear();
+        return;
       case DrnPackage.AND__DEPXZ:
         getDepxz().clear();
         return;
       case DrnPackage.AND__DEPXY:
         getDepxy().clear();
         return;
-      case DrnPackage.AND__DEPZ:
-        getDepz().clear();
+      case DrnPackage.AND__DEPYZ:
+        getDepyz().clear();
         return;
     }
     super.eUnset(featureID);
@@ -405,12 +442,14 @@ public class AndImpl extends MovementImpl implements And
         return depx != null && !depx.isEmpty();
       case DrnPackage.AND__DEPY:
         return depy != null && !depy.isEmpty();
+      case DrnPackage.AND__DEPZ:
+        return depz != null && !depz.isEmpty();
       case DrnPackage.AND__DEPXZ:
         return depxz != null && !depxz.isEmpty();
       case DrnPackage.AND__DEPXY:
         return depxy != null && !depxy.isEmpty();
-      case DrnPackage.AND__DEPZ:
-        return depz != null && !depz.isEmpty();
+      case DrnPackage.AND__DEPYZ:
+        return depyz != null && !depyz.isEmpty();
     }
     return super.eIsSet(featureID);
   }

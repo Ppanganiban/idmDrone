@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sar.drone.drn.Expression#getMove <em>Move</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getRepeatCST <em>Repeat CST</em>}</li>
- *   <li>{@link sar.drone.drn.Expression#getRepeatVAR <em>Repeat VAR</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getWith <em>With</em>}</li>
  *   <li>{@link sar.drone.drn.Expression#getThen <em>Then</em>}</li>
  * </ul>
@@ -80,32 +79,6 @@ public interface Expression extends EObject
    * @generated
    */
   void setRepeatCST(int value);
-
-  /**
-   * Returns the value of the '<em><b>Repeat VAR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Repeat VAR</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Repeat VAR</em>' reference.
-   * @see #setRepeatVAR(Parametre)
-   * @see sar.drone.drn.DrnPackage#getExpression_RepeatVAR()
-   * @model
-   * @generated
-   */
-  Parametre getRepeatVAR();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Expression#getRepeatVAR <em>Repeat VAR</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Repeat VAR</em>' reference.
-   * @see #getRepeatVAR()
-   * @generated
-   */
-  void setRepeatVAR(Parametre value);
 
   /**
    * Returns the value of the '<em><b>With</b></em>' containment reference list.

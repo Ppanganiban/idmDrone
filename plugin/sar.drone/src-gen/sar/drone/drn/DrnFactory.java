@@ -276,15 +276,6 @@ public interface DrnFactory extends EFactory
   DepXY_IMPL createDepXY_IMPL();
 
   /**
-   * Returns a new object of class '<em>Dep XY</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dep XY</em>'.
-   * @generated
-   */
-  DepXY createDepXY();
-
-  /**
    * Returns a new object of class '<em>CERCLEXY</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -310,15 +301,6 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   DepYZ_IMPL createDepYZ_IMPL();
-
-  /**
-   * Returns a new object of class '<em>Dep YZ</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dep YZ</em>'.
-   * @generated
-   */
-  DepYZ createDepYZ();
 
   /**
    * Returns a new object of class '<em>CERCLEYZ</em>'.
@@ -348,13 +330,22 @@ public interface DrnFactory extends EFactory
   DepXZ_IMPL createDepXZ_IMPL();
 
   /**
-   * Returns a new object of class '<em>Dep XZ</em>'.
+   * Returns a new object of class '<em>CERCLEXZ</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dep XZ</em>'.
+   * @return a new object of class '<em>CERCLEXZ</em>'.
    * @generated
    */
-  DepXZ createDepXZ();
+  CERCLEXZ createCERCLEXZ();
+
+  /**
+   * Returns a new object of class '<em>CARREXZ</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>CARREXZ</em>'.
+   * @generated
+   */
+  CARREXZ createCARREXZ();
 
   /**
    * Returns a new object of class '<em>Dep XYZ IMPL</em>'.
@@ -364,15 +355,6 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   DepXYZ_IMPL createDepXYZ_IMPL();
-
-  /**
-   * Returns a new object of class '<em>Dep XYZ</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dep XYZ</em>'.
-   * @generated
-   */
-  DepXYZ createDepXYZ();
 
   /**
    * Returns a new object of class '<em>Flip</em>'.

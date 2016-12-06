@@ -70,7 +70,6 @@
     <genClasses ecoreClass="Drn.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/move"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Expression/repeatCST"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/repeatVAR"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/with"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/then"/>
     </genClasses>
@@ -83,9 +82,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/rotate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depx"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depz"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depxz"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depxy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depz"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depyz"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepY_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepY_Impl/name"/>
@@ -112,9 +112,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY_IMPL/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY_IMPL/tempsCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//DepXY">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXY/distanceCST"/>
-    </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CERCLEXY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CERCLEXY/rayonCST"/>
     </genClasses>
@@ -125,29 +122,26 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ_IMPL/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ_IMPL/tempsCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//DepYZ">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepYZ/distanceCST"/>
-    </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CERCLEYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CERCLEYZ/rayonCST"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//CARREYZ">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CARREYZ/coteCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//DepXZ_IMPL"/>
-    <genClasses ecoreClass="Drn.ecore#//DepXZ">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/distanceCST"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ/tempsCST"/>
+    <genClasses ecoreClass="Drn.ecore#//DepXZ_IMPL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ_IMPL/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXZ_IMPL/tempsCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//DepXYZ_IMPL">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ_IMPL/name"/>
+    <genClasses ecoreClass="Drn.ecore#//CERCLEXZ">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CERCLEXZ/rayonCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//DepXYZ">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ/distanceCST"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepXYZ/tempsCST"/>
+    <genClasses ecoreClass="Drn.ecore#//CARREXZ">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//CARREXZ/coteCST"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//Flip"/>
+    <genClasses ecoreClass="Drn.ecore#//DepXYZ_IMPL"/>
+    <genClasses ecoreClass="Drn.ecore#//Flip">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Flip/name"/>
+    </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Rotate/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Rotate/angleCST"/>

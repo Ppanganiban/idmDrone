@@ -19,18 +19,16 @@ import sar.drone.drn.Assignement;
 import sar.drone.drn.Attribut;
 import sar.drone.drn.BACKWARD;
 import sar.drone.drn.CARREXY;
+import sar.drone.drn.CARREXZ;
 import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
+import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.CERCLEYZ;
 import sar.drone.drn.Camera;
 import sar.drone.drn.Context;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.Definition;
-import sar.drone.drn.DepXY;
-import sar.drone.drn.DepXYZ;
-import sar.drone.drn.DepXZ;
-import sar.drone.drn.DepYZ;
 import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Element;
@@ -90,11 +88,17 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DrnPackage.CARREXY:
 				sequence_CARREXY(context, (CARREXY) semanticObject); 
 				return; 
+			case DrnPackage.CARREXZ:
+				sequence_CARREXZ(context, (CARREXZ) semanticObject); 
+				return; 
 			case DrnPackage.CARREYZ:
 				sequence_CARREYZ(context, (CARREYZ) semanticObject); 
 				return; 
 			case DrnPackage.CERCLEXY:
 				sequence_CERCLEXY(context, (CERCLEXY) semanticObject); 
+				return; 
+			case DrnPackage.CERCLEXZ:
+				sequence_CERCLEXZ(context, (CERCLEXZ) semanticObject); 
 				return; 
 			case DrnPackage.CERCLEYZ:
 				sequence_CERCLEYZ(context, (CERCLEYZ) semanticObject); 
@@ -113,18 +117,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.DEFINITION:
 				sequence_Definition(context, (Definition) semanticObject); 
-				return; 
-			case DrnPackage.DEP_XY:
-				sequence_DepXY(context, (DepXY) semanticObject); 
-				return; 
-			case DrnPackage.DEP_XYZ:
-				sequence_DepXYZ(context, (DepXYZ) semanticObject); 
-				return; 
-			case DrnPackage.DEP_XZ:
-				sequence_DepXZ(context, (DepXZ) semanticObject); 
-				return; 
-			case DrnPackage.DEP_YZ:
-				sequence_DepYZ(context, (DepYZ) semanticObject); 
 				return; 
 			case DrnPackage.DEVICE:
 				sequence_Device(context, (Device) semanticObject); 
@@ -224,25 +216,28 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *             rotate+=Rotate | 
 	 *             depx+=DepX_Impl | 
 	 *             depy+=DepY_Impl | 
+	 *             depz+=DepZ_Impl | 
 	 *             depxz+=DepXZ_IMPL | 
 	 *             depxy+=DepXY_IMPL | 
-	 *             depz+=DepZ_Impl
+	 *             depyz+=DepYZ_IMPL
 	 *         ) 
 	 *         (
 	 *             rotate+=Rotate | 
 	 *             depx+=DepX_Impl | 
 	 *             depy+=DepY_Impl | 
+	 *             depz+=DepZ_Impl | 
 	 *             depxz+=DepXZ_IMPL | 
 	 *             depxy+=DepXY_IMPL | 
-	 *             depz+=DepZ_Impl
+	 *             depyz+=DepYZ_IMPL
 	 *         ) 
 	 *         (
 	 *             rotate+=Rotate | 
 	 *             depx+=DepX_Impl | 
 	 *             depy+=DepY_Impl | 
+	 *             depz+=DepZ_Impl | 
 	 *             depxz+=DepXZ_IMPL | 
 	 *             depxy+=DepXY_IMPL | 
-	 *             depz+=DepZ_Impl
+	 *             depyz+=DepYZ_IMPL
 	 *         )*
 	 *     )
 	 */
@@ -329,6 +324,32 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Movement returns CARREXZ
+	 *     DepXZ_IMPL returns CARREXZ
+	 *     CARREXZ returns CARREXZ
+	 *
+	 * Constraint:
+	 *     (name='carreXZ' coteCST=INT tempsCST=INT)
+	 */
+	protected void sequence_CARREXZ(ISerializationContext context, CARREXZ semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CARREXZ__COTE_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CARREXZ__COTE_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCARREXZAccess().getNameCarreXZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCARREXZAccess().getCoteCSTINTTerminalRuleCall_4_0(), semanticObject.getCoteCST());
+		feeder.accept(grammarAccess.getCARREXZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Movement returns CARREYZ
 	 *     DepYZ_IMPL returns CARREYZ
 	 *     CARREYZ returns CARREYZ
@@ -375,6 +396,32 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getCERCLEXYAccess().getNameCercleXYKeyword_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getCERCLEXYAccess().getRayonCSTINTTerminalRuleCall_4_0(), semanticObject.getRayonCST());
 		feeder.accept(grammarAccess.getCERCLEXYAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Movement returns CERCLEXZ
+	 *     DepXZ_IMPL returns CERCLEXZ
+	 *     CERCLEXZ returns CERCLEXZ
+	 *
+	 * Constraint:
+	 *     (name='cercleXZ' rayonCST=INT tempsCST=INT)
+	 */
+	protected void sequence_CERCLEXZ(ISerializationContext context, CERCLEXZ semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CERCLEXZ__RAYON_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CERCLEXZ__RAYON_CST));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__TEMPS_CST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ_IMPL__TEMPS_CST));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCERCLEXZAccess().getNameCercleXZKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCERCLEXZAccess().getRayonCSTINTTerminalRuleCall_4_0(), semanticObject.getRayonCST());
+		feeder.accept(grammarAccess.getCERCLEXZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
 		feeder.finish();
 	}
 	
@@ -500,110 +547,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Movement returns DepXYZ
-	 *     DepXYZ_IMPL returns DepXYZ
-	 *     DepXYZ returns DepXYZ
-	 *
-	 * Constraint:
-	 *     (name='depXYZ' distanceCST=INT tempsCST=INT)
-	 */
-	protected void sequence_DepXYZ(ISerializationContext context, DepXYZ semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ__DISTANCE_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ__DISTANCE_CST));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ__TEMPS_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ__TEMPS_CST));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDepXYZAccess().getNameDepXYZKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDepXYZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
-		feeder.accept(grammarAccess.getDepXYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Movement returns DepXY
-	 *     DepXY_IMPL returns DepXY
-	 *     DepXY returns DepXY
-	 *
-	 * Constraint:
-	 *     (name='depXY' distanceCST=INT tempsCST=INT)
-	 */
-	protected void sequence_DepXY(ISerializationContext context, DepXY semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY__DISTANCE_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY__DISTANCE_CST));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XY_IMPL__TEMPS_CST));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDepXYAccess().getNameDepXYKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDepXYAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
-		feeder.accept(grammarAccess.getDepXYAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Movement returns DepXZ
-	 *     DepXZ_IMPL returns DepXZ
-	 *     DepXZ returns DepXZ
-	 *
-	 * Constraint:
-	 *     (name='depXZ' distanceCST=INT tempsCST=INT)
-	 */
-	protected void sequence_DepXZ(ISerializationContext context, DepXZ semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__DISTANCE_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__DISTANCE_CST));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XZ__TEMPS_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XZ__TEMPS_CST));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDepXZAccess().getNameDepXZKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDepXZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
-		feeder.accept(grammarAccess.getDepXZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Movement returns DepYZ
-	 *     DepYZ_IMPL returns DepYZ
-	 *     DepYZ returns DepYZ
-	 *
-	 * Constraint:
-	 *     (name='depYZ' distanceCST=INT tempsCST=INT)
-	 */
-	protected void sequence_DepYZ(ISerializationContext context, DepYZ semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ__DISTANCE_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ__DISTANCE_CST));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_YZ_IMPL__TEMPS_CST));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDepYZAccess().getNameDepYZKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDepYZAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
-		feeder.accept(grammarAccess.getDepYZAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Device returns Device
 	 *
 	 * Constraint:
@@ -637,10 +580,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Expression returns Expression
 	 *
 	 * Constraint:
-	 *     (
-	 *         (move=Movement (repeatCST=INT | repeatVAR=[Parametre|ID])? with+=With?) | 
-	 *         (move=Movement then+=Expression then+=Expression* (repeatCST=INT | repeatVAR=[Parametre|ID])? with+=With?)
-	 *     )
+	 *     ((move=Movement repeatCST=INT? with+=With?) | (move=Movement then+=Expression then+=Expression* repeatCST=INT? with+=With?))
 	 */
 	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -684,8 +624,8 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Flip(ISerializationContext context, Flip semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEP_XYZ_IMPL__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.FLIP__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.FLIP__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFlipAccess().getNameFlipKeyword_0_0(), semanticObject.getName());

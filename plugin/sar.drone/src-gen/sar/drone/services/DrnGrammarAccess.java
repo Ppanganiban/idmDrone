@@ -549,12 +549,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMoveMovementParserRuleCall_0_0_0 = (RuleCall)cMoveAssignment_0_0.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
 		private final Keyword cXKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Alternatives cAlternatives_0_1_1 = (Alternatives)cGroup_0_1.eContents().get(1);
-		private final Assignment cRepeatCSTAssignment_0_1_1_0 = (Assignment)cAlternatives_0_1_1.eContents().get(0);
-		private final RuleCall cRepeatCSTINTTerminalRuleCall_0_1_1_0_0 = (RuleCall)cRepeatCSTAssignment_0_1_1_0.eContents().get(0);
-		private final Assignment cRepeatVARAssignment_0_1_1_1 = (Assignment)cAlternatives_0_1_1.eContents().get(1);
-		private final CrossReference cRepeatVARParametreCrossReference_0_1_1_1_0 = (CrossReference)cRepeatVARAssignment_0_1_1_1.eContents().get(0);
-		private final RuleCall cRepeatVARParametreIDTerminalRuleCall_0_1_1_1_0_1 = (RuleCall)cRepeatVARParametreCrossReference_0_1_1_1_0.eContents().get(1);
+		private final Assignment cRepeatCSTAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cRepeatCSTINTTerminalRuleCall_0_1_1_0 = (RuleCall)cRepeatCSTAssignment_0_1_1.eContents().get(0);
 		private final Assignment cWithAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cWithWithParserRuleCall_0_2_0 = (RuleCall)cWithAssignment_0_2.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
@@ -572,26 +568,21 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
 		private final Keyword cXKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
-		private final Alternatives cAlternatives_1_5_1 = (Alternatives)cGroup_1_5.eContents().get(1);
-		private final Assignment cRepeatCSTAssignment_1_5_1_0 = (Assignment)cAlternatives_1_5_1.eContents().get(0);
-		private final RuleCall cRepeatCSTINTTerminalRuleCall_1_5_1_0_0 = (RuleCall)cRepeatCSTAssignment_1_5_1_0.eContents().get(0);
-		private final Assignment cRepeatVARAssignment_1_5_1_1 = (Assignment)cAlternatives_1_5_1.eContents().get(1);
-		private final CrossReference cRepeatVARParametreCrossReference_1_5_1_1_0 = (CrossReference)cRepeatVARAssignment_1_5_1_1.eContents().get(0);
-		private final RuleCall cRepeatVARParametreIDTerminalRuleCall_1_5_1_1_0_1 = (RuleCall)cRepeatVARParametreCrossReference_1_5_1_1_0.eContents().get(1);
+		private final Assignment cRepeatCSTAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final RuleCall cRepeatCSTINTTerminalRuleCall_1_5_1_0 = (RuleCall)cRepeatCSTAssignment_1_5_1.eContents().get(0);
 		private final Assignment cWithAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
 		private final RuleCall cWithWithParserRuleCall_1_6_0 = (RuleCall)cWithAssignment_1_6.eContents().get(0);
 		
 		/// ******************* Expression ********************* / Expression:
-		//	move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
-		//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
-		//	repeatVAR=[Parametre]))? ^with+=With?;
+		//	move=Movement ('X' repeatCST=INT)? ^with+=With?
+		//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' repeatCST=INT)? ^with+=With?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With? | '(' move=Movement ('then' then+=Expression)
-		//('then' then+=Expression)* ')' ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
+		//move=Movement ('X' repeatCST=INT)? ^with+=With? | '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)*
+		//')' ('X' repeatCST=INT)? ^with+=With?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
+		//move=Movement ('X' repeatCST=INT)? ^with+=With?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//move=Movement
@@ -600,29 +591,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//Movement
 		public RuleCall getMoveMovementParserRuleCall_0_0_0() { return cMoveMovementParserRuleCall_0_0_0; }
 		
-		//('X' (repeatCST=INT | repeatVAR=[Parametre]))?
+		//('X' repeatCST=INT)?
 		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//'X'
 		public Keyword getXKeyword_0_1_0() { return cXKeyword_0_1_0; }
 		
-		//(repeatCST=INT | repeatVAR=[Parametre])
-		public Alternatives getAlternatives_0_1_1() { return cAlternatives_0_1_1; }
-		
 		//repeatCST=INT
-		public Assignment getRepeatCSTAssignment_0_1_1_0() { return cRepeatCSTAssignment_0_1_1_0; }
+		public Assignment getRepeatCSTAssignment_0_1_1() { return cRepeatCSTAssignment_0_1_1; }
 		
 		//INT
-		public RuleCall getRepeatCSTINTTerminalRuleCall_0_1_1_0_0() { return cRepeatCSTINTTerminalRuleCall_0_1_1_0_0; }
-		
-		//repeatVAR=[Parametre]
-		public Assignment getRepeatVARAssignment_0_1_1_1() { return cRepeatVARAssignment_0_1_1_1; }
-		
-		//[Parametre]
-		public CrossReference getRepeatVARParametreCrossReference_0_1_1_1_0() { return cRepeatVARParametreCrossReference_0_1_1_1_0; }
-		
-		//ID
-		public RuleCall getRepeatVARParametreIDTerminalRuleCall_0_1_1_1_0_1() { return cRepeatVARParametreIDTerminalRuleCall_0_1_1_1_0_1; }
+		public RuleCall getRepeatCSTINTTerminalRuleCall_0_1_1_0() { return cRepeatCSTINTTerminalRuleCall_0_1_1_0; }
 		
 		//^with+=With?
 		public Assignment getWithAssignment_0_2() { return cWithAssignment_0_2; }
@@ -630,8 +609,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//With
 		public RuleCall getWithWithParserRuleCall_0_2_0() { return cWithWithParserRuleCall_0_2_0; }
 		
-		//'(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
-		//repeatVAR=[Parametre]))? ^with+=With?
+		//'(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' repeatCST=INT)? ^with+=With?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'('
@@ -670,29 +648,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
 		
-		//('X' (repeatCST=INT | repeatVAR=[Parametre]))?
+		//('X' repeatCST=INT)?
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
 		//'X'
 		public Keyword getXKeyword_1_5_0() { return cXKeyword_1_5_0; }
 		
-		//(repeatCST=INT | repeatVAR=[Parametre])
-		public Alternatives getAlternatives_1_5_1() { return cAlternatives_1_5_1; }
-		
 		//repeatCST=INT
-		public Assignment getRepeatCSTAssignment_1_5_1_0() { return cRepeatCSTAssignment_1_5_1_0; }
+		public Assignment getRepeatCSTAssignment_1_5_1() { return cRepeatCSTAssignment_1_5_1; }
 		
 		//INT
-		public RuleCall getRepeatCSTINTTerminalRuleCall_1_5_1_0_0() { return cRepeatCSTINTTerminalRuleCall_1_5_1_0_0; }
-		
-		//repeatVAR=[Parametre]
-		public Assignment getRepeatVARAssignment_1_5_1_1() { return cRepeatVARAssignment_1_5_1_1; }
-		
-		//[Parametre]
-		public CrossReference getRepeatVARParametreCrossReference_1_5_1_1_0() { return cRepeatVARParametreCrossReference_1_5_1_1_0; }
-		
-		//ID
-		public RuleCall getRepeatVARParametreIDTerminalRuleCall_1_5_1_1_0_1() { return cRepeatVARParametreIDTerminalRuleCall_1_5_1_1_0_1; }
+		public RuleCall getRepeatCSTINTTerminalRuleCall_1_5_1_0() { return cRepeatCSTINTTerminalRuleCall_1_5_1_0; }
 		
 		//^with+=With?
 		public Assignment getWithAssignment_1_6() { return cWithAssignment_1_6; }
@@ -798,12 +764,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDepxDepX_ImplParserRuleCall_3_1_0 = (RuleCall)cDepxAssignment_3_1.eContents().get(0);
 		private final Assignment cDepyAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
 		private final RuleCall cDepyDepY_ImplParserRuleCall_3_2_0 = (RuleCall)cDepyAssignment_3_2.eContents().get(0);
-		private final Assignment cDepxzAssignment_3_3 = (Assignment)cAlternatives_3.eContents().get(3);
-		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_3_3_0 = (RuleCall)cDepxzAssignment_3_3.eContents().get(0);
-		private final Assignment cDepxyAssignment_3_4 = (Assignment)cAlternatives_3.eContents().get(4);
-		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_3_4_0 = (RuleCall)cDepxyAssignment_3_4.eContents().get(0);
-		private final Assignment cDepzAssignment_3_5 = (Assignment)cAlternatives_3.eContents().get(5);
-		private final RuleCall cDepzDepZ_ImplParserRuleCall_3_5_0 = (RuleCall)cDepzAssignment_3_5.eContents().get(0);
+		private final Assignment cDepzAssignment_3_3 = (Assignment)cAlternatives_3.eContents().get(3);
+		private final RuleCall cDepzDepZ_ImplParserRuleCall_3_3_0 = (RuleCall)cDepzAssignment_3_3.eContents().get(0);
+		private final Assignment cDepxzAssignment_3_4 = (Assignment)cAlternatives_3.eContents().get(4);
+		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_3_4_0 = (RuleCall)cDepxzAssignment_3_4.eContents().get(0);
+		private final Assignment cDepxyAssignment_3_5 = (Assignment)cAlternatives_3.eContents().get(5);
+		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_3_5_0 = (RuleCall)cDepxyAssignment_3_5.eContents().get(0);
+		private final Assignment cDepyzAssignment_3_6 = (Assignment)cAlternatives_3.eContents().get(6);
+		private final RuleCall cDepyzDepYZ_IMPLParserRuleCall_3_6_0 = (RuleCall)cDepyzAssignment_3_6.eContents().get(0);
 		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
 		private final Assignment cRotateAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
@@ -812,12 +780,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDepxDepX_ImplParserRuleCall_5_1_0 = (RuleCall)cDepxAssignment_5_1.eContents().get(0);
 		private final Assignment cDepyAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
 		private final RuleCall cDepyDepY_ImplParserRuleCall_5_2_0 = (RuleCall)cDepyAssignment_5_2.eContents().get(0);
-		private final Assignment cDepxzAssignment_5_3 = (Assignment)cAlternatives_5.eContents().get(3);
-		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_5_3_0 = (RuleCall)cDepxzAssignment_5_3.eContents().get(0);
-		private final Assignment cDepxyAssignment_5_4 = (Assignment)cAlternatives_5.eContents().get(4);
-		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_5_4_0 = (RuleCall)cDepxyAssignment_5_4.eContents().get(0);
-		private final Assignment cDepzAssignment_5_5 = (Assignment)cAlternatives_5.eContents().get(5);
-		private final RuleCall cDepzDepZ_ImplParserRuleCall_5_5_0 = (RuleCall)cDepzAssignment_5_5.eContents().get(0);
+		private final Assignment cDepzAssignment_5_3 = (Assignment)cAlternatives_5.eContents().get(3);
+		private final RuleCall cDepzDepZ_ImplParserRuleCall_5_3_0 = (RuleCall)cDepzAssignment_5_3.eContents().get(0);
+		private final Assignment cDepxzAssignment_5_4 = (Assignment)cAlternatives_5.eContents().get(4);
+		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_5_4_0 = (RuleCall)cDepxzAssignment_5_4.eContents().get(0);
+		private final Assignment cDepxyAssignment_5_5 = (Assignment)cAlternatives_5.eContents().get(5);
+		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_5_5_0 = (RuleCall)cDepxyAssignment_5_5.eContents().get(0);
+		private final Assignment cDepyzAssignment_5_6 = (Assignment)cAlternatives_5.eContents().get(6);
+		private final RuleCall cDepyzDepYZ_IMPLParserRuleCall_5_6_0 = (RuleCall)cDepyzAssignment_5_6.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Alternatives cAlternatives_6_1 = (Alternatives)cGroup_6.eContents().get(1);
@@ -827,26 +797,28 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDepxDepX_ImplParserRuleCall_6_1_1_0 = (RuleCall)cDepxAssignment_6_1_1.eContents().get(0);
 		private final Assignment cDepyAssignment_6_1_2 = (Assignment)cAlternatives_6_1.eContents().get(2);
 		private final RuleCall cDepyDepY_ImplParserRuleCall_6_1_2_0 = (RuleCall)cDepyAssignment_6_1_2.eContents().get(0);
-		private final Assignment cDepxzAssignment_6_1_3 = (Assignment)cAlternatives_6_1.eContents().get(3);
-		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_6_1_3_0 = (RuleCall)cDepxzAssignment_6_1_3.eContents().get(0);
-		private final Assignment cDepxyAssignment_6_1_4 = (Assignment)cAlternatives_6_1.eContents().get(4);
-		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_6_1_4_0 = (RuleCall)cDepxyAssignment_6_1_4.eContents().get(0);
-		private final Assignment cDepzAssignment_6_1_5 = (Assignment)cAlternatives_6_1.eContents().get(5);
-		private final RuleCall cDepzDepZ_ImplParserRuleCall_6_1_5_0 = (RuleCall)cDepzAssignment_6_1_5.eContents().get(0);
+		private final Assignment cDepzAssignment_6_1_3 = (Assignment)cAlternatives_6_1.eContents().get(3);
+		private final RuleCall cDepzDepZ_ImplParserRuleCall_6_1_3_0 = (RuleCall)cDepzAssignment_6_1_3.eContents().get(0);
+		private final Assignment cDepxzAssignment_6_1_4 = (Assignment)cAlternatives_6_1.eContents().get(4);
+		private final RuleCall cDepxzDepXZ_IMPLParserRuleCall_6_1_4_0 = (RuleCall)cDepxzAssignment_6_1_4.eContents().get(0);
+		private final Assignment cDepxyAssignment_6_1_5 = (Assignment)cAlternatives_6_1.eContents().get(5);
+		private final RuleCall cDepxyDepXY_IMPLParserRuleCall_6_1_5_0 = (RuleCall)cDepxyAssignment_6_1_5.eContents().get(0);
+		private final Assignment cDepyzAssignment_6_1_6 = (Assignment)cAlternatives_6_1.eContents().get(6);
+		private final RuleCall cDepyzDepYZ_IMPLParserRuleCall_6_1_6_0 = (RuleCall)cDepyzAssignment_6_1_6.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//And:
-		//	{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//	depz+=DepZ_Impl) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//	depz+=DepZ_Impl) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//	depz+=DepZ_Impl))*
+		//	{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL |
+		//	depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl |
+		//	depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl |
+		//	depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL))*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//depz+=DepZ_Impl) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//depz+=DepZ_Impl) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-		//depz+=DepZ_Impl))* ')'
+		//{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL |
+		//depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl |
+		//depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl |
+		//depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL))* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{And}
@@ -861,7 +833,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
-		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depz+=DepZ_Impl)
+		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
+		//depyz+=DepYZ_IMPL)
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//rotate+=Rotate
@@ -882,28 +855,35 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//DepY_Impl
 		public RuleCall getDepyDepY_ImplParserRuleCall_3_2_0() { return cDepyDepY_ImplParserRuleCall_3_2_0; }
 		
-		//depxz+=DepXZ_IMPL
-		public Assignment getDepxzAssignment_3_3() { return cDepxzAssignment_3_3; }
-		
-		//DepXZ_IMPL
-		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_3_3_0() { return cDepxzDepXZ_IMPLParserRuleCall_3_3_0; }
-		
-		//depxy+=DepXY_IMPL
-		public Assignment getDepxyAssignment_3_4() { return cDepxyAssignment_3_4; }
-		
-		//DepXY_IMPL
-		public RuleCall getDepxyDepXY_IMPLParserRuleCall_3_4_0() { return cDepxyDepXY_IMPLParserRuleCall_3_4_0; }
-		
 		//depz+=DepZ_Impl
-		public Assignment getDepzAssignment_3_5() { return cDepzAssignment_3_5; }
+		public Assignment getDepzAssignment_3_3() { return cDepzAssignment_3_3; }
 		
 		//DepZ_Impl
-		public RuleCall getDepzDepZ_ImplParserRuleCall_3_5_0() { return cDepzDepZ_ImplParserRuleCall_3_5_0; }
+		public RuleCall getDepzDepZ_ImplParserRuleCall_3_3_0() { return cDepzDepZ_ImplParserRuleCall_3_3_0; }
+		
+		//depxz+=DepXZ_IMPL
+		public Assignment getDepxzAssignment_3_4() { return cDepxzAssignment_3_4; }
+		
+		//DepXZ_IMPL
+		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_3_4_0() { return cDepxzDepXZ_IMPLParserRuleCall_3_4_0; }
+		
+		//depxy+=DepXY_IMPL
+		public Assignment getDepxyAssignment_3_5() { return cDepxyAssignment_3_5; }
+		
+		//DepXY_IMPL
+		public RuleCall getDepxyDepXY_IMPLParserRuleCall_3_5_0() { return cDepxyDepXY_IMPLParserRuleCall_3_5_0; }
+		
+		//depyz+=DepYZ_IMPL
+		public Assignment getDepyzAssignment_3_6() { return cDepyzAssignment_3_6; }
+		
+		//DepYZ_IMPL
+		public RuleCall getDepyzDepYZ_IMPLParserRuleCall_3_6_0() { return cDepyzDepYZ_IMPLParserRuleCall_3_6_0; }
 		
 		//','
 		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
 		
-		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depz+=DepZ_Impl)
+		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
+		//depyz+=DepYZ_IMPL)
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 		
 		//rotate+=Rotate
@@ -924,31 +904,39 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//DepY_Impl
 		public RuleCall getDepyDepY_ImplParserRuleCall_5_2_0() { return cDepyDepY_ImplParserRuleCall_5_2_0; }
 		
-		//depxz+=DepXZ_IMPL
-		public Assignment getDepxzAssignment_5_3() { return cDepxzAssignment_5_3; }
-		
-		//DepXZ_IMPL
-		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_5_3_0() { return cDepxzDepXZ_IMPLParserRuleCall_5_3_0; }
-		
-		//depxy+=DepXY_IMPL
-		public Assignment getDepxyAssignment_5_4() { return cDepxyAssignment_5_4; }
-		
-		//DepXY_IMPL
-		public RuleCall getDepxyDepXY_IMPLParserRuleCall_5_4_0() { return cDepxyDepXY_IMPLParserRuleCall_5_4_0; }
-		
 		//depz+=DepZ_Impl
-		public Assignment getDepzAssignment_5_5() { return cDepzAssignment_5_5; }
+		public Assignment getDepzAssignment_5_3() { return cDepzAssignment_5_3; }
 		
 		//DepZ_Impl
-		public RuleCall getDepzDepZ_ImplParserRuleCall_5_5_0() { return cDepzDepZ_ImplParserRuleCall_5_5_0; }
+		public RuleCall getDepzDepZ_ImplParserRuleCall_5_3_0() { return cDepzDepZ_ImplParserRuleCall_5_3_0; }
 		
-		//(',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depz+=DepZ_Impl))*
+		//depxz+=DepXZ_IMPL
+		public Assignment getDepxzAssignment_5_4() { return cDepxzAssignment_5_4; }
+		
+		//DepXZ_IMPL
+		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_5_4_0() { return cDepxzDepXZ_IMPLParserRuleCall_5_4_0; }
+		
+		//depxy+=DepXY_IMPL
+		public Assignment getDepxyAssignment_5_5() { return cDepxyAssignment_5_5; }
+		
+		//DepXY_IMPL
+		public RuleCall getDepxyDepXY_IMPLParserRuleCall_5_5_0() { return cDepxyDepXY_IMPLParserRuleCall_5_5_0; }
+		
+		//depyz+=DepYZ_IMPL
+		public Assignment getDepyzAssignment_5_6() { return cDepyzAssignment_5_6; }
+		
+		//DepYZ_IMPL
+		public RuleCall getDepyzDepYZ_IMPLParserRuleCall_5_6_0() { return cDepyzDepYZ_IMPLParserRuleCall_5_6_0; }
+		
+		//(',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
+		//depyz+=DepYZ_IMPL))*
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//','
 		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
 		
-		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depz+=DepZ_Impl)
+		//(rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
+		//depyz+=DepYZ_IMPL)
 		public Alternatives getAlternatives_6_1() { return cAlternatives_6_1; }
 		
 		//rotate+=Rotate
@@ -969,23 +957,29 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//DepY_Impl
 		public RuleCall getDepyDepY_ImplParserRuleCall_6_1_2_0() { return cDepyDepY_ImplParserRuleCall_6_1_2_0; }
 		
-		//depxz+=DepXZ_IMPL
-		public Assignment getDepxzAssignment_6_1_3() { return cDepxzAssignment_6_1_3; }
-		
-		//DepXZ_IMPL
-		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_6_1_3_0() { return cDepxzDepXZ_IMPLParserRuleCall_6_1_3_0; }
-		
-		//depxy+=DepXY_IMPL
-		public Assignment getDepxyAssignment_6_1_4() { return cDepxyAssignment_6_1_4; }
-		
-		//DepXY_IMPL
-		public RuleCall getDepxyDepXY_IMPLParserRuleCall_6_1_4_0() { return cDepxyDepXY_IMPLParserRuleCall_6_1_4_0; }
-		
 		//depz+=DepZ_Impl
-		public Assignment getDepzAssignment_6_1_5() { return cDepzAssignment_6_1_5; }
+		public Assignment getDepzAssignment_6_1_3() { return cDepzAssignment_6_1_3; }
 		
 		//DepZ_Impl
-		public RuleCall getDepzDepZ_ImplParserRuleCall_6_1_5_0() { return cDepzDepZ_ImplParserRuleCall_6_1_5_0; }
+		public RuleCall getDepzDepZ_ImplParserRuleCall_6_1_3_0() { return cDepzDepZ_ImplParserRuleCall_6_1_3_0; }
+		
+		//depxz+=DepXZ_IMPL
+		public Assignment getDepxzAssignment_6_1_4() { return cDepxzAssignment_6_1_4; }
+		
+		//DepXZ_IMPL
+		public RuleCall getDepxzDepXZ_IMPLParserRuleCall_6_1_4_0() { return cDepxzDepXZ_IMPLParserRuleCall_6_1_4_0; }
+		
+		//depxy+=DepXY_IMPL
+		public Assignment getDepxyAssignment_6_1_5() { return cDepxyAssignment_6_1_5; }
+		
+		//DepXY_IMPL
+		public RuleCall getDepxyDepXY_IMPLParserRuleCall_6_1_5_0() { return cDepxyDepXY_IMPLParserRuleCall_6_1_5_0; }
+		
+		//depyz+=DepYZ_IMPL
+		public Assignment getDepyzAssignment_6_1_6() { return cDepyzAssignment_6_1_6; }
+		
+		//DepYZ_IMPL
+		public RuleCall getDepyzDepYZ_IMPLParserRuleCall_6_1_6_0() { return cDepyzDepYZ_IMPLParserRuleCall_6_1_6_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
@@ -1422,87 +1416,21 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	public class DepXY_IMPLElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXY_IMPL");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDepXYParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCERCLEXYParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCARREXYParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCERCLEXYParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCARREXYParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DepXY_IMPL:
-		//	DepXY | CERCLEXY | CARREXY;
+		//	CERCLEXY | CARREXY;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DepXY | CERCLEXY | CARREXY
+		//CERCLEXY | CARREXY
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//DepXY
-		public RuleCall getDepXYParserRuleCall_0() { return cDepXYParserRuleCall_0; }
-		
 		//CERCLEXY
-		public RuleCall getCERCLEXYParserRuleCall_1() { return cCERCLEXYParserRuleCall_1; }
+		public RuleCall getCERCLEXYParserRuleCall_0() { return cCERCLEXYParserRuleCall_0; }
 		
 		//CARREXY
-		public RuleCall getCARREXYParserRuleCall_2() { return cCARREXYParserRuleCall_2; }
-	}
-	public class DepXYElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXY");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameDepXYKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
-		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//DepXY:
-		//	name="depXY" '('
-		//	'distance' '=' distanceCST=INT
-		//	'temps' '=' tempsCST=INT
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name="depXY" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
-		public Group getGroup() { return cGroup; }
-		
-		//name="depXY"
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//"depXY"
-		public Keyword getNameDepXYKeyword_0_0() { return cNameDepXYKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'distance'
-		public Keyword getDistanceKeyword_2() { return cDistanceKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//distanceCST=INT
-		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
-		
-		//INT
-		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
-		
-		//'temps'
-		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
-		
-		//tempsCST=INT
-		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
-		
-		//INT
-		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public RuleCall getCARREXYParserRuleCall_1() { return cCARREXYParserRuleCall_1; }
 	}
 	public class CERCLEXYElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CERCLEXY");
@@ -1631,87 +1559,21 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	public class DepYZ_IMPLElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepYZ_IMPL");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDepYZParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCERCLEYZParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCARREYZParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCERCLEYZParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCARREYZParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DepYZ_IMPL:
-		//	DepYZ | CERCLEYZ | CARREYZ;
+		//	CERCLEYZ | CARREYZ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DepYZ | CERCLEYZ | CARREYZ
+		//CERCLEYZ | CARREYZ
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//DepYZ
-		public RuleCall getDepYZParserRuleCall_0() { return cDepYZParserRuleCall_0; }
-		
 		//CERCLEYZ
-		public RuleCall getCERCLEYZParserRuleCall_1() { return cCERCLEYZParserRuleCall_1; }
+		public RuleCall getCERCLEYZParserRuleCall_0() { return cCERCLEYZParserRuleCall_0; }
 		
 		//CARREYZ
-		public RuleCall getCARREYZParserRuleCall_2() { return cCARREYZParserRuleCall_2; }
-	}
-	public class DepYZElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepYZ");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameDepYZKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
-		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//DepYZ:
-		//	name="depYZ" '('
-		//	'distance' '=' distanceCST=INT
-		//	'temps' '=' tempsCST=INT
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name="depYZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
-		public Group getGroup() { return cGroup; }
-		
-		//name="depYZ"
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//"depYZ"
-		public Keyword getNameDepYZKeyword_0_0() { return cNameDepYZKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'distance'
-		public Keyword getDistanceKeyword_2() { return cDistanceKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//distanceCST=INT
-		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
-		
-		//INT
-		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
-		
-		//'temps'
-		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
-		
-		//tempsCST=INT
-		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
-		
-		//INT
-		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public RuleCall getCARREYZParserRuleCall_1() { return cCARREYZParserRuleCall_1; }
 	}
 	public class CERCLEYZElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CERCLEYZ");
@@ -1839,61 +1701,131 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DepXZ_IMPLElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXZ_IMPL");
-		private final RuleCall cDepXZParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCERCLEXZParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCARREXZParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DepXZ_IMPL:
-		//	DepXZ;
+		//	CERCLEXZ | CARREXZ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//DepXZ
-		public RuleCall getDepXZParserRuleCall() { return cDepXZParserRuleCall; }
+		//CERCLEXZ | CARREXZ
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//CERCLEXZ
+		public RuleCall getCERCLEXZParserRuleCall_0() { return cCERCLEXZParserRuleCall_0; }
+		
+		//CARREXZ
+		public RuleCall getCARREXZParserRuleCall_1() { return cCARREXZParserRuleCall_1; }
 	}
-	public class DepXZElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXZ");
+	public class CERCLEXZElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CERCLEXZ");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameDepXZKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNameCercleXZKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRayonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
+		private final Assignment cRayonCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRayonCSTINTTerminalRuleCall_4_0 = (RuleCall)cRayonCSTAssignment_4.eContents().get(0);
 		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//DepXZ:
-		//	name="depXZ" '('
-		//	'distance' '=' distanceCST=INT
+		//CERCLEXZ:
+		//	name="cercleXZ" '('
+		//	'rayon' '=' rayonCST=INT
 		//	'temps' '=' tempsCST=INT
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="depXZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
+		//name="cercleXZ" '(' 'rayon' '=' rayonCST=INT 'temps' '=' tempsCST=INT ')'
 		public Group getGroup() { return cGroup; }
 		
-		//name="depXZ"
+		//name="cercleXZ"
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//"depXZ"
-		public Keyword getNameDepXZKeyword_0_0() { return cNameDepXZKeyword_0_0; }
+		//"cercleXZ"
+		public Keyword getNameCercleXZKeyword_0_0() { return cNameCercleXZKeyword_0_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//'distance'
-		public Keyword getDistanceKeyword_2() { return cDistanceKeyword_2; }
+		//'rayon'
+		public Keyword getRayonKeyword_2() { return cRayonKeyword_2; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
 		
-		//distanceCST=INT
-		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
+		//rayonCST=INT
+		public Assignment getRayonCSTAssignment_4() { return cRayonCSTAssignment_4; }
 		
 		//INT
-		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
+		public RuleCall getRayonCSTINTTerminalRuleCall_4_0() { return cRayonCSTINTTerminalRuleCall_4_0; }
+		
+		//'temps'
+		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+		
+		//tempsCST=INT
+		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
+		
+		//INT
+		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+	}
+	public class CARREXZElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.CARREXZ");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameCarreXZKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCoteKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cCoteCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCoteCSTINTTerminalRuleCall_4_0 = (RuleCall)cCoteCSTAssignment_4.eContents().get(0);
+		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//CARREXZ:
+		//	name="carreXZ" '('
+		//	'cote' '=' coteCST=INT
+		//	'temps' '=' tempsCST=INT
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name="carreXZ" '(' 'cote' '=' coteCST=INT 'temps' '=' tempsCST=INT ')'
+		public Group getGroup() { return cGroup; }
+		
+		//name="carreXZ"
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//"carreXZ"
+		public Keyword getNameCarreXZKeyword_0_0() { return cNameCarreXZKeyword_0_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//'cote'
+		public Keyword getCoteKeyword_2() { return cCoteKeyword_2; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		
+		//coteCST=INT
+		public Assignment getCoteCSTAssignment_4() { return cCoteCSTAssignment_4; }
+		
+		//INT
+		public RuleCall getCoteCSTINTTerminalRuleCall_4_0() { return cCoteCSTINTTerminalRuleCall_4_0; }
 		
 		//'temps'
 		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
@@ -1912,84 +1844,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DepXYZ_IMPLElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXYZ_IMPL");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDepXYZParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cFlipParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cFlipParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//DepXYZ_IMPL:
-		//	DepXYZ | Flip;
+		//	Flip;
 		@Override public ParserRule getRule() { return rule; }
-		
-		//DepXYZ | Flip
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//DepXYZ
-		public RuleCall getDepXYZParserRuleCall_0() { return cDepXYZParserRuleCall_0; }
 		
 		//Flip
-		public RuleCall getFlipParserRuleCall_1() { return cFlipParserRuleCall_1; }
-	}
-	public class DepXYZElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.DepXYZ");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameDepXYZKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cDistanceKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDistanceCSTAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDistanceCSTINTTerminalRuleCall_4_0 = (RuleCall)cDistanceCSTAssignment_4.eContents().get(0);
-		private final Keyword cTempsKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTempsCSTAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTempsCSTINTTerminalRuleCall_7_0 = (RuleCall)cTempsCSTAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//DepXYZ:
-		//	name="depXYZ" '('
-		//	'distance' '=' distanceCST=INT
-		//	'temps' '=' tempsCST=INT
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name="depXYZ" '(' 'distance' '=' distanceCST=INT 'temps' '=' tempsCST=INT ')'
-		public Group getGroup() { return cGroup; }
-		
-		//name="depXYZ"
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//"depXYZ"
-		public Keyword getNameDepXYZKeyword_0_0() { return cNameDepXYZKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'distance'
-		public Keyword getDistanceKeyword_2() { return cDistanceKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//distanceCST=INT
-		public Assignment getDistanceCSTAssignment_4() { return cDistanceCSTAssignment_4; }
-		
-		//INT
-		public RuleCall getDistanceCSTINTTerminalRuleCall_4_0() { return cDistanceCSTINTTerminalRuleCall_4_0; }
-		
-		//'temps'
-		public Keyword getTempsKeyword_5() { return cTempsKeyword_5; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
-		
-		//tempsCST=INT
-		public Assignment getTempsCSTAssignment_7() { return cTempsCSTAssignment_7; }
-		
-		//INT
-		public RuleCall getTempsCSTINTTerminalRuleCall_7_0() { return cTempsCSTINTTerminalRuleCall_7_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public RuleCall getFlipParserRuleCall() { return cFlipParserRuleCall; }
 	}
 	public class FlipElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Flip");
@@ -3048,17 +2910,15 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final UPElements pUP;
 	private final DOWNElements pDOWN;
 	private final DepXY_IMPLElements pDepXY_IMPL;
-	private final DepXYElements pDepXY;
 	private final CERCLEXYElements pCERCLEXY;
 	private final CARREXYElements pCARREXY;
 	private final DepYZ_IMPLElements pDepYZ_IMPL;
-	private final DepYZElements pDepYZ;
 	private final CERCLEYZElements pCERCLEYZ;
 	private final CARREYZElements pCARREYZ;
 	private final DepXZ_IMPLElements pDepXZ_IMPL;
-	private final DepXZElements pDepXZ;
+	private final CERCLEXZElements pCERCLEXZ;
+	private final CARREXZElements pCARREXZ;
 	private final DepXYZ_IMPLElements pDepXYZ_IMPL;
-	private final DepXYZElements pDepXYZ;
 	private final FlipElements pFlip;
 	private final RotateElements pRotate;
 	private final WaitElements pWait;
@@ -3119,17 +2979,15 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUP = new UPElements();
 		this.pDOWN = new DOWNElements();
 		this.pDepXY_IMPL = new DepXY_IMPLElements();
-		this.pDepXY = new DepXYElements();
 		this.pCERCLEXY = new CERCLEXYElements();
 		this.pCARREXY = new CARREXYElements();
 		this.pDepYZ_IMPL = new DepYZ_IMPLElements();
-		this.pDepYZ = new DepYZElements();
 		this.pCERCLEYZ = new CERCLEYZElements();
 		this.pCARREYZ = new CARREYZElements();
 		this.pDepXZ_IMPL = new DepXZ_IMPLElements();
-		this.pDepXZ = new DepXZElements();
+		this.pCERCLEXZ = new CERCLEXZElements();
+		this.pCARREXZ = new CARREXZElements();
 		this.pDepXYZ_IMPL = new DepXYZ_IMPLElements();
-		this.pDepXYZ = new DepXYZElements();
 		this.pFlip = new FlipElements();
 		this.pRotate = new RotateElements();
 		this.pWait = new WaitElements();
@@ -3341,9 +3199,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	/// ******************* Expression ********************* / Expression:
-	//	move=Movement ('X' (repeatCST=INT | repeatVAR=[Parametre]))? ^with+=With?
-	//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' (repeatCST=INT |
-	//	repeatVAR=[Parametre]))? ^with+=With?;
+	//	move=Movement ('X' repeatCST=INT)? ^with+=With?
+	//	| '(' move=Movement ('then' then+=Expression) ('then' then+=Expression)* ')' ('X' repeatCST=INT)? ^with+=With?;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -3374,10 +3231,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//And:
-	//	{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-	//	depz+=DepZ_Impl) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-	//	depz+=DepZ_Impl) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL |
-	//	depz+=DepZ_Impl))*
+	//	{And} name='merge' '(' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl | depxz+=DepXZ_IMPL |
+	//	depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) ',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl |
+	//	depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL) (',' (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl |
+	//	depz+=DepZ_Impl | depxz+=DepXZ_IMPL | depxy+=DepXY_IMPL | depyz+=DepYZ_IMPL))*
 	//	')';
 	public AndElements getAndAccess() {
 		return pAnd;
@@ -3496,26 +3353,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DepXY_IMPL:
-	//	DepXY | CERCLEXY | CARREXY;
+	//	CERCLEXY | CARREXY;
 	public DepXY_IMPLElements getDepXY_IMPLAccess() {
 		return pDepXY_IMPL;
 	}
 	
 	public ParserRule getDepXY_IMPLRule() {
 		return getDepXY_IMPLAccess().getRule();
-	}
-	
-	//DepXY:
-	//	name="depXY" '('
-	//	'distance' '=' distanceCST=INT
-	//	'temps' '=' tempsCST=INT
-	//	')';
-	public DepXYElements getDepXYAccess() {
-		return pDepXY;
-	}
-	
-	public ParserRule getDepXYRule() {
-		return getDepXYAccess().getRule();
 	}
 	
 	//CERCLEXY:
@@ -3545,26 +3389,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DepYZ_IMPL:
-	//	DepYZ | CERCLEYZ | CARREYZ;
+	//	CERCLEYZ | CARREYZ;
 	public DepYZ_IMPLElements getDepYZ_IMPLAccess() {
 		return pDepYZ_IMPL;
 	}
 	
 	public ParserRule getDepYZ_IMPLRule() {
 		return getDepYZ_IMPLAccess().getRule();
-	}
-	
-	//DepYZ:
-	//	name="depYZ" '('
-	//	'distance' '=' distanceCST=INT
-	//	'temps' '=' tempsCST=INT
-	//	')';
-	public DepYZElements getDepYZAccess() {
-		return pDepYZ;
-	}
-	
-	public ParserRule getDepYZRule() {
-		return getDepYZAccess().getRule();
 	}
 	
 	//CERCLEYZ:
@@ -3594,7 +3425,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DepXZ_IMPL:
-	//	DepXZ;
+	//	CERCLEXZ | CARREXZ;
 	public DepXZ_IMPLElements getDepXZ_IMPLAccess() {
 		return pDepXZ_IMPL;
 	}
@@ -3603,40 +3434,40 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getDepXZ_IMPLAccess().getRule();
 	}
 	
-	//DepXZ:
-	//	name="depXZ" '('
-	//	'distance' '=' distanceCST=INT
+	//CERCLEXZ:
+	//	name="cercleXZ" '('
+	//	'rayon' '=' rayonCST=INT
 	//	'temps' '=' tempsCST=INT
 	//	')';
-	public DepXZElements getDepXZAccess() {
-		return pDepXZ;
+	public CERCLEXZElements getCERCLEXZAccess() {
+		return pCERCLEXZ;
 	}
 	
-	public ParserRule getDepXZRule() {
-		return getDepXZAccess().getRule();
+	public ParserRule getCERCLEXZRule() {
+		return getCERCLEXZAccess().getRule();
+	}
+	
+	//CARREXZ:
+	//	name="carreXZ" '('
+	//	'cote' '=' coteCST=INT
+	//	'temps' '=' tempsCST=INT
+	//	')';
+	public CARREXZElements getCARREXZAccess() {
+		return pCARREXZ;
+	}
+	
+	public ParserRule getCARREXZRule() {
+		return getCARREXZAccess().getRule();
 	}
 	
 	//DepXYZ_IMPL:
-	//	DepXYZ | Flip;
+	//	Flip;
 	public DepXYZ_IMPLElements getDepXYZ_IMPLAccess() {
 		return pDepXYZ_IMPL;
 	}
 	
 	public ParserRule getDepXYZ_IMPLRule() {
 		return getDepXYZ_IMPLAccess().getRule();
-	}
-	
-	//DepXYZ:
-	//	name="depXYZ" '('
-	//	'distance' '=' distanceCST=INT
-	//	'temps' '=' tempsCST=INT
-	//	')';
-	public DepXYZElements getDepXYZAccess() {
-		return pDepXYZ;
-	}
-	
-	public ParserRule getDepXYZRule() {
-		return getDepXYZAccess().getRule();
 	}
 	
 	//Flip:

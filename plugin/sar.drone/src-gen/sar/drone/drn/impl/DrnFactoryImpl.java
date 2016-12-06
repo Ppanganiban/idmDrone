@@ -94,17 +94,15 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.UP: return createUP();
       case DrnPackage.DOWN: return createDOWN();
       case DrnPackage.DEP_XY_IMPL: return createDepXY_IMPL();
-      case DrnPackage.DEP_XY: return createDepXY();
       case DrnPackage.CERCLEXY: return createCERCLEXY();
       case DrnPackage.CARREXY: return createCARREXY();
       case DrnPackage.DEP_YZ_IMPL: return createDepYZ_IMPL();
-      case DrnPackage.DEP_YZ: return createDepYZ();
       case DrnPackage.CERCLEYZ: return createCERCLEYZ();
       case DrnPackage.CARREYZ: return createCARREYZ();
       case DrnPackage.DEP_XZ_IMPL: return createDepXZ_IMPL();
-      case DrnPackage.DEP_XZ: return createDepXZ();
+      case DrnPackage.CERCLEXZ: return createCERCLEXZ();
+      case DrnPackage.CARREXZ: return createCARREXZ();
       case DrnPackage.DEP_XYZ_IMPL: return createDepXYZ_IMPL();
-      case DrnPackage.DEP_XYZ: return createDepXYZ();
       case DrnPackage.FLIP: return createFlip();
       case DrnPackage.ROTATE: return createRotate();
       case DrnPackage.WAIT: return createWait();
@@ -486,17 +484,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DepXY createDepXY()
-  {
-    DepXYImpl depXY = new DepXYImpl();
-    return depXY;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public CERCLEXY createCERCLEXY()
   {
     CERCLEXYImpl cerclexy = new CERCLEXYImpl();
@@ -523,17 +510,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     DepYZ_IMPLImpl depYZ_IMPL = new DepYZ_IMPLImpl();
     return depYZ_IMPL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DepYZ createDepYZ()
-  {
-    DepYZImpl depYZ = new DepYZImpl();
-    return depYZ;
   }
 
   /**
@@ -574,10 +550,21 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DepXZ createDepXZ()
+  public CERCLEXZ createCERCLEXZ()
   {
-    DepXZImpl depXZ = new DepXZImpl();
-    return depXZ;
+    CERCLEXZImpl cerclexz = new CERCLEXZImpl();
+    return cerclexz;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CARREXZ createCARREXZ()
+  {
+    CARREXZImpl carrexz = new CARREXZImpl();
+    return carrexz;
   }
 
   /**
@@ -589,17 +576,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     DepXYZ_IMPLImpl depXYZ_IMPL = new DepXYZ_IMPLImpl();
     return depXYZ_IMPL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DepXYZ createDepXYZ()
-  {
-    DepXYZImpl depXYZ = new DepXYZImpl();
-    return depXYZ;
   }
 
   /**

@@ -16,8 +16,6 @@ import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
-import sar.drone.drn.DepXY_IMPL;
-import sar.drone.drn.DepXZ_IMPL;
 import sar.drone.drn.DepX_Impl;
 import sar.drone.drn.DepY_Impl;
 import sar.drone.drn.DepZ_Impl;
@@ -44,6 +42,11 @@ import sar.drone.drn.impl.AndImpl;
 import sar.drone.drn.impl.ContextImpl;
 
 public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidator {
+	static float DEFAULTMAXSPEED = 20; //dm per sec
+	static float DEFAULTMINSPEED = 1; //dm per sec
+	static float MAXSPEED = -1; //dm per sec
+	static float MINSPEED = -1; //dm per sec
+	
 	static int xCurr = 0;
 	static int yCurr = 0;
 	static int zCurr = 0;
@@ -52,15 +55,6 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	static int MAXL = -1;
 	static int MAXZ = -1;
 	
-	class ReccException extends Exception {
-
-		private static final long serialVersionUID = 1L;
-		RefPart target;
-		public ReccException(RefPart ref){
-			target = ref;
-		}
-	}
-
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
@@ -69,32 +63,31 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	}
 
 	public final static String INVALID_NAME = "invalidast";
-	  
+
+		/******************* Check merge ************************/
+		/*
+		 * Check if Merge arguments are compatible
+		 */
 	  @Check
-	  public void checkExpression(final AndImpl and) {
-	    EList<Rotate> _rotate = and.getRotate();
-	    final int rotate = _rotate.size();
-	    EList<DepXZ_IMPL> _depxz = and.getDepxz();
-	    int _size = _depxz.size();
-	    EList<DepXZ_IMPL> _depxz_1 = and.getDepxz();
-	    int _size_1 = _depxz_1.size();
-	    int _plus = (_size + _size_1);
-	    EList<DepZ_Impl> _depz = and.getDepz();
-	    int _size_2 = _depz.size();
-	    final int depz = (_plus + ((int) _size_2));
-	    EList<DepXY_IMPL> _depxy = and.getDepxy();
-	    int _size_3 = _depxy.size();
-	    EList<DepY_Impl> _depy = and.getDepy();
-	    int _size_4 = _depy.size();
-	    final int depy = (_size_3 + ((int) _size_4));
-	    EList<DepX_Impl> _depx = and.getDepx();
-	    int _size_5 = _depx.size();
-	    EList<DepXY_IMPL> _depxy_1 = and.getDepxy();
-	    int _size_6 = _depxy_1.size();
-	    int _plus_1 = (_size_5 + _size_6);
-	    EList<DepXZ_IMPL> _depxz_2 = and.getDepxz();
-	    int _size_7 = _depxz_2.size();
-	    final int depx = (_plus_1 + ((int) _size_7));
+	  public void checkMerge(final AndImpl and) {
+	  	int rotate	= 0;
+	  	int depx		= 0;
+	  	int depy		= 0;
+	  	int depz		= 0;
+	  	int depxy   = 0;
+	  	int depxz   = 0;
+	  	int depyz   = 0;
+	  	
+	  	rotate = and.getRotate().size();
+
+	  	depxy	= and.getDepxy().size();
+	  	depxz = and.getDepxz().size();
+	  	depyz = and.getDepyz().size();
+	  	
+	  	depx	= and.getDepx().size() + depxy + depxz;
+	  	depy	= and.getDepy().size() + depxy + depyz;
+	  	depz	= and.getDepz().size() + depxz + depyz;
+
 	    if ((depx > 1)) {
 	      EList<EStructuralFeature> _eStructuralFeatures = DrnPackage.Literals.AND.getEStructuralFeatures();
 	      EStructuralFeature _get = _eStructuralFeatures.get(0);
@@ -121,7 +114,12 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	      this.error("Missing operands", and, _get_4);
 	    }
 	  }
+
 	  
+	  /******************* Check reference on device ************************/
+	  /*
+	   * Check if a Reference to a device defines correctly the Device declared
+	   */
 	  @Check
 	  public void checkRefDevice(final RefDevice ref) {
 
@@ -168,7 +166,11 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	    	}
 	    }
 	  }
-	  
+
+	  /******************* Check context ************************/
+	  /*
+	   * Check and set the context
+	   */
 	  @Check
 	  public void checkContext(final ContextImpl ref) {
 		  Boolean toCheck = false;
@@ -276,22 +278,35 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 		  }
 	  }
-	  
+
+	  /******************* Check drone position ************************/
+		class ReccException extends Exception {
+
+			private static final long serialVersionUID = 1L;
+			RefPart target;
+			public ReccException(RefPart ref){
+				target = ref;
+			}
+		}
+
+	  /*
+	   * Check the position of the drone during all the choreogrphy
+	   */
 	  @Check
 	  public void checkDronePosition(final Model ref) {
-		  if (ref.getMain() != null) {
+	  	if (ref.getMain() != null && ref.getContext() != null) {
 			  System.out.println("*******************************");
 			  System.out.println("Initial Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 			  try {
-				MyAbstractDrnValidator.checkDonePositionRef(ref.getMain(), this);
-			  } catch (ReccException e) {
+			  	MyAbstractDrnValidator.checkDonePositionRef(ref.getMain(), this);
+			  }catch (ReccException e) {
 				// TODO Auto-generated catch block
 				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	      this.error("This call creates an infinite loop", e.target, _get_1);
-			}finally {
+  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+  	      this.error("This call creates an infinite loop", e.target, _get_1);
+			  }finally {
 				  MyAbstractDrnValidator.resetRefMark(ref.getMain());				
-			}
+			  }
 		  }
 	  }
 
@@ -461,6 +476,11 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 		  }
 	  }
+
+	  static void checkDronePositionMerge(){
+		  
+	  }
+
 	  static int calculX(int angle, int l , int x){
 		  return (int) (Math.sin(Math.toRadians(angle)) * l + x);
 	  }
@@ -468,5 +488,84 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  static int calculY(int angle, int l , int y){
 		  return (int) (Math.cos(Math.toRadians(angle)) * l + y);
 	  }
+
+	  /******************* Check reference on device ************************/
+	  /*
+	   * Check the velocity of all moves
+	   */
+	  @Check
+	  public void checkRefSpeed(final Movement ref){
+	  	float speed = 0;
+
+	  	if(ref instanceof DepX_Impl){
+	  		speed = ((float)((DepX_Impl) ref).getDistanceCST()) / ((float)((DepX_Impl) ref).getTempsCST());
+	  		System.out.println(((DepX_Impl) ref).getName() + ":"+speed+" dm/s");
+
+	  		if (MAXSPEED > 0 && speed > MAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too fast", ref, _get_1);	  		
+		  	} else if (DEFAULTMAXSPEED > 0 && speed > DEFAULTMAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too fast", ref, _get_1);	  		
+		  	}
+		  	if (MINSPEED > 0 && speed < MINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too slow", ref, _get_1);
+
+		  	} else if (DEFAULTMINSPEED > 0 && speed < DEFAULTMINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too slow", ref, _get_1);	  		
+		  	}
+
+	  	}else if(ref instanceof DepY_Impl) {
+	  		speed = ((float)((DepY_Impl) ref).getDistanceCST()) / ((float)((DepY_Impl) ref).getTempsCST());
+	  		System.out.println(((DepY_Impl) ref).getName() + ":"+speed+" dm/s");
+	  		if (MAXSPEED > 0 && speed > MAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too fast", ref, _get_1);	  		
+		  	} else if (DEFAULTMAXSPEED > 0 && speed > DEFAULTMAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too fast", ref, _get_1);	  		
+		  	}
+		  	if (MINSPEED > 0 && speed < MINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too slow", ref, _get_1);	  		
+		  	} else if (DEFAULTMINSPEED > 0 && speed < DEFAULTMINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too slow", ref, _get_1);	  		
+		  	}
+	  	}else if(ref instanceof DepZ_Impl) {
+	  		speed = ((float)((DepZ_Impl) ref).getDistanceCST()) / ((float)((DepZ_Impl) ref).getTempsCST());
+	  		System.out.println(((DepZ_Impl) ref).getName() + ":"+speed+" dm/s");
+
+	  		if (MAXSPEED > 0 && speed > MAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too fast", ref, _get_1);	  		
+		  	} else if (DEFAULTMAXSPEED > 0 && speed > DEFAULTMAXSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too fast", ref, _get_1);	  		
+		  	}
+		  	if (MINSPEED > 0 && speed < MINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("This move is too slow", ref, _get_1);	  		
+		  	} else if (DEFAULTMINSPEED > 0 && speed < DEFAULTMINSPEED) {
+			  	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.warning("This move is too slow", ref, _get_1);	  		
+		  	}
+	  	}
+	  }
+
 }
 

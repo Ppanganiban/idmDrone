@@ -302,15 +302,6 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.DEP_XY:
-      {
-        DepXY depXY = (DepXY)theEObject;
-        T result = caseDepXY(depXY);
-        if (result == null) result = caseDepXY_IMPL(depXY);
-        if (result == null) result = caseMovement(depXY);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DrnPackage.CERCLEXY:
       {
         CERCLEXY cerclexy = (CERCLEXY)theEObject;
@@ -334,15 +325,6 @@ public class DrnSwitch<T> extends Switch<T>
         DepYZ_IMPL depYZ_IMPL = (DepYZ_IMPL)theEObject;
         T result = caseDepYZ_IMPL(depYZ_IMPL);
         if (result == null) result = caseMovement(depYZ_IMPL);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.DEP_YZ:
-      {
-        DepYZ depYZ = (DepYZ)theEObject;
-        T result = caseDepYZ(depYZ);
-        if (result == null) result = caseDepYZ_IMPL(depYZ);
-        if (result == null) result = caseMovement(depYZ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -372,12 +354,21 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.DEP_XZ:
+      case DrnPackage.CERCLEXZ:
       {
-        DepXZ depXZ = (DepXZ)theEObject;
-        T result = caseDepXZ(depXZ);
-        if (result == null) result = caseDepXZ_IMPL(depXZ);
-        if (result == null) result = caseMovement(depXZ);
+        CERCLEXZ cerclexz = (CERCLEXZ)theEObject;
+        T result = caseCERCLEXZ(cerclexz);
+        if (result == null) result = caseDepXZ_IMPL(cerclexz);
+        if (result == null) result = caseMovement(cerclexz);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.CARREXZ:
+      {
+        CARREXZ carrexz = (CARREXZ)theEObject;
+        T result = caseCARREXZ(carrexz);
+        if (result == null) result = caseDepXZ_IMPL(carrexz);
+        if (result == null) result = caseMovement(carrexz);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -386,15 +377,6 @@ public class DrnSwitch<T> extends Switch<T>
         DepXYZ_IMPL depXYZ_IMPL = (DepXYZ_IMPL)theEObject;
         T result = caseDepXYZ_IMPL(depXYZ_IMPL);
         if (result == null) result = caseMovement(depXYZ_IMPL);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.DEP_XYZ:
-      {
-        DepXYZ depXYZ = (DepXYZ)theEObject;
-        T result = caseDepXYZ(depXYZ);
-        if (result == null) result = caseDepXYZ_IMPL(depXYZ);
-        if (result == null) result = caseMovement(depXYZ);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -980,22 +962,6 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Dep XY</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dep XY</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDepXY(DepXY object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>CERCLEXY</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1039,22 +1005,6 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDepYZ_IMPL(DepYZ_IMPL object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dep YZ</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dep YZ</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDepYZ(DepYZ object)
   {
     return null;
   }
@@ -1108,17 +1058,33 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Dep XZ</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>CERCLEXZ</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dep XZ</em>'.
+   * @return the result of interpreting the object as an instance of '<em>CERCLEXZ</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDepXZ(DepXZ object)
+  public T caseCERCLEXZ(CERCLEXZ object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>CARREXZ</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>CARREXZ</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCARREXZ(CARREXZ object)
   {
     return null;
   }
@@ -1135,22 +1101,6 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDepXYZ_IMPL(DepXYZ_IMPL object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dep XYZ</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dep XYZ</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDepXYZ(DepXYZ object)
   {
     return null;
   }

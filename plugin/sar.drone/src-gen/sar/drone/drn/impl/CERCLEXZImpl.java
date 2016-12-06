@@ -9,50 +9,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import sar.drone.drn.DepYZ;
+import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.DrnPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dep YZ</b></em>'.
+ * An implementation of the model object '<em><b>CERCLEXZ</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.DepYZImpl#getDistanceCST <em>Distance CST</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.CERCLEXZImpl#getRayonCST <em>Rayon CST</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
+public class CERCLEXZImpl extends DepXZ_IMPLImpl implements CERCLEXZ
 {
   /**
-   * The default value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
+   * The default value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistanceCST()
+   * @see #getRayonCST()
    * @generated
    * @ordered
    */
-  protected static final int DISTANCE_CST_EDEFAULT = 0;
+  protected static final int RAYON_CST_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
+   * The cached value of the '{@link #getRayonCST() <em>Rayon CST</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDistanceCST()
+   * @see #getRayonCST()
    * @generated
    * @ordered
    */
-  protected int distanceCST = DISTANCE_CST_EDEFAULT;
+  protected int rayonCST = RAYON_CST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DepYZImpl()
+  protected CERCLEXZImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.DEP_YZ;
+    return DrnPackage.Literals.CERCLEXZ;
   }
 
   /**
@@ -73,9 +73,9 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getDistanceCST()
+  public int getRayonCST()
   {
-    return distanceCST;
+    return rayonCST;
   }
 
   /**
@@ -83,12 +83,12 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDistanceCST(int newDistanceCST)
+  public void setRayonCST(int newRayonCST)
   {
-    int oldDistanceCST = distanceCST;
-    distanceCST = newDistanceCST;
+    int oldRayonCST = rayonCST;
+    rayonCST = newRayonCST;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_YZ__DISTANCE_CST, oldDistanceCST, distanceCST));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CERCLEXZ__RAYON_CST, oldRayonCST, rayonCST));
   }
 
   /**
@@ -101,8 +101,8 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_YZ__DISTANCE_CST:
-        return getDistanceCST();
+      case DrnPackage.CERCLEXZ__RAYON_CST:
+        return getRayonCST();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_YZ__DISTANCE_CST:
-        setDistanceCST((Integer)newValue);
+      case DrnPackage.CERCLEXZ__RAYON_CST:
+        setRayonCST((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_YZ__DISTANCE_CST:
-        setDistanceCST(DISTANCE_CST_EDEFAULT);
+      case DrnPackage.CERCLEXZ__RAYON_CST:
+        setRayonCST(RAYON_CST_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_YZ__DISTANCE_CST:
-        return distanceCST != DISTANCE_CST_EDEFAULT;
+      case DrnPackage.CERCLEXZ__RAYON_CST:
+        return rayonCST != RAYON_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +168,10 @@ public class DepYZImpl extends DepYZ_IMPLImpl implements DepYZ
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (distanceCST: ");
-    result.append(distanceCST);
+    result.append(" (rayonCST: ");
+    result.append(rayonCST);
     result.append(')');
     return result.toString();
   }
 
-} //DepYZImpl
+} //CERCLEXZImpl

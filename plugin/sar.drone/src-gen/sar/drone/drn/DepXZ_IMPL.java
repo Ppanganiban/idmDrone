@@ -9,6 +9,13 @@ package sar.drone.drn;
  * A representation of the model object '<em><b>Dep XZ IMPL</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link sar.drone.drn.DepXZ_IMPL#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.DepXZ_IMPL#getTempsCST <em>Temps CST</em>}</li>
+ * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getDepXZ_IMPL()
  * @model
@@ -16,4 +23,56 @@ package sar.drone.drn;
  */
 public interface DepXZ_IMPL extends Movement
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see sar.drone.drn.DrnPackage#getDepXZ_IMPL_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.DepXZ_IMPL#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Temps CST</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Temps CST</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Temps CST</em>' attribute.
+   * @see #setTempsCST(int)
+   * @see sar.drone.drn.DrnPackage#getDepXZ_IMPL_TempsCST()
+   * @model
+   * @generated
+   */
+  int getTempsCST();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.DepXZ_IMPL#getTempsCST <em>Temps CST</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Temps CST</em>' attribute.
+   * @see #getTempsCST()
+   * @generated
+   */
+  void setTempsCST(int value);
+
 } // DepXZ_IMPL

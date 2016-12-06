@@ -52,7 +52,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="move" eType="#//Movement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeatCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repeatVAR" eType="#//Parametre"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="with" upperBound="-1" eType="#//With"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" upperBound="-1" eType="#//Expression"
@@ -70,12 +69,14 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="depy" upperBound="-1" eType="#//DepY_Impl"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depz" upperBound="-1" eType="#//DepZ_Impl"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="depxz" upperBound="-1"
         eType="#//DepXZ_IMPL" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="depxy" upperBound="-1"
         eType="#//DepXY_IMPL" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depz" upperBound="-1" eType="#//DepZ_Impl"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depyz" upperBound="-1"
+        eType="#//DepYZ_IMPL" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DepY_Impl" eSuperTypes="#//Movement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -102,9 +103,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempsCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DepXY" eSuperTypes="#//DepXY_IMPL">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CERCLEXY" eSuperTypes="#//DepXY_IMPL">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rayonCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -115,29 +113,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempsCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DepYZ" eSuperTypes="#//DepYZ_IMPL">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CERCLEYZ" eSuperTypes="#//DepYZ_IMPL">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rayonCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CARREYZ" eSuperTypes="#//DepYZ_IMPL">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="coteCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DepXZ_IMPL" eSuperTypes="#//Movement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DepXZ" eSuperTypes="#//DepXZ_IMPL">
+  <eClassifiers xsi:type="ecore:EClass" name="DepXZ_IMPL" eSuperTypes="#//Movement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempsCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DepXYZ_IMPL" eSuperTypes="#//Movement">
+  <eClassifiers xsi:type="ecore:EClass" name="CERCLEXZ" eSuperTypes="#//DepXZ_IMPL">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rayonCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CARREXZ" eSuperTypes="#//DepXZ_IMPL">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="coteCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DepXYZ_IMPL" eSuperTypes="#//Movement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Flip" eSuperTypes="#//DepXYZ_IMPL">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DepXYZ" eSuperTypes="#//DepXYZ_IMPL">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distanceCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempsCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Flip" eSuperTypes="#//DepXYZ_IMPL"/>
   <eClassifiers xsi:type="ecore:EClass" name="Rotate" eSuperTypes="#//Movement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angleCST" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -18,9 +18,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link sar.drone.drn.And#getRotate <em>Rotate</em>}</li>
  *   <li>{@link sar.drone.drn.And#getDepx <em>Depx</em>}</li>
  *   <li>{@link sar.drone.drn.And#getDepy <em>Depy</em>}</li>
+ *   <li>{@link sar.drone.drn.And#getDepz <em>Depz</em>}</li>
  *   <li>{@link sar.drone.drn.And#getDepxz <em>Depxz</em>}</li>
  *   <li>{@link sar.drone.drn.And#getDepxy <em>Depxy</em>}</li>
- *   <li>{@link sar.drone.drn.And#getDepz <em>Depz</em>}</li>
+ *   <li>{@link sar.drone.drn.And#getDepyz <em>Depyz</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getAnd()
@@ -104,6 +105,22 @@ public interface And extends Movement
   EList<DepY_Impl> getDepy();
 
   /**
+   * Returns the value of the '<em><b>Depz</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.DepZ_Impl}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Depz</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Depz</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getAnd_Depz()
+   * @model containment="true"
+   * @generated
+   */
+  EList<DepZ_Impl> getDepz();
+
+  /**
    * Returns the value of the '<em><b>Depxz</b></em>' containment reference list.
    * The list contents are of type {@link sar.drone.drn.DepXZ_IMPL}.
    * <!-- begin-user-doc -->
@@ -136,19 +153,19 @@ public interface And extends Movement
   EList<DepXY_IMPL> getDepxy();
 
   /**
-   * Returns the value of the '<em><b>Depz</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.DepZ_Impl}.
+   * Returns the value of the '<em><b>Depyz</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.DepYZ_IMPL}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Depz</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Depyz</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Depz</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getAnd_Depz()
+   * @return the value of the '<em>Depyz</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getAnd_Depyz()
    * @model containment="true"
    * @generated
    */
-  EList<DepZ_Impl> getDepz();
+  EList<DepYZ_IMPL> getDepyz();
 
 } // And
