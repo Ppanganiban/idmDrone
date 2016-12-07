@@ -163,12 +163,12 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.MAX_HEIGTH:
+      case DrnPackage.MAX_HEIGHT:
       {
-        MaxHeigth maxHeigth = (MaxHeigth)theEObject;
-        T result = caseMaxHeigth(maxHeigth);
-        if (result == null) result = caseSurface(maxHeigth);
-        if (result == null) result = caseLimit(maxHeigth);
+        MaxHeight maxHeight = (MaxHeight)theEObject;
+        T result = caseMaxHeight(maxHeight);
+        if (result == null) result = caseSurface(maxHeight);
+        if (result == null) result = caseLimit(maxHeight);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,13 +176,6 @@ public class DrnSwitch<T> extends Switch<T>
       {
         Assignement assignement = (Assignement)theEObject;
         T result = caseAssignement(assignement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.PARAMETRE:
-      {
-        Parametre parametre = (Parametre)theEObject;
-        T result = caseParametre(parametre);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -690,17 +683,17 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Max Heigth</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Max Height</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Max Heigth</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Max Height</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMaxHeigth(MaxHeigth object)
+  public T caseMaxHeight(MaxHeight object)
   {
     return null;
   }
@@ -717,22 +710,6 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAssignement(Assignement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parametre</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parametre</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParametre(Parametre object)
   {
     return null;
   }

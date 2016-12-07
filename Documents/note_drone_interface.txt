@@ -1,0 +1,41 @@
+parametre de control {
+	altitude limit,
+	yaw speed limit,
+	vertical speed limit,
+	tilt angle limit,
+	host tilt angle limit;
+}
+communication {
+	controling: AT COMMAND UDP/5556 (30 times per second)
+	navdata: état du drone (contient aussi la detection des tags) UDP/5554 (15 times per second/200 times per second on debug mode)
+	video streaming: TCP/5555 (plusieurs codecs).
+	control port: send critical data TCP/5559 (used to retrieve and send conf for example).
+}
+Thread Management{
+	thread pour sequençage at command
+	thread pour navdata
+	thread pour video 
+	thread pour recorder video
+	thread pour control port
+	thread pour l'AR DRONE Academy
+}
+video {
+2 camera (360p:bottom (60 fps) or 720p:front(30 fps))
+}
+deplacement: {
+	
+	takeoff: int value (1 takeoff, 0 land)
+	emergency: int value (1:stop engine and fall)
+	move:(
+	int flags: use progressive commands and the new combined Yaw control mode,
+	Bit 0 : when Bit0=0 the drone will enter the hovering mode, i.e. try to stay on top of a fixed
+	point on the ground, else it will follow the commands set as parameters.
+	 Bit 1 : when Bit1=1 AND CONTROL:control_level configuration Bit1=1, the new Com-
+	bined Yaw mode is activated. This mode includes a complex hybridation of the phi parameter to generate complete turns (phi+yaw).
+
+
+	 float phi: left/right angle,
+	  float theta: front/back angle,
+	   float gaz: vertical speed,
+	    float yaw: angular speed)
+}

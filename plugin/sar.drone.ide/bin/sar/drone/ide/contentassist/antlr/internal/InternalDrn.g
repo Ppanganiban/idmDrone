@@ -324,25 +324,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleMaxHeigth
-entryRuleMaxHeigth
+// Entry rule entryRuleMaxHeight
+entryRuleMaxHeight
 :
-{ before(grammarAccess.getMaxHeigthRule()); }
-	 ruleMaxHeigth
-{ after(grammarAccess.getMaxHeigthRule()); } 
+{ before(grammarAccess.getMaxHeightRule()); }
+	 ruleMaxHeight
+{ after(grammarAccess.getMaxHeightRule()); } 
 	 EOF 
 ;
 
-// Rule MaxHeigth
-ruleMaxHeigth 
+// Rule MaxHeight
+ruleMaxHeight 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getMaxHeigthAccess().getGroup()); }
-		(rule__MaxHeigth__Group__0)
-		{ after(grammarAccess.getMaxHeigthAccess().getGroup()); }
+		{ before(grammarAccess.getMaxHeightAccess().getGroup()); }
+		(rule__MaxHeight__Group__0)
+		{ after(grammarAccess.getMaxHeightAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1496,9 +1496,9 @@ rule__Surface__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0()); }
-		ruleMaxHeigth
-		{ after(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0()); }
+		{ before(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0()); }
+		ruleMaxHeight
+		{ after(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0()); }
 	)
 	|
 	(
@@ -3137,80 +3137,80 @@ finally {
 }
 
 
-rule__MaxHeigth__Group__0
+rule__MaxHeight__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__MaxHeigth__Group__0__Impl
-	rule__MaxHeigth__Group__1
+	rule__MaxHeight__Group__0__Impl
+	rule__MaxHeight__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__Group__0__Impl
+rule__MaxHeight__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMaxHeigthAccess().getNameAssignment_0()); }
-	(rule__MaxHeigth__NameAssignment_0)
-	{ after(grammarAccess.getMaxHeigthAccess().getNameAssignment_0()); }
+	{ before(grammarAccess.getMaxHeightAccess().getNameAssignment_0()); }
+	(rule__MaxHeight__NameAssignment_0)
+	{ after(grammarAccess.getMaxHeightAccess().getNameAssignment_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__Group__1
+rule__MaxHeight__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__MaxHeigth__Group__1__Impl
-	rule__MaxHeigth__Group__2
+	rule__MaxHeight__Group__1__Impl
+	rule__MaxHeight__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__Group__1__Impl
+rule__MaxHeight__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1()); }
+	{ before(grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1()); }
 	'='
-	{ after(grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1()); }
+	{ after(grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__Group__2
+rule__MaxHeight__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__MaxHeigth__Group__2__Impl
+	rule__MaxHeight__Group__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__Group__2__Impl
+rule__MaxHeight__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getMaxHeigthAccess().getValueAssignment_2()); }
-	(rule__MaxHeigth__ValueAssignment_2)
-	{ after(grammarAccess.getMaxHeigthAccess().getValueAssignment_2()); }
+	{ before(grammarAccess.getMaxHeightAccess().getValueAssignment_2()); }
+	(rule__MaxHeight__ValueAssignment_2)
+	{ after(grammarAccess.getMaxHeightAccess().getValueAssignment_2()); }
 )
 ;
 finally {
@@ -10257,34 +10257,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__NameAssignment_0
+rule__MaxHeight__NameAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); }
+		{ before(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); }
 		(
-			{ before(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); }
-			'maxHeigth'
-			{ after(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); }
+			{ before(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); }
+			'maxHeight'
+			{ after(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); }
 		)
-		{ after(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); }
+		{ after(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MaxHeigth__ValueAssignment_2
+rule__MaxHeight__ValueAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0()); }
 		RULE_INT
-		{ after(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0()); }
+		{ after(grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0()); }
 	)
 ;
 finally {

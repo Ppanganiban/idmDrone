@@ -369,11 +369,11 @@ ruleSurface returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0());
+			newCompositeNode(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0());
 		}
-		this_MaxHeigth_0=ruleMaxHeigth
+		this_MaxHeight_0=ruleMaxHeight
 		{
-			$current = $this_MaxHeigth_0.current;
+			$current = $this_MaxHeight_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -773,15 +773,15 @@ ruleMaxSpeed returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleMaxHeigth
-entryRuleMaxHeigth returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMaxHeigthRule()); }
-	iv_ruleMaxHeigth=ruleMaxHeigth
-	{ $current=$iv_ruleMaxHeigth.current; }
+// Entry rule entryRuleMaxHeight
+entryRuleMaxHeight returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMaxHeightRule()); }
+	iv_ruleMaxHeight=ruleMaxHeight
+	{ $current=$iv_ruleMaxHeight.current; }
 	EOF;
 
-// Rule MaxHeigth
-ruleMaxHeigth returns [EObject current=null]
+// Rule MaxHeight
+ruleMaxHeight returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -791,31 +791,31 @@ ruleMaxHeigth returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0='maxHeigth'
+				lv_name_0_0='maxHeight'
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0());
+					newLeafNode(lv_name_0_0, grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMaxHeigthRule());
+						$current = createModelElement(grammarAccess.getMaxHeightRule());
 					}
-					setWithLastConsumed($current, "name", lv_name_0_0, "maxHeigth");
+					setWithLastConsumed($current, "name", lv_name_0_0, "maxHeight");
 				}
 			)
 		)
 		otherlv_1='='
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1());
 		}
 		(
 			(
 				lv_value_2_0=RULE_INT
 				{
-					newLeafNode(lv_value_2_0, grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0());
+					newLeafNode(lv_value_2_0, grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMaxHeigthRule());
+						$current = createModelElement(grammarAccess.getMaxHeightRule());
 					}
 					setWithLastConsumed(
 						$current,

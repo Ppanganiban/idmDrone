@@ -77,9 +77,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.MAX_LENGTH: return createMaxLength();
       case DrnPackage.MAX_WIDTH: return createMaxWidth();
       case DrnPackage.MAX_SPEED: return createMaxSpeed();
-      case DrnPackage.MAX_HEIGTH: return createMaxHeigth();
+      case DrnPackage.MAX_HEIGHT: return createMaxHeight();
       case DrnPackage.ASSIGNEMENT: return createAssignement();
-      case DrnPackage.PARAMETRE: return createParametre();
       case DrnPackage.EXPRESSION: return createExpression();
       case DrnPackage.MOVEMENT: return createMovement();
       case DrnPackage.REF_PART: return createRefPart();
@@ -297,10 +296,10 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MaxHeigth createMaxHeigth()
+  public MaxHeight createMaxHeight()
   {
-    MaxHeigthImpl maxHeigth = new MaxHeigthImpl();
-    return maxHeigth;
+    MaxHeightImpl maxHeight = new MaxHeightImpl();
+    return maxHeight;
   }
 
   /**
@@ -312,17 +311,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     AssignementImpl assignement = new AssignementImpl();
     return assignement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parametre createParametre()
-  {
-    ParametreImpl parametre = new ParametreImpl();
-    return parametre;
   }
 
   /**

@@ -28,7 +28,7 @@ Limit :
 ;
 
 Surface :
-	MaxHeigth | MaxLength | MaxWidth	
+	MaxHeight | MaxLength | MaxWidth	
 ;
 
 InitialPosition:
@@ -64,8 +64,8 @@ MaxSpeed :
 	'='(value=INT)	
 ;
 
-MaxHeigth :
-	name="maxHeigth"
+MaxHeight :
+	name="maxHeight"
 	'='(value=INT)
 ;
 
@@ -77,11 +77,6 @@ Assignement :
 		(operandes+=Expression ';')*
 	'}'
 ;
-
-Parametre :// Parametre:
-	name=ID
-;
-	
 
 /******************* Expression *********************/
 

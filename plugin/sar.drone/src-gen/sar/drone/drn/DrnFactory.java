@@ -123,13 +123,13 @@ public interface DrnFactory extends EFactory
   MaxSpeed createMaxSpeed();
 
   /**
-   * Returns a new object of class '<em>Max Heigth</em>'.
+   * Returns a new object of class '<em>Max Height</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Max Heigth</em>'.
+   * @return a new object of class '<em>Max Height</em>'.
    * @generated
    */
-  MaxHeigth createMaxHeigth();
+  MaxHeight createMaxHeight();
 
   /**
    * Returns a new object of class '<em>Assignement</em>'.
@@ -139,15 +139,6 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   Assignement createAssignement();
-
-  /**
-   * Returns a new object of class '<em>Parametre</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parametre</em>'.
-   * @generated
-   */
-  Parametre createParametre();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.

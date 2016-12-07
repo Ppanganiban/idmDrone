@@ -131,19 +131,14 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createMaxSpeedAdapter();
       }
       @Override
-      public Adapter caseMaxHeigth(MaxHeigth object)
+      public Adapter caseMaxHeight(MaxHeight object)
       {
-        return createMaxHeigthAdapter();
+        return createMaxHeightAdapter();
       }
       @Override
       public Adapter caseAssignement(Assignement object)
       {
         return createAssignementAdapter();
-      }
-      @Override
-      public Adapter caseParametre(Parametre object)
-      {
-        return createParametreAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -533,16 +528,16 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxHeigth <em>Max Heigth</em>}'.
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.MaxHeight <em>Max Height</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sar.drone.drn.MaxHeigth
+   * @see sar.drone.drn.MaxHeight
    * @generated
    */
-  public Adapter createMaxHeigthAdapter()
+  public Adapter createMaxHeightAdapter()
   {
     return null;
   }
@@ -558,21 +553,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAssignementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Parametre <em>Parametre</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.Parametre
-   * @generated
-   */
-  public Adapter createParametreAdapter()
   {
     return null;
   }

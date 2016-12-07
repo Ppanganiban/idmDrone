@@ -64,7 +64,7 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMaxLengthAccess().getGroup(), "rule__MaxLength__Group__0");
 					put(grammarAccess.getMaxWidthAccess().getGroup(), "rule__MaxWidth__Group__0");
 					put(grammarAccess.getMaxSpeedAccess().getGroup(), "rule__MaxSpeed__Group__0");
-					put(grammarAccess.getMaxHeigthAccess().getGroup(), "rule__MaxHeigth__Group__0");
+					put(grammarAccess.getMaxHeightAccess().getGroup(), "rule__MaxHeight__Group__0");
 					put(grammarAccess.getAssignementAccess().getGroup(), "rule__Assignement__Group__0");
 					put(grammarAccess.getAssignementAccess().getGroup_4(), "rule__Assignement__Group_4__0");
 					put(grammarAccess.getExpressionAccess().getGroup_0(), "rule__Expression__Group_0__0");
@@ -132,12 +132,11 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMaxWidthAccess().getValueAssignment_2(), "rule__MaxWidth__ValueAssignment_2");
 					put(grammarAccess.getMaxSpeedAccess().getNameAssignment_0(), "rule__MaxSpeed__NameAssignment_0");
 					put(grammarAccess.getMaxSpeedAccess().getValueAssignment_2(), "rule__MaxSpeed__ValueAssignment_2");
-					put(grammarAccess.getMaxHeigthAccess().getNameAssignment_0(), "rule__MaxHeigth__NameAssignment_0");
-					put(grammarAccess.getMaxHeigthAccess().getValueAssignment_2(), "rule__MaxHeigth__ValueAssignment_2");
+					put(grammarAccess.getMaxHeightAccess().getNameAssignment_0(), "rule__MaxHeight__NameAssignment_0");
+					put(grammarAccess.getMaxHeightAccess().getValueAssignment_2(), "rule__MaxHeight__ValueAssignment_2");
 					put(grammarAccess.getAssignementAccess().getNameAssignment_0(), "rule__Assignement__NameAssignment_0");
 					put(grammarAccess.getAssignementAccess().getOperandesAssignment_2(), "rule__Assignement__OperandesAssignment_2");
 					put(grammarAccess.getAssignementAccess().getOperandesAssignment_4_0(), "rule__Assignement__OperandesAssignment_4_0");
-					put(grammarAccess.getParametreAccess().getNameAssignment(), "rule__Parametre__NameAssignment");
 					put(grammarAccess.getExpressionAccess().getMoveAssignment_0_0(), "rule__Expression__MoveAssignment_0_0");
 					put(grammarAccess.getExpressionAccess().getRepeatCSTAssignment_0_1_1(), "rule__Expression__RepeatCSTAssignment_0_1_1");
 					put(grammarAccess.getExpressionAccess().getWithAssignment_0_2(), "rule__Expression__WithAssignment_0_2");

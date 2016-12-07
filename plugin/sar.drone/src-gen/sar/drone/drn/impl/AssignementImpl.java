@@ -237,16 +237,19 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     result.append(')');
     return result.toString();
   }
-  protected boolean mark = true;
+
+  protected boolean mark=true;
+
 	@Override
 	public boolean isMark() {
 		// TODO Auto-generated method stub
 		return mark;
 	}
-	
+
 	@Override
 	public void setMark(boolean b) {
 		// TODO Auto-generated method stub
 		mark = b;
 	}
+
 } //AssignementImpl

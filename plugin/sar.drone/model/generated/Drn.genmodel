@@ -59,13 +59,10 @@
     <genClasses ecoreClass="Drn.ecore#//MaxSpeed">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//MaxSpeed/value"/>
     </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//MaxHeigth"/>
+    <genClasses ecoreClass="Drn.ecore#//MaxHeight"/>
     <genClasses ecoreClass="Drn.ecore#//Assignement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Assignement/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Assignement/operandes"/>
-    </genClasses>
-    <genClasses ecoreClass="Drn.ecore#//Parametre">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Parametre/name"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Expression/move"/>

@@ -6,23 +6,23 @@ package sar.drone.drn.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.MaxHeigth;
+import sar.drone.drn.MaxHeight;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Max Heigth</b></em>'.
+ * An implementation of the model object '<em><b>Max Height</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class MaxHeigthImpl extends SurfaceImpl implements MaxHeigth
+public class MaxHeightImpl extends SurfaceImpl implements MaxHeight
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MaxHeigthImpl()
+  protected MaxHeightImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class MaxHeigthImpl extends SurfaceImpl implements MaxHeigth
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.MAX_HEIGTH;
+    return DrnPackage.Literals.MAX_HEIGHT;
   }
 
-} //MaxHeigthImpl
+} //MaxHeightImpl

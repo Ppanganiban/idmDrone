@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDrnParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'", "'TRUE'", "'FALSE'", "'FRONT'", "'BEHIND'", "'LEFT'", "'RIGHT'", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'X'", "'('", "')'", "'then'", "','", "'distance'", "'temps'", "'rayon'", "'cote'", "'angle'", "'DEVICE'", "'type'", "'mode'", "'attribute'", "'.'", "'color'", "'blink_per_sec'", "'id'", "'Type'", "'element'", "'-'", "'CONTEXT'", "'initialDirection'", "'positionX'", "'positionY'", "'maxLength'", "'maxWidth'", "'maxSpeed'", "'maxHeigth'", "'merge'", "'forward'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'cercleXY'", "'carreXY'", "'cercleYZ'", "'carreYZ'", "'cercleXZ'", "'carreXZ'", "'flip'", "'rotate'", "'wait'", "'takeoff'", "'land'", "'with'", "'led'", "'ledBlink'", "'camera'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'", "'TRUE'", "'FALSE'", "'FRONT'", "'BEHIND'", "'LEFT'", "'RIGHT'", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'X'", "'('", "')'", "'then'", "','", "'distance'", "'temps'", "'rayon'", "'cote'", "'angle'", "'DEVICE'", "'type'", "'mode'", "'attribute'", "'.'", "'color'", "'blink_per_sec'", "'id'", "'Type'", "'element'", "'-'", "'CONTEXT'", "'initialDirection'", "'positionX'", "'positionY'", "'maxLength'", "'maxWidth'", "'maxSpeed'", "'maxHeight'", "'merge'", "'forward'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'cercleXY'", "'carreXY'", "'cercleYZ'", "'carreYZ'", "'cercleXZ'", "'carreXZ'", "'flip'", "'rotate'", "'wait'", "'takeoff'", "'land'", "'with'", "'led'", "'ledBlink'", "'camera'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -985,20 +985,20 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleMaxSpeed"
 
 
-    // $ANTLR start "entryRuleMaxHeigth"
-    // InternalDrn.g:328:1: entryRuleMaxHeigth : ruleMaxHeigth EOF ;
-    public final void entryRuleMaxHeigth() throws RecognitionException {
+    // $ANTLR start "entryRuleMaxHeight"
+    // InternalDrn.g:328:1: entryRuleMaxHeight : ruleMaxHeight EOF ;
+    public final void entryRuleMaxHeight() throws RecognitionException {
         try {
-            // InternalDrn.g:329:1: ( ruleMaxHeigth EOF )
-            // InternalDrn.g:330:1: ruleMaxHeigth EOF
+            // InternalDrn.g:329:1: ( ruleMaxHeight EOF )
+            // InternalDrn.g:330:1: ruleMaxHeight EOF
             {
-             before(grammarAccess.getMaxHeigthRule()); 
+             before(grammarAccess.getMaxHeightRule()); 
             pushFollow(FOLLOW_1);
-            ruleMaxHeigth();
+            ruleMaxHeight();
 
             state._fsp--;
 
-             after(grammarAccess.getMaxHeigthRule()); 
+             after(grammarAccess.getMaxHeightRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1012,35 +1012,35 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleMaxHeigth"
+    // $ANTLR end "entryRuleMaxHeight"
 
 
-    // $ANTLR start "ruleMaxHeigth"
-    // InternalDrn.g:337:1: ruleMaxHeigth : ( ( rule__MaxHeigth__Group__0 ) ) ;
-    public final void ruleMaxHeigth() throws RecognitionException {
+    // $ANTLR start "ruleMaxHeight"
+    // InternalDrn.g:337:1: ruleMaxHeight : ( ( rule__MaxHeight__Group__0 ) ) ;
+    public final void ruleMaxHeight() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:341:2: ( ( ( rule__MaxHeigth__Group__0 ) ) )
-            // InternalDrn.g:342:2: ( ( rule__MaxHeigth__Group__0 ) )
+            // InternalDrn.g:341:2: ( ( ( rule__MaxHeight__Group__0 ) ) )
+            // InternalDrn.g:342:2: ( ( rule__MaxHeight__Group__0 ) )
             {
-            // InternalDrn.g:342:2: ( ( rule__MaxHeigth__Group__0 ) )
-            // InternalDrn.g:343:3: ( rule__MaxHeigth__Group__0 )
+            // InternalDrn.g:342:2: ( ( rule__MaxHeight__Group__0 ) )
+            // InternalDrn.g:343:3: ( rule__MaxHeight__Group__0 )
             {
-             before(grammarAccess.getMaxHeigthAccess().getGroup()); 
-            // InternalDrn.g:344:3: ( rule__MaxHeigth__Group__0 )
-            // InternalDrn.g:344:4: rule__MaxHeigth__Group__0
+             before(grammarAccess.getMaxHeightAccess().getGroup()); 
+            // InternalDrn.g:344:3: ( rule__MaxHeight__Group__0 )
+            // InternalDrn.g:344:4: rule__MaxHeight__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__Group__0();
+            rule__MaxHeight__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMaxHeigthAccess().getGroup()); 
+             after(grammarAccess.getMaxHeightAccess().getGroup()); 
 
             }
 
@@ -1059,7 +1059,7 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleMaxHeigth"
+    // $ANTLR end "ruleMaxHeight"
 
 
     // $ANTLR start "entryRuleAssignement"
@@ -4590,13 +4590,13 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Surface__Alternatives"
-    // InternalDrn.g:1493:1: rule__Surface__Alternatives : ( ( ruleMaxHeigth ) | ( ruleMaxLength ) | ( ruleMaxWidth ) );
+    // InternalDrn.g:1493:1: rule__Surface__Alternatives : ( ( ruleMaxHeight ) | ( ruleMaxLength ) | ( ruleMaxWidth ) );
     public final void rule__Surface__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:1497:1: ( ( ruleMaxHeigth ) | ( ruleMaxLength ) | ( ruleMaxWidth ) )
+            // InternalDrn.g:1497:1: ( ( ruleMaxHeight ) | ( ruleMaxLength ) | ( ruleMaxWidth ) )
             int alt2=3;
             switch ( input.LA(1) ) {
             case 58:
@@ -4623,18 +4623,18 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
 
             switch (alt2) {
                 case 1 :
-                    // InternalDrn.g:1498:2: ( ruleMaxHeigth )
+                    // InternalDrn.g:1498:2: ( ruleMaxHeight )
                     {
-                    // InternalDrn.g:1498:2: ( ruleMaxHeigth )
-                    // InternalDrn.g:1499:3: ruleMaxHeigth
+                    // InternalDrn.g:1498:2: ( ruleMaxHeight )
+                    // InternalDrn.g:1499:3: ruleMaxHeight
                     {
-                     before(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0()); 
+                     before(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    ruleMaxHeigth();
+                    ruleMaxHeight();
 
                     state._fsp--;
 
-                     after(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0()); 
+                     after(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0()); 
 
                     }
 
@@ -10341,23 +10341,23 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__MaxSpeed__Group__2__Impl"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__0"
-    // InternalDrn.g:3140:1: rule__MaxHeigth__Group__0 : rule__MaxHeigth__Group__0__Impl rule__MaxHeigth__Group__1 ;
-    public final void rule__MaxHeigth__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__0"
+    // InternalDrn.g:3140:1: rule__MaxHeight__Group__0 : rule__MaxHeight__Group__0__Impl rule__MaxHeight__Group__1 ;
+    public final void rule__MaxHeight__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:3144:1: ( rule__MaxHeigth__Group__0__Impl rule__MaxHeigth__Group__1 )
-            // InternalDrn.g:3145:2: rule__MaxHeigth__Group__0__Impl rule__MaxHeigth__Group__1
+            // InternalDrn.g:3144:1: ( rule__MaxHeight__Group__0__Impl rule__MaxHeight__Group__1 )
+            // InternalDrn.g:3145:2: rule__MaxHeight__Group__0__Impl rule__MaxHeight__Group__1
             {
             pushFollow(FOLLOW_9);
-            rule__MaxHeigth__Group__0__Impl();
+            rule__MaxHeight__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__Group__1();
+            rule__MaxHeight__Group__1();
 
             state._fsp--;
 
@@ -10376,35 +10376,35 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__0"
+    // $ANTLR end "rule__MaxHeight__Group__0"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__0__Impl"
-    // InternalDrn.g:3152:1: rule__MaxHeigth__Group__0__Impl : ( ( rule__MaxHeigth__NameAssignment_0 ) ) ;
-    public final void rule__MaxHeigth__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__0__Impl"
+    // InternalDrn.g:3152:1: rule__MaxHeight__Group__0__Impl : ( ( rule__MaxHeight__NameAssignment_0 ) ) ;
+    public final void rule__MaxHeight__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:3156:1: ( ( ( rule__MaxHeigth__NameAssignment_0 ) ) )
-            // InternalDrn.g:3157:1: ( ( rule__MaxHeigth__NameAssignment_0 ) )
+            // InternalDrn.g:3156:1: ( ( ( rule__MaxHeight__NameAssignment_0 ) ) )
+            // InternalDrn.g:3157:1: ( ( rule__MaxHeight__NameAssignment_0 ) )
             {
-            // InternalDrn.g:3157:1: ( ( rule__MaxHeigth__NameAssignment_0 ) )
-            // InternalDrn.g:3158:2: ( rule__MaxHeigth__NameAssignment_0 )
+            // InternalDrn.g:3157:1: ( ( rule__MaxHeight__NameAssignment_0 ) )
+            // InternalDrn.g:3158:2: ( rule__MaxHeight__NameAssignment_0 )
             {
-             before(grammarAccess.getMaxHeigthAccess().getNameAssignment_0()); 
-            // InternalDrn.g:3159:2: ( rule__MaxHeigth__NameAssignment_0 )
-            // InternalDrn.g:3159:3: rule__MaxHeigth__NameAssignment_0
+             before(grammarAccess.getMaxHeightAccess().getNameAssignment_0()); 
+            // InternalDrn.g:3159:2: ( rule__MaxHeight__NameAssignment_0 )
+            // InternalDrn.g:3159:3: rule__MaxHeight__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__NameAssignment_0();
+            rule__MaxHeight__NameAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMaxHeigthAccess().getNameAssignment_0()); 
+             after(grammarAccess.getMaxHeightAccess().getNameAssignment_0()); 
 
             }
 
@@ -10423,26 +10423,26 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__0__Impl"
+    // $ANTLR end "rule__MaxHeight__Group__0__Impl"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__1"
-    // InternalDrn.g:3167:1: rule__MaxHeigth__Group__1 : rule__MaxHeigth__Group__1__Impl rule__MaxHeigth__Group__2 ;
-    public final void rule__MaxHeigth__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__1"
+    // InternalDrn.g:3167:1: rule__MaxHeight__Group__1 : rule__MaxHeight__Group__1__Impl rule__MaxHeight__Group__2 ;
+    public final void rule__MaxHeight__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:3171:1: ( rule__MaxHeigth__Group__1__Impl rule__MaxHeigth__Group__2 )
-            // InternalDrn.g:3172:2: rule__MaxHeigth__Group__1__Impl rule__MaxHeigth__Group__2
+            // InternalDrn.g:3171:1: ( rule__MaxHeight__Group__1__Impl rule__MaxHeight__Group__2 )
+            // InternalDrn.g:3172:2: rule__MaxHeight__Group__1__Impl rule__MaxHeight__Group__2
             {
             pushFollow(FOLLOW_17);
-            rule__MaxHeigth__Group__1__Impl();
+            rule__MaxHeight__Group__1__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__Group__2();
+            rule__MaxHeight__Group__2();
 
             state._fsp--;
 
@@ -10461,12 +10461,12 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__1"
+    // $ANTLR end "rule__MaxHeight__Group__1"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__1__Impl"
-    // InternalDrn.g:3179:1: rule__MaxHeigth__Group__1__Impl : ( '=' ) ;
-    public final void rule__MaxHeigth__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__1__Impl"
+    // InternalDrn.g:3179:1: rule__MaxHeight__Group__1__Impl : ( '=' ) ;
+    public final void rule__MaxHeight__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10477,9 +10477,9 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
             // InternalDrn.g:3184:1: ( '=' )
             // InternalDrn.g:3185:2: '='
             {
-             before(grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1()); 
+             before(grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1()); 
             match(input,27,FOLLOW_2); 
-             after(grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1()); 
+             after(grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1()); 
 
             }
 
@@ -10498,21 +10498,21 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__1__Impl"
+    // $ANTLR end "rule__MaxHeight__Group__1__Impl"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__2"
-    // InternalDrn.g:3194:1: rule__MaxHeigth__Group__2 : rule__MaxHeigth__Group__2__Impl ;
-    public final void rule__MaxHeigth__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__2"
+    // InternalDrn.g:3194:1: rule__MaxHeight__Group__2 : rule__MaxHeight__Group__2__Impl ;
+    public final void rule__MaxHeight__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:3198:1: ( rule__MaxHeigth__Group__2__Impl )
-            // InternalDrn.g:3199:2: rule__MaxHeigth__Group__2__Impl
+            // InternalDrn.g:3198:1: ( rule__MaxHeight__Group__2__Impl )
+            // InternalDrn.g:3199:2: rule__MaxHeight__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__Group__2__Impl();
+            rule__MaxHeight__Group__2__Impl();
 
             state._fsp--;
 
@@ -10531,35 +10531,35 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__2"
+    // $ANTLR end "rule__MaxHeight__Group__2"
 
 
-    // $ANTLR start "rule__MaxHeigth__Group__2__Impl"
-    // InternalDrn.g:3205:1: rule__MaxHeigth__Group__2__Impl : ( ( rule__MaxHeigth__ValueAssignment_2 ) ) ;
-    public final void rule__MaxHeigth__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__Group__2__Impl"
+    // InternalDrn.g:3205:1: rule__MaxHeight__Group__2__Impl : ( ( rule__MaxHeight__ValueAssignment_2 ) ) ;
+    public final void rule__MaxHeight__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:3209:1: ( ( ( rule__MaxHeigth__ValueAssignment_2 ) ) )
-            // InternalDrn.g:3210:1: ( ( rule__MaxHeigth__ValueAssignment_2 ) )
+            // InternalDrn.g:3209:1: ( ( ( rule__MaxHeight__ValueAssignment_2 ) ) )
+            // InternalDrn.g:3210:1: ( ( rule__MaxHeight__ValueAssignment_2 ) )
             {
-            // InternalDrn.g:3210:1: ( ( rule__MaxHeigth__ValueAssignment_2 ) )
-            // InternalDrn.g:3211:2: ( rule__MaxHeigth__ValueAssignment_2 )
+            // InternalDrn.g:3210:1: ( ( rule__MaxHeight__ValueAssignment_2 ) )
+            // InternalDrn.g:3211:2: ( rule__MaxHeight__ValueAssignment_2 )
             {
-             before(grammarAccess.getMaxHeigthAccess().getValueAssignment_2()); 
-            // InternalDrn.g:3212:2: ( rule__MaxHeigth__ValueAssignment_2 )
-            // InternalDrn.g:3212:3: rule__MaxHeigth__ValueAssignment_2
+             before(grammarAccess.getMaxHeightAccess().getValueAssignment_2()); 
+            // InternalDrn.g:3212:2: ( rule__MaxHeight__ValueAssignment_2 )
+            // InternalDrn.g:3212:3: rule__MaxHeight__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__MaxHeigth__ValueAssignment_2();
+            rule__MaxHeight__ValueAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMaxHeigthAccess().getValueAssignment_2()); 
+             after(grammarAccess.getMaxHeightAccess().getValueAssignment_2()); 
 
             }
 
@@ -10578,7 +10578,7 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__Group__2__Impl"
+    // $ANTLR end "rule__MaxHeight__Group__2__Impl"
 
 
     // $ANTLR start "rule__Assignement__Group__0"
@@ -31083,30 +31083,30 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__MaxSpeed__ValueAssignment_2"
 
 
-    // $ANTLR start "rule__MaxHeigth__NameAssignment_0"
-    // InternalDrn.g:10260:1: rule__MaxHeigth__NameAssignment_0 : ( ( 'maxHeigth' ) ) ;
-    public final void rule__MaxHeigth__NameAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__NameAssignment_0"
+    // InternalDrn.g:10260:1: rule__MaxHeight__NameAssignment_0 : ( ( 'maxHeight' ) ) ;
+    public final void rule__MaxHeight__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:10264:1: ( ( ( 'maxHeigth' ) ) )
-            // InternalDrn.g:10265:2: ( ( 'maxHeigth' ) )
+            // InternalDrn.g:10264:1: ( ( ( 'maxHeight' ) ) )
+            // InternalDrn.g:10265:2: ( ( 'maxHeight' ) )
             {
-            // InternalDrn.g:10265:2: ( ( 'maxHeigth' ) )
-            // InternalDrn.g:10266:3: ( 'maxHeigth' )
+            // InternalDrn.g:10265:2: ( ( 'maxHeight' ) )
+            // InternalDrn.g:10266:3: ( 'maxHeight' )
             {
-             before(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); 
-            // InternalDrn.g:10267:3: ( 'maxHeigth' )
-            // InternalDrn.g:10268:4: 'maxHeigth'
+             before(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); 
+            // InternalDrn.g:10267:3: ( 'maxHeight' )
+            // InternalDrn.g:10268:4: 'maxHeight'
             {
-             before(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); 
+             before(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); 
             match(input,58,FOLLOW_2); 
-             after(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); 
+             after(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); 
 
             }
 
-             after(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0()); 
+             after(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0()); 
 
             }
 
@@ -31125,12 +31125,12 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__NameAssignment_0"
+    // $ANTLR end "rule__MaxHeight__NameAssignment_0"
 
 
-    // $ANTLR start "rule__MaxHeigth__ValueAssignment_2"
-    // InternalDrn.g:10279:1: rule__MaxHeigth__ValueAssignment_2 : ( RULE_INT ) ;
-    public final void rule__MaxHeigth__ValueAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__MaxHeight__ValueAssignment_2"
+    // InternalDrn.g:10279:1: rule__MaxHeight__ValueAssignment_2 : ( RULE_INT ) ;
+    public final void rule__MaxHeight__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -31141,9 +31141,9 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
             // InternalDrn.g:10284:2: ( RULE_INT )
             // InternalDrn.g:10285:3: RULE_INT
             {
-             before(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0()); 
+             before(grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0()); 
             match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0()); 
+             after(grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0()); 
 
             }
 
@@ -31162,7 +31162,7 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MaxHeigth__ValueAssignment_2"
+    // $ANTLR end "rule__MaxHeight__ValueAssignment_2"
 
 
     // $ANTLR start "rule__Assignement__NameAssignment_0"

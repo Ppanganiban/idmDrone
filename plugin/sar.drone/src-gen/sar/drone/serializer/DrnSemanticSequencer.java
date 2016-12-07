@@ -42,12 +42,11 @@ import sar.drone.drn.LEFT;
 import sar.drone.drn.Land;
 import sar.drone.drn.LedBlink;
 import sar.drone.drn.Led_Impl;
-import sar.drone.drn.MaxHeigth;
+import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
 import sar.drone.drn.MaxSpeed;
 import sar.drone.drn.MaxWidth;
 import sar.drone.drn.Model;
-import sar.drone.drn.Parametre;
 import sar.drone.drn.RIGHT;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
@@ -154,8 +153,8 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DrnPackage.LED_IMPL:
 				sequence_Led_Impl(context, (Led_Impl) semanticObject); 
 				return; 
-			case DrnPackage.MAX_HEIGTH:
-				sequence_MaxHeigth(context, (MaxHeigth) semanticObject); 
+			case DrnPackage.MAX_HEIGHT:
+				sequence_MaxHeight(context, (MaxHeight) semanticObject); 
 				return; 
 			case DrnPackage.MAX_LENGTH:
 				sequence_MaxLength(context, (MaxLength) semanticObject); 
@@ -168,9 +167,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
-				return; 
-			case DrnPackage.PARAMETRE:
-				sequence_Parametre(context, (Parametre) semanticObject); 
 				return; 
 			case DrnPackage.RIGHT:
 				sequence_RIGHT(context, (RIGHT) semanticObject); 
@@ -787,14 +783,14 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Limit returns MaxHeigth
-	 *     Surface returns MaxHeigth
-	 *     MaxHeigth returns MaxHeigth
+	 *     Limit returns MaxHeight
+	 *     Surface returns MaxHeight
+	 *     MaxHeight returns MaxHeight
 	 *
 	 * Constraint:
-	 *     (name='maxHeigth' value=INT)
+	 *     (name='maxHeight' value=INT)
 	 */
-	protected void sequence_MaxHeigth(ISerializationContext context, MaxHeigth semanticObject) {
+	protected void sequence_MaxHeight(ISerializationContext context, MaxHeight semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.LIMIT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.LIMIT__NAME));
@@ -802,8 +798,8 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.SURFACE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -892,24 +888,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Parametre returns Parametre
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Parametre(ISerializationContext context, Parametre semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.PARAMETRE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.PARAMETRE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParametreAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

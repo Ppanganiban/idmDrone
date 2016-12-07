@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDrnParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'CONTEXT'", "'initialDirection'", "'positionX'", "'positionY'", "'maxLength'", "'maxWidth'", "'maxSpeed'", "'maxHeigth'", "'X'", "'('", "'then'", "')'", "'merge'", "','", "'forward'", "'distance'", "'temps'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'cercleXY'", "'rayon'", "'carreXY'", "'cote'", "'cercleYZ'", "'carreYZ'", "'cercleXZ'", "'carreXZ'", "'flip'", "'rotate'", "'angle'", "'wait'", "'takeoff'", "'land'", "'DEVICE'", "'type'", "'with'", "'mode'", "'attribute'", "'.'", "'led'", "'color'", "'ledBlink'", "'blink_per_sec'", "'camera'", "'id'", "'Type'", "'element'", "'-'", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'", "'TRUE'", "'FALSE'", "'FRONT'", "'BEHIND'", "'LEFT'", "'RIGHT'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MODEL'", "'{'", "'start'", "'='", "';'", "'}'", "'CONTEXT'", "'initialDirection'", "'positionX'", "'positionY'", "'maxLength'", "'maxWidth'", "'maxSpeed'", "'maxHeight'", "'X'", "'('", "'then'", "')'", "'merge'", "','", "'forward'", "'distance'", "'temps'", "'backward'", "'left'", "'right'", "'up'", "'down'", "'cercleXY'", "'rayon'", "'carreXY'", "'cote'", "'cercleYZ'", "'carreYZ'", "'cercleXZ'", "'carreXZ'", "'flip'", "'rotate'", "'angle'", "'wait'", "'takeoff'", "'land'", "'DEVICE'", "'type'", "'with'", "'mode'", "'attribute'", "'.'", "'led'", "'color'", "'ledBlink'", "'blink_per_sec'", "'camera'", "'id'", "'Type'", "'element'", "'-'", "'BLUE'", "'RED'", "'YELLOW'", "'GREEN'", "'WHITE'", "'OFF'", "'ON'", "'TRUE'", "'FALSE'", "'FRONT'", "'BEHIND'", "'LEFT'", "'RIGHT'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -914,11 +914,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSurface"
-    // InternalDrn.g:363:1: ruleSurface returns [EObject current=null] : (this_MaxHeigth_0= ruleMaxHeigth | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth ) ;
+    // InternalDrn.g:363:1: ruleSurface returns [EObject current=null] : (this_MaxHeight_0= ruleMaxHeight | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth ) ;
     public final EObject ruleSurface() throws RecognitionException {
         EObject current = null;
 
-        EObject this_MaxHeigth_0 = null;
+        EObject this_MaxHeight_0 = null;
 
         EObject this_MaxLength_1 = null;
 
@@ -929,10 +929,10 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:369:2: ( (this_MaxHeigth_0= ruleMaxHeigth | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth ) )
-            // InternalDrn.g:370:2: (this_MaxHeigth_0= ruleMaxHeigth | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth )
+            // InternalDrn.g:369:2: ( (this_MaxHeight_0= ruleMaxHeight | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth ) )
+            // InternalDrn.g:370:2: (this_MaxHeight_0= ruleMaxHeight | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth )
             {
-            // InternalDrn.g:370:2: (this_MaxHeigth_0= ruleMaxHeigth | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth )
+            // InternalDrn.g:370:2: (this_MaxHeight_0= ruleMaxHeight | this_MaxLength_1= ruleMaxLength | this_MaxWidth_2= ruleMaxWidth )
             int alt7=3;
             switch ( input.LA(1) ) {
             case 24:
@@ -959,18 +959,18 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalDrn.g:371:3: this_MaxHeigth_0= ruleMaxHeigth
+                    // InternalDrn.g:371:3: this_MaxHeight_0= ruleMaxHeight
                     {
 
-                    			newCompositeNode(grammarAccess.getSurfaceAccess().getMaxHeigthParserRuleCall_0());
+                    			newCompositeNode(grammarAccess.getSurfaceAccess().getMaxHeightParserRuleCall_0());
                     		
                     pushFollow(FOLLOW_2);
-                    this_MaxHeigth_0=ruleMaxHeigth();
+                    this_MaxHeight_0=ruleMaxHeight();
 
                     state._fsp--;
 
 
-                    			current = this_MaxHeigth_0;
+                    			current = this_MaxHeight_0;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1971,25 +1971,25 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleMaxSpeed"
 
 
-    // $ANTLR start "entryRuleMaxHeigth"
-    // InternalDrn.g:777:1: entryRuleMaxHeigth returns [EObject current=null] : iv_ruleMaxHeigth= ruleMaxHeigth EOF ;
-    public final EObject entryRuleMaxHeigth() throws RecognitionException {
+    // $ANTLR start "entryRuleMaxHeight"
+    // InternalDrn.g:777:1: entryRuleMaxHeight returns [EObject current=null] : iv_ruleMaxHeight= ruleMaxHeight EOF ;
+    public final EObject entryRuleMaxHeight() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMaxHeigth = null;
+        EObject iv_ruleMaxHeight = null;
 
 
         try {
-            // InternalDrn.g:777:50: (iv_ruleMaxHeigth= ruleMaxHeigth EOF )
-            // InternalDrn.g:778:2: iv_ruleMaxHeigth= ruleMaxHeigth EOF
+            // InternalDrn.g:777:50: (iv_ruleMaxHeight= ruleMaxHeight EOF )
+            // InternalDrn.g:778:2: iv_ruleMaxHeight= ruleMaxHeight EOF
             {
-             newCompositeNode(grammarAccess.getMaxHeigthRule()); 
+             newCompositeNode(grammarAccess.getMaxHeightRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleMaxHeigth=ruleMaxHeigth();
+            iv_ruleMaxHeight=ruleMaxHeight();
 
             state._fsp--;
 
-             current =iv_ruleMaxHeigth; 
+             current =iv_ruleMaxHeight; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2004,12 +2004,12 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleMaxHeigth"
+    // $ANTLR end "entryRuleMaxHeight"
 
 
-    // $ANTLR start "ruleMaxHeigth"
-    // InternalDrn.g:784:1: ruleMaxHeigth returns [EObject current=null] : ( ( (lv_name_0_0= 'maxHeigth' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
-    public final EObject ruleMaxHeigth() throws RecognitionException {
+    // $ANTLR start "ruleMaxHeight"
+    // InternalDrn.g:784:1: ruleMaxHeight returns [EObject current=null] : ( ( (lv_name_0_0= 'maxHeight' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
+    public final EObject ruleMaxHeight() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
@@ -2020,27 +2020,27 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDrn.g:790:2: ( ( ( (lv_name_0_0= 'maxHeigth' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
-            // InternalDrn.g:791:2: ( ( (lv_name_0_0= 'maxHeigth' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // InternalDrn.g:790:2: ( ( ( (lv_name_0_0= 'maxHeight' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
+            // InternalDrn.g:791:2: ( ( (lv_name_0_0= 'maxHeight' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
             {
-            // InternalDrn.g:791:2: ( ( (lv_name_0_0= 'maxHeigth' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
-            // InternalDrn.g:792:3: ( (lv_name_0_0= 'maxHeigth' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
+            // InternalDrn.g:791:2: ( ( (lv_name_0_0= 'maxHeight' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // InternalDrn.g:792:3: ( (lv_name_0_0= 'maxHeight' ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
             {
-            // InternalDrn.g:792:3: ( (lv_name_0_0= 'maxHeigth' ) )
-            // InternalDrn.g:793:4: (lv_name_0_0= 'maxHeigth' )
+            // InternalDrn.g:792:3: ( (lv_name_0_0= 'maxHeight' ) )
+            // InternalDrn.g:793:4: (lv_name_0_0= 'maxHeight' )
             {
-            // InternalDrn.g:793:4: (lv_name_0_0= 'maxHeigth' )
-            // InternalDrn.g:794:5: lv_name_0_0= 'maxHeigth'
+            // InternalDrn.g:793:4: (lv_name_0_0= 'maxHeight' )
+            // InternalDrn.g:794:5: lv_name_0_0= 'maxHeight'
             {
             lv_name_0_0=(Token)match(input,24,FOLLOW_6); 
 
-            					newLeafNode(lv_name_0_0, grammarAccess.getMaxHeigthAccess().getNameMaxHeigthKeyword_0_0());
+            					newLeafNode(lv_name_0_0, grammarAccess.getMaxHeightAccess().getNameMaxHeightKeyword_0_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMaxHeigthRule());
+            						current = createModelElement(grammarAccess.getMaxHeightRule());
             					}
-            					setWithLastConsumed(current, "name", lv_name_0_0, "maxHeigth");
+            					setWithLastConsumed(current, "name", lv_name_0_0, "maxHeight");
             				
 
             }
@@ -2050,7 +2050,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,14,FOLLOW_13); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getMaxHeigthAccess().getEqualsSignKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getMaxHeightAccess().getEqualsSignKeyword_1());
             		
             // InternalDrn.g:810:3: ( (lv_value_2_0= RULE_INT ) )
             // InternalDrn.g:811:4: (lv_value_2_0= RULE_INT )
@@ -2060,11 +2060,11 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             {
             lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
-            					newLeafNode(lv_value_2_0, grammarAccess.getMaxHeigthAccess().getValueINTTerminalRuleCall_2_0());
+            					newLeafNode(lv_value_2_0, grammarAccess.getMaxHeightAccess().getValueINTTerminalRuleCall_2_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getMaxHeigthRule());
+            						current = createModelElement(grammarAccess.getMaxHeightRule());
             					}
             					setWithLastConsumed(
             						current,
@@ -2097,7 +2097,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleMaxHeigth"
+    // $ANTLR end "ruleMaxHeight"
 
 
     // $ANTLR start "entryRuleAssignement"

@@ -42,7 +42,7 @@ import sar.drone.drn.Land;
 import sar.drone.drn.LedBlink;
 import sar.drone.drn.Led_Impl;
 import sar.drone.drn.Limit;
-import sar.drone.drn.MaxHeigth;
+import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
 import sar.drone.drn.MaxSpeed;
 import sar.drone.drn.MaxWidth;
@@ -50,7 +50,6 @@ import sar.drone.drn.Mode;
 import sar.drone.drn.Model;
 import sar.drone.drn.Movement;
 import sar.drone.drn.Option;
-import sar.drone.drn.Parametre;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
 import sar.drone.drn.Rotate;
@@ -150,7 +149,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass maxHeigthEClass = null;
+  private EClass maxHeightEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,13 +157,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * @generated
    */
   private EClass assignementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass parametreEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -782,9 +774,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMaxHeigth()
+  public EClass getMaxHeight()
   {
-    return maxHeigthEClass;
+    return maxHeightEClass;
   }
 
   /**
@@ -815,26 +807,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EReference getAssignement_Operandes()
   {
     return (EReference)assignementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getParametre()
-  {
-    return parametreEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getParametre_Name()
-  {
-    return (EAttribute)parametreEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2052,14 +2024,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     maxSpeedEClass = createEClass(MAX_SPEED);
     createEAttribute(maxSpeedEClass, MAX_SPEED__VALUE);
 
-    maxHeigthEClass = createEClass(MAX_HEIGTH);
+    maxHeightEClass = createEClass(MAX_HEIGHT);
 
     assignementEClass = createEClass(ASSIGNEMENT);
     createEAttribute(assignementEClass, ASSIGNEMENT__NAME);
     createEReference(assignementEClass, ASSIGNEMENT__OPERANDES);
-
-    parametreEClass = createEClass(PARAMETRE);
-    createEAttribute(parametreEClass, PARAMETRE__NAME);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__MOVE);
@@ -2256,7 +2225,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     maxLengthEClass.getESuperTypes().add(this.getSurface());
     maxWidthEClass.getESuperTypes().add(this.getSurface());
     maxSpeedEClass.getESuperTypes().add(this.getLimit());
-    maxHeigthEClass.getESuperTypes().add(this.getSurface());
+    maxHeightEClass.getESuperTypes().add(this.getSurface());
     refPartEClass.getESuperTypes().add(this.getMovement());
     andEClass.getESuperTypes().add(this.getMovement());
     depY_ImplEClass.getESuperTypes().add(this.getMovement());
@@ -2324,14 +2293,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEClass(maxSpeedEClass, MaxSpeed.class, "MaxSpeed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMaxSpeed_Value(), ecorePackage.getEInt(), "value", null, 0, 1, MaxSpeed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(maxHeigthEClass, MaxHeigth.class, "MaxHeigth", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(maxHeightEClass, MaxHeight.class, "MaxHeight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assignementEClass, Assignement.class, "Assignement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssignement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assignement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssignement_Operandes(), this.getExpression(), null, "operandes", null, 0, -1, Assignement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(parametreEClass, Parametre.class, "Parametre", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getParametre_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Move(), this.getMovement(), null, "move", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

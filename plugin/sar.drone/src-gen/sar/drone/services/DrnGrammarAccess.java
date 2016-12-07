@@ -201,19 +201,19 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	public class SurfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Surface");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMaxHeigthParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMaxHeightParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cMaxLengthParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cMaxWidthParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Surface:
-		//	MaxHeigth | MaxLength | MaxWidth;
+		//	MaxHeight | MaxLength | MaxWidth;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MaxHeigth | MaxLength | MaxWidth
+		//MaxHeight | MaxLength | MaxWidth
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//MaxHeigth
-		public RuleCall getMaxHeigthParserRuleCall_0() { return cMaxHeigthParserRuleCall_0; }
+		//MaxHeight
+		public RuleCall getMaxHeightParserRuleCall_0() { return cMaxHeightParserRuleCall_0; }
 		
 		//MaxLength
 		public RuleCall getMaxLengthParserRuleCall_1() { return cMaxLengthParserRuleCall_1; }
@@ -436,28 +436,28 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
 	}
-	public class MaxHeigthElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxHeigth");
+	public class MaxHeightElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MaxHeight");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameMaxHeigthKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cNameMaxHeightKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
-		//MaxHeigth:
-		//	name="maxHeigth"
+		//MaxHeight:
+		//	name="maxHeight"
 		//	'=' value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name="maxHeigth" '=' value=INT
+		//name="maxHeight" '=' value=INT
 		public Group getGroup() { return cGroup; }
 		
-		//name="maxHeigth"
+		//name="maxHeight"
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//"maxHeigth"
-		public Keyword getNameMaxHeigthKeyword_0_0() { return cNameMaxHeigthKeyword_0_0; }
+		//"maxHeight"
+		public Keyword getNameMaxHeightKeyword_0_0() { return cNameMaxHeightKeyword_0_0; }
 		
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -524,22 +524,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class ParametreElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Parametre");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//Parametre:
-		//	name=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//// Parametre:
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Expression");
@@ -2893,9 +2877,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final MaxLengthElements pMaxLength;
 	private final MaxWidthElements pMaxWidth;
 	private final MaxSpeedElements pMaxSpeed;
-	private final MaxHeigthElements pMaxHeigth;
+	private final MaxHeightElements pMaxHeight;
 	private final AssignementElements pAssignement;
-	private final ParametreElements pParametre;
 	private final ExpressionElements pExpression;
 	private final MovementElements pMovement;
 	private final RefPartElements pRefPart;
@@ -2962,9 +2945,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMaxLength = new MaxLengthElements();
 		this.pMaxWidth = new MaxWidthElements();
 		this.pMaxSpeed = new MaxSpeedElements();
-		this.pMaxHeigth = new MaxHeigthElements();
+		this.pMaxHeight = new MaxHeightElements();
 		this.pAssignement = new AssignementElements();
-		this.pParametre = new ParametreElements();
 		this.pExpression = new ExpressionElements();
 		this.pMovement = new MovementElements();
 		this.pRefPart = new RefPartElements();
@@ -3080,7 +3062,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Surface:
-	//	MaxHeigth | MaxLength | MaxWidth;
+	//	MaxHeight | MaxLength | MaxWidth;
 	public SurfaceElements getSurfaceAccess() {
 		return pSurface;
 	}
@@ -3165,15 +3147,15 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getMaxSpeedAccess().getRule();
 	}
 	
-	//MaxHeigth:
-	//	name="maxHeigth"
+	//MaxHeight:
+	//	name="maxHeight"
 	//	'=' value=INT;
-	public MaxHeigthElements getMaxHeigthAccess() {
-		return pMaxHeigth;
+	public MaxHeightElements getMaxHeightAccess() {
+		return pMaxHeight;
 	}
 	
-	public ParserRule getMaxHeigthRule() {
-		return getMaxHeigthAccess().getRule();
+	public ParserRule getMaxHeightRule() {
+		return getMaxHeightAccess().getRule();
 	}
 	
 	/// ******************* Alias ********************* / Assignement:
@@ -3186,16 +3168,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAssignementRule() {
 		return getAssignementAccess().getRule();
-	}
-	
-	//Parametre:
-	//	name=ID;
-	public ParametreElements getParametreAccess() {
-		return pParametre;
-	}
-	
-	public ParserRule getParametreRule() {
-		return getParametreAccess().getRule();
 	}
 	
 	/// ******************* Expression ********************* / Expression:

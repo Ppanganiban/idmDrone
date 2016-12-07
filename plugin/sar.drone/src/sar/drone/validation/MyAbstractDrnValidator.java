@@ -14,9 +14,18 @@ import com.google.common.base.Objects;
 
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
+import sar.drone.drn.CARREXY;
+import sar.drone.drn.CARREXZ;
+import sar.drone.drn.CARREYZ;
+import sar.drone.drn.CERCLEXY;
+import sar.drone.drn.CERCLEXZ;
+import sar.drone.drn.CERCLEYZ;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
+import sar.drone.drn.DepXY_IMPL;
+import sar.drone.drn.DepXZ_IMPL;
 import sar.drone.drn.DepX_Impl;
+import sar.drone.drn.DepYZ_IMPL;
 import sar.drone.drn.DepY_Impl;
 import sar.drone.drn.DepZ_Impl;
 import sar.drone.drn.DirectionType;
@@ -27,7 +36,7 @@ import sar.drone.drn.InitialPositionX;
 import sar.drone.drn.InitialPositionY;
 import sar.drone.drn.LEFT;
 import sar.drone.drn.Limit;
-import sar.drone.drn.MaxHeigth;
+import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
 import sar.drone.drn.MaxWidth;
 import sar.drone.drn.Model;
@@ -181,7 +190,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  int countD = 0;
 		  int maxWidth = -1;
 		  int maxLength = -1;
-		  int maxHeigth = -1;
+		  int MaxHeight = -1;
 		  DirectionType d = null;
 		  
 		  for (Limit l : ref.getLimit()){
@@ -225,9 +234,9 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  maxLength = ((MaxLength) l).getValue();
 				  MAXL = maxLength;
 			  }
-			  if (l instanceof MaxHeigth) {
-				  maxHeigth = ((MaxHeigth) l).getValue();
-				  MAXZ = maxHeigth;
+			  if (l instanceof MaxHeight) {
+				  MaxHeight = ((MaxHeight) l).getValue();
+				  MAXZ = MaxHeight;
 			  }
 		  }
 
@@ -269,12 +278,12 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  if(maxLength > 0 && y > maxLength){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Drone is out of length", ref, _get_1);
+		  	    	this.error("Drone is out of max length", ref, _get_1);
 			  }
 			  if(maxWidth > 0 && x > maxWidth){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Drone is out of width", ref, _get_1);
+		  	    	this.error("Drone is out of max width", ref, _get_1);
 			  }
 		  }
 	  }
@@ -329,14 +338,14 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 					  if(xCurr < 0 || xCurr > MAXW) {
 						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
 				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  	      adv.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 					  }
 				  
 				  if(MAXL > 0)
 					  if(yCurr < 0 || yCurr > MAXL) {
 						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
 				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  	      adv.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 					  }
 				  if(MAXZ > 0)
 					  if(zCurr < 0 || zCurr > MAXZ) {
@@ -360,10 +369,17 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  }
 
 	  static void checkDronePositionMovement(final Movement ref, MyAbstractDrnValidator adv) throws ReccException{
+	  	int angleTMP, l;
+		  
 		  if (ref instanceof Rotate){
 			  angleCurr = ((angleCurr + Integer.parseInt(((Rotate)ref).getAngleCST())) + 361) % 361;
 			  System.out.println(((Rotate) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 		  }
+
+		  else if(ref instanceof RefPart){
+			  MyAbstractDrnValidator.checkDonePositionRef((RefPart)ref, adv);
+		  }
+
 		  else if (ref instanceof DepZ_Impl) {
 			  if (ref instanceof DOWN) {
 				  zCurr -= ((DOWN)ref).getDistanceCST();			  
@@ -376,27 +392,33 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  if(xCurr < 0 || xCurr > MAXW) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  
 			  if(MAXL > 0)
 				  if(yCurr < 0 || yCurr > MAXL) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  if(MAXZ > 0)
-				  if(zCurr < 0 || zCurr > MAXZ) {
+				  if( zCurr > MAXZ) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
 			  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
+			  
+			  if( zCurr < 0) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_ZIMPL.getEStructuralFeatures();
+		  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  }
 			  System.out.println(((DepZ_Impl) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 
 		  }
 		  else if ( ref instanceof DepY_Impl){
-			  int angleTMP = angleCurr;
-			  int l = ((DepY_Impl) ref).getDistanceCST();
+		  	angleTMP = angleCurr;
+			  l = ((DepY_Impl) ref).getDistanceCST();
 			  
 			  if (ref instanceof BACKWARD)
 				  angleTMP = (180 + angleTMP) % 361 ;
@@ -408,14 +430,14 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  if(xCurr < 0 || xCurr > MAXW) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  
 			  if(MAXL > 0)
 				  if(yCurr < 0 || yCurr > MAXL) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_YIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  if(MAXZ > 0)
 				  if(zCurr < 0 || zCurr > MAXZ) {
@@ -427,8 +449,8 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 		  }
 		  else if(ref instanceof DepX_Impl){
-			  int angleTMP = angleCurr;
-			  int l = ((DepX_Impl) ref).getDistanceCST();
+			  angleTMP = angleCurr;
+			  l = ((DepX_Impl) ref).getDistanceCST();
 			  
 			  if (ref instanceof LEFT)
 				  angleTMP = (270 + angleTMP) % 361;
@@ -442,14 +464,14 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  if(xCurr < 0 || xCurr > MAXW) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  
 			  if(MAXL > 0)
 				  if(yCurr < 0 || yCurr > MAXL) {
 					  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.DEP_XIMPL.getEStructuralFeatures();
 			  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-			  	      adv.error("Drone is out of length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+			  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
 				  }
 			  if(MAXZ > 0)
 				  if(zCurr < 0 || zCurr > MAXZ) {
@@ -460,8 +482,452 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  System.out.println(((DepX_Impl) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 
 		  }
-		  else if(ref instanceof RefPart){
-			  MyAbstractDrnValidator.checkDonePositionRef((RefPart)ref, adv);
+		  else if (ref instanceof DepXY_IMPL) {
+
+		  	if( ref instanceof CARREXY){
+				  l = ((CARREXY) ref).getCoteCST();
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go forward
+				  xCurr = MyAbstractDrnValidator.calculX(angleCurr, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleCurr, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  
+				  //Go to the right
+				  angleTMP = (90 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+		  	
+		  	if( ref instanceof CERCLEXY){
+				  l = ((CERCLEXY) ref).getRayonCST()*2;
+
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go forward
+				  xCurr = MyAbstractDrnValidator.calculX(angleCurr, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleCurr, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  
+				  //Go to the right
+				  angleTMP = (90 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXY.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+			  System.out.println(((DepXY_IMPL) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
+
+		  }
+		  
+		  else if (ref instanceof DepXZ_IMPL) {
+
+		  	if( ref instanceof CARREXZ){
+				  l = ((CARREXZ) ref).getCoteCST();
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go UP
+				  zCurr += l;
+				  if(MAXZ > 0)
+					  if(zCurr < 0 || zCurr > MAXZ) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go to the right
+				  angleTMP = (90 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go DOWN
+				  zCurr -= l;
+				  
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+		  	
+		  	if( ref instanceof CERCLEXZ){
+				  l = ((CERCLEXZ) ref).getRayonCST() *2;
+				  
+				//Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go UP
+				  zCurr += l;
+				  if(MAXZ > 0)
+					  if(zCurr < 0 || zCurr > MAXZ) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go to the right
+				  angleTMP = (90 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  //Go DOWN
+				  zCurr -= l;
+				  
+				  //Go to the left
+				  angleTMP = (270 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREXZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+			  System.out.println(((DepXZ_IMPL) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
+
+		  }
+		  else if (ref instanceof DepYZ_IMPL){
+
+		  	if( ref instanceof CARREYZ){
+				  l = ((CARREYZ) ref).getCoteCST();
+				  
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go UP
+				  zCurr += l;
+				  if(MAXZ > 0)
+					  if(zCurr < 0 || zCurr > MAXZ) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.error("Drone is out of max height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go forward
+				  angleTMP = angleCurr;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go DOWN
+				  zCurr -= l;
+
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CARREYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+		  	
+		  	if( ref instanceof CERCLEYZ){
+				  l = ((CERCLEYZ) ref).getRayonCST()*2;
+				  
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go UP
+				  zCurr += l;
+				  if(MAXZ > 0)
+					  if(zCurr < 0 || zCurr > MAXZ) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go forward
+				  angleTMP = angleCurr;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+
+				  //Go DOWN
+				  zCurr -= l;
+
+				  //Go backward
+				  angleTMP = (180 + angleCurr) % 361;
+				  xCurr = MyAbstractDrnValidator.calculX(angleTMP, l/2, xCurr);
+				  yCurr = MyAbstractDrnValidator.calculY(angleTMP, l/2, yCurr);
+				  if(MAXW > 0)
+					  if(xCurr < 0 || xCurr > MAXW) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+				  if(MAXL > 0)
+					  if(yCurr < 0 || yCurr > MAXL) {
+						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CERCLEYZ.getEStructuralFeatures();
+				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  	      adv.warning("Drone can be out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+					  }
+		  	}
+			  System.out.println(((DepYZ_IMPL) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
+
 		  }
 	  }
 
@@ -477,9 +943,6 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  }
 	  }
 
-	  static void checkDronePositionMerge(){
-		  
-	  }
 
 	  static int calculX(int angle, int l , int x){
 		  return (int) (Math.sin(Math.toRadians(angle)) * l + x);
