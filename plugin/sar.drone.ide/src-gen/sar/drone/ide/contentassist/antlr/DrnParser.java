@@ -35,6 +35,7 @@ public class DrnParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getRootAccess().getAlternatives(), "rule__Root__Alternatives");
 					put(grammarAccess.getLimitAccess().getAlternatives(), "rule__Limit__Alternatives");
 					put(grammarAccess.getSurfaceAccess().getAlternatives(), "rule__Surface__Alternatives");
 					put(grammarAccess.getInitialPositionAccess().getAlternatives(), "rule__InitialPosition__Alternatives");
@@ -56,6 +57,9 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEBoolAccess().getAlternatives(), "rule__EBool__Alternatives");
 					put(grammarAccess.getDirectionTypeAccess().getAlternatives(), "rule__DirectionType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getModelAccess().getGroup_2(), "rule__Model__Group_2__0");
+					put(grammarAccess.getLibraryAccess().getGroup(), "rule__Library__Group__0");
+					put(grammarAccess.getLibraryAccess().getGroup_3(), "rule__Library__Group_3__0");
 					put(grammarAccess.getContextAccess().getGroup(), "rule__Context__Group__0");
 					put(grammarAccess.getContextAccess().getGroup_4(), "rule__Context__Group_4__0");
 					put(grammarAccess.getInitialDirectionAccess().getGroup(), "rule__InitialDirection__Group__0");
@@ -73,6 +77,7 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getGroup_1_2(), "rule__Expression__Group_1_2__0");
 					put(grammarAccess.getExpressionAccess().getGroup_1_3(), "rule__Expression__Group_1_3__0");
 					put(grammarAccess.getExpressionAccess().getGroup_1_5(), "rule__Expression__Group_1_5__0");
+					put(grammarAccess.getRefPartLibAccess().getGroup(), "rule__RefPartLib__Group__0");
 					put(grammarAccess.getAndAccess().getGroup(), "rule__And__Group__0");
 					put(grammarAccess.getAndAccess().getGroup_6(), "rule__And__Group_6__0");
 					put(grammarAccess.getFORWARDAccess().getGroup(), "rule__FORWARD__Group__0");
@@ -111,12 +116,20 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeGenericAccess().getGroup_4(), "rule__TypeGeneric__Group_4__0");
 					put(grammarAccess.getElementAccess().getGroup(), "rule__Element__Group__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
-					put(grammarAccess.getModelAccess().getContextAssignment_2(), "rule__Model__ContextAssignment_2");
-					put(grammarAccess.getModelAccess().getTypesAssignment_3(), "rule__Model__TypesAssignment_3");
-					put(grammarAccess.getModelAccess().getDevicesAssignment_4(), "rule__Model__DevicesAssignment_4");
-					put(grammarAccess.getModelAccess().getAssignementAssignment_5(), "rule__Model__AssignementAssignment_5");
+					put(grammarAccess.getModelAccess().getLibrariesAssignment_2_1(), "rule__Model__LibrariesAssignment_2_1");
+					put(grammarAccess.getModelAccess().getContextAssignment_3(), "rule__Model__ContextAssignment_3");
+					put(grammarAccess.getModelAccess().getTypesAssignment_4(), "rule__Model__TypesAssignment_4");
+					put(grammarAccess.getModelAccess().getDevicesAssignment_5(), "rule__Model__DevicesAssignment_5");
 					put(grammarAccess.getModelAccess().getAssignementAssignment_6(), "rule__Model__AssignementAssignment_6");
-					put(grammarAccess.getModelAccess().getMainAssignment_9(), "rule__Model__MainAssignment_9");
+					put(grammarAccess.getModelAccess().getAssignementAssignment_7(), "rule__Model__AssignementAssignment_7");
+					put(grammarAccess.getModelAccess().getMainAssignment_10(), "rule__Model__MainAssignment_10");
+					put(grammarAccess.getLibraryAccess().getNameAssignment_1(), "rule__Library__NameAssignment_1");
+					put(grammarAccess.getLibraryAccess().getLibrariesAssignment_3_1(), "rule__Library__LibrariesAssignment_3_1");
+					put(grammarAccess.getLibraryAccess().getContextAssignment_4(), "rule__Library__ContextAssignment_4");
+					put(grammarAccess.getLibraryAccess().getTypesAssignment_5(), "rule__Library__TypesAssignment_5");
+					put(grammarAccess.getLibraryAccess().getDevicesAssignment_6(), "rule__Library__DevicesAssignment_6");
+					put(grammarAccess.getLibraryAccess().getAssignementAssignment_7(), "rule__Library__AssignementAssignment_7");
+					put(grammarAccess.getLibraryAccess().getAssignementAssignment_8(), "rule__Library__AssignementAssignment_8");
 					put(grammarAccess.getContextAccess().getNameAssignment_0(), "rule__Context__NameAssignment_0");
 					put(grammarAccess.getContextAccess().getLimitAssignment_2(), "rule__Context__LimitAssignment_2");
 					put(grammarAccess.getContextAccess().getLimitAssignment_4_0(), "rule__Context__LimitAssignment_4_0");
@@ -146,6 +159,8 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getRepeatCSTAssignment_1_5_1(), "rule__Expression__RepeatCSTAssignment_1_5_1");
 					put(grammarAccess.getExpressionAccess().getWithAssignment_1_6(), "rule__Expression__WithAssignment_1_6");
 					put(grammarAccess.getRefPartAccess().getVariable_partieAssignment(), "rule__RefPart__Variable_partieAssignment");
+					put(grammarAccess.getRefPartLibAccess().getLibsAssignment_0(), "rule__RefPartLib__LibsAssignment_0");
+					put(grammarAccess.getRefPartLibAccess().getAssignementsAssignment_2(), "rule__RefPartLib__AssignementsAssignment_2");
 					put(grammarAccess.getAndAccess().getNameAssignment_1(), "rule__And__NameAssignment_1");
 					put(grammarAccess.getAndAccess().getRotateAssignment_3_0(), "rule__And__RotateAssignment_3_0");
 					put(grammarAccess.getAndAccess().getDepxAssignment_3_1(), "rule__And__DepxAssignment_3_1");
@@ -257,7 +272,7 @@ public class DrnParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalDrnParser typedParser = (InternalDrnParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleRoot();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

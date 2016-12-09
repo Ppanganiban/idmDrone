@@ -3,6 +3,7 @@
  */
 package sar.drone.scoping
 
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,4 +11,5 @@ package sar.drone.scoping
  * on how and when to use it.
  */
 class DrnScopeProvider extends MyAbstractDrnScopeProvider {
+	
 }

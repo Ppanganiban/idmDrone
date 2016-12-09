@@ -27,7 +27,7 @@ public class DrnParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Root";
 	}
 
 	public DrnGrammarAccess getGrammarAccess() {

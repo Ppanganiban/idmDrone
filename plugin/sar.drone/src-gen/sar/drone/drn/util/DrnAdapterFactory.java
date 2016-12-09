@@ -76,9 +76,19 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
     new DrnSwitch<Adapter>()
     {
       @Override
+      public Adapter caseRoot(Root object)
+      {
+        return createRootAdapter();
+      }
+      @Override
       public Adapter caseModel(Model object)
       {
         return createModelAdapter();
+      }
+      @Override
+      public Adapter caseLibrary(Library object)
+      {
+        return createLibraryAdapter();
       }
       @Override
       public Adapter caseContext(Context object)
@@ -154,6 +164,11 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRefPart(RefPart object)
       {
         return createRefPartAdapter();
+      }
+      @Override
+      public Adapter caseRefPartLib(RefPartLib object)
+      {
+        return createRefPartLibAdapter();
       }
       @Override
       public Adapter caseAnd(And object)
@@ -363,6 +378,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
 
 
   /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Root <em>Root</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Root
+   * @generated
+   */
+  public Adapter createRootAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link sar.drone.drn.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -373,6 +403,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Library <em>Library</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Library
+   * @generated
+   */
+  public Adapter createLibraryAdapter()
   {
     return null;
   }
@@ -598,6 +643,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRefPartAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.RefPartLib <em>Ref Part Lib</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.RefPartLib
+   * @generated
+   */
+  public Adapter createRefPartLibAdapter()
   {
     return null;
   }

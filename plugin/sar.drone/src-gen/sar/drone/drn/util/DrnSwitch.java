@@ -73,10 +73,26 @@ public class DrnSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case DrnPackage.ROOT:
+      {
+        Root root = (Root)theEObject;
+        T result = caseRoot(root);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DrnPackage.MODEL:
       {
         Model model = (Model)theEObject;
         T result = caseModel(model);
+        if (result == null) result = caseRoot(model);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.LIBRARY:
+      {
+        Library library = (Library)theEObject;
+        T result = caseLibrary(library);
+        if (result == null) result = caseRoot(library);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -198,6 +214,14 @@ public class DrnSwitch<T> extends Switch<T>
         RefPart refPart = (RefPart)theEObject;
         T result = caseRefPart(refPart);
         if (result == null) result = caseMovement(refPart);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.REF_PART_LIB:
+      {
+        RefPartLib refPartLib = (RefPartLib)theEObject;
+        T result = caseRefPartLib(refPartLib);
+        if (result == null) result = caseMovement(refPartLib);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -507,6 +531,22 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoot(Root object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -518,6 +558,22 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Library</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Library</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLibrary(Library object)
   {
     return null;
   }
@@ -758,6 +814,22 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRefPart(RefPart object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Part Lib</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Part Lib</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefPartLib(RefPartLib object)
   {
     return null;
   }

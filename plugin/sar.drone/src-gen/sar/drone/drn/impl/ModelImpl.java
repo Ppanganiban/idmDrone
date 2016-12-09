@@ -3,29 +3,17 @@
  */
 package sar.drone.drn.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import sar.drone.drn.Assignement;
-import sar.drone.drn.Context;
-import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Model;
 import sar.drone.drn.RefPart;
-import sar.drone.drn.TypeGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,57 +23,13 @@ import sar.drone.drn.TypeGeneric;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.ModelImpl#getContext <em>Context</em>}</li>
- *   <li>{@link sar.drone.drn.impl.ModelImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link sar.drone.drn.impl.ModelImpl#getDevices <em>Devices</em>}</li>
- *   <li>{@link sar.drone.drn.impl.ModelImpl#getAssignement <em>Assignement</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class ModelImpl extends RootImpl implements Model
 {
-  /**
-   * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContext()
-   * @generated
-   * @ordered
-   */
-  protected Context context;
-
-  /**
-   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypes()
-   * @generated
-   * @ordered
-   */
-  protected EList<TypeGeneric> types;
-
-  /**
-   * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDevices()
-   * @generated
-   * @ordered
-   */
-  protected EList<Device> devices;
-
-  /**
-   * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssignement()
-   * @generated
-   * @ordered
-   */
-  protected EList<Assignement> assignement;
-
   /**
    * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -115,96 +59,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.MODEL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Context getContext()
-  {
-    return context;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContext(Context newContext, NotificationChain msgs)
-  {
-    Context oldContext = context;
-    context = newContext;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DrnPackage.MODEL__CONTEXT, oldContext, newContext);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContext(Context newContext)
-  {
-    if (newContext != context)
-    {
-      NotificationChain msgs = null;
-      if (context != null)
-        msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DrnPackage.MODEL__CONTEXT, null, msgs);
-      if (newContext != null)
-        msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DrnPackage.MODEL__CONTEXT, null, msgs);
-      msgs = basicSetContext(newContext, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.MODEL__CONTEXT, newContext, newContext));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<TypeGeneric> getTypes()
-  {
-    if (types == null)
-    {
-      types = new EObjectContainmentEList<TypeGeneric>(TypeGeneric.class, this, DrnPackage.MODEL__TYPES);
-    }
-    return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Device> getDevices()
-  {
-    if (devices == null)
-    {
-      devices = new EObjectContainmentEList<Device>(Device.class, this, DrnPackage.MODEL__DEVICES);
-    }
-    return devices;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Assignement> getAssignement()
-  {
-    if (assignement == null)
-    {
-      assignement = new EObjectContainmentEList<Assignement>(Assignement.class, this, DrnPackage.MODEL__ASSIGNEMENT);
-    }
-    return assignement;
   }
 
   /**
@@ -265,14 +119,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DrnPackage.MODEL__CONTEXT:
-        return basicSetContext(null, msgs);
-      case DrnPackage.MODEL__TYPES:
-        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-      case DrnPackage.MODEL__DEVICES:
-        return ((InternalEList<?>)getDevices()).basicRemove(otherEnd, msgs);
-      case DrnPackage.MODEL__ASSIGNEMENT:
-        return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
       case DrnPackage.MODEL__MAIN:
         return basicSetMain(null, msgs);
     }
@@ -289,14 +135,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DrnPackage.MODEL__CONTEXT:
-        return getContext();
-      case DrnPackage.MODEL__TYPES:
-        return getTypes();
-      case DrnPackage.MODEL__DEVICES:
-        return getDevices();
-      case DrnPackage.MODEL__ASSIGNEMENT:
-        return getAssignement();
       case DrnPackage.MODEL__MAIN:
         return getMain();
     }
@@ -308,27 +146,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DrnPackage.MODEL__CONTEXT:
-        setContext((Context)newValue);
-        return;
-      case DrnPackage.MODEL__TYPES:
-        getTypes().clear();
-        getTypes().addAll((Collection<? extends TypeGeneric>)newValue);
-        return;
-      case DrnPackage.MODEL__DEVICES:
-        getDevices().clear();
-        getDevices().addAll((Collection<? extends Device>)newValue);
-        return;
-      case DrnPackage.MODEL__ASSIGNEMENT:
-        getAssignement().clear();
-        getAssignement().addAll((Collection<? extends Assignement>)newValue);
-        return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)newValue);
         return;
@@ -346,18 +168,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DrnPackage.MODEL__CONTEXT:
-        setContext((Context)null);
-        return;
-      case DrnPackage.MODEL__TYPES:
-        getTypes().clear();
-        return;
-      case DrnPackage.MODEL__DEVICES:
-        getDevices().clear();
-        return;
-      case DrnPackage.MODEL__ASSIGNEMENT:
-        getAssignement().clear();
-        return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)null);
         return;
@@ -375,14 +185,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DrnPackage.MODEL__CONTEXT:
-        return context != null;
-      case DrnPackage.MODEL__TYPES:
-        return types != null && !types.isEmpty();
-      case DrnPackage.MODEL__DEVICES:
-        return devices != null && !devices.isEmpty();
-      case DrnPackage.MODEL__ASSIGNEMENT:
-        return assignement != null && !assignement.isEmpty();
       case DrnPackage.MODEL__MAIN:
         return main != null;
     }

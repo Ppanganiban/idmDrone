@@ -24,6 +24,15 @@ public interface DrnFactory extends EFactory
   DrnFactory eINSTANCE = sar.drone.drn.impl.DrnFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Root</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Root</em>'.
+   * @generated
+   */
+  Root createRoot();
+
+  /**
    * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -31,6 +40,15 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   Model createModel();
+
+  /**
+   * Returns a new object of class '<em>Library</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Library</em>'.
+   * @generated
+   */
+  Library createLibrary();
 
   /**
    * Returns a new object of class '<em>Context</em>'.
@@ -166,6 +184,15 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   RefPart createRefPart();
+
+  /**
+   * Returns a new object of class '<em>Ref Part Lib</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Part Lib</em>'.
+   * @generated
+   */
+  RefPartLib createRefPartLib();
 
   /**
    * Returns a new object of class '<em>And</em>'.

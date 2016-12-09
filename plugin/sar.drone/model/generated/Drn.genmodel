@@ -27,12 +27,18 @@
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/RIGHT"/>
     </genEnums>
+    <genClasses ecoreClass="Drn.ecore#//Root">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/libraries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/devices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/assignement"/>
+    </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/context"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/types"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/devices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/assignement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/main"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Library">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Library/name"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Context">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Context/name"/>
@@ -73,6 +79,10 @@
     <genClasses ecoreClass="Drn.ecore#//Movement"/>
     <genClasses ecoreClass="Drn.ecore#//RefPart">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPart/variable_partie"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//RefPartLib">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/libs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/assignements"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//And">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//And/name"/>

@@ -26,31 +26,55 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class RootElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Root");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLibraryParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cModelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Root:
+		//	Library | Model;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Library | Model
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Library
+		public RuleCall getLibraryParserRuleCall_0() { return cLibraryParserRuleCall_0; }
+		
+		//Model
+		public RuleCall getModelParserRuleCall_1() { return cModelParserRuleCall_1; }
+	}
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMODELKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cCHOREOGRAPHYKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cContextAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cContextContextParserRuleCall_2_0 = (RuleCall)cContextAssignment_2.eContents().get(0);
-		private final Assignment cTypesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTypesTypeGenericParserRuleCall_3_0 = (RuleCall)cTypesAssignment_3.eContents().get(0);
-		private final Assignment cDevicesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDevicesDeviceParserRuleCall_4_0 = (RuleCall)cDevicesAssignment_4.eContents().get(0);
-		private final Assignment cAssignementAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAssignementAssignementParserRuleCall_5_0 = (RuleCall)cAssignementAssignment_5.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cImportKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cLibrariesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cLibrariesLibraryCrossReference_2_1_0 = (CrossReference)cLibrariesAssignment_2_1.eContents().get(0);
+		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_2_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cContextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cContextContextParserRuleCall_3_0 = (RuleCall)cContextAssignment_3.eContents().get(0);
+		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypesTypeGenericParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
+		private final Assignment cDevicesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDevicesDeviceParserRuleCall_5_0 = (RuleCall)cDevicesAssignment_5.eContents().get(0);
 		private final Assignment cAssignementAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cAssignementAssignementParserRuleCall_6_0 = (RuleCall)cAssignementAssignment_6.eContents().get(0);
-		private final Keyword cStartKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cEqualsSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cMainAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cMainRefPartParserRuleCall_9_0 = (RuleCall)cMainAssignment_9.eContents().get(0);
-		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
+		private final Keyword cStartKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cEqualsSignKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cMainAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cMainRefPartParserRuleCall_10_0 = (RuleCall)cMainAssignment_10.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//Model:
-		//	'MODEL'
-		//	'{'
+		//	'CHOREOGRAPHY'
+		//	'{' ('import' libraries+=[Library])*
 		//	context=Context?
 		//	types+=TypeGeneric*
 		//	devices+=Device*
@@ -59,63 +83,176 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MODEL' '{' context=Context? types+=TypeGeneric* devices+=Device* assignement+=Assignement assignement+=Assignement*
-		//'start' '=' main=RefPart ';' '}'
+		//'CHOREOGRAPHY' '{' ('import' libraries+=[Library])* context=Context? types+=TypeGeneric* devices+=Device*
+		//assignement+=Assignement assignement+=Assignement* 'start' '=' main=RefPart ';' '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'MODEL'
-		public Keyword getMODELKeyword_0() { return cMODELKeyword_0; }
+		//'CHOREOGRAPHY'
+		public Keyword getCHOREOGRAPHYKeyword_0() { return cCHOREOGRAPHYKeyword_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//('import' libraries+=[Library])*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'import'
+		public Keyword getImportKeyword_2_0() { return cImportKeyword_2_0; }
+		
+		//libraries+=[Library]
+		public Assignment getLibrariesAssignment_2_1() { return cLibrariesAssignment_2_1; }
+		
+		//[Library]
+		public CrossReference getLibrariesLibraryCrossReference_2_1_0() { return cLibrariesLibraryCrossReference_2_1_0; }
+		
+		//ID
+		public RuleCall getLibrariesLibraryIDTerminalRuleCall_2_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_2_1_0_1; }
+		
 		//context=Context?
-		public Assignment getContextAssignment_2() { return cContextAssignment_2; }
+		public Assignment getContextAssignment_3() { return cContextAssignment_3; }
 		
 		//Context
-		public RuleCall getContextContextParserRuleCall_2_0() { return cContextContextParserRuleCall_2_0; }
+		public RuleCall getContextContextParserRuleCall_3_0() { return cContextContextParserRuleCall_3_0; }
 		
 		//types+=TypeGeneric*
-		public Assignment getTypesAssignment_3() { return cTypesAssignment_3; }
+		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
 		
 		//TypeGeneric
-		public RuleCall getTypesTypeGenericParserRuleCall_3_0() { return cTypesTypeGenericParserRuleCall_3_0; }
+		public RuleCall getTypesTypeGenericParserRuleCall_4_0() { return cTypesTypeGenericParserRuleCall_4_0; }
 		
 		//devices+=Device*
-		public Assignment getDevicesAssignment_4() { return cDevicesAssignment_4; }
+		public Assignment getDevicesAssignment_5() { return cDevicesAssignment_5; }
 		
 		//Device
-		public RuleCall getDevicesDeviceParserRuleCall_4_0() { return cDevicesDeviceParserRuleCall_4_0; }
+		public RuleCall getDevicesDeviceParserRuleCall_5_0() { return cDevicesDeviceParserRuleCall_5_0; }
 		
 		//assignement+=Assignement
-		public Assignment getAssignementAssignment_5() { return cAssignementAssignment_5; }
-		
-		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_5_0() { return cAssignementAssignementParserRuleCall_5_0; }
-		
-		//assignement+=Assignement*
 		public Assignment getAssignementAssignment_6() { return cAssignementAssignment_6; }
 		
 		//Assignement
 		public RuleCall getAssignementAssignementParserRuleCall_6_0() { return cAssignementAssignementParserRuleCall_6_0; }
 		
+		//assignement+=Assignement*
+		public Assignment getAssignementAssignment_7() { return cAssignementAssignment_7; }
+		
+		//Assignement
+		public RuleCall getAssignementAssignementParserRuleCall_7_0() { return cAssignementAssignementParserRuleCall_7_0; }
+		
 		//'start'
-		public Keyword getStartKeyword_7() { return cStartKeyword_7; }
+		public Keyword getStartKeyword_8() { return cStartKeyword_8; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_8() { return cEqualsSignKeyword_8; }
+		public Keyword getEqualsSignKeyword_9() { return cEqualsSignKeyword_9; }
 		
 		//main=RefPart
-		public Assignment getMainAssignment_9() { return cMainAssignment_9; }
+		public Assignment getMainAssignment_10() { return cMainAssignment_10; }
 		
 		//RefPart
-		public RuleCall getMainRefPartParserRuleCall_9_0() { return cMainRefPartParserRuleCall_9_0; }
+		public RuleCall getMainRefPartParserRuleCall_10_0() { return cMainRefPartParserRuleCall_10_0; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
+		public Keyword getSemicolonKeyword_11() { return cSemicolonKeyword_11; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+	public class LibraryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Library");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLIBRARYKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cImportKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cLibrariesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cLibrariesLibraryCrossReference_3_1_0 = (CrossReference)cLibrariesAssignment_3_1.eContents().get(0);
+		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_3_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cContextAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cContextContextParserRuleCall_4_0 = (RuleCall)cContextAssignment_4.eContents().get(0);
+		private final Assignment cTypesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTypesTypeGenericParserRuleCall_5_0 = (RuleCall)cTypesAssignment_5.eContents().get(0);
+		private final Assignment cDevicesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDevicesDeviceParserRuleCall_6_0 = (RuleCall)cDevicesAssignment_6.eContents().get(0);
+		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
+		private final Assignment cAssignementAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cAssignementAssignementParserRuleCall_8_0 = (RuleCall)cAssignementAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//Library:
+		//	'LIBRARY' name=ID
+		//	'{' ('import' libraries+=[Library])*
+		//	context=Context?
+		//	types+=TypeGeneric*
+		//	devices+=Device*
+		//	assignement+=Assignement assignement+=Assignement*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'LIBRARY' name=ID '{' ('import' libraries+=[Library])* context=Context? types+=TypeGeneric* devices+=Device*
+		//assignement+=Assignement assignement+=Assignement* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'LIBRARY'
+		public Keyword getLIBRARYKeyword_0() { return cLIBRARYKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('import' libraries+=[Library])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'import'
+		public Keyword getImportKeyword_3_0() { return cImportKeyword_3_0; }
+		
+		//libraries+=[Library]
+		public Assignment getLibrariesAssignment_3_1() { return cLibrariesAssignment_3_1; }
+		
+		//[Library]
+		public CrossReference getLibrariesLibraryCrossReference_3_1_0() { return cLibrariesLibraryCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getLibrariesLibraryIDTerminalRuleCall_3_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_3_1_0_1; }
+		
+		//context=Context?
+		public Assignment getContextAssignment_4() { return cContextAssignment_4; }
+		
+		//Context
+		public RuleCall getContextContextParserRuleCall_4_0() { return cContextContextParserRuleCall_4_0; }
+		
+		//types+=TypeGeneric*
+		public Assignment getTypesAssignment_5() { return cTypesAssignment_5; }
+		
+		//TypeGeneric
+		public RuleCall getTypesTypeGenericParserRuleCall_5_0() { return cTypesTypeGenericParserRuleCall_5_0; }
+		
+		//devices+=Device*
+		public Assignment getDevicesAssignment_6() { return cDevicesAssignment_6; }
+		
+		//Device
+		public RuleCall getDevicesDeviceParserRuleCall_6_0() { return cDevicesDeviceParserRuleCall_6_0; }
+		
+		//assignement+=Assignement
+		public Assignment getAssignementAssignment_7() { return cAssignementAssignment_7; }
+		
+		//Assignement
+		public RuleCall getAssignementAssignementParserRuleCall_7_0() { return cAssignementAssignementParserRuleCall_7_0; }
+		
+		//assignement+=Assignement*
+		public Assignment getAssignementAssignment_8() { return cAssignementAssignment_8; }
+		
+		//Assignement
+		public RuleCall getAssignementAssignementParserRuleCall_8_0() { return cAssignementAssignementParserRuleCall_8_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class ContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Context");
@@ -655,25 +792,26 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cAndParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRefPartParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDepX_ImplParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDepY_ImplParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDepZ_ImplParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cDepXY_IMPLParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cDepXZ_IMPLParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cDepYZ_IMPLParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cDepXYZ_IMPLParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cTakeOffParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cWaitParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cRotateParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cLandParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cRefPartLibParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDepX_ImplParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDepY_ImplParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDepZ_ImplParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cDepXY_IMPLParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cDepXZ_IMPLParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cDepYZ_IMPLParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cDepXYZ_IMPLParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cTakeOffParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cWaitParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cRotateParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cLandParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		
 		//Movement:
-		//	And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
-		//	Wait | Rotate | Land;
+		//	And | RefPart | RefPartLib | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL |
+		//	TakeOff | Wait | Rotate | Land;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff | Wait
-		//| Rotate | Land
+		//And | RefPart | RefPartLib | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL |
+		//TakeOff | Wait | Rotate | Land
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//And
@@ -682,38 +820,41 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//RefPart
 		public RuleCall getRefPartParserRuleCall_1() { return cRefPartParserRuleCall_1; }
 		
+		//RefPartLib
+		public RuleCall getRefPartLibParserRuleCall_2() { return cRefPartLibParserRuleCall_2; }
+		
 		//DepX_Impl
-		public RuleCall getDepX_ImplParserRuleCall_2() { return cDepX_ImplParserRuleCall_2; }
+		public RuleCall getDepX_ImplParserRuleCall_3() { return cDepX_ImplParserRuleCall_3; }
 		
 		//DepY_Impl
-		public RuleCall getDepY_ImplParserRuleCall_3() { return cDepY_ImplParserRuleCall_3; }
+		public RuleCall getDepY_ImplParserRuleCall_4() { return cDepY_ImplParserRuleCall_4; }
 		
 		//DepZ_Impl
-		public RuleCall getDepZ_ImplParserRuleCall_4() { return cDepZ_ImplParserRuleCall_4; }
+		public RuleCall getDepZ_ImplParserRuleCall_5() { return cDepZ_ImplParserRuleCall_5; }
 		
 		//DepXY_IMPL
-		public RuleCall getDepXY_IMPLParserRuleCall_5() { return cDepXY_IMPLParserRuleCall_5; }
+		public RuleCall getDepXY_IMPLParserRuleCall_6() { return cDepXY_IMPLParserRuleCall_6; }
 		
 		//DepXZ_IMPL
-		public RuleCall getDepXZ_IMPLParserRuleCall_6() { return cDepXZ_IMPLParserRuleCall_6; }
+		public RuleCall getDepXZ_IMPLParserRuleCall_7() { return cDepXZ_IMPLParserRuleCall_7; }
 		
 		//DepYZ_IMPL
-		public RuleCall getDepYZ_IMPLParserRuleCall_7() { return cDepYZ_IMPLParserRuleCall_7; }
+		public RuleCall getDepYZ_IMPLParserRuleCall_8() { return cDepYZ_IMPLParserRuleCall_8; }
 		
 		//DepXYZ_IMPL
-		public RuleCall getDepXYZ_IMPLParserRuleCall_8() { return cDepXYZ_IMPLParserRuleCall_8; }
+		public RuleCall getDepXYZ_IMPLParserRuleCall_9() { return cDepXYZ_IMPLParserRuleCall_9; }
 		
 		//TakeOff
-		public RuleCall getTakeOffParserRuleCall_9() { return cTakeOffParserRuleCall_9; }
+		public RuleCall getTakeOffParserRuleCall_10() { return cTakeOffParserRuleCall_10; }
 		
 		//Wait
-		public RuleCall getWaitParserRuleCall_10() { return cWaitParserRuleCall_10; }
+		public RuleCall getWaitParserRuleCall_11() { return cWaitParserRuleCall_11; }
 		
 		//Rotate
-		public RuleCall getRotateParserRuleCall_11() { return cRotateParserRuleCall_11; }
+		public RuleCall getRotateParserRuleCall_12() { return cRotateParserRuleCall_12; }
 		
 		//Land
-		public RuleCall getLandParserRuleCall_12() { return cLandParserRuleCall_12; }
+		public RuleCall getLandParserRuleCall_13() { return cLandParserRuleCall_13; }
 	}
 	public class RefPartElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefPart");
@@ -733,6 +874,45 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getVariable_partieAssignementIDTerminalRuleCall_0_1() { return cVariable_partieAssignementIDTerminalRuleCall_0_1; }
+	}
+	public class RefPartLibElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefPartLib");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLibsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cLibsLibraryCrossReference_0_0 = (CrossReference)cLibsAssignment_0.eContents().get(0);
+		private final RuleCall cLibsLibraryIDTerminalRuleCall_0_0_1 = (RuleCall)cLibsLibraryCrossReference_0_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAssignementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cAssignementsAssignementCrossReference_2_0 = (CrossReference)cAssignementsAssignment_2.eContents().get(0);
+		private final RuleCall cAssignementsAssignementIDTerminalRuleCall_2_0_1 = (RuleCall)cAssignementsAssignementCrossReference_2_0.eContents().get(1);
+		
+		//RefPartLib:
+		//	libs=[Library] '.' assignements=[Assignement];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//libs=[Library] '.' assignements=[Assignement]
+		public Group getGroup() { return cGroup; }
+		
+		//libs=[Library]
+		public Assignment getLibsAssignment_0() { return cLibsAssignment_0; }
+		
+		//[Library]
+		public CrossReference getLibsLibraryCrossReference_0_0() { return cLibsLibraryCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getLibsLibraryIDTerminalRuleCall_0_0_1() { return cLibsLibraryIDTerminalRuleCall_0_0_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		
+		//assignements=[Assignement]
+		public Assignment getAssignementsAssignment_2() { return cAssignementsAssignment_2; }
+		
+		//[Assignement]
+		public CrossReference getAssignementsAssignementCrossReference_2_0() { return cAssignementsAssignementCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getAssignementsAssignementIDTerminalRuleCall_2_0_1() { return cAssignementsAssignementIDTerminalRuleCall_2_0_1; }
 	}
 	public class AndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.And");
@@ -2866,7 +3046,9 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRIGHTRIGHTKeyword_3_0() { return cRIGHTRIGHTKeyword_3_0; }
 	}
 	
+	private final RootElements pRoot;
 	private final ModelElements pModel;
+	private final LibraryElements pLibrary;
 	private final ContextElements pContext;
 	private final LimitElements pLimit;
 	private final SurfaceElements pSurface;
@@ -2882,6 +3064,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final ExpressionElements pExpression;
 	private final MovementElements pMovement;
 	private final RefPartElements pRefPart;
+	private final RefPartLibElements pRefPartLib;
 	private final AndElements pAnd;
 	private final DepY_ImplElements pDepY_Impl;
 	private final FORWARDElements pFORWARD;
@@ -2934,7 +3117,9 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pRoot = new RootElements();
 		this.pModel = new ModelElements();
+		this.pLibrary = new LibraryElements();
 		this.pContext = new ContextElements();
 		this.pLimit = new LimitElements();
 		this.pSurface = new SurfaceElements();
@@ -2950,6 +3135,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExpression = new ExpressionElements();
 		this.pMovement = new MovementElements();
 		this.pRefPart = new RefPartElements();
+		this.pRefPartLib = new RefPartLibElements();
 		this.pAnd = new AndElements();
 		this.pDepY_Impl = new DepY_ImplElements();
 		this.pFORWARD = new FORWARDElements();
@@ -3021,9 +3207,19 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//Root:
+	//	Library | Model;
+	public RootElements getRootAccess() {
+		return pRoot;
+	}
+	
+	public ParserRule getRootRule() {
+		return getRootAccess().getRule();
+	}
+	
 	//Model:
-	//	'MODEL'
-	//	'{'
+	//	'CHOREOGRAPHY'
+	//	'{' ('import' libraries+=[Library])*
 	//	context=Context?
 	//	types+=TypeGeneric*
 	//	devices+=Device*
@@ -3036,6 +3232,22 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
+	}
+	
+	//Library:
+	//	'LIBRARY' name=ID
+	//	'{' ('import' libraries+=[Library])*
+	//	context=Context?
+	//	types+=TypeGeneric*
+	//	devices+=Device*
+	//	assignement+=Assignement assignement+=Assignement*
+	//	'}';
+	public LibraryElements getLibraryAccess() {
+		return pLibrary;
+	}
+	
+	public ParserRule getLibraryRule() {
+		return getLibraryAccess().getRule();
 	}
 	
 	/// ******************* Contexte ********************* / Context:
@@ -3182,8 +3394,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Movement:
-	//	And | RefPart | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL | TakeOff |
-	//	Wait | Rotate | Land;
+	//	And | RefPart | RefPartLib | DepX_Impl | DepY_Impl | DepZ_Impl | DepXY_IMPL | DepXZ_IMPL | DepYZ_IMPL | DepXYZ_IMPL |
+	//	TakeOff | Wait | Rotate | Land;
 	public MovementElements getMovementAccess() {
 		return pMovement;
 	}
@@ -3200,6 +3412,16 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRefPartRule() {
 		return getRefPartAccess().getRule();
+	}
+	
+	//RefPartLib:
+	//	libs=[Library] '.' assignements=[Assignement];
+	public RefPartLibElements getRefPartLibAccess() {
+		return pRefPartLib;
+	}
+	
+	public ParserRule getRefPartLibRule() {
+		return getRefPartLibAccess().getRule();
 	}
 	
 	//And:

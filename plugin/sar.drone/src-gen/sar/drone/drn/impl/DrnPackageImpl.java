@@ -41,6 +41,7 @@ import sar.drone.drn.InitialPositionY;
 import sar.drone.drn.Land;
 import sar.drone.drn.LedBlink;
 import sar.drone.drn.Led_Impl;
+import sar.drone.drn.Library;
 import sar.drone.drn.Limit;
 import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
@@ -52,6 +53,8 @@ import sar.drone.drn.Movement;
 import sar.drone.drn.Option;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
+import sar.drone.drn.RefPartLib;
+import sar.drone.drn.Root;
 import sar.drone.drn.Rotate;
 import sar.drone.drn.Surface;
 import sar.drone.drn.TakeOff;
@@ -72,7 +75,21 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass rootEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass libraryEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -178,6 +195,13 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * @generated
    */
   private EClass refPartEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass refPartLibEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -534,6 +558,66 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRoot()
+  {
+    return rootEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_Libraries()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_Context()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_Types()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_Devices()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoot_Assignement()
+  {
+    return (EReference)rootEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getModel()
   {
     return modelEClass;
@@ -544,7 +628,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Context()
+  public EReference getModel_Main()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -554,9 +638,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Types()
+  public EClass getLibrary()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return libraryEClass;
   }
 
   /**
@@ -564,29 +648,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Devices()
+  public EAttribute getLibrary_Name()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getModel_Assignement()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getModel_Main()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)libraryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -887,6 +951,36 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EReference getRefPart_Variable_partie()
   {
     return (EReference)refPartEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRefPartLib()
+  {
+    return refPartLibEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRefPartLib_Libs()
+  {
+    return (EReference)refPartLibEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRefPartLib_Assignements()
+  {
+    return (EReference)refPartLibEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1989,12 +2083,18 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     isCreated = true;
 
     // Create classes and their features
+    rootEClass = createEClass(ROOT);
+    createEReference(rootEClass, ROOT__LIBRARIES);
+    createEReference(rootEClass, ROOT__CONTEXT);
+    createEReference(rootEClass, ROOT__TYPES);
+    createEReference(rootEClass, ROOT__DEVICES);
+    createEReference(rootEClass, ROOT__ASSIGNEMENT);
+
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__CONTEXT);
-    createEReference(modelEClass, MODEL__TYPES);
-    createEReference(modelEClass, MODEL__DEVICES);
-    createEReference(modelEClass, MODEL__ASSIGNEMENT);
     createEReference(modelEClass, MODEL__MAIN);
+
+    libraryEClass = createEClass(LIBRARY);
+    createEAttribute(libraryEClass, LIBRARY__NAME);
 
     contextEClass = createEClass(CONTEXT);
     createEAttribute(contextEClass, CONTEXT__NAME);
@@ -2040,6 +2140,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     refPartEClass = createEClass(REF_PART);
     createEReference(refPartEClass, REF_PART__VARIABLE_PARTIE);
+
+    refPartLibEClass = createEClass(REF_PART_LIB);
+    createEReference(refPartLibEClass, REF_PART_LIB__LIBS);
+    createEReference(refPartLibEClass, REF_PART_LIB__ASSIGNEMENTS);
 
     andEClass = createEClass(AND);
     createEAttribute(andEClass, AND__NAME);
@@ -2217,6 +2321,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    modelEClass.getESuperTypes().add(this.getRoot());
+    libraryEClass.getESuperTypes().add(this.getRoot());
     surfaceEClass.getESuperTypes().add(this.getLimit());
     initialPositionEClass.getESuperTypes().add(this.getLimit());
     initialDirectionEClass.getESuperTypes().add(this.getInitialPosition());
@@ -2227,6 +2333,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     maxSpeedEClass.getESuperTypes().add(this.getLimit());
     maxHeightEClass.getESuperTypes().add(this.getSurface());
     refPartEClass.getESuperTypes().add(this.getMovement());
+    refPartLibEClass.getESuperTypes().add(this.getMovement());
     andEClass.getESuperTypes().add(this.getMovement());
     depY_ImplEClass.getESuperTypes().add(this.getMovement());
     forwardEClass.getESuperTypes().add(this.getDepY_Impl());
@@ -2258,12 +2365,18 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     cameraEClass.getESuperTypes().add(this.getOption());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRoot_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_Context(), this.getContext(), null, "context", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_Devices(), this.getDevice(), null, "devices", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoot_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Context(), this.getContext(), null, "context", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Devices(), this.getDevice(), null, "devices", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Main(), this.getRefPart(), null, "main", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2309,6 +2422,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(refPartEClass, RefPart.class, "RefPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefPart_Variable_partie(), this.getAssignement(), null, "variable_partie", null, 0, 1, RefPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(refPartLibEClass, RefPartLib.class, "RefPartLib", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRefPartLib_Libs(), this.getLibrary(), null, "libs", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefPartLib_Assignements(), this.getAssignement(), null, "assignements", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

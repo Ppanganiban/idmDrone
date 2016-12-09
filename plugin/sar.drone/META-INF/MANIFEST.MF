@@ -34,6 +34,7 @@ Import-Package: org.apache.log4j,
  org.eclipse.jface.viewers,
  org.eclipse.ui.handlers,
  org.eclipse.xtext.builder,
+ org.eclipse.xtext.generator,
  org.eclipse.xtext.ui.refactoring,
  org.eclipse.xtext.ui.refactoring.impl,
  org.eclipse.xtext.ui.resource

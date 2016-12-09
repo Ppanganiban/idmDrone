@@ -66,7 +66,9 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     switch (eClass.getClassifierID())
     {
+      case DrnPackage.ROOT: return createRoot();
       case DrnPackage.MODEL: return createModel();
+      case DrnPackage.LIBRARY: return createLibrary();
       case DrnPackage.CONTEXT: return createContext();
       case DrnPackage.LIMIT: return createLimit();
       case DrnPackage.SURFACE: return createSurface();
@@ -82,6 +84,7 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.EXPRESSION: return createExpression();
       case DrnPackage.MOVEMENT: return createMovement();
       case DrnPackage.REF_PART: return createRefPart();
+      case DrnPackage.REF_PART_LIB: return createRefPartLib();
       case DrnPackage.AND: return createAnd();
       case DrnPackage.DEP_YIMPL: return createDepY_Impl();
       case DrnPackage.FORWARD: return createFORWARD();
@@ -175,10 +178,32 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Root createRoot()
+  {
+    RootImpl root = new RootImpl();
+    return root;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Model createModel()
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Library createLibrary()
+  {
+    LibraryImpl library = new LibraryImpl();
+    return library;
   }
 
   /**
@@ -344,6 +369,17 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     RefPartImpl refPart = new RefPartImpl();
     return refPart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefPartLib createRefPartLib()
+  {
+    RefPartLibImpl refPartLib = new RefPartLibImpl();
+    return refPartLib;
   }
 
   /**

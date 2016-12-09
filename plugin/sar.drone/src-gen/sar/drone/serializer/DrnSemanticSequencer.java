@@ -42,6 +42,7 @@ import sar.drone.drn.LEFT;
 import sar.drone.drn.Land;
 import sar.drone.drn.LedBlink;
 import sar.drone.drn.Led_Impl;
+import sar.drone.drn.Library;
 import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
 import sar.drone.drn.MaxSpeed;
@@ -50,6 +51,7 @@ import sar.drone.drn.Model;
 import sar.drone.drn.RIGHT;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
+import sar.drone.drn.RefPartLib;
 import sar.drone.drn.Rotate;
 import sar.drone.drn.TakeOff;
 import sar.drone.drn.TypeGeneric;
@@ -153,6 +155,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DrnPackage.LED_IMPL:
 				sequence_Led_Impl(context, (Led_Impl) semanticObject); 
 				return; 
+			case DrnPackage.LIBRARY:
+				sequence_Library(context, (Library) semanticObject); 
+				return; 
 			case DrnPackage.MAX_HEIGHT:
 				sequence_MaxHeight(context, (MaxHeight) semanticObject); 
 				return; 
@@ -176,6 +181,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.REF_PART:
 				sequence_RefPart(context, (RefPart) semanticObject); 
+				return; 
+			case DrnPackage.REF_PART_LIB:
+				sequence_RefPartLib(context, (RefPartLib) semanticObject); 
 				return; 
 			case DrnPackage.ROTATE:
 				sequence_Rotate(context, (Rotate) semanticObject); 
@@ -783,6 +791,27 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Root returns Library
+	 *     Library returns Library
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         libraries+=[Library|ID]* 
+	 *         context=Context? 
+	 *         types+=TypeGeneric* 
+	 *         devices+=Device* 
+	 *         assignement+=Assignement 
+	 *         assignement+=Assignement*
+	 *     )
+	 */
+	protected void sequence_Library(ISerializationContext context, Library semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Limit returns MaxHeight
 	 *     Surface returns MaxHeight
 	 *     MaxHeight returns MaxHeight
@@ -874,10 +903,12 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Root returns Model
 	 *     Model returns Model
 	 *
 	 * Constraint:
 	 *     (
+	 *         libraries+=[Library|ID]* 
 	 *         context=Context? 
 	 *         types+=TypeGeneric* 
 	 *         devices+=Device* 
@@ -927,6 +958,28 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RefDevice(ISerializationContext context, RefDevice semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Movement returns RefPartLib
+	 *     RefPartLib returns RefPartLib
+	 *
+	 * Constraint:
+	 *     (libs=[Library|ID] assignements=[Assignement|ID])
+	 */
+	protected void sequence_RefPartLib(ISerializationContext context, RefPartLib semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIBS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIBS));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENTS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRefPartLibAccess().getLibsLibraryIDTerminalRuleCall_0_0_1(), semanticObject.getLibs());
+		feeder.accept(grammarAccess.getRefPartLibAccess().getAssignementsAssignementIDTerminalRuleCall_2_0_1(), semanticObject.getAssignements());
+		feeder.finish();
 	}
 	
 	

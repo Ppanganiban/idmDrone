@@ -2,14 +2,29 @@ grammar sar.drone.Drn with org.eclipse.xtext.common.Terminals
 
 generate drn "http://www.drone.sar/Drn"
 
+Root :
+	Library	|Model
+;
 Model :
-	'MODEL'
+	'CHOREOGRAPHY'
 	'{'
+		('import' libraries += [Library])*
 		(context = Context)?
 		(types += TypeGeneric)*
 		(devices += Device)*
 		assignement+=Assignement ( assignement+=Assignement)*
 		'start' '=' main=RefPart ';'
+	'}'
+;
+
+Library :
+	'LIBRARY' name=ID
+	'{'
+		('import' libraries += [Library])*
+		(context = Context)?
+		(types += TypeGeneric)*
+		(devices += Device)*
+		assignement+=Assignement ( assignement+=Assignement)*
 	'}'
 ;
 
@@ -88,13 +103,16 @@ Expression :
 ;
 
 Movement:
-	And|RefPart|DepX_Impl|DepY_Impl|DepZ_Impl|DepXY_IMPL|DepXZ_IMPL|DepYZ_IMPL|DepXYZ_IMPL|TakeOff|Wait|Rotate|Land
+	And|RefPart|RefPartLib|DepX_Impl|DepY_Impl|DepZ_Impl|DepXY_IMPL|DepXZ_IMPL|DepYZ_IMPL|DepXYZ_IMPL|TakeOff|Wait|Rotate|Land
 ;
 
 RefPart :
 	variable_partie=[Assignement]
 ;
 
+RefPartLib :
+	libs=[Library]'.'assignements=[Assignement]
+;
 And :
 	{And}
 	name='merge''('
