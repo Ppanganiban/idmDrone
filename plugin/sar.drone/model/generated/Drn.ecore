@@ -2,12 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="drn" nsURI="http://www.drone.sar/Drn" nsPrefix="drn">
   <eClassifiers xsi:type="ecore:EClass" name="Root">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" unique="false"
-        upperBound="-1" eType="#//Library"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" upperBound="-1"
         eType="#//Assignement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" unique="false"
+        upperBound="-1" eType="#//Library"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Context"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//RefPart"
@@ -169,8 +169,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Definition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Declaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Element"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="real" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bool" eType="#//EBool"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -195,8 +195,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypePrimitif">
     <eLiterals name="boolType" literal="BOOLEAN"/>
-    <eLiterals name="intType" value="1" literal="NUMBER"/>
-    <eLiterals name="realType" value="2" literal="REAL"/>
+    <eLiterals name="realType" value="1" literal="REAL"/>
+    <eLiterals name="intType" value="2" literal="NUMBER"/>
     <eLiterals name="stringType" value="3" literal="TEXT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Mode">

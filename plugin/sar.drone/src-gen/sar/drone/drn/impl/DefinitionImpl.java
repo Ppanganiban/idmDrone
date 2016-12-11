@@ -27,8 +27,8 @@ import sar.drone.drn.Element;
  * <ul>
  *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getRight <em>Right</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getInt <em>Int</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getReal <em>Real</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getInt <em>Int</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getBool <em>Bool</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DefinitionImpl#getText <em>Text</em>}</li>
  * </ul>
@@ -58,26 +58,6 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
   protected Element right;
 
   /**
-   * The default value of the '{@link #getInt() <em>Int</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInt()
-   * @generated
-   * @ordered
-   */
-  protected static final String INT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getInt() <em>Int</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInt()
-   * @generated
-   * @ordered
-   */
-  protected String int_ = INT_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getReal() <em>Real</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -96,6 +76,26 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * @ordered
    */
   protected String real = REAL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getInt() <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInt()
+   * @generated
+   * @ordered
+   */
+  protected static final String INT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInt() <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInt()
+   * @generated
+   * @ordered
+   */
+  protected String int_ = INT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBool() <em>Bool</em>}' attribute.
@@ -249,29 +249,6 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getInt()
-  {
-    return int_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInt(String newInt)
-  {
-    String oldInt = int_;
-    int_ = newInt;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEFINITION__INT, oldInt, int_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getReal()
   {
     return real;
@@ -288,6 +265,29 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
     real = newReal;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEFINITION__REAL, oldReal, real));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getInt()
+  {
+    return int_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInt(String newInt)
+  {
+    String oldInt = int_;
+    int_ = newInt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEFINITION__INT, oldInt, int_));
   }
 
   /**
@@ -352,10 +352,10 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
       case DrnPackage.DEFINITION__RIGHT:
         if (resolve) return getRight();
         return basicGetRight();
-      case DrnPackage.DEFINITION__INT:
-        return getInt();
       case DrnPackage.DEFINITION__REAL:
         return getReal();
+      case DrnPackage.DEFINITION__INT:
+        return getInt();
       case DrnPackage.DEFINITION__BOOL:
         return getBool();
       case DrnPackage.DEFINITION__TEXT:
@@ -380,11 +380,11 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
       case DrnPackage.DEFINITION__RIGHT:
         setRight((Element)newValue);
         return;
-      case DrnPackage.DEFINITION__INT:
-        setInt((String)newValue);
-        return;
       case DrnPackage.DEFINITION__REAL:
         setReal((String)newValue);
+        return;
+      case DrnPackage.DEFINITION__INT:
+        setInt((String)newValue);
         return;
       case DrnPackage.DEFINITION__BOOL:
         setBool((EBool)newValue);
@@ -412,11 +412,11 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
       case DrnPackage.DEFINITION__RIGHT:
         setRight((Element)null);
         return;
-      case DrnPackage.DEFINITION__INT:
-        setInt(INT_EDEFAULT);
-        return;
       case DrnPackage.DEFINITION__REAL:
         setReal(REAL_EDEFAULT);
+        return;
+      case DrnPackage.DEFINITION__INT:
+        setInt(INT_EDEFAULT);
         return;
       case DrnPackage.DEFINITION__BOOL:
         setBool(BOOL_EDEFAULT);
@@ -442,10 +442,10 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
         return left != null;
       case DrnPackage.DEFINITION__RIGHT:
         return right != null;
-      case DrnPackage.DEFINITION__INT:
-        return INT_EDEFAULT == null ? int_ != null : !INT_EDEFAULT.equals(int_);
       case DrnPackage.DEFINITION__REAL:
         return REAL_EDEFAULT == null ? real != null : !REAL_EDEFAULT.equals(real);
+      case DrnPackage.DEFINITION__INT:
+        return INT_EDEFAULT == null ? int_ != null : !INT_EDEFAULT.equals(int_);
       case DrnPackage.DEFINITION__BOOL:
         return bool != BOOL_EDEFAULT;
       case DrnPackage.DEFINITION__TEXT:
@@ -465,10 +465,10 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (int: ");
-    result.append(int_);
-    result.append(", real: ");
+    result.append(" (real: ");
     result.append(real);
+    result.append(", int: ");
+    result.append(int_);
     result.append(", bool: ");
     result.append(bool);
     result.append(", text: ");

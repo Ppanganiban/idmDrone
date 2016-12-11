@@ -15,12 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.Assignement;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Library;
 import sar.drone.drn.Root;
 
 /**
@@ -31,7 +29,6 @@ import sar.drone.drn.Root;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.RootImpl#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.impl.RootImpl#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
@@ -39,16 +36,6 @@ import sar.drone.drn.Root;
  */
 public class RootImpl extends MinimalEObjectImpl.Container implements Root
 {
-  /**
-   * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLibraries()
-   * @generated
-   * @ordered
-   */
-  protected EList<Library> libraries;
-
   /**
    * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -78,20 +65,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.ROOT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Library> getLibraries()
-  {
-    if (libraries == null)
-    {
-      libraries = new EObjectResolvingEList<Library>(Library.class, this, DrnPackage.ROOT__LIBRARIES);
-    }
-    return libraries;
   }
 
   /**
@@ -134,8 +107,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   {
     switch (featureID)
     {
-      case DrnPackage.ROOT__LIBRARIES:
-        return getLibraries();
       case DrnPackage.ROOT__ASSIGNEMENT:
         return getAssignement();
     }
@@ -153,10 +124,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   {
     switch (featureID)
     {
-      case DrnPackage.ROOT__LIBRARIES:
-        getLibraries().clear();
-        getLibraries().addAll((Collection<? extends Library>)newValue);
-        return;
       case DrnPackage.ROOT__ASSIGNEMENT:
         getAssignement().clear();
         getAssignement().addAll((Collection<? extends Assignement>)newValue);
@@ -175,9 +142,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   {
     switch (featureID)
     {
-      case DrnPackage.ROOT__LIBRARIES:
-        getLibraries().clear();
-        return;
       case DrnPackage.ROOT__ASSIGNEMENT:
         getAssignement().clear();
         return;
@@ -195,8 +159,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   {
     switch (featureID)
     {
-      case DrnPackage.ROOT__LIBRARIES:
-        return libraries != null && !libraries.isEmpty();
       case DrnPackage.ROOT__ASSIGNEMENT:
         return assignement != null && !assignement.isEmpty();
     }

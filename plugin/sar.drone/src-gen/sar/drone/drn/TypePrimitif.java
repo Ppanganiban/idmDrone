@@ -31,16 +31,6 @@ public enum TypePrimitif implements Enumerator
   BOOL_TYPE(0, "boolType", "BOOLEAN"),
 
   /**
-   * The '<em><b>Int Type</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #INT_TYPE_VALUE
-   * @generated
-   * @ordered
-   */
-  INT_TYPE(1, "intType", "NUMBER"),
-
-  /**
    * The '<em><b>Real Type</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,7 +38,17 @@ public enum TypePrimitif implements Enumerator
    * @generated
    * @ordered
    */
-  REAL_TYPE(2, "realType", "REAL"),
+  REAL_TYPE(1, "realType", "REAL"),
+
+  /**
+   * The '<em><b>Int Type</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INT_TYPE_VALUE
+   * @generated
+   * @ordered
+   */
+  INT_TYPE(2, "intType", "NUMBER"),
 
   /**
    * The '<em><b>String Type</b></em>' literal object.
@@ -76,21 +76,6 @@ public enum TypePrimitif implements Enumerator
   public static final int BOOL_TYPE_VALUE = 0;
 
   /**
-   * The '<em><b>Int Type</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Int Type</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #INT_TYPE
-   * @model name="intType" literal="NUMBER"
-   * @generated
-   * @ordered
-   */
-  public static final int INT_TYPE_VALUE = 1;
-
-  /**
    * The '<em><b>Real Type</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -103,7 +88,22 @@ public enum TypePrimitif implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int REAL_TYPE_VALUE = 2;
+  public static final int REAL_TYPE_VALUE = 1;
+
+  /**
+   * The '<em><b>Int Type</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Int Type</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #INT_TYPE
+   * @model name="intType" literal="NUMBER"
+   * @generated
+   * @ordered
+   */
+  public static final int INT_TYPE_VALUE = 2;
 
   /**
    * The '<em><b>String Type</b></em>' literal value.
@@ -130,8 +130,8 @@ public enum TypePrimitif implements Enumerator
     new TypePrimitif[]
     {
       BOOL_TYPE,
-      INT_TYPE,
       REAL_TYPE,
+      INT_TYPE,
       STRING_TYPE,
     };
 
@@ -198,8 +198,8 @@ public enum TypePrimitif implements Enumerator
     switch (value)
     {
       case BOOL_TYPE_VALUE: return BOOL_TYPE;
-      case INT_TYPE_VALUE: return INT_TYPE;
       case REAL_TYPE_VALUE: return REAL_TYPE;
+      case INT_TYPE_VALUE: return INT_TYPE;
       case STRING_TYPE_VALUE: return STRING_TYPE;
     }
     return null;

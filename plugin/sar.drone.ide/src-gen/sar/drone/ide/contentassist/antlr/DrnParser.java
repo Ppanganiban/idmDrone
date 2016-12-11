@@ -59,7 +59,6 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_2(), "rule__Model__Group_2__0");
 					put(grammarAccess.getLibraryAccess().getGroup(), "rule__Library__Group__0");
-					put(grammarAccess.getLibraryAccess().getGroup_3(), "rule__Library__Group_3__0");
 					put(grammarAccess.getContextAccess().getGroup(), "rule__Context__Group__0");
 					put(grammarAccess.getContextAccess().getGroup_4(), "rule__Context__Group_4__0");
 					put(grammarAccess.getInitialDirectionAccess().getGroup(), "rule__InitialDirection__Group__0");
@@ -116,11 +115,9 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getAssignementAssignment_5(), "rule__Model__AssignementAssignment_5");
 					put(grammarAccess.getModelAccess().getMainAssignment_8(), "rule__Model__MainAssignment_8");
 					put(grammarAccess.getLibraryAccess().getNameAssignment_1(), "rule__Library__NameAssignment_1");
-					put(grammarAccess.getLibraryAccess().getLibrariesAssignment_3_1(), "rule__Library__LibrariesAssignment_3_1");
-					put(grammarAccess.getLibraryAccess().getTypesAssignment_4(), "rule__Library__TypesAssignment_4");
-					put(grammarAccess.getLibraryAccess().getDevicesAssignment_5(), "rule__Library__DevicesAssignment_5");
-					put(grammarAccess.getLibraryAccess().getAssignementAssignment_6(), "rule__Library__AssignementAssignment_6");
-					put(grammarAccess.getLibraryAccess().getAssignementAssignment_7(), "rule__Library__AssignementAssignment_7");
+					put(grammarAccess.getLibraryAccess().getTypesAssignment_3(), "rule__Library__TypesAssignment_3");
+					put(grammarAccess.getLibraryAccess().getDevicesAssignment_4(), "rule__Library__DevicesAssignment_4");
+					put(grammarAccess.getLibraryAccess().getAssignementAssignment_5(), "rule__Library__AssignementAssignment_5");
 					put(grammarAccess.getContextAccess().getNameAssignment_0(), "rule__Context__NameAssignment_0");
 					put(grammarAccess.getContextAccess().getLimitAssignment_2(), "rule__Context__LimitAssignment_2");
 					put(grammarAccess.getContextAccess().getLimitAssignment_4_0(), "rule__Context__LimitAssignment_4_0");
@@ -226,8 +223,8 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeclarationAccess().getNameAssignment_2(), "rule__Declaration__NameAssignment_2");
 					put(grammarAccess.getDefinitionAccess().getLeftAssignment_0(), "rule__Definition__LeftAssignment_0");
 					put(grammarAccess.getDefinitionAccess().getRightAssignment_2_0(), "rule__Definition__RightAssignment_2_0");
-					put(grammarAccess.getDefinitionAccess().getIntAssignment_2_1(), "rule__Definition__IntAssignment_2_1");
-					put(grammarAccess.getDefinitionAccess().getRealAssignment_2_2(), "rule__Definition__RealAssignment_2_2");
+					put(grammarAccess.getDefinitionAccess().getRealAssignment_2_1(), "rule__Definition__RealAssignment_2_1");
+					put(grammarAccess.getDefinitionAccess().getIntAssignment_2_2(), "rule__Definition__IntAssignment_2_2");
 					put(grammarAccess.getDefinitionAccess().getBoolAssignment_2_3(), "rule__Definition__BoolAssignment_2_3");
 					put(grammarAccess.getDefinitionAccess().getTextAssignment_2_4(), "rule__Definition__TextAssignment_2_4");
 					put(grammarAccess.getWithAccess().getNameAssignment_0(), "rule__With__NameAssignment_0");

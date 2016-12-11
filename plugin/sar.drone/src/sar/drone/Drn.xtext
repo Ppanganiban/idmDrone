@@ -10,7 +10,8 @@ Model :
 	'{'
 		('import' libraries += [Library]';')*
 		(context = Context)?
-		assignement+=Assignement ( assignement+=Assignement)*
+		assignement+=Assignement
+		(assignement+=Assignement)*
 		'start' '=' main=RefPart ';'
 	'}'
 ;
@@ -18,10 +19,9 @@ Model :
 Library :
 	'LIBRARY' name=ID
 	'{'
-		('import' libraries += [Library]';')*
 		(types += TypeGeneric)*
 		(devices += Device)*
-		assignement+=Assignement ( assignement+=Assignement)*
+    (assignement+=Assignement)*
 	'}'
 ;
 
@@ -253,11 +253,11 @@ Declaration:
 ;
 
 Definition :
-	left = [Declaration] '=' ( (right 	= [Element])
-							| (int  	= EInt)
+	left = [Declaration] '=' ((right	= [Element])
 							| (real 	= EReal)
-							| (bool 	= EBool)
-							| (text 	= STRING) )
+							| (int  	= EInt)
+							| (bool		= EBool)
+							| (text 	= STRING))
 ;
 With :
 	name='with' option+=RefDevice ( "," option+=RefDevice)*
@@ -288,8 +288,8 @@ Element:
 
 enum TypePrimitif:
 	boolType 		= 'BOOLEAN'
-	| intType 		= 'NUMBER'
 	| realType		= 'REAL'
+	| intType 		= 'NUMBER'
 	| stringType	= 'TEXT'
 ;
 EInt :

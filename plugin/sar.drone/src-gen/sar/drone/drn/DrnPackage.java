@@ -69,22 +69,13 @@ public interface DrnPackage extends EPackage
   int ROOT = 0;
 
   /**
-   * The feature id for the '<em><b>Libraries</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROOT__LIBRARIES = 0;
-
-  /**
    * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROOT__ASSIGNEMENT = 1;
+  int ROOT__ASSIGNEMENT = 0;
 
   /**
    * The number of structural features of the '<em>Root</em>' class.
@@ -93,7 +84,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROOT_FEATURE_COUNT = 2;
+  int ROOT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.ModelImpl <em>Model</em>}' class.
@@ -106,15 +97,6 @@ public interface DrnPackage extends EPackage
   int MODEL = 1;
 
   /**
-   * The feature id for the '<em><b>Libraries</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__LIBRARIES = ROOT__LIBRARIES;
-
-  /**
    * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -124,13 +106,22 @@ public interface DrnPackage extends EPackage
   int MODEL__ASSIGNEMENT = ROOT__ASSIGNEMENT;
 
   /**
+   * The feature id for the '<em><b>Libraries</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__LIBRARIES = ROOT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Context</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__CONTEXT = ROOT_FEATURE_COUNT + 0;
+  int MODEL__CONTEXT = ROOT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Main</b></em>' containment reference.
@@ -139,7 +130,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__MAIN = ROOT_FEATURE_COUNT + 1;
+  int MODEL__MAIN = ROOT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -148,7 +139,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = ROOT_FEATURE_COUNT + 2;
+  int MODEL_FEATURE_COUNT = ROOT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LibraryImpl <em>Library</em>}' class.
@@ -159,15 +150,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   int LIBRARY = 2;
-
-  /**
-   * The feature id for the '<em><b>Libraries</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LIBRARY__LIBRARIES = ROOT__LIBRARIES;
 
   /**
    * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
@@ -1969,22 +1951,22 @@ public interface DrnPackage extends EPackage
   int DEFINITION__RIGHT = 1;
 
   /**
-   * The feature id for the '<em><b>Int</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEFINITION__INT = 2;
-
-  /**
    * The feature id for the '<em><b>Real</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINITION__REAL = 3;
+  int DEFINITION__REAL = 2;
+
+  /**
+   * The feature id for the '<em><b>Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__INT = 3;
 
   /**
    * The feature id for the '<em><b>Bool</b></em>' attribute.
@@ -2213,17 +2195,6 @@ public interface DrnPackage extends EPackage
   EClass getRoot();
 
   /**
-   * Returns the meta object for the reference list '{@link sar.drone.drn.Root#getLibraries <em>Libraries</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Libraries</em>'.
-   * @see sar.drone.drn.Root#getLibraries()
-   * @see #getRoot()
-   * @generated
-   */
-  EReference getRoot_Libraries();
-
-  /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Root#getAssignement <em>Assignement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2243,6 +2214,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the reference list '{@link sar.drone.drn.Model#getLibraries <em>Libraries</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Libraries</em>'.
+   * @see sar.drone.drn.Model#getLibraries()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Libraries();
 
   /**
    * Returns the meta object for the containment reference '{@link sar.drone.drn.Model#getContext <em>Context</em>}'.
@@ -3421,17 +3403,6 @@ public interface DrnPackage extends EPackage
   EReference getDefinition_Right();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Definition#getInt <em>Int</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Int</em>'.
-   * @see sar.drone.drn.Definition#getInt()
-   * @see #getDefinition()
-   * @generated
-   */
-  EAttribute getDefinition_Int();
-
-  /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.Definition#getReal <em>Real</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3441,6 +3412,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getDefinition_Real();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Definition#getInt <em>Int</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int</em>'.
+   * @see sar.drone.drn.Definition#getInt()
+   * @see #getDefinition()
+   * @generated
+   */
+  EAttribute getDefinition_Int();
 
   /**
    * Returns the meta object for the attribute '{@link sar.drone.drn.Definition#getBool <em>Bool</em>}'.
@@ -3666,14 +3648,6 @@ public interface DrnPackage extends EPackage
     EClass ROOT = eINSTANCE.getRoot();
 
     /**
-     * The meta object literal for the '<em><b>Libraries</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ROOT__LIBRARIES = eINSTANCE.getRoot_Libraries();
-
-    /**
      * The meta object literal for the '<em><b>Assignement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3690,6 +3664,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Libraries</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__LIBRARIES = eINSTANCE.getModel_Libraries();
 
     /**
      * The meta object literal for the '<em><b>Context</b></em>' containment reference feature.
@@ -4670,20 +4652,20 @@ public interface DrnPackage extends EPackage
     EReference DEFINITION__RIGHT = eINSTANCE.getDefinition_Right();
 
     /**
-     * The meta object literal for the '<em><b>Int</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEFINITION__INT = eINSTANCE.getDefinition_Int();
-
-    /**
      * The meta object literal for the '<em><b>Real</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute DEFINITION__REAL = eINSTANCE.getDefinition_Real();
+
+    /**
+     * The meta object literal for the '<em><b>Int</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION__INT = eINSTANCE.getDefinition_Int();
 
     /**
      * The meta object literal for the '<em><b>Bool</b></em>' attribute feature.

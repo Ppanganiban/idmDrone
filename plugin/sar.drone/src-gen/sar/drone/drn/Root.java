@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.Root#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.Root#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
@@ -26,22 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Root extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Libraries</b></em>' reference list.
-   * The list contents are of type {@link sar.drone.drn.Library}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Libraries</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Libraries</em>' reference list.
-   * @see sar.drone.drn.DrnPackage#getRoot_Libraries()
-   * @model
-   * @generated
-   */
-  EList<Library> getLibraries();
-
   /**
    * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.
    * The list contents are of type {@link sar.drone.drn.Assignement}.

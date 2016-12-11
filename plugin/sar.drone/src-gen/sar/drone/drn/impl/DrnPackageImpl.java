@@ -528,19 +528,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRoot_Libraries()
-  {
-    return (EReference)rootEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRoot_Assignement()
   {
-    return (EReference)rootEClass.getEStructuralFeatures().get(1);
+    return (EReference)rootEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -558,7 +548,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Context()
+  public EReference getModel_Libraries()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -568,9 +558,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Main()
+  public EReference getModel_Context()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Main()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1668,7 +1668,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDefinition_Int()
+  public EAttribute getDefinition_Real()
   {
     return (EAttribute)definitionEClass.getEStructuralFeatures().get(2);
   }
@@ -1678,7 +1678,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDefinition_Real()
+  public EAttribute getDefinition_Int()
   {
     return (EAttribute)definitionEClass.getEStructuralFeatures().get(3);
   }
@@ -1894,10 +1894,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     // Create classes and their features
     rootEClass = createEClass(ROOT);
-    createEReference(rootEClass, ROOT__LIBRARIES);
     createEReference(rootEClass, ROOT__ASSIGNEMENT);
 
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__LIBRARIES);
     createEReference(modelEClass, MODEL__CONTEXT);
     createEReference(modelEClass, MODEL__MAIN);
 
@@ -2054,8 +2054,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     definitionEClass = createEClass(DEFINITION);
     createEReference(definitionEClass, DEFINITION__LEFT);
     createEReference(definitionEClass, DEFINITION__RIGHT);
-    createEAttribute(definitionEClass, DEFINITION__INT);
     createEAttribute(definitionEClass, DEFINITION__REAL);
+    createEAttribute(definitionEClass, DEFINITION__INT);
     createEAttribute(definitionEClass, DEFINITION__BOOL);
     createEAttribute(definitionEClass, DEFINITION__TEXT);
 
@@ -2152,10 +2152,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRoot_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoot_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Context(), this.getContext(), null, "context", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Main(), this.getRefPart(), null, "main", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2312,8 +2312,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDefinition_Left(), this.getDeclaration(), null, "left", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDefinition_Right(), this.getElement(), null, "right", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDefinition_Int(), ecorePackage.getEString(), "int", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDefinition_Real(), ecorePackage.getEString(), "real", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Int(), ecorePackage.getEString(), "int", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDefinition_Bool(), this.getEBool(), "bool", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDefinition_Text(), ecorePackage.getEString(), "text", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2336,8 +2336,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     // Initialize enums and add enum literals
     initEEnum(typePrimitifEEnum, TypePrimitif.class, "TypePrimitif");
     addEEnumLiteral(typePrimitifEEnum, TypePrimitif.BOOL_TYPE);
-    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.INT_TYPE);
     addEEnumLiteral(typePrimitifEEnum, TypePrimitif.REAL_TYPE);
+    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.INT_TYPE);
     addEEnumLiteral(typePrimitifEEnum, TypePrimitif.STRING_TYPE);
 
     initEEnum(modeEEnum, Mode.class, "Mode");

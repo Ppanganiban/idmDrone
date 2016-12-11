@@ -70,6 +70,6 @@ public interface Assignement extends EObject
 
 boolean isMark();
 
-void setMark(boolean b);
+void setMark(boolean s);
 
 } // Assignement

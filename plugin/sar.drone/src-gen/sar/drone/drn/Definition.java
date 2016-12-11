@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sar.drone.drn.Definition#getLeft <em>Left</em>}</li>
  *   <li>{@link sar.drone.drn.Definition#getRight <em>Right</em>}</li>
- *   <li>{@link sar.drone.drn.Definition#getInt <em>Int</em>}</li>
  *   <li>{@link sar.drone.drn.Definition#getReal <em>Real</em>}</li>
+ *   <li>{@link sar.drone.drn.Definition#getInt <em>Int</em>}</li>
  *   <li>{@link sar.drone.drn.Definition#getBool <em>Bool</em>}</li>
  *   <li>{@link sar.drone.drn.Definition#getText <em>Text</em>}</li>
  * </ul>
@@ -81,32 +81,6 @@ public interface Definition extends EObject
   void setRight(Element value);
 
   /**
-   * Returns the value of the '<em><b>Int</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Int</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Int</em>' attribute.
-   * @see #setInt(String)
-   * @see sar.drone.drn.DrnPackage#getDefinition_Int()
-   * @model
-   * @generated
-   */
-  String getInt();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Definition#getInt <em>Int</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Int</em>' attribute.
-   * @see #getInt()
-   * @generated
-   */
-  void setInt(String value);
-
-  /**
    * Returns the value of the '<em><b>Real</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -131,6 +105,32 @@ public interface Definition extends EObject
    * @generated
    */
   void setReal(String value);
+
+  /**
+   * Returns the value of the '<em><b>Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Int</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Int</em>' attribute.
+   * @see #setInt(String)
+   * @see sar.drone.drn.DrnPackage#getDefinition_Int()
+   * @model
+   * @generated
+   */
+  String getInt();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Definition#getInt <em>Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Int</em>' attribute.
+   * @see #getInt()
+   * @generated
+   */
+  void setInt(String value);
 
   /**
    * Returns the value of the '<em><b>Bool</b></em>' attribute.

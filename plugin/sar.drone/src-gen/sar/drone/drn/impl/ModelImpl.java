@@ -3,16 +3,23 @@
  */
 package sar.drone.drn.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import sar.drone.drn.Context;
 import sar.drone.drn.DrnPackage;
+import sar.drone.drn.Library;
 import sar.drone.drn.Model;
 import sar.drone.drn.RefPart;
 
@@ -24,6 +31,7 @@ import sar.drone.drn.RefPart;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getContext <em>Context</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getMain <em>Main</em>}</li>
  * </ul>
@@ -32,6 +40,16 @@ import sar.drone.drn.RefPart;
  */
 public class ModelImpl extends RootImpl implements Model
 {
+  /**
+   * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLibraries()
+   * @generated
+   * @ordered
+   */
+  protected EList<Library> libraries;
+
   /**
    * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +89,20 @@ public class ModelImpl extends RootImpl implements Model
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Library> getLibraries()
+  {
+    if (libraries == null)
+    {
+      libraries = new EObjectResolvingEList<Library>(Library.class, this, DrnPackage.MODEL__LIBRARIES);
+    }
+    return libraries;
   }
 
   /**
@@ -197,6 +229,8 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__LIBRARIES:
+        return getLibraries();
       case DrnPackage.MODEL__CONTEXT:
         return getContext();
       case DrnPackage.MODEL__MAIN:
@@ -210,11 +244,16 @@ public class ModelImpl extends RootImpl implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__LIBRARIES:
+        getLibraries().clear();
+        getLibraries().addAll((Collection<? extends Library>)newValue);
+        return;
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)newValue);
         return;
@@ -235,6 +274,9 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__LIBRARIES:
+        getLibraries().clear();
+        return;
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)null);
         return;
@@ -255,6 +297,8 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__LIBRARIES:
+        return libraries != null && !libraries.isEmpty();
       case DrnPackage.MODEL__CONTEXT:
         return context != null;
       case DrnPackage.MODEL__MAIN:

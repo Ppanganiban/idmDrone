@@ -483,7 +483,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Definition returns Definition
 	 *
 	 * Constraint:
-	 *     (left=[Declaration|ID] (right=[Element|ID] | int=EInt | real=EReal | bool=EBool | text=STRING))
+	 *     (left=[Declaration|ID] (right=[Element|ID] | real=EReal | int=EInt | bool=EBool | text=STRING))
 	 */
 	protected void sequence_Definition(ISerializationContext context, Definition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -698,14 +698,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Library returns Library
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         libraries+=[Library|ID]* 
-	 *         types+=TypeGeneric* 
-	 *         devices+=Device* 
-	 *         assignement+=Assignement 
-	 *         assignement+=Assignement*
-	 *     )
+	 *     (name=ID types+=TypeGeneric* devices+=Device* assignement+=Assignement*)
 	 */
 	protected void sequence_Library(ISerializationContext context, Library semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

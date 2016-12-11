@@ -3,6 +3,7 @@
  */
 package sar.drone.drn;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ package sar.drone.drn;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.Model#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getContext <em>Context</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getMain <em>Main</em>}</li>
  * </ul>
@@ -23,6 +25,22 @@ package sar.drone.drn;
  */
 public interface Model extends Root
 {
+  /**
+   * Returns the value of the '<em><b>Libraries</b></em>' reference list.
+   * The list contents are of type {@link sar.drone.drn.Library}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Libraries</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Libraries</em>' reference list.
+   * @see sar.drone.drn.DrnPackage#getModel_Libraries()
+   * @model
+   * @generated
+   */
+  EList<Library> getLibraries();
+
   /**
    * Returns the value of the '<em><b>Context</b></em>' containment reference.
    * <!-- begin-user-doc -->

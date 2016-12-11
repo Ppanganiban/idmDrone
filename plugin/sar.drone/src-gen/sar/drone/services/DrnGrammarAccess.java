@@ -74,7 +74,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//	'CHOREOGRAPHY'
 		//	'{' ('import' libraries+=[Library] ';')*
 		//	context=Context?
-		//	assignement+=Assignement assignement+=Assignement*
+		//	assignement+=Assignement
+		//	assignement+=Assignement*
 		//	'start' '=' main=RefPart ';'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
@@ -150,33 +151,24 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cImportKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cLibrariesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cLibrariesLibraryCrossReference_3_1_0 = (CrossReference)cLibrariesAssignment_3_1.eContents().get(0);
-		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_3_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypesTypeGenericParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
-		private final Assignment cDevicesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDevicesDeviceParserRuleCall_5_0 = (RuleCall)cDevicesAssignment_5.eContents().get(0);
-		private final Assignment cAssignementAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cAssignementAssignementParserRuleCall_6_0 = (RuleCall)cAssignementAssignment_6.eContents().get(0);
-		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cTypesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypesTypeGenericParserRuleCall_3_0 = (RuleCall)cTypesAssignment_3.eContents().get(0);
+		private final Assignment cDevicesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDevicesDeviceParserRuleCall_4_0 = (RuleCall)cDevicesAssignment_4.eContents().get(0);
+		private final Assignment cAssignementAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAssignementAssignementParserRuleCall_5_0 = (RuleCall)cAssignementAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Library:
 		//	'LIBRARY' name=ID
-		//	'{' ('import' libraries+=[Library] ';')*
+		//	'{'
 		//	types+=TypeGeneric*
 		//	devices+=Device*
-		//	assignement+=Assignement assignement+=Assignement*
+		//	assignement+=Assignement*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LIBRARY' name=ID '{' ('import' libraries+=[Library] ';')* types+=TypeGeneric* devices+=Device* assignement+=Assignement
-		//assignement+=Assignement* '}'
+		//'LIBRARY' name=ID '{' types+=TypeGeneric* devices+=Device* assignement+=Assignement* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'LIBRARY'
@@ -191,50 +183,26 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('import' libraries+=[Library] ';')*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'import'
-		public Keyword getImportKeyword_3_0() { return cImportKeyword_3_0; }
-		
-		//libraries+=[Library]
-		public Assignment getLibrariesAssignment_3_1() { return cLibrariesAssignment_3_1; }
-		
-		//[Library]
-		public CrossReference getLibrariesLibraryCrossReference_3_1_0() { return cLibrariesLibraryCrossReference_3_1_0; }
-		
-		//ID
-		public RuleCall getLibrariesLibraryIDTerminalRuleCall_3_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_3_1_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
-		
 		//types+=TypeGeneric*
-		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
+		public Assignment getTypesAssignment_3() { return cTypesAssignment_3; }
 		
 		//TypeGeneric
-		public RuleCall getTypesTypeGenericParserRuleCall_4_0() { return cTypesTypeGenericParserRuleCall_4_0; }
+		public RuleCall getTypesTypeGenericParserRuleCall_3_0() { return cTypesTypeGenericParserRuleCall_3_0; }
 		
 		//devices+=Device*
-		public Assignment getDevicesAssignment_5() { return cDevicesAssignment_5; }
+		public Assignment getDevicesAssignment_4() { return cDevicesAssignment_4; }
 		
 		//Device
-		public RuleCall getDevicesDeviceParserRuleCall_5_0() { return cDevicesDeviceParserRuleCall_5_0; }
-		
-		//assignement+=Assignement
-		public Assignment getAssignementAssignment_6() { return cAssignementAssignment_6; }
-		
-		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_6_0() { return cAssignementAssignementParserRuleCall_6_0; }
+		public RuleCall getDevicesDeviceParserRuleCall_4_0() { return cDevicesDeviceParserRuleCall_4_0; }
 		
 		//assignement+=Assignement*
-		public Assignment getAssignementAssignment_7() { return cAssignementAssignment_7; }
+		public Assignment getAssignementAssignment_5() { return cAssignementAssignment_5; }
 		
 		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_7_0() { return cAssignementAssignementParserRuleCall_7_0; }
+		public RuleCall getAssignementAssignementParserRuleCall_5_0() { return cAssignementAssignementParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class ContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Context");
@@ -2298,20 +2266,20 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final CrossReference cRightElementCrossReference_2_0_0 = (CrossReference)cRightAssignment_2_0.eContents().get(0);
 		private final RuleCall cRightElementIDTerminalRuleCall_2_0_0_1 = (RuleCall)cRightElementCrossReference_2_0_0.eContents().get(1);
-		private final Assignment cIntAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cIntEIntParserRuleCall_2_1_0 = (RuleCall)cIntAssignment_2_1.eContents().get(0);
-		private final Assignment cRealAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
-		private final RuleCall cRealERealParserRuleCall_2_2_0 = (RuleCall)cRealAssignment_2_2.eContents().get(0);
+		private final Assignment cRealAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cRealERealParserRuleCall_2_1_0 = (RuleCall)cRealAssignment_2_1.eContents().get(0);
+		private final Assignment cIntAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
+		private final RuleCall cIntEIntParserRuleCall_2_2_0 = (RuleCall)cIntAssignment_2_2.eContents().get(0);
 		private final Assignment cBoolAssignment_2_3 = (Assignment)cAlternatives_2.eContents().get(3);
 		private final RuleCall cBoolEBoolEnumRuleCall_2_3_0 = (RuleCall)cBoolAssignment_2_3.eContents().get(0);
 		private final Assignment cTextAssignment_2_4 = (Assignment)cAlternatives_2.eContents().get(4);
 		private final RuleCall cTextSTRINGTerminalRuleCall_2_4_0 = (RuleCall)cTextAssignment_2_4.eContents().get(0);
 		
 		//Definition:
-		//	left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING);
+		//	left=[Declaration] '=' (right=[Element] | real=EReal | int=EInt | bool=EBool | text=STRING);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING)
+		//left=[Declaration] '=' (right=[Element] | real=EReal | int=EInt | bool=EBool | text=STRING)
 		public Group getGroup() { return cGroup; }
 		
 		//left=[Declaration]
@@ -2326,7 +2294,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
-		//(right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING)
+		//(right=[Element] | real=EReal | int=EInt | bool=EBool | text=STRING)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//right=[Element]
@@ -2338,17 +2306,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRightElementIDTerminalRuleCall_2_0_0_1() { return cRightElementIDTerminalRuleCall_2_0_0_1; }
 		
-		//int=EInt
-		public Assignment getIntAssignment_2_1() { return cIntAssignment_2_1; }
-		
-		//EInt
-		public RuleCall getIntEIntParserRuleCall_2_1_0() { return cIntEIntParserRuleCall_2_1_0; }
-		
 		//real=EReal
-		public Assignment getRealAssignment_2_2() { return cRealAssignment_2_2; }
+		public Assignment getRealAssignment_2_1() { return cRealAssignment_2_1; }
 		
 		//EReal
-		public RuleCall getRealERealParserRuleCall_2_2_0() { return cRealERealParserRuleCall_2_2_0; }
+		public RuleCall getRealERealParserRuleCall_2_1_0() { return cRealERealParserRuleCall_2_1_0; }
+		
+		//int=EInt
+		public Assignment getIntAssignment_2_2() { return cIntAssignment_2_2; }
+		
+		//EInt
+		public RuleCall getIntEIntParserRuleCall_2_2_0() { return cIntEIntParserRuleCall_2_2_0; }
 		
 		//bool=EBool
 		public Assignment getBoolAssignment_2_3() { return cBoolAssignment_2_3; }
@@ -2600,21 +2568,21 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cBoolTypeEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cBoolTypeBOOLEANKeyword_0_0 = (Keyword)cBoolTypeEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cIntTypeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cIntTypeNUMBERKeyword_1_0 = (Keyword)cIntTypeEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cRealTypeEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cRealTypeREALKeyword_2_0 = (Keyword)cRealTypeEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cRealTypeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cRealTypeREALKeyword_1_0 = (Keyword)cRealTypeEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cIntTypeEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cIntTypeNUMBERKeyword_2_0 = (Keyword)cIntTypeEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cStringTypeEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cStringTypeTEXTKeyword_3_0 = (Keyword)cStringTypeEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum TypePrimitif:
 		//	boolType='BOOLEAN'
-		//	| intType='NUMBER'
 		//	| realType='REAL'
+		//	| intType='NUMBER'
 		//	| stringType='TEXT';
 		public EnumRule getRule() { return rule; }
 		
-		//boolType='BOOLEAN' | intType='NUMBER' | realType='REAL' | stringType='TEXT'
+		//boolType='BOOLEAN' | realType='REAL' | intType='NUMBER' | stringType='TEXT'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//boolType='BOOLEAN'
@@ -2623,17 +2591,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'BOOLEAN'
 		public Keyword getBoolTypeBOOLEANKeyword_0_0() { return cBoolTypeBOOLEANKeyword_0_0; }
 		
-		//intType='NUMBER'
-		public EnumLiteralDeclaration getIntTypeEnumLiteralDeclaration_1() { return cIntTypeEnumLiteralDeclaration_1; }
-		
-		//'NUMBER'
-		public Keyword getIntTypeNUMBERKeyword_1_0() { return cIntTypeNUMBERKeyword_1_0; }
-		
 		//realType='REAL'
-		public EnumLiteralDeclaration getRealTypeEnumLiteralDeclaration_2() { return cRealTypeEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getRealTypeEnumLiteralDeclaration_1() { return cRealTypeEnumLiteralDeclaration_1; }
 		
 		//'REAL'
-		public Keyword getRealTypeREALKeyword_2_0() { return cRealTypeREALKeyword_2_0; }
+		public Keyword getRealTypeREALKeyword_1_0() { return cRealTypeREALKeyword_1_0; }
+		
+		//intType='NUMBER'
+		public EnumLiteralDeclaration getIntTypeEnumLiteralDeclaration_2() { return cIntTypeEnumLiteralDeclaration_2; }
+		
+		//'NUMBER'
+		public Keyword getIntTypeNUMBERKeyword_2_0() { return cIntTypeNUMBERKeyword_2_0; }
 		
 		//stringType='TEXT'
 		public EnumLiteralDeclaration getStringTypeEnumLiteralDeclaration_3() { return cStringTypeEnumLiteralDeclaration_3; }
@@ -2908,7 +2876,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	//	'CHOREOGRAPHY'
 	//	'{' ('import' libraries+=[Library] ';')*
 	//	context=Context?
-	//	assignement+=Assignement assignement+=Assignement*
+	//	assignement+=Assignement
+	//	assignement+=Assignement*
 	//	'start' '=' main=RefPart ';'
 	//	'}';
 	public ModelElements getModelAccess() {
@@ -2921,10 +2890,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Library:
 	//	'LIBRARY' name=ID
-	//	'{' ('import' libraries+=[Library] ';')*
+	//	'{'
 	//	types+=TypeGeneric*
 	//	devices+=Device*
-	//	assignement+=Assignement assignement+=Assignement*
+	//	assignement+=Assignement*
 	//	'}';
 	public LibraryElements getLibraryAccess() {
 		return pLibrary;
@@ -3422,7 +3391,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Definition:
-	//	left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING);
+	//	left=[Declaration] '=' (right=[Element] | real=EReal | int=EInt | bool=EBool | text=STRING);
 	public DefinitionElements getDefinitionAccess() {
 		return pDefinition;
 	}
@@ -3479,8 +3448,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//enum TypePrimitif:
 	//	boolType='BOOLEAN'
-	//	| intType='NUMBER'
 	//	| realType='REAL'
+	//	| intType='NUMBER'
 	//	| stringType='TEXT';
 	public TypePrimitifElements getTypePrimitifAccess() {
 		return eTypePrimitif;

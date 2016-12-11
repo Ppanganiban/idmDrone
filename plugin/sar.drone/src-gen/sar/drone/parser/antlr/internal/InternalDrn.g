@@ -282,34 +282,11 @@ ruleLibrary returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getLibraryAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
-			otherlv_3='import'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getLibraryAccess().getImportKeyword_3_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getLibraryRule());
-						}
-					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getLibraryAccess().getLibrariesLibraryCrossReference_3_1_0());
-					}
-				)
-			)
-			otherlv_5=';'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getLibraryAccess().getSemicolonKeyword_3_2());
-			}
-		)*
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLibraryAccess().getTypesTypeGenericParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getLibraryAccess().getTypesTypeGenericParserRuleCall_3_0());
 				}
-				lv_types_6_0=ruleTypeGeneric
+				lv_types_3_0=ruleTypeGeneric
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLibraryRule());
@@ -317,7 +294,7 @@ ruleLibrary returns [EObject current=null]
 					add(
 						$current,
 						"types",
-						lv_types_6_0,
+						lv_types_3_0,
 						"sar.drone.Drn.TypeGeneric");
 					afterParserOrEnumRuleCall();
 				}
@@ -326,9 +303,9 @@ ruleLibrary returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLibraryAccess().getDevicesDeviceParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getLibraryAccess().getDevicesDeviceParserRuleCall_4_0());
 				}
-				lv_devices_7_0=ruleDevice
+				lv_devices_4_0=ruleDevice
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLibraryRule());
@@ -336,7 +313,7 @@ ruleLibrary returns [EObject current=null]
 					add(
 						$current,
 						"devices",
-						lv_devices_7_0,
+						lv_devices_4_0,
 						"sar.drone.Drn.Device");
 					afterParserOrEnumRuleCall();
 				}
@@ -345,9 +322,9 @@ ruleLibrary returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLibraryAccess().getAssignementAssignementParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getLibraryAccess().getAssignementAssignementParserRuleCall_5_0());
 				}
-				lv_assignement_8_0=ruleAssignement
+				lv_assignement_5_0=ruleAssignement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLibraryRule());
@@ -355,34 +332,15 @@ ruleLibrary returns [EObject current=null]
 					add(
 						$current,
 						"assignement",
-						lv_assignement_8_0,
-						"sar.drone.Drn.Assignement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getLibraryAccess().getAssignementAssignementParserRuleCall_7_0());
-				}
-				lv_assignement_9_0=ruleAssignement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getLibraryRule());
-					}
-					add(
-						$current,
-						"assignement",
-						lv_assignement_9_0,
+						lv_assignement_5_0,
 						"sar.drone.Drn.Assignement");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_10='}'
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getLibraryAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_6, grammarAccess.getLibraryAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -3861,18 +3819,18 @@ ruleDefinition returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDefinitionAccess().getIntEIntParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getDefinitionAccess().getRealERealParserRuleCall_2_1_0());
 					}
-					lv_int_3_0=ruleEInt
+					lv_real_3_0=ruleEReal
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDefinitionRule());
 						}
 						set(
 							$current,
-							"int",
-							lv_int_3_0,
-							"sar.drone.Drn.EInt");
+							"real",
+							lv_real_3_0,
+							"sar.drone.Drn.EReal");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -3881,18 +3839,18 @@ ruleDefinition returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDefinitionAccess().getRealERealParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getDefinitionAccess().getIntEIntParserRuleCall_2_2_0());
 					}
-					lv_real_4_0=ruleEReal
+					lv_int_4_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDefinitionRule());
 						}
 						set(
 							$current,
-							"real",
-							lv_real_4_0,
-							"sar.drone.Drn.EReal");
+							"int",
+							lv_int_4_0,
+							"sar.drone.Drn.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -4335,18 +4293,18 @@ ruleTypePrimitif returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='NUMBER'
+			enumLiteral_1='REAL'
 			{
-				$current = grammarAccess.getTypePrimitifAccess().getIntTypeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getTypePrimitifAccess().getIntTypeEnumLiteralDeclaration_1());
+				$current = grammarAccess.getTypePrimitifAccess().getRealTypeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getTypePrimitifAccess().getRealTypeEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='REAL'
+			enumLiteral_2='NUMBER'
 			{
-				$current = grammarAccess.getTypePrimitifAccess().getRealTypeEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getTypePrimitifAccess().getRealTypeEnumLiteralDeclaration_2());
+				$current = grammarAccess.getTypePrimitifAccess().getIntTypeEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getTypePrimitifAccess().getIntTypeEnumLiteralDeclaration_2());
 			}
 		)
 		    |
