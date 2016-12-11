@@ -50,7 +50,7 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 				return Scopes.scopeFor(def.getLeft().getType().getElements());
 		}
 		
-		else if (reference == DrnPackage.Literals.REF_PART_LIB__LIBS
+		else if (reference == DrnPackage.Literals.REF_PART_LIB__LIB
 				&& context instanceof Assignement){
 			Assignement a = (Assignement)context;
 			Root r = (Root) a.eContainer();
@@ -58,9 +58,9 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 				return Scopes.scopeFor(((Model)r).getLibraries());				
 			}
 		}
-		else if (reference == DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENTS
+		else if (reference == DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENT
 				&& context instanceof RefPartLib){
-			return Scopes.scopeFor( ((RefPartLib)context).getLibs().getAssignement());
+			return Scopes.scopeFor( ((RefPartLib)context).getLib().getAssignement());
 		}
 		else if (reference == DrnPackage.Literals.REF_DEVICE__DEV
 				&& context instanceof With){

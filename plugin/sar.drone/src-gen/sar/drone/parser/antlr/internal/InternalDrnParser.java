@@ -3649,7 +3649,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             				
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_24); 
 
-            					newLeafNode(otherlv_0, grammarAccess.getRefPartLibAccess().getLibsLibraryCrossReference_0_0());
+            					newLeafNode(otherlv_0, grammarAccess.getRefPartLibAccess().getLibLibraryCrossReference_0_0());
             				
 
             }
@@ -3674,7 +3674,7 @@ public class InternalDrnParser extends AbstractInternalAntlrParser {
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getRefPartLibAccess().getAssignementsAssignementCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getRefPartLibAccess().getAssignementAssignementCrossReference_2_0());
             				
 
             }

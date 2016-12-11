@@ -23,8 +23,8 @@ import sar.drone.drn.RefPartLib;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.RefPartLibImpl#getLibs <em>Libs</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RefPartLibImpl#getAssignements <em>Assignements</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.RefPartLibImpl#getLib <em>Lib</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.RefPartLibImpl#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,24 +32,24 @@ import sar.drone.drn.RefPartLib;
 public class RefPartLibImpl extends MovementImpl implements RefPartLib
 {
   /**
-   * The cached value of the '{@link #getLibs() <em>Libs</em>}' reference.
+   * The cached value of the '{@link #getLib() <em>Lib</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLibs()
+   * @see #getLib()
    * @generated
    * @ordered
    */
-  protected Library libs;
+  protected Library lib;
 
   /**
-   * The cached value of the '{@link #getAssignements() <em>Assignements</em>}' reference.
+   * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAssignements()
+   * @see #getAssignement()
    * @generated
    * @ordered
    */
-  protected Assignement assignements;
+  protected Assignement assignement;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,19 +77,19 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public Library getLibs()
+  public Library getLib()
   {
-    if (libs != null && libs.eIsProxy())
+    if (lib != null && lib.eIsProxy())
     {
-      InternalEObject oldLibs = (InternalEObject)libs;
-      libs = (Library)eResolveProxy(oldLibs);
-      if (libs != oldLibs)
+      InternalEObject oldLib = (InternalEObject)lib;
+      lib = (Library)eResolveProxy(oldLib);
+      if (lib != oldLib)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.REF_PART_LIB__LIBS, oldLibs, libs));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.REF_PART_LIB__LIB, oldLib, lib));
       }
     }
-    return libs;
+    return lib;
   }
 
   /**
@@ -97,9 +97,9 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public Library basicGetLibs()
+  public Library basicGetLib()
   {
-    return libs;
+    return lib;
   }
 
   /**
@@ -107,12 +107,12 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLibs(Library newLibs)
+  public void setLib(Library newLib)
   {
-    Library oldLibs = libs;
-    libs = newLibs;
+    Library oldLib = lib;
+    lib = newLib;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.REF_PART_LIB__LIBS, oldLibs, libs));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.REF_PART_LIB__LIB, oldLib, lib));
   }
 
   /**
@@ -120,19 +120,19 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignement getAssignements()
+  public Assignement getAssignement()
   {
-    if (assignements != null && assignements.eIsProxy())
+    if (assignement != null && assignement.eIsProxy())
     {
-      InternalEObject oldAssignements = (InternalEObject)assignements;
-      assignements = (Assignement)eResolveProxy(oldAssignements);
-      if (assignements != oldAssignements)
+      InternalEObject oldAssignement = (InternalEObject)assignement;
+      assignement = (Assignement)eResolveProxy(oldAssignement);
+      if (assignement != oldAssignement)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.REF_PART_LIB__ASSIGNEMENTS, oldAssignements, assignements));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.REF_PART_LIB__ASSIGNEMENT, oldAssignement, assignement));
       }
     }
-    return assignements;
+    return assignement;
   }
 
   /**
@@ -140,9 +140,9 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignement basicGetAssignements()
+  public Assignement basicGetAssignement()
   {
-    return assignements;
+    return assignement;
   }
 
   /**
@@ -150,12 +150,12 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAssignements(Assignement newAssignements)
+  public void setAssignement(Assignement newAssignement)
   {
-    Assignement oldAssignements = assignements;
-    assignements = newAssignements;
+    Assignement oldAssignement = assignement;
+    assignement = newAssignement;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.REF_PART_LIB__ASSIGNEMENTS, oldAssignements, assignements));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.REF_PART_LIB__ASSIGNEMENT, oldAssignement, assignement));
   }
 
   /**
@@ -168,12 +168,12 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
   {
     switch (featureID)
     {
-      case DrnPackage.REF_PART_LIB__LIBS:
-        if (resolve) return getLibs();
-        return basicGetLibs();
-      case DrnPackage.REF_PART_LIB__ASSIGNEMENTS:
-        if (resolve) return getAssignements();
-        return basicGetAssignements();
+      case DrnPackage.REF_PART_LIB__LIB:
+        if (resolve) return getLib();
+        return basicGetLib();
+      case DrnPackage.REF_PART_LIB__ASSIGNEMENT:
+        if (resolve) return getAssignement();
+        return basicGetAssignement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -188,11 +188,11 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
   {
     switch (featureID)
     {
-      case DrnPackage.REF_PART_LIB__LIBS:
-        setLibs((Library)newValue);
+      case DrnPackage.REF_PART_LIB__LIB:
+        setLib((Library)newValue);
         return;
-      case DrnPackage.REF_PART_LIB__ASSIGNEMENTS:
-        setAssignements((Assignement)newValue);
+      case DrnPackage.REF_PART_LIB__ASSIGNEMENT:
+        setAssignement((Assignement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -208,11 +208,11 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
   {
     switch (featureID)
     {
-      case DrnPackage.REF_PART_LIB__LIBS:
-        setLibs((Library)null);
+      case DrnPackage.REF_PART_LIB__LIB:
+        setLib((Library)null);
         return;
-      case DrnPackage.REF_PART_LIB__ASSIGNEMENTS:
-        setAssignements((Assignement)null);
+      case DrnPackage.REF_PART_LIB__ASSIGNEMENT:
+        setAssignement((Assignement)null);
         return;
     }
     super.eUnset(featureID);
@@ -228,10 +228,10 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
   {
     switch (featureID)
     {
-      case DrnPackage.REF_PART_LIB__LIBS:
-        return libs != null;
-      case DrnPackage.REF_PART_LIB__ASSIGNEMENTS:
-        return assignements != null;
+      case DrnPackage.REF_PART_LIB__LIB:
+        return lib != null;
+      case DrnPackage.REF_PART_LIB__ASSIGNEMENT:
+        return assignement != null;
     }
     return super.eIsSet(featureID);
   }

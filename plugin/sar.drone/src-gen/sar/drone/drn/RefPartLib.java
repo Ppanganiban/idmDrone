@@ -13,8 +13,8 @@ package sar.drone.drn;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.RefPartLib#getLibs <em>Libs</em>}</li>
- *   <li>{@link sar.drone.drn.RefPartLib#getAssignements <em>Assignements</em>}</li>
+ *   <li>{@link sar.drone.drn.RefPartLib#getLib <em>Lib</em>}</li>
+ *   <li>{@link sar.drone.drn.RefPartLib#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getRefPartLib()
@@ -24,55 +24,55 @@ package sar.drone.drn;
 public interface RefPartLib extends Movement
 {
   /**
-   * Returns the value of the '<em><b>Libs</b></em>' reference.
+   * Returns the value of the '<em><b>Lib</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Libs</em>' reference isn't clear,
+   * If the meaning of the '<em>Lib</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Libs</em>' reference.
-   * @see #setLibs(Library)
-   * @see sar.drone.drn.DrnPackage#getRefPartLib_Libs()
+   * @return the value of the '<em>Lib</em>' reference.
+   * @see #setLib(Library)
+   * @see sar.drone.drn.DrnPackage#getRefPartLib_Lib()
    * @model
    * @generated
    */
-  Library getLibs();
+  Library getLib();
 
   /**
-   * Sets the value of the '{@link sar.drone.drn.RefPartLib#getLibs <em>Libs</em>}' reference.
+   * Sets the value of the '{@link sar.drone.drn.RefPartLib#getLib <em>Lib</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Libs</em>' reference.
-   * @see #getLibs()
+   * @param value the new value of the '<em>Lib</em>' reference.
+   * @see #getLib()
    * @generated
    */
-  void setLibs(Library value);
+  void setLib(Library value);
 
   /**
-   * Returns the value of the '<em><b>Assignements</b></em>' reference.
+   * Returns the value of the '<em><b>Assignement</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Assignements</em>' reference isn't clear,
+   * If the meaning of the '<em>Assignement</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Assignements</em>' reference.
-   * @see #setAssignements(Assignement)
-   * @see sar.drone.drn.DrnPackage#getRefPartLib_Assignements()
+   * @return the value of the '<em>Assignement</em>' reference.
+   * @see #setAssignement(Assignement)
+   * @see sar.drone.drn.DrnPackage#getRefPartLib_Assignement()
    * @model
    * @generated
    */
-  Assignement getAssignements();
+  Assignement getAssignement();
 
   /**
-   * Sets the value of the '{@link sar.drone.drn.RefPartLib#getAssignements <em>Assignements</em>}' reference.
+   * Sets the value of the '{@link sar.drone.drn.RefPartLib#getAssignement <em>Assignement</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assignements</em>' reference.
-   * @see #getAssignements()
+   * @param value the new value of the '<em>Assignement</em>' reference.
+   * @see #getAssignement()
    * @generated
    */
-  void setAssignements(Assignement value);
+  void setAssignement(Assignement value);
 
 } // RefPartLib

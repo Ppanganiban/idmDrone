@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
@@ -44,6 +45,7 @@ import sar.drone.drn.Movement;
 import sar.drone.drn.RIGHT;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
+import sar.drone.drn.RefPartLib;
 import sar.drone.drn.Rotate;
 import sar.drone.drn.Surface;
 import sar.drone.drn.UP;
@@ -334,14 +336,20 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 	  /******************* Check drone position ************************/
 		class ReccException extends Exception {
-
 			private static final long serialVersionUID = 1L;
-			RefPart target;
-			public ReccException(RefPart ref){
+			EObject target;
+			public ReccException(EObject ref){
 				target = ref;
 			}
 		}
 
+		class OutNotContainedException extends Exception {
+			private static final long serialVersionUID = 1L;
+			RefPartLib target;
+			public OutNotContainedException(RefPartLib ref){
+				target = ref;
+			}
+		}
 	  /*
 	   * Check the position of the drone during all the choreogrphy
 	   */
@@ -351,51 +359,79 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  System.out.println("*******************************");
 			  System.out.println("Initial Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 			  try {
-			  	MyAbstractDrnValidator.checkDonePositionRef(ref.getMain(), this);
+			  	MyAbstractDrnValidator.checkDonePositionRef(ref.getMain(), this, true);
 			  }catch (ReccException e) {
-				// TODO Auto-generated catch block
-				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-  	      this.error("This call creates an infinite loop", e.target, _get_1);
-			  }finally {
+				  EList<EStructuralFeature> _eStructuralFeatures_1;
+				  if (e.target instanceof RefPart)
+					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+				  else
+					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART_LIB.getEStructuralFeatures();
+				  EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  this.error("This call creates an infinite loop", e.target, _get_1);
+			  }
+			  catch(OutNotContainedException e) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1;
+				  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART_LIB.getEStructuralFeatures();
+				  EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  this.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", e.target, _get_1);
+			  }
+			  finally {
 				  MyAbstractDrnValidator.resetRefMark(ref.getMain());				
 			  }
 		  }
 	  }
 
-	  static void checkDonePositionRef(final RefPart ref, MyAbstractDrnValidator adv) throws ReccException{
+	  static void checkDonePositionRef(final RefPart ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
 		  Assignement a = ref.getVariable_partie();
 
 		  if (a.isMark()) {
 			  a.setMark(false);
 
 			  for (Expression e : a.getOperandes()) {
-				  MyAbstractDrnValidator.checkDronePositionExpression(e, adv);
+				  MyAbstractDrnValidator.checkDronePositionExpression(e, adv, isContained);
 				  for (int i = 1; i < e.getRepeatCST(); i++){
 					  if(e.getMove() instanceof RefPart)
 						  ((RefPart)e.getMove()).getVariable_partie().setMark(true);
+					  if(e.getMove() instanceof RefPartLib)
+						  ((RefPartLib)e.getMove()).getAssignement().setMark(true);
 
-					  MyAbstractDrnValidator.checkDronePositionExpression(e, adv);					  
+					  MyAbstractDrnValidator.checkDronePositionExpression(e, adv, isContained);					  
 				  }
 				  
 				  if(MAXW > 0)
 					  if(xCurr < 0 || xCurr > MAXW) {
-						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  if(isContained) {
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);							  
+						  }
+						  else{
+							  OutNotContainedException oe = adv.new OutNotContainedException((RefPartLib) ref);
+							  throw oe;
+						  }
 					  }
 				  
 				  if(MAXL > 0)
 					  if(yCurr < 0 || yCurr > MAXL) {
-						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  if(isContained){
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);							  
+						  }else{
+							  OutNotContainedException oe = adv.new OutNotContainedException((RefPartLib) ref);
+							  throw oe;
+						  }
 					  }
 				  if(MAXZ > 0)
 					  if(zCurr < 0 || zCurr > MAXZ) {
-						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  if(isContained){
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);							  
+						  }else{
+							  OutNotContainedException oe = adv.new OutNotContainedException((RefPartLib) ref);
+							  throw oe;
+						  }
 					  }
 			  }
 		  }
@@ -405,16 +441,67 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  }
 	  }
 
-	  static void checkDronePositionExpression(final Expression ref, MyAbstractDrnValidator adv) throws ReccException{
-		  MyAbstractDrnValidator.checkDronePositionMovement(ref.getMove(),adv);
+	  
+	  static void checkDonePositionRefPartLib(final RefPartLib ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException{
+		  Assignement a = ref.getAssignement();
+
+		  if (a.isMark()) {
+			  a.setMark(false);
+			  
+			  for (Expression e : a.getOperandes()) {
+				  
+				  try {
+					  MyAbstractDrnValidator.checkDronePositionExpression(e, adv, false);
+					  for (int i = 1; i < e.getRepeatCST(); i++){
+						  if(e.getMove() instanceof RefPart)
+							  ((RefPart)e.getMove()).getVariable_partie().setMark(true);
+						  if(e.getMove() instanceof RefPartLib)
+							  ((RefPartLib)e.getMove()).getAssignement().setMark(true);
+
+						  MyAbstractDrnValidator.checkDronePositionExpression(e, adv, false);					  
+					  }
+				  } catch (OutNotContainedException e) {
+					  if(MAXW > 0)
+						  if(xCurr < 0 || xCurr > MAXW) {
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of max width"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  }
+					  
+					  if(MAXL > 0)
+						  if(yCurr < 0 || yCurr > MAXL) {
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of max length"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  }
+					  if(MAXZ > 0)
+						  if(zCurr < 0 || zCurr > MAXZ) {
+							  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+					  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+					  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+						  }
+				  }
+			  }
+		  }
+		  else{
+			  ReccException rex = adv.new ReccException(ref);
+			  throw rex;
+		  }
+	  }
+
+	  static void checkDronePositionExpression(final Expression ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
+		  MyAbstractDrnValidator.checkDronePositionMovement(ref.getMove(),adv, isContained);
 		  for (Expression eThen : ref.getThen()) {
-				  MyAbstractDrnValidator.checkDronePositionExpression(eThen, adv);
+				  MyAbstractDrnValidator.checkDronePositionExpression(eThen, adv, isContained);
 		  }
 	  }
 
 	  static void checkDronePositionMovement(final Movement ref, MyAbstractDrnValidator adv) throws ReccException{
 		  if(ref instanceof RefPart){
 			  MyAbstractDrnValidator.checkDonePositionRef((RefPart)ref, adv);
+		  }
+		  if(ref instanceof RefPartLib){
+			  MyAbstractDrnValidator.checkDonePositionRefPartLib((RefPartLib)ref, adv);
 		  }
 		  else if (ref instanceof DepZ_Impl){
 		  	MyAbstractDrnValidator.checkDronePositionDepZ((DepZ_Impl) ref, adv);

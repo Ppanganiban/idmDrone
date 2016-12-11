@@ -828,41 +828,41 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	public class RefPartLibElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefPartLib");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cLibsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cLibsLibraryCrossReference_0_0 = (CrossReference)cLibsAssignment_0.eContents().get(0);
-		private final RuleCall cLibsLibraryIDTerminalRuleCall_0_0_1 = (RuleCall)cLibsLibraryCrossReference_0_0.eContents().get(1);
+		private final Assignment cLibAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cLibLibraryCrossReference_0_0 = (CrossReference)cLibAssignment_0.eContents().get(0);
+		private final RuleCall cLibLibraryIDTerminalRuleCall_0_0_1 = (RuleCall)cLibLibraryCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cAssignementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cAssignementsAssignementCrossReference_2_0 = (CrossReference)cAssignementsAssignment_2.eContents().get(0);
-		private final RuleCall cAssignementsAssignementIDTerminalRuleCall_2_0_1 = (RuleCall)cAssignementsAssignementCrossReference_2_0.eContents().get(1);
+		private final Assignment cAssignementAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cAssignementAssignementCrossReference_2_0 = (CrossReference)cAssignementAssignment_2.eContents().get(0);
+		private final RuleCall cAssignementAssignementIDTerminalRuleCall_2_0_1 = (RuleCall)cAssignementAssignementCrossReference_2_0.eContents().get(1);
 		
 		//RefPartLib:
-		//	libs=[Library] '.' assignements=[Assignement];
+		//	lib=[Library] '.' assignement=[Assignement];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//libs=[Library] '.' assignements=[Assignement]
+		//lib=[Library] '.' assignement=[Assignement]
 		public Group getGroup() { return cGroup; }
 		
-		//libs=[Library]
-		public Assignment getLibsAssignment_0() { return cLibsAssignment_0; }
+		//lib=[Library]
+		public Assignment getLibAssignment_0() { return cLibAssignment_0; }
 		
 		//[Library]
-		public CrossReference getLibsLibraryCrossReference_0_0() { return cLibsLibraryCrossReference_0_0; }
+		public CrossReference getLibLibraryCrossReference_0_0() { return cLibLibraryCrossReference_0_0; }
 		
 		//ID
-		public RuleCall getLibsLibraryIDTerminalRuleCall_0_0_1() { return cLibsLibraryIDTerminalRuleCall_0_0_1; }
+		public RuleCall getLibLibraryIDTerminalRuleCall_0_0_1() { return cLibLibraryIDTerminalRuleCall_0_0_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
-		//assignements=[Assignement]
-		public Assignment getAssignementsAssignment_2() { return cAssignementsAssignment_2; }
+		//assignement=[Assignement]
+		public Assignment getAssignementAssignment_2() { return cAssignementAssignment_2; }
 		
 		//[Assignement]
-		public CrossReference getAssignementsAssignementCrossReference_2_0() { return cAssignementsAssignementCrossReference_2_0; }
+		public CrossReference getAssignementAssignementCrossReference_2_0() { return cAssignementAssignementCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getAssignementsAssignementIDTerminalRuleCall_2_0_1() { return cAssignementsAssignementIDTerminalRuleCall_2_0_1; }
+		public RuleCall getAssignementAssignementIDTerminalRuleCall_2_0_1() { return cAssignementAssignementIDTerminalRuleCall_2_0_1; }
 	}
 	public class AndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.And");
@@ -3068,7 +3068,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RefPartLib:
-	//	libs=[Library] '.' assignements=[Assignement];
+	//	lib=[Library] '.' assignement=[Assignement];
 	public RefPartLibElements getRefPartLibAccess() {
 		return pRefPartLib;
 	}

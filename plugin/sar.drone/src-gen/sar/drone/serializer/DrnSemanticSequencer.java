@@ -853,18 +853,18 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RefPartLib returns RefPartLib
 	 *
 	 * Constraint:
-	 *     (libs=[Library|ID] assignements=[Assignement|ID])
+	 *     (lib=[Library|ID] assignement=[Assignement|ID])
 	 */
 	protected void sequence_RefPartLib(ISerializationContext context, RefPartLib semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIBS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIBS));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENTS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENTS));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__LIB));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.REF_PART_LIB__ASSIGNEMENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRefPartLibAccess().getLibsLibraryIDTerminalRuleCall_0_0_1(), semanticObject.getLibs());
-		feeder.accept(grammarAccess.getRefPartLibAccess().getAssignementsAssignementIDTerminalRuleCall_2_0_1(), semanticObject.getAssignements());
+		feeder.accept(grammarAccess.getRefPartLibAccess().getLibLibraryIDTerminalRuleCall_0_0_1(), semanticObject.getLib());
+		feeder.accept(grammarAccess.getRefPartLibAccess().getAssignementAssignementIDTerminalRuleCall_2_0_1(), semanticObject.getAssignement());
 		feeder.finish();
 	}
 	

@@ -80,8 +80,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPart/variable_partie"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//RefPartLib">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/libs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/assignements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/lib"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//RefPartLib/assignement"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//And">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//And/name"/>

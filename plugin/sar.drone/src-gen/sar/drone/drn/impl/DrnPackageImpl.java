@@ -928,7 +928,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRefPartLib_Libs()
+  public EReference getRefPartLib_Lib()
   {
     return (EReference)refPartLibEClass.getEStructuralFeatures().get(0);
   }
@@ -938,7 +938,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRefPartLib_Assignements()
+  public EReference getRefPartLib_Assignement()
   {
     return (EReference)refPartLibEClass.getEStructuralFeatures().get(1);
   }
@@ -1952,8 +1952,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEReference(refPartEClass, REF_PART__VARIABLE_PARTIE);
 
     refPartLibEClass = createEClass(REF_PART_LIB);
-    createEReference(refPartLibEClass, REF_PART_LIB__LIBS);
-    createEReference(refPartLibEClass, REF_PART_LIB__ASSIGNEMENTS);
+    createEReference(refPartLibEClass, REF_PART_LIB__LIB);
+    createEReference(refPartLibEClass, REF_PART_LIB__ASSIGNEMENT);
 
     andEClass = createEClass(AND);
     createEAttribute(andEClass, AND__NAME);
@@ -2210,8 +2210,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEReference(getRefPart_Variable_partie(), this.getAssignement(), null, "variable_partie", null, 0, 1, RefPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refPartLibEClass, RefPartLib.class, "RefPartLib", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRefPartLib_Libs(), this.getLibrary(), null, "libs", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRefPartLib_Assignements(), this.getAssignement(), null, "assignements", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefPartLib_Lib(), this.getLibrary(), null, "lib", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefPartLib_Assignement(), this.getAssignement(), null, "assignement", null, 0, 1, RefPartLib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

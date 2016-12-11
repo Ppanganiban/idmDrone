@@ -1453,7 +1453,7 @@ ruleRefPartLib returns [EObject current=null]
 				}
 				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getRefPartLibAccess().getLibsLibraryCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getRefPartLibAccess().getLibLibraryCrossReference_0_0());
 				}
 			)
 		)
@@ -1470,7 +1470,7 @@ ruleRefPartLib returns [EObject current=null]
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getRefPartLibAccess().getAssignementsAssignementCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getRefPartLibAccess().getAssignementAssignementCrossReference_2_0());
 				}
 			)
 		)

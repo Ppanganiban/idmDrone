@@ -147,8 +147,8 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getRepeatCSTAssignment_1_5_1(), "rule__Expression__RepeatCSTAssignment_1_5_1");
 					put(grammarAccess.getExpressionAccess().getWithAssignment_1_6(), "rule__Expression__WithAssignment_1_6");
 					put(grammarAccess.getRefPartAccess().getVariable_partieAssignment(), "rule__RefPart__Variable_partieAssignment");
-					put(grammarAccess.getRefPartLibAccess().getLibsAssignment_0(), "rule__RefPartLib__LibsAssignment_0");
-					put(grammarAccess.getRefPartLibAccess().getAssignementsAssignment_2(), "rule__RefPartLib__AssignementsAssignment_2");
+					put(grammarAccess.getRefPartLibAccess().getLibAssignment_0(), "rule__RefPartLib__LibAssignment_0");
+					put(grammarAccess.getRefPartLibAccess().getAssignementAssignment_2(), "rule__RefPartLib__AssignementAssignment_2");
 					put(grammarAccess.getAndAccess().getNameAssignment_1(), "rule__And__NameAssignment_1");
 					put(grammarAccess.getAndAccess().getRotateAssignment_3_0(), "rule__And__RotateAssignment_3_0");
 					put(grammarAccess.getAndAccess().getDepxAssignment_3_1(), "rule__And__DepxAssignment_3_1");

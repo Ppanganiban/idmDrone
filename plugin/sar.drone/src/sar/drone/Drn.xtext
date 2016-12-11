@@ -108,7 +108,7 @@ RefPart :
 ;
 
 RefPartLib :
-	libs=[Library]'.'assignements=[Assignement]
+	lib=[Library]'.'assignement=[Assignement]
 ;
 And :
 	{And}

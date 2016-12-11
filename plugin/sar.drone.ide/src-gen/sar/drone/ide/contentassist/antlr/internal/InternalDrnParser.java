@@ -13446,31 +13446,31 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RefPartLib__Group__0__Impl"
-    // InternalDrn.g:4168:1: rule__RefPartLib__Group__0__Impl : ( ( rule__RefPartLib__LibsAssignment_0 ) ) ;
+    // InternalDrn.g:4168:1: rule__RefPartLib__Group__0__Impl : ( ( rule__RefPartLib__LibAssignment_0 ) ) ;
     public final void rule__RefPartLib__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:4172:1: ( ( ( rule__RefPartLib__LibsAssignment_0 ) ) )
-            // InternalDrn.g:4173:1: ( ( rule__RefPartLib__LibsAssignment_0 ) )
+            // InternalDrn.g:4172:1: ( ( ( rule__RefPartLib__LibAssignment_0 ) ) )
+            // InternalDrn.g:4173:1: ( ( rule__RefPartLib__LibAssignment_0 ) )
             {
-            // InternalDrn.g:4173:1: ( ( rule__RefPartLib__LibsAssignment_0 ) )
-            // InternalDrn.g:4174:2: ( rule__RefPartLib__LibsAssignment_0 )
+            // InternalDrn.g:4173:1: ( ( rule__RefPartLib__LibAssignment_0 ) )
+            // InternalDrn.g:4174:2: ( rule__RefPartLib__LibAssignment_0 )
             {
-             before(grammarAccess.getRefPartLibAccess().getLibsAssignment_0()); 
-            // InternalDrn.g:4175:2: ( rule__RefPartLib__LibsAssignment_0 )
-            // InternalDrn.g:4175:3: rule__RefPartLib__LibsAssignment_0
+             before(grammarAccess.getRefPartLibAccess().getLibAssignment_0()); 
+            // InternalDrn.g:4175:2: ( rule__RefPartLib__LibAssignment_0 )
+            // InternalDrn.g:4175:3: rule__RefPartLib__LibAssignment_0
             {
             pushFollow(FOLLOW_2);
-            rule__RefPartLib__LibsAssignment_0();
+            rule__RefPartLib__LibAssignment_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRefPartLibAccess().getLibsAssignment_0()); 
+             after(grammarAccess.getRefPartLibAccess().getLibAssignment_0()); 
 
             }
 
@@ -13601,31 +13601,31 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RefPartLib__Group__2__Impl"
-    // InternalDrn.g:4221:1: rule__RefPartLib__Group__2__Impl : ( ( rule__RefPartLib__AssignementsAssignment_2 ) ) ;
+    // InternalDrn.g:4221:1: rule__RefPartLib__Group__2__Impl : ( ( rule__RefPartLib__AssignementAssignment_2 ) ) ;
     public final void rule__RefPartLib__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDrn.g:4225:1: ( ( ( rule__RefPartLib__AssignementsAssignment_2 ) ) )
-            // InternalDrn.g:4226:1: ( ( rule__RefPartLib__AssignementsAssignment_2 ) )
+            // InternalDrn.g:4225:1: ( ( ( rule__RefPartLib__AssignementAssignment_2 ) ) )
+            // InternalDrn.g:4226:1: ( ( rule__RefPartLib__AssignementAssignment_2 ) )
             {
-            // InternalDrn.g:4226:1: ( ( rule__RefPartLib__AssignementsAssignment_2 ) )
-            // InternalDrn.g:4227:2: ( rule__RefPartLib__AssignementsAssignment_2 )
+            // InternalDrn.g:4226:1: ( ( rule__RefPartLib__AssignementAssignment_2 ) )
+            // InternalDrn.g:4227:2: ( rule__RefPartLib__AssignementAssignment_2 )
             {
-             before(grammarAccess.getRefPartLibAccess().getAssignementsAssignment_2()); 
-            // InternalDrn.g:4228:2: ( rule__RefPartLib__AssignementsAssignment_2 )
-            // InternalDrn.g:4228:3: rule__RefPartLib__AssignementsAssignment_2
+             before(grammarAccess.getRefPartLibAccess().getAssignementAssignment_2()); 
+            // InternalDrn.g:4228:2: ( rule__RefPartLib__AssignementAssignment_2 )
+            // InternalDrn.g:4228:3: rule__RefPartLib__AssignementAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__RefPartLib__AssignementsAssignment_2();
+            rule__RefPartLib__AssignementAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRefPartLibAccess().getAssignementsAssignment_2()); 
+             after(grammarAccess.getRefPartLibAccess().getAssignementAssignment_2()); 
 
             }
 
@@ -29744,9 +29744,9 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__RefPart__Variable_partieAssignment"
 
 
-    // $ANTLR start "rule__RefPartLib__LibsAssignment_0"
-    // InternalDrn.g:9842:1: rule__RefPartLib__LibsAssignment_0 : ( ( RULE_ID ) ) ;
-    public final void rule__RefPartLib__LibsAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__RefPartLib__LibAssignment_0"
+    // InternalDrn.g:9842:1: rule__RefPartLib__LibAssignment_0 : ( ( RULE_ID ) ) ;
+    public final void rule__RefPartLib__LibAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -29757,17 +29757,17 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
             // InternalDrn.g:9847:2: ( ( RULE_ID ) )
             // InternalDrn.g:9848:3: ( RULE_ID )
             {
-             before(grammarAccess.getRefPartLibAccess().getLibsLibraryCrossReference_0_0()); 
+             before(grammarAccess.getRefPartLibAccess().getLibLibraryCrossReference_0_0()); 
             // InternalDrn.g:9849:3: ( RULE_ID )
             // InternalDrn.g:9850:4: RULE_ID
             {
-             before(grammarAccess.getRefPartLibAccess().getLibsLibraryIDTerminalRuleCall_0_0_1()); 
+             before(grammarAccess.getRefPartLibAccess().getLibLibraryIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getRefPartLibAccess().getLibsLibraryIDTerminalRuleCall_0_0_1()); 
+             after(grammarAccess.getRefPartLibAccess().getLibLibraryIDTerminalRuleCall_0_0_1()); 
 
             }
 
-             after(grammarAccess.getRefPartLibAccess().getLibsLibraryCrossReference_0_0()); 
+             after(grammarAccess.getRefPartLibAccess().getLibLibraryCrossReference_0_0()); 
 
             }
 
@@ -29786,12 +29786,12 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__RefPartLib__LibsAssignment_0"
+    // $ANTLR end "rule__RefPartLib__LibAssignment_0"
 
 
-    // $ANTLR start "rule__RefPartLib__AssignementsAssignment_2"
-    // InternalDrn.g:9861:1: rule__RefPartLib__AssignementsAssignment_2 : ( ( RULE_ID ) ) ;
-    public final void rule__RefPartLib__AssignementsAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__RefPartLib__AssignementAssignment_2"
+    // InternalDrn.g:9861:1: rule__RefPartLib__AssignementAssignment_2 : ( ( RULE_ID ) ) ;
+    public final void rule__RefPartLib__AssignementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -29802,17 +29802,17 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
             // InternalDrn.g:9866:2: ( ( RULE_ID ) )
             // InternalDrn.g:9867:3: ( RULE_ID )
             {
-             before(grammarAccess.getRefPartLibAccess().getAssignementsAssignementCrossReference_2_0()); 
+             before(grammarAccess.getRefPartLibAccess().getAssignementAssignementCrossReference_2_0()); 
             // InternalDrn.g:9868:3: ( RULE_ID )
             // InternalDrn.g:9869:4: RULE_ID
             {
-             before(grammarAccess.getRefPartLibAccess().getAssignementsAssignementIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getRefPartLibAccess().getAssignementAssignementIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getRefPartLibAccess().getAssignementsAssignementIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getRefPartLibAccess().getAssignementAssignementIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getRefPartLibAccess().getAssignementsAssignementCrossReference_2_0()); 
+             after(grammarAccess.getRefPartLibAccess().getAssignementAssignementCrossReference_2_0()); 
 
             }
 
@@ -29831,7 +29831,7 @@ public class InternalDrnParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__RefPartLib__AssignementsAssignment_2"
+    // $ANTLR end "rule__RefPartLib__AssignementAssignment_2"
 
 
     // $ANTLR start "rule__And__NameAssignment_1"

@@ -66,8 +66,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable_partie" eType="#//Assignement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefPartLib" eSuperTypes="#//Movement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="libs" eType="#//Library"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignements" eType="#//Assignement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lib" eType="#//Library"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" eType="#//Assignement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Movement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

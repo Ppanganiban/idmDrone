@@ -735,22 +735,22 @@ public interface DrnPackage extends EPackage
   int REF_PART_LIB = 18;
 
   /**
-   * The feature id for the '<em><b>Libs</b></em>' reference.
+   * The feature id for the '<em><b>Lib</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_PART_LIB__LIBS = MOVEMENT_FEATURE_COUNT + 0;
+  int REF_PART_LIB__LIB = MOVEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Assignements</b></em>' reference.
+   * The feature id for the '<em><b>Assignement</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_PART_LIB__ASSIGNEMENTS = MOVEMENT_FEATURE_COUNT + 1;
+  int REF_PART_LIB__ASSIGNEMENT = MOVEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Ref Part Lib</em>' class.
@@ -2617,26 +2617,26 @@ public interface DrnPackage extends EPackage
   EClass getRefPartLib();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.RefPartLib#getLibs <em>Libs</em>}'.
+   * Returns the meta object for the reference '{@link sar.drone.drn.RefPartLib#getLib <em>Lib</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Libs</em>'.
-   * @see sar.drone.drn.RefPartLib#getLibs()
+   * @return the meta object for the reference '<em>Lib</em>'.
+   * @see sar.drone.drn.RefPartLib#getLib()
    * @see #getRefPartLib()
    * @generated
    */
-  EReference getRefPartLib_Libs();
+  EReference getRefPartLib_Lib();
 
   /**
-   * Returns the meta object for the reference '{@link sar.drone.drn.RefPartLib#getAssignements <em>Assignements</em>}'.
+   * Returns the meta object for the reference '{@link sar.drone.drn.RefPartLib#getAssignement <em>Assignement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Assignements</em>'.
-   * @see sar.drone.drn.RefPartLib#getAssignements()
+   * @return the meta object for the reference '<em>Assignement</em>'.
+   * @see sar.drone.drn.RefPartLib#getAssignement()
    * @see #getRefPartLib()
    * @generated
    */
-  EReference getRefPartLib_Assignements();
+  EReference getRefPartLib_Assignement();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.And <em>And</em>}'.
@@ -4004,20 +4004,20 @@ public interface DrnPackage extends EPackage
     EClass REF_PART_LIB = eINSTANCE.getRefPartLib();
 
     /**
-     * The meta object literal for the '<em><b>Libs</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Lib</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_PART_LIB__LIBS = eINSTANCE.getRefPartLib_Libs();
+    EReference REF_PART_LIB__LIB = eINSTANCE.getRefPartLib_Lib();
 
     /**
-     * The meta object literal for the '<em><b>Assignements</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Assignement</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_PART_LIB__ASSIGNEMENTS = eINSTANCE.getRefPartLib_Assignements();
+    EReference REF_PART_LIB__ASSIGNEMENT = eINSTANCE.getRefPartLib_Assignement();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.AndImpl <em>And</em>}' class.
