@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Option;
+import sar.drone.drn.RefDevice;
 import sar.drone.drn.With;
 
 /**
@@ -67,7 +67,7 @@ public class WithImpl extends MinimalEObjectImpl.Container implements With
    * @generated
    * @ordered
    */
-  protected EList<Option> option;
+  protected EList<RefDevice> option;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,11 +118,11 @@ public class WithImpl extends MinimalEObjectImpl.Container implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Option> getOption()
+  public EList<RefDevice> getOption()
   {
     if (option == null)
     {
-      option = new EObjectContainmentEList<Option>(Option.class, this, DrnPackage.WITH__OPTION);
+      option = new EObjectContainmentEList<RefDevice>(RefDevice.class, this, DrnPackage.WITH__OPTION);
     }
     return option;
   }
@@ -177,7 +177,7 @@ public class WithImpl extends MinimalEObjectImpl.Container implements With
         return;
       case DrnPackage.WITH__OPTION:
         getOption().clear();
-        getOption().addAll((Collection<? extends Option>)newValue);
+        getOption().addAll((Collection<? extends RefDevice>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

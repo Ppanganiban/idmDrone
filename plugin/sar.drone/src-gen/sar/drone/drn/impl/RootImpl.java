@@ -5,7 +5,6 @@ package sar.drone.drn.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -21,12 +19,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.Assignement;
-import sar.drone.drn.Context;
-import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Library;
 import sar.drone.drn.Root;
-import sar.drone.drn.TypeGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,9 +32,6 @@ import sar.drone.drn.TypeGeneric;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.RootImpl#getLibraries <em>Libraries</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RootImpl#getContext <em>Context</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RootImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link sar.drone.drn.impl.RootImpl#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.impl.RootImpl#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
@@ -56,36 +48,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
    * @ordered
    */
   protected EList<Library> libraries;
-
-  /**
-   * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContext()
-   * @generated
-   * @ordered
-   */
-  protected Context context;
-
-  /**
-   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypes()
-   * @generated
-   * @ordered
-   */
-  protected EList<TypeGeneric> types;
-
-  /**
-   * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDevices()
-   * @generated
-   * @ordered
-   */
-  protected EList<Device> devices;
 
   /**
    * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
@@ -137,82 +99,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
    * <!-- end-user-doc -->
    * @generated
    */
-  public Context getContext()
-  {
-    return context;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetContext(Context newContext, NotificationChain msgs)
-  {
-    Context oldContext = context;
-    context = newContext;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DrnPackage.ROOT__CONTEXT, oldContext, newContext);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContext(Context newContext)
-  {
-    if (newContext != context)
-    {
-      NotificationChain msgs = null;
-      if (context != null)
-        msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DrnPackage.ROOT__CONTEXT, null, msgs);
-      if (newContext != null)
-        msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DrnPackage.ROOT__CONTEXT, null, msgs);
-      msgs = basicSetContext(newContext, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ROOT__CONTEXT, newContext, newContext));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<TypeGeneric> getTypes()
-  {
-    if (types == null)
-    {
-      types = new EObjectContainmentEList<TypeGeneric>(TypeGeneric.class, this, DrnPackage.ROOT__TYPES);
-    }
-    return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Device> getDevices()
-  {
-    if (devices == null)
-    {
-      devices = new EObjectContainmentEList<Device>(Device.class, this, DrnPackage.ROOT__DEVICES);
-    }
-    return devices;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Assignement> getAssignement()
   {
     if (assignement == null)
@@ -232,12 +118,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   {
     switch (featureID)
     {
-      case DrnPackage.ROOT__CONTEXT:
-        return basicSetContext(null, msgs);
-      case DrnPackage.ROOT__TYPES:
-        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-      case DrnPackage.ROOT__DEVICES:
-        return ((InternalEList<?>)getDevices()).basicRemove(otherEnd, msgs);
       case DrnPackage.ROOT__ASSIGNEMENT:
         return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
     }
@@ -256,12 +136,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
     {
       case DrnPackage.ROOT__LIBRARIES:
         return getLibraries();
-      case DrnPackage.ROOT__CONTEXT:
-        return getContext();
-      case DrnPackage.ROOT__TYPES:
-        return getTypes();
-      case DrnPackage.ROOT__DEVICES:
-        return getDevices();
       case DrnPackage.ROOT__ASSIGNEMENT:
         return getAssignement();
     }
@@ -282,17 +156,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
       case DrnPackage.ROOT__LIBRARIES:
         getLibraries().clear();
         getLibraries().addAll((Collection<? extends Library>)newValue);
-        return;
-      case DrnPackage.ROOT__CONTEXT:
-        setContext((Context)newValue);
-        return;
-      case DrnPackage.ROOT__TYPES:
-        getTypes().clear();
-        getTypes().addAll((Collection<? extends TypeGeneric>)newValue);
-        return;
-      case DrnPackage.ROOT__DEVICES:
-        getDevices().clear();
-        getDevices().addAll((Collection<? extends Device>)newValue);
         return;
       case DrnPackage.ROOT__ASSIGNEMENT:
         getAssignement().clear();
@@ -315,15 +178,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
       case DrnPackage.ROOT__LIBRARIES:
         getLibraries().clear();
         return;
-      case DrnPackage.ROOT__CONTEXT:
-        setContext((Context)null);
-        return;
-      case DrnPackage.ROOT__TYPES:
-        getTypes().clear();
-        return;
-      case DrnPackage.ROOT__DEVICES:
-        getDevices().clear();
-        return;
       case DrnPackage.ROOT__ASSIGNEMENT:
         getAssignement().clear();
         return;
@@ -343,12 +197,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
     {
       case DrnPackage.ROOT__LIBRARIES:
         return libraries != null && !libraries.isEmpty();
-      case DrnPackage.ROOT__CONTEXT:
-        return context != null;
-      case DrnPackage.ROOT__TYPES:
-        return types != null && !types.isEmpty();
-      case DrnPackage.ROOT__DEVICES:
-        return devices != null && !devices.isEmpty();
       case DrnPackage.ROOT__ASSIGNEMENT:
         return assignement != null && !assignement.isEmpty();
     }

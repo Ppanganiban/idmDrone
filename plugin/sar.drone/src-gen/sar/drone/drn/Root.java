@@ -17,9 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Root#getLibraries <em>Libraries</em>}</li>
- *   <li>{@link sar.drone.drn.Root#getContext <em>Context</em>}</li>
- *   <li>{@link sar.drone.drn.Root#getTypes <em>Types</em>}</li>
- *   <li>{@link sar.drone.drn.Root#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.Root#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
@@ -44,64 +41,6 @@ public interface Root extends EObject
    * @generated
    */
   EList<Library> getLibraries();
-
-  /**
-   * Returns the value of the '<em><b>Context</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Context</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Context</em>' containment reference.
-   * @see #setContext(Context)
-   * @see sar.drone.drn.DrnPackage#getRoot_Context()
-   * @model containment="true"
-   * @generated
-   */
-  Context getContext();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Root#getContext <em>Context</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Context</em>' containment reference.
-   * @see #getContext()
-   * @generated
-   */
-  void setContext(Context value);
-
-  /**
-   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.TypeGeneric}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Types</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getRoot_Types()
-   * @model containment="true"
-   * @generated
-   */
-  EList<TypeGeneric> getTypes();
-
-  /**
-   * Returns the value of the '<em><b>Devices</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.Device}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Devices</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Devices</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getRoot_Devices()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Device> getDevices();
 
   /**
    * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.

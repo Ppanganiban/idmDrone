@@ -316,34 +316,9 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createWithAdapter();
       }
       @Override
-      public Adapter caseOption(Option object)
-      {
-        return createOptionAdapter();
-      }
-      @Override
       public Adapter caseRefDevice(RefDevice object)
       {
         return createRefDeviceAdapter();
-      }
-      @Override
-      public Adapter caseAttribut(Attribut object)
-      {
-        return createAttributAdapter();
-      }
-      @Override
-      public Adapter caseLed_Impl(Led_Impl object)
-      {
-        return createLed_ImplAdapter();
-      }
-      @Override
-      public Adapter caseLedBlink(LedBlink object)
-      {
-        return createLedBlinkAdapter();
-      }
-      @Override
-      public Adapter caseCamera(Camera object)
-      {
-        return createCameraAdapter();
       }
       @Override
       public Adapter caseTypeGeneric(TypeGeneric object)
@@ -1098,21 +1073,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Option <em>Option</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.Option
-   * @generated
-   */
-  public Adapter createOptionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link sar.drone.drn.RefDevice <em>Ref Device</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1123,66 +1083,6 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRefDeviceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Attribut <em>Attribut</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.Attribut
-   * @generated
-   */
-  public Adapter createAttributAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Led_Impl <em>Led Impl</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.Led_Impl
-   * @generated
-   */
-  public Adapter createLed_ImplAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.LedBlink <em>Led Blink</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.LedBlink
-   * @generated
-   */
-  public Adapter createLedBlinkAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link sar.drone.drn.Camera <em>Camera</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see sar.drone.drn.Camera
-   * @generated
-   */
-  public Adapter createCameraAdapter()
   {
     return null;
   }

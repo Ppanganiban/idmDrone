@@ -466,49 +466,10 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DrnPackage.OPTION:
-      {
-        Option option = (Option)theEObject;
-        T result = caseOption(option);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DrnPackage.REF_DEVICE:
       {
         RefDevice refDevice = (RefDevice)theEObject;
         T result = caseRefDevice(refDevice);
-        if (result == null) result = caseOption(refDevice);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.ATTRIBUT:
-      {
-        Attribut attribut = (Attribut)theEObject;
-        T result = caseAttribut(attribut);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.LED_IMPL:
-      {
-        Led_Impl led_Impl = (Led_Impl)theEObject;
-        T result = caseLed_Impl(led_Impl);
-        if (result == null) result = caseOption(led_Impl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.LED_BLINK:
-      {
-        LedBlink ledBlink = (LedBlink)theEObject;
-        T result = caseLedBlink(ledBlink);
-        if (result == null) result = caseOption(ledBlink);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DrnPackage.CAMERA:
-      {
-        Camera camera = (Camera)theEObject;
-        T result = caseCamera(camera);
-        if (result == null) result = caseOption(camera);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1299,22 +1260,6 @@ public class DrnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Option</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Option</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOption(Option object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Ref Device</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1326,70 +1271,6 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRefDevice(RefDevice object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribut</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribut</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAttribut(Attribut object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Led Impl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Led Impl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLed_Impl(Led_Impl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Led Blink</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Led Blink</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLedBlink(LedBlink object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Camera</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Camera</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCamera(Camera object)
   {
     return null;
   }

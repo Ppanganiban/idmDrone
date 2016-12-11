@@ -54,7 +54,7 @@ public interface With extends EObject
 
   /**
    * Returns the value of the '<em><b>Option</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.Option}.
+   * The list contents are of type {@link sar.drone.drn.RefDevice}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Option</em>' containment reference list isn't clear,
@@ -66,6 +66,6 @@ public interface With extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Option> getOption();
+  EList<RefDevice> getOption();
 
 } // With

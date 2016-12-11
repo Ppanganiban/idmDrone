@@ -10,7 +10,6 @@ import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
 
 
 import sar.drone.drn.Assignement;
-import sar.drone.drn.Attribut;
 import sar.drone.drn.Definition;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.RefDevice;
@@ -21,13 +20,7 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 
-		if (reference == DrnPackage.Literals.ATTRIBUT__ELMT
-			&& context instanceof Attribut) {
-			  Attribut a = (Attribut) context;
-		      return Scopes.scopeFor(a.getType().getElements());
-		}
-		
-		else if (reference == DrnPackage.Literals.REF_DEVICE__DEFINITIONS
+		if (reference == DrnPackage.Literals.REF_DEVICE__DEFINITIONS
 				&& context instanceof RefDevice){
 			RefDevice rd = (RefDevice) context;
 			return Scopes.scopeFor(rd.getDev().getDeclarations());			
@@ -48,6 +41,10 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 			Definition def = (Definition) context;
 			return Scopes.scopeFor(def.getLeft().getType().getElements());
 		}
+		else if (reference == DrnPackage.Literals.DEFINITION__INT
+				){//&& context instanceof Definition){
+			System.out.println("BLABLABL context: " + context + " reference: "+reference);
+		}
 		else if (reference == DrnPackage.Literals.REF_PART_LIB__LIBS
 				&& context instanceof Assignement){
 			Assignement a = (Assignement)context;
@@ -60,6 +57,9 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 				&& context instanceof RefPartLib){
 			return Scopes.scopeFor( ((RefPartLib)context).getLibs().getAssignement());
 		}
+		else if (reference == DrnPackage.Literals.REF_DEVICE__DEV
+				){//&& context instanceof Assignement){
+		}
 		else if (reference == DrnPackage.Literals.REF_PART__VARIABLE_PARTIE
 				&& context instanceof Assignement){
 			Assignement a = (Assignement)context;
@@ -69,9 +69,5 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 		
 		return super.getScope(context, reference);
 	}
-/*	@Override
-	public IScope getScope(Resource context, EReference ref, Predicate<IEObjectDescription> filter){
-		return null;
-		
-	}*/
+
 }

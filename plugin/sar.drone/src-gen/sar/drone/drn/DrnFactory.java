@@ -456,15 +456,6 @@ public interface DrnFactory extends EFactory
   With createWith();
 
   /**
-   * Returns a new object of class '<em>Option</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Option</em>'.
-   * @generated
-   */
-  Option createOption();
-
-  /**
    * Returns a new object of class '<em>Ref Device</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -472,42 +463,6 @@ public interface DrnFactory extends EFactory
    * @generated
    */
   RefDevice createRefDevice();
-
-  /**
-   * Returns a new object of class '<em>Attribut</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribut</em>'.
-   * @generated
-   */
-  Attribut createAttribut();
-
-  /**
-   * Returns a new object of class '<em>Led Impl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Led Impl</em>'.
-   * @generated
-   */
-  Led_Impl createLed_Impl();
-
-  /**
-   * Returns a new object of class '<em>Led Blink</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Led Blink</em>'.
-   * @generated
-   */
-  LedBlink createLedBlink();
-
-  /**
-   * Returns a new object of class '<em>Camera</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Camera</em>'.
-   * @generated
-   */
-  Camera createCamera();
 
   /**
    * Returns a new object of class '<em>Type Generic</em>'.

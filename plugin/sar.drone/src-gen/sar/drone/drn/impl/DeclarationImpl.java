@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.TypeGeneric;
+import sar.drone.drn.TypePrimitif;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import sar.drone.drn.TypeGeneric;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.DeclarationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DeclarationImpl#getTypePrimitif <em>Type Primitif</em>}</li>
  *   <li>{@link sar.drone.drn.impl.DeclarationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -40,6 +42,26 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @ordered
    */
   protected TypeGeneric type;
+
+  /**
+   * The default value of the '{@link #getTypePrimitif() <em>Type Primitif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypePrimitif()
+   * @generated
+   * @ordered
+   */
+  protected static final TypePrimitif TYPE_PRIMITIF_EDEFAULT = TypePrimitif.BOOL_TYPE;
+
+  /**
+   * The cached value of the '{@link #getTypePrimitif() <em>Type Primitif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypePrimitif()
+   * @generated
+   * @ordered
+   */
+  protected TypePrimitif typePrimitif = TYPE_PRIMITIF_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -130,6 +152,29 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypePrimitif getTypePrimitif()
+  {
+    return typePrimitif;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypePrimitif(TypePrimitif newTypePrimitif)
+  {
+    TypePrimitif oldTypePrimitif = typePrimitif;
+    typePrimitif = newTypePrimitif == null ? TYPE_PRIMITIF_EDEFAULT : newTypePrimitif;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DECLARATION__TYPE_PRIMITIF, oldTypePrimitif, typePrimitif));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -161,6 +206,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
       case DrnPackage.DECLARATION__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case DrnPackage.DECLARATION__TYPE_PRIMITIF:
+        return getTypePrimitif();
       case DrnPackage.DECLARATION__NAME:
         return getName();
     }
@@ -179,6 +226,9 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     {
       case DrnPackage.DECLARATION__TYPE:
         setType((TypeGeneric)newValue);
+        return;
+      case DrnPackage.DECLARATION__TYPE_PRIMITIF:
+        setTypePrimitif((TypePrimitif)newValue);
         return;
       case DrnPackage.DECLARATION__NAME:
         setName((String)newValue);
@@ -200,6 +250,9 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
       case DrnPackage.DECLARATION__TYPE:
         setType((TypeGeneric)null);
         return;
+      case DrnPackage.DECLARATION__TYPE_PRIMITIF:
+        setTypePrimitif(TYPE_PRIMITIF_EDEFAULT);
+        return;
       case DrnPackage.DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -219,6 +272,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     {
       case DrnPackage.DECLARATION__TYPE:
         return type != null;
+      case DrnPackage.DECLARATION__TYPE_PRIMITIF:
+        return typePrimitif != TYPE_PRIMITIF_EDEFAULT;
       case DrnPackage.DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
@@ -236,7 +291,9 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (typePrimitif: ");
+    result.append(typePrimitif);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

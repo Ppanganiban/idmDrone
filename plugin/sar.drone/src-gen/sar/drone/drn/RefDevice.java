@@ -5,6 +5,8 @@ package sar.drone.drn;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Ref Device</b></em>'.
@@ -15,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.RefDevice#getDev <em>Dev</em>}</li>
+ *   <li>{@link sar.drone.drn.RefDevice#getMode <em>Mode</em>}</li>
  *   <li>{@link sar.drone.drn.RefDevice#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
@@ -22,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface RefDevice extends Option
+public interface RefDevice extends EObject
 {
   /**
    * Returns the value of the '<em><b>Dev</b></em>' reference.
@@ -49,6 +52,35 @@ public interface RefDevice extends Option
    * @generated
    */
   void setDev(Device value);
+
+  /**
+   * Returns the value of the '<em><b>Mode</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.Mode}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mode</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #setMode(Mode)
+   * @see sar.drone.drn.DrnPackage#getRefDevice_Mode()
+   * @model
+   * @generated
+   */
+  Mode getMode();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.RefDevice#getMode <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Mode</em>' attribute.
+   * @see sar.drone.drn.Mode
+   * @see #getMode()
+   * @generated
+   */
+  void setMode(Mode value);
 
   /**
    * Returns the value of the '<em><b>Definitions</b></em>' containment reference list.

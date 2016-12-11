@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import sar.drone.drn.Context;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Model;
 import sar.drone.drn.RefPart;
@@ -23,6 +24,7 @@ import sar.drone.drn.RefPart;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getContext <em>Context</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
@@ -30,6 +32,16 @@ import sar.drone.drn.RefPart;
  */
 public class ModelImpl extends RootImpl implements Model
 {
+  /**
+   * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContext()
+   * @generated
+   * @ordered
+   */
+  protected Context context;
+
   /**
    * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +71,54 @@ public class ModelImpl extends RootImpl implements Model
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Context getContext()
+  {
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetContext(Context newContext, NotificationChain msgs)
+  {
+    Context oldContext = context;
+    context = newContext;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DrnPackage.MODEL__CONTEXT, oldContext, newContext);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContext(Context newContext)
+  {
+    if (newContext != context)
+    {
+      NotificationChain msgs = null;
+      if (context != null)
+        msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DrnPackage.MODEL__CONTEXT, null, msgs);
+      if (newContext != null)
+        msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DrnPackage.MODEL__CONTEXT, null, msgs);
+      msgs = basicSetContext(newContext, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.MODEL__CONTEXT, newContext, newContext));
   }
 
   /**
@@ -119,6 +179,8 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONTEXT:
+        return basicSetContext(null, msgs);
       case DrnPackage.MODEL__MAIN:
         return basicSetMain(null, msgs);
     }
@@ -135,6 +197,8 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONTEXT:
+        return getContext();
       case DrnPackage.MODEL__MAIN:
         return getMain();
     }
@@ -151,6 +215,9 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONTEXT:
+        setContext((Context)newValue);
+        return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)newValue);
         return;
@@ -168,6 +235,9 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONTEXT:
+        setContext((Context)null);
+        return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)null);
         return;
@@ -185,6 +255,8 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONTEXT:
+        return context != null;
       case DrnPackage.MODEL__MAIN:
         return main != null;
     }

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Declaration#getType <em>Type</em>}</li>
+ *   <li>{@link sar.drone.drn.Declaration#getTypePrimitif <em>Type Primitif</em>}</li>
  *   <li>{@link sar.drone.drn.Declaration#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -49,6 +50,35 @@ public interface Declaration extends EObject
    * @generated
    */
   void setType(TypeGeneric value);
+
+  /**
+   * Returns the value of the '<em><b>Type Primitif</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.TypePrimitif}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Primitif</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Primitif</em>' attribute.
+   * @see sar.drone.drn.TypePrimitif
+   * @see #setTypePrimitif(TypePrimitif)
+   * @see sar.drone.drn.DrnPackage#getDeclaration_TypePrimitif()
+   * @model
+   * @generated
+   */
+  TypePrimitif getTypePrimitif();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Declaration#getTypePrimitif <em>Type Primitif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Primitif</em>' attribute.
+   * @see sar.drone.drn.TypePrimitif
+   * @see #getTypePrimitif()
+   * @generated
+   */
+  void setTypePrimitif(TypePrimitif value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

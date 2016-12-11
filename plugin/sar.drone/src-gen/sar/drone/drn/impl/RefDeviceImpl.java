@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import sar.drone.drn.Definition;
 import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
+import sar.drone.drn.Mode;
 import sar.drone.drn.RefDevice;
 
 /**
@@ -32,12 +34,13 @@ import sar.drone.drn.RefDevice;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.RefDeviceImpl#getDev <em>Dev</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.RefDeviceImpl#getMode <em>Mode</em>}</li>
  *   <li>{@link sar.drone.drn.impl.RefDeviceImpl#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RefDeviceImpl extends OptionImpl implements RefDevice
+public class RefDeviceImpl extends MinimalEObjectImpl.Container implements RefDevice
 {
   /**
    * The cached value of the '{@link #getDev() <em>Dev</em>}' reference.
@@ -48,6 +51,26 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
    * @ordered
    */
   protected Device dev;
+
+  /**
+   * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMode()
+   * @generated
+   * @ordered
+   */
+  protected static final Mode MODE_EDEFAULT = Mode.OFF;
+
+  /**
+   * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMode()
+   * @generated
+   * @ordered
+   */
+  protected Mode mode = MODE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' containment reference list.
@@ -128,6 +151,29 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
    * <!-- end-user-doc -->
    * @generated
    */
+  public Mode getMode()
+  {
+    return mode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMode(Mode newMode)
+  {
+    Mode oldMode = mode;
+    mode = newMode == null ? MODE_EDEFAULT : newMode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.REF_DEVICE__MODE, oldMode, mode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Definition> getDefinitions()
   {
     if (definitions == null)
@@ -166,6 +212,8 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
       case DrnPackage.REF_DEVICE__DEV:
         if (resolve) return getDev();
         return basicGetDev();
+      case DrnPackage.REF_DEVICE__MODE:
+        return getMode();
       case DrnPackage.REF_DEVICE__DEFINITIONS:
         return getDefinitions();
     }
@@ -185,6 +233,9 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
     {
       case DrnPackage.REF_DEVICE__DEV:
         setDev((Device)newValue);
+        return;
+      case DrnPackage.REF_DEVICE__MODE:
+        setMode((Mode)newValue);
         return;
       case DrnPackage.REF_DEVICE__DEFINITIONS:
         getDefinitions().clear();
@@ -207,6 +258,9 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
       case DrnPackage.REF_DEVICE__DEV:
         setDev((Device)null);
         return;
+      case DrnPackage.REF_DEVICE__MODE:
+        setMode(MODE_EDEFAULT);
+        return;
       case DrnPackage.REF_DEVICE__DEFINITIONS:
         getDefinitions().clear();
         return;
@@ -226,10 +280,29 @@ public class RefDeviceImpl extends OptionImpl implements RefDevice
     {
       case DrnPackage.REF_DEVICE__DEV:
         return dev != null;
+      case DrnPackage.REF_DEVICE__MODE:
+        return mode != MODE_EDEFAULT;
       case DrnPackage.REF_DEVICE__DEFINITIONS:
         return definitions != null && !definitions.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (mode: ");
+    result.append(mode);
+    result.append(')');
+    return result.toString();
   }
 
 } //RefDeviceImpl

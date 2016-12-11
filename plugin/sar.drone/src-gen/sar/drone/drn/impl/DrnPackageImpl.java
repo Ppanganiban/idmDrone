@@ -13,9 +13,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
-import sar.drone.drn.Attribut;
-import sar.drone.drn.Camera;
-import sar.drone.drn.ColorLed;
 import sar.drone.drn.Context;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.Definition;
@@ -39,8 +36,6 @@ import sar.drone.drn.InitialPosition;
 import sar.drone.drn.InitialPositionX;
 import sar.drone.drn.InitialPositionY;
 import sar.drone.drn.Land;
-import sar.drone.drn.LedBlink;
-import sar.drone.drn.Led_Impl;
 import sar.drone.drn.Library;
 import sar.drone.drn.Limit;
 import sar.drone.drn.MaxHeight;
@@ -50,7 +45,6 @@ import sar.drone.drn.MaxWidth;
 import sar.drone.drn.Mode;
 import sar.drone.drn.Model;
 import sar.drone.drn.Movement;
-import sar.drone.drn.Option;
 import sar.drone.drn.RefDevice;
 import sar.drone.drn.RefPart;
 import sar.drone.drn.RefPartLib;
@@ -59,6 +53,7 @@ import sar.drone.drn.Rotate;
 import sar.drone.drn.Surface;
 import sar.drone.drn.TakeOff;
 import sar.drone.drn.TypeGeneric;
+import sar.drone.drn.TypePrimitif;
 import sar.drone.drn.Wait;
 import sar.drone.drn.With;
 
@@ -411,42 +406,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass optionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass refDeviceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass attributEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass led_ImplEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass ledBlinkEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass cameraEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -467,7 +427,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum colorLedEEnum = null;
+  private EEnum typePrimitifEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -578,39 +538,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRoot_Context()
-  {
-    return (EReference)rootEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRoot_Types()
-  {
-    return (EReference)rootEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRoot_Devices()
-  {
-    return (EReference)rootEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getRoot_Assignement()
   {
-    return (EReference)rootEClass.getEStructuralFeatures().get(4);
+    return (EReference)rootEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -628,9 +558,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Main()
+  public EReference getModel_Context()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Main()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -651,6 +591,26 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EAttribute getLibrary_Name()
   {
     return (EAttribute)libraryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLibrary_Types()
+  {
+    return (EReference)libraryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLibrary_Devices()
+  {
+    return (EReference)libraryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1658,9 +1618,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeclaration_Name()
+  public EAttribute getDeclaration_TypePrimitif()
   {
     return (EAttribute)declarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeclaration_Name()
+  {
+    return (EAttribute)declarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1698,6 +1668,46 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDefinition_Int()
+  {
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefinition_Real()
+  {
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefinition_Bool()
+  {
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefinition_Text()
+  {
+    return (EAttribute)definitionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getWith()
   {
     return withEClass;
@@ -1728,26 +1738,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getOption()
-  {
-    return optionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOption_Mode()
-  {
-    return (EAttribute)optionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getRefDevice()
   {
     return refDeviceEClass;
@@ -1768,199 +1758,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getRefDevice_Mode()
+  {
+    return (EAttribute)refDeviceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getRefDevice_Definitions()
   {
-    return (EReference)refDeviceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAttribut()
-  {
-    return attributEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttribut_Name()
-  {
-    return (EAttribute)attributEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAttribut_Type()
-  {
-    return (EReference)attributEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAttribut_Elmt()
-  {
-    return (EReference)attributEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttribut_Mode()
-  {
-    return (EAttribute)attributEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttribut_Int()
-  {
-    return (EAttribute)attributEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAttribut_Bool()
-  {
-    return (EAttribute)attributEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLed_Impl()
-  {
-    return led_ImplEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLed_Impl_Name()
-  {
-    return (EAttribute)led_ImplEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLed_Impl_Color()
-  {
-    return (EAttribute)led_ImplEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLedBlink()
-  {
-    return ledBlinkEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLedBlink_Name()
-  {
-    return (EAttribute)ledBlinkEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLedBlink_Color()
-  {
-    return (EAttribute)ledBlinkEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLedBlink_Blink_per_secCST()
-  {
-    return (EAttribute)ledBlinkEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLedBlink_Attributs()
-  {
-    return (EReference)ledBlinkEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCamera()
-  {
-    return cameraEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCamera_Name()
-  {
-    return (EAttribute)cameraEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCamera_Id()
-  {
-    return (EAttribute)cameraEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCamera_Attributs()
-  {
-    return (EReference)cameraEClass.getEStructuralFeatures().get(2);
+    return (EReference)refDeviceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2018,9 +1828,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getColorLed()
+  public EEnum getTypePrimitif()
   {
-    return colorLedEEnum;
+    return typePrimitifEEnum;
   }
 
   /**
@@ -2085,16 +1895,16 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     // Create classes and their features
     rootEClass = createEClass(ROOT);
     createEReference(rootEClass, ROOT__LIBRARIES);
-    createEReference(rootEClass, ROOT__CONTEXT);
-    createEReference(rootEClass, ROOT__TYPES);
-    createEReference(rootEClass, ROOT__DEVICES);
     createEReference(rootEClass, ROOT__ASSIGNEMENT);
 
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__CONTEXT);
     createEReference(modelEClass, MODEL__MAIN);
 
     libraryEClass = createEClass(LIBRARY);
     createEAttribute(libraryEClass, LIBRARY__NAME);
+    createEReference(libraryEClass, LIBRARY__TYPES);
+    createEReference(libraryEClass, LIBRARY__DEVICES);
 
     contextEClass = createEClass(CONTEXT);
     createEAttribute(contextEClass, CONTEXT__NAME);
@@ -2238,45 +2048,25 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     declarationEClass = createEClass(DECLARATION);
     createEReference(declarationEClass, DECLARATION__TYPE);
+    createEAttribute(declarationEClass, DECLARATION__TYPE_PRIMITIF);
     createEAttribute(declarationEClass, DECLARATION__NAME);
 
     definitionEClass = createEClass(DEFINITION);
     createEReference(definitionEClass, DEFINITION__LEFT);
     createEReference(definitionEClass, DEFINITION__RIGHT);
+    createEAttribute(definitionEClass, DEFINITION__INT);
+    createEAttribute(definitionEClass, DEFINITION__REAL);
+    createEAttribute(definitionEClass, DEFINITION__BOOL);
+    createEAttribute(definitionEClass, DEFINITION__TEXT);
 
     withEClass = createEClass(WITH);
     createEAttribute(withEClass, WITH__NAME);
     createEReference(withEClass, WITH__OPTION);
 
-    optionEClass = createEClass(OPTION);
-    createEAttribute(optionEClass, OPTION__MODE);
-
     refDeviceEClass = createEClass(REF_DEVICE);
     createEReference(refDeviceEClass, REF_DEVICE__DEV);
+    createEAttribute(refDeviceEClass, REF_DEVICE__MODE);
     createEReference(refDeviceEClass, REF_DEVICE__DEFINITIONS);
-
-    attributEClass = createEClass(ATTRIBUT);
-    createEAttribute(attributEClass, ATTRIBUT__NAME);
-    createEReference(attributEClass, ATTRIBUT__TYPE);
-    createEReference(attributEClass, ATTRIBUT__ELMT);
-    createEAttribute(attributEClass, ATTRIBUT__MODE);
-    createEAttribute(attributEClass, ATTRIBUT__INT);
-    createEAttribute(attributEClass, ATTRIBUT__BOOL);
-
-    led_ImplEClass = createEClass(LED_IMPL);
-    createEAttribute(led_ImplEClass, LED_IMPL__NAME);
-    createEAttribute(led_ImplEClass, LED_IMPL__COLOR);
-
-    ledBlinkEClass = createEClass(LED_BLINK);
-    createEAttribute(ledBlinkEClass, LED_BLINK__NAME);
-    createEAttribute(ledBlinkEClass, LED_BLINK__COLOR);
-    createEAttribute(ledBlinkEClass, LED_BLINK__BLINK_PER_SEC_CST);
-    createEReference(ledBlinkEClass, LED_BLINK__ATTRIBUTS);
-
-    cameraEClass = createEClass(CAMERA);
-    createEAttribute(cameraEClass, CAMERA__NAME);
-    createEAttribute(cameraEClass, CAMERA__ID);
-    createEReference(cameraEClass, CAMERA__ATTRIBUTS);
 
     typeGenericEClass = createEClass(TYPE_GENERIC);
     createEAttribute(typeGenericEClass, TYPE_GENERIC__NAME);
@@ -2286,7 +2076,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEAttribute(elementEClass, ELEMENT__NAME);
 
     // Create enums
-    colorLedEEnum = createEEnum(COLOR_LED);
+    typePrimitifEEnum = createEEnum(TYPE_PRIMITIF);
     modeEEnum = createEEnum(MODE);
     eBoolEEnum = createEEnum(EBOOL);
     directionTypeEEnum = createEEnum(DIRECTION_TYPE);
@@ -2359,24 +2149,20 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     waitEClass.getESuperTypes().add(this.getMovement());
     takeOffEClass.getESuperTypes().add(this.getMovement());
     landEClass.getESuperTypes().add(this.getMovement());
-    refDeviceEClass.getESuperTypes().add(this.getOption());
-    led_ImplEClass.getESuperTypes().add(this.getOption());
-    ledBlinkEClass.getESuperTypes().add(this.getOption());
-    cameraEClass.getESuperTypes().add(this.getOption());
 
     // Initialize classes and features; add operations and parameters
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRoot_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRoot_Context(), this.getContext(), null, "context", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRoot_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRoot_Devices(), this.getDevice(), null, "devices", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoot_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Context(), this.getContext(), null, "context", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Main(), this.getRefPart(), null, "main", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLibrary_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLibrary_Devices(), this.getDevice(), null, "devices", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2520,45 +2306,25 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclaration_Type(), this.getTypeGeneric(), null, "type", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeclaration_TypePrimitif(), this.getTypePrimitif(), "typePrimitif", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDefinition_Left(), this.getDeclaration(), null, "left", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDefinition_Right(), this.getElement(), null, "right", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Int(), ecorePackage.getEString(), "int", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Real(), ecorePackage.getEString(), "real", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Bool(), this.getEBool(), "bool", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefinition_Text(), ecorePackage.getEString(), "text", null, 0, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(withEClass, With.class, "With", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWith_Name(), ecorePackage.getEString(), "name", null, 0, 1, With.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWith_Option(), this.getOption(), null, "option", null, 0, -1, With.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOption_Mode(), this.getMode(), "mode", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWith_Option(), this.getRefDevice(), null, "option", null, 0, -1, With.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refDeviceEClass, RefDevice.class, "RefDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefDevice_Dev(), this.getDevice(), null, "dev", null, 0, 1, RefDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRefDevice_Mode(), this.getMode(), "mode", null, 0, 1, RefDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRefDevice_Definitions(), this.getDefinition(), null, "definitions", null, 0, -1, RefDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(attributEClass, Attribut.class, "Attribut", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribut_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttribut_Type(), this.getTypeGeneric(), null, "type", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttribut_Elmt(), this.getElement(), null, "elmt", null, 0, -1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribut_Mode(), this.getMode(), "mode", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribut_Int(), ecorePackage.getEString(), "int", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribut_Bool(), this.getEBool(), "bool", null, 0, 1, Attribut.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(led_ImplEClass, Led_Impl.class, "Led_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLed_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Led_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLed_Impl_Color(), this.getColorLed(), "color", null, 0, 1, Led_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(ledBlinkEClass, LedBlink.class, "LedBlink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLedBlink_Name(), ecorePackage.getEString(), "name", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLedBlink_Color(), this.getColorLed(), "color", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLedBlink_Blink_per_secCST(), ecorePackage.getEInt(), "blink_per_secCST", null, 0, 1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLedBlink_Attributs(), this.getAttribut(), null, "attributs", null, 0, -1, LedBlink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCamera_Name(), ecorePackage.getEString(), "name", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCamera_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCamera_Attributs(), this.getAttribut(), null, "attributs", null, 0, -1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeGenericEClass, TypeGeneric.class, "TypeGeneric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeGeneric_Name(), ecorePackage.getEString(), "name", null, 0, 1, TypeGeneric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2568,12 +2334,11 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(colorLedEEnum, ColorLed.class, "ColorLed");
-    addEEnumLiteral(colorLedEEnum, ColorLed.BLUE);
-    addEEnumLiteral(colorLedEEnum, ColorLed.RED);
-    addEEnumLiteral(colorLedEEnum, ColorLed.YELLOW);
-    addEEnumLiteral(colorLedEEnum, ColorLed.GREEN);
-    addEEnumLiteral(colorLedEEnum, ColorLed.WHITE);
+    initEEnum(typePrimitifEEnum, TypePrimitif.class, "TypePrimitif");
+    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.BOOL_TYPE);
+    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.INT_TYPE);
+    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.REAL_TYPE);
+    addEEnumLiteral(typePrimitifEEnum, TypePrimitif.STRING_TYPE);
 
     initEEnum(modeEEnum, Mode.class, "Mode");
     addEEnumLiteral(modeEEnum, Mode.OFF);

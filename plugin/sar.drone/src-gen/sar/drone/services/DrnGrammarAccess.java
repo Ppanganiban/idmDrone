@@ -20,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -55,36 +56,31 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLibrariesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final CrossReference cLibrariesLibraryCrossReference_2_1_0 = (CrossReference)cLibrariesAssignment_2_1.eContents().get(0);
 		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_2_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Assignment cContextAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cContextContextParserRuleCall_3_0 = (RuleCall)cContextAssignment_3.eContents().get(0);
-		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypesTypeGenericParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
-		private final Assignment cDevicesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDevicesDeviceParserRuleCall_5_0 = (RuleCall)cDevicesAssignment_5.eContents().get(0);
-		private final Assignment cAssignementAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cAssignementAssignementParserRuleCall_6_0 = (RuleCall)cAssignementAssignment_6.eContents().get(0);
-		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
-		private final Keyword cStartKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cEqualsSignKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cMainAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cMainRefPartParserRuleCall_10_0 = (RuleCall)cMainAssignment_10.eContents().get(0);
-		private final Keyword cSemicolonKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cAssignementAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAssignementAssignementParserRuleCall_4_0 = (RuleCall)cAssignementAssignment_4.eContents().get(0);
+		private final Assignment cAssignementAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAssignementAssignementParserRuleCall_5_0 = (RuleCall)cAssignementAssignment_5.eContents().get(0);
+		private final Keyword cStartKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cEqualsSignKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cMainAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cMainRefPartParserRuleCall_8_0 = (RuleCall)cMainAssignment_8.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Model:
 		//	'CHOREOGRAPHY'
-		//	'{' ('import' libraries+=[Library])*
+		//	'{' ('import' libraries+=[Library] ';')*
 		//	context=Context?
-		//	types+=TypeGeneric*
-		//	devices+=Device*
 		//	assignement+=Assignement assignement+=Assignement*
 		//	'start' '=' main=RefPart ';'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CHOREOGRAPHY' '{' ('import' libraries+=[Library])* context=Context? types+=TypeGeneric* devices+=Device*
-		//assignement+=Assignement assignement+=Assignement* 'start' '=' main=RefPart ';' '}'
+		//'CHOREOGRAPHY' '{' ('import' libraries+=[Library] ';')* context=Context? assignement+=Assignement
+		//assignement+=Assignement* 'start' '=' main=RefPart ';' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'CHOREOGRAPHY'
@@ -93,7 +89,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('import' libraries+=[Library])*
+		//('import' libraries+=[Library] ';')*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'import'
@@ -108,11 +104,110 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getLibrariesLibraryIDTerminalRuleCall_2_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_2_1_0_1; }
 		
+		//';'
+		public Keyword getSemicolonKeyword_2_2() { return cSemicolonKeyword_2_2; }
+		
 		//context=Context?
 		public Assignment getContextAssignment_3() { return cContextAssignment_3; }
 		
 		//Context
 		public RuleCall getContextContextParserRuleCall_3_0() { return cContextContextParserRuleCall_3_0; }
+		
+		//assignement+=Assignement
+		public Assignment getAssignementAssignment_4() { return cAssignementAssignment_4; }
+		
+		//Assignement
+		public RuleCall getAssignementAssignementParserRuleCall_4_0() { return cAssignementAssignementParserRuleCall_4_0; }
+		
+		//assignement+=Assignement*
+		public Assignment getAssignementAssignment_5() { return cAssignementAssignment_5; }
+		
+		//Assignement
+		public RuleCall getAssignementAssignementParserRuleCall_5_0() { return cAssignementAssignementParserRuleCall_5_0; }
+		
+		//'start'
+		public Keyword getStartKeyword_6() { return cStartKeyword_6; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_7() { return cEqualsSignKeyword_7; }
+		
+		//main=RefPart
+		public Assignment getMainAssignment_8() { return cMainAssignment_8; }
+		
+		//RefPart
+		public RuleCall getMainRefPartParserRuleCall_8_0() { return cMainRefPartParserRuleCall_8_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+	}
+	public class LibraryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Library");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLIBRARYKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cImportKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cLibrariesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cLibrariesLibraryCrossReference_3_1_0 = (CrossReference)cLibrariesAssignment_3_1.eContents().get(0);
+		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_3_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cTypesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypesTypeGenericParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
+		private final Assignment cDevicesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDevicesDeviceParserRuleCall_5_0 = (RuleCall)cDevicesAssignment_5.eContents().get(0);
+		private final Assignment cAssignementAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cAssignementAssignementParserRuleCall_6_0 = (RuleCall)cAssignementAssignment_6.eContents().get(0);
+		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//Library:
+		//	'LIBRARY' name=ID
+		//	'{' ('import' libraries+=[Library] ';')*
+		//	types+=TypeGeneric*
+		//	devices+=Device*
+		//	assignement+=Assignement assignement+=Assignement*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'LIBRARY' name=ID '{' ('import' libraries+=[Library] ';')* types+=TypeGeneric* devices+=Device* assignement+=Assignement
+		//assignement+=Assignement* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'LIBRARY'
+		public Keyword getLIBRARYKeyword_0() { return cLIBRARYKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('import' libraries+=[Library] ';')*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'import'
+		public Keyword getImportKeyword_3_0() { return cImportKeyword_3_0; }
+		
+		//libraries+=[Library]
+		public Assignment getLibrariesAssignment_3_1() { return cLibrariesAssignment_3_1; }
+		
+		//[Library]
+		public CrossReference getLibrariesLibraryCrossReference_3_1_0() { return cLibrariesLibraryCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getLibrariesLibraryIDTerminalRuleCall_3_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_3_1_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
 		
 		//types+=TypeGeneric*
 		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
@@ -138,121 +233,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//Assignement
 		public RuleCall getAssignementAssignementParserRuleCall_7_0() { return cAssignementAssignementParserRuleCall_7_0; }
 		
-		//'start'
-		public Keyword getStartKeyword_8() { return cStartKeyword_8; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_9() { return cEqualsSignKeyword_9; }
-		
-		//main=RefPart
-		public Assignment getMainAssignment_10() { return cMainAssignment_10; }
-		
-		//RefPart
-		public RuleCall getMainRefPartParserRuleCall_10_0() { return cMainRefPartParserRuleCall_10_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_11() { return cSemicolonKeyword_11; }
-		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
-	}
-	public class LibraryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Library");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLIBRARYKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cImportKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cLibrariesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cLibrariesLibraryCrossReference_3_1_0 = (CrossReference)cLibrariesAssignment_3_1.eContents().get(0);
-		private final RuleCall cLibrariesLibraryIDTerminalRuleCall_3_1_0_1 = (RuleCall)cLibrariesLibraryCrossReference_3_1_0.eContents().get(1);
-		private final Assignment cContextAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cContextContextParserRuleCall_4_0 = (RuleCall)cContextAssignment_4.eContents().get(0);
-		private final Assignment cTypesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTypesTypeGenericParserRuleCall_5_0 = (RuleCall)cTypesAssignment_5.eContents().get(0);
-		private final Assignment cDevicesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cDevicesDeviceParserRuleCall_6_0 = (RuleCall)cDevicesAssignment_6.eContents().get(0);
-		private final Assignment cAssignementAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cAssignementAssignementParserRuleCall_7_0 = (RuleCall)cAssignementAssignment_7.eContents().get(0);
-		private final Assignment cAssignementAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cAssignementAssignementParserRuleCall_8_0 = (RuleCall)cAssignementAssignment_8.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		
-		//Library:
-		//	'LIBRARY' name=ID
-		//	'{' ('import' libraries+=[Library])*
-		//	context=Context?
-		//	types+=TypeGeneric*
-		//	devices+=Device*
-		//	assignement+=Assignement assignement+=Assignement*
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'LIBRARY' name=ID '{' ('import' libraries+=[Library])* context=Context? types+=TypeGeneric* devices+=Device*
-		//assignement+=Assignement assignement+=Assignement* '}'
-		public Group getGroup() { return cGroup; }
-		
-		//'LIBRARY'
-		public Keyword getLIBRARYKeyword_0() { return cLIBRARYKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//('import' libraries+=[Library])*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'import'
-		public Keyword getImportKeyword_3_0() { return cImportKeyword_3_0; }
-		
-		//libraries+=[Library]
-		public Assignment getLibrariesAssignment_3_1() { return cLibrariesAssignment_3_1; }
-		
-		//[Library]
-		public CrossReference getLibrariesLibraryCrossReference_3_1_0() { return cLibrariesLibraryCrossReference_3_1_0; }
-		
-		//ID
-		public RuleCall getLibrariesLibraryIDTerminalRuleCall_3_1_0_1() { return cLibrariesLibraryIDTerminalRuleCall_3_1_0_1; }
-		
-		//context=Context?
-		public Assignment getContextAssignment_4() { return cContextAssignment_4; }
-		
-		//Context
-		public RuleCall getContextContextParserRuleCall_4_0() { return cContextContextParserRuleCall_4_0; }
-		
-		//types+=TypeGeneric*
-		public Assignment getTypesAssignment_5() { return cTypesAssignment_5; }
-		
-		//TypeGeneric
-		public RuleCall getTypesTypeGenericParserRuleCall_5_0() { return cTypesTypeGenericParserRuleCall_5_0; }
-		
-		//devices+=Device*
-		public Assignment getDevicesAssignment_6() { return cDevicesAssignment_6; }
-		
-		//Device
-		public RuleCall getDevicesDeviceParserRuleCall_6_0() { return cDevicesDeviceParserRuleCall_6_0; }
-		
-		//assignement+=Assignement
-		public Assignment getAssignementAssignment_7() { return cAssignementAssignment_7; }
-		
-		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_7_0() { return cAssignementAssignementParserRuleCall_7_0; }
-		
-		//assignement+=Assignement*
-		public Assignment getAssignementAssignment_8() { return cAssignementAssignment_8; }
-		
-		//Assignement
-		public RuleCall getAssignementAssignementParserRuleCall_8_0() { return cAssignementAssignementParserRuleCall_8_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class ContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Context");
@@ -2262,30 +2244,42 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Declaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cTypeTypeGenericCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
-		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeTypeGenericCrossReference_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final CrossReference cTypeTypeGenericCrossReference_1_0_0 = (CrossReference)cTypeAssignment_1_0.eContents().get(0);
+		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_1_0_0_1 = (RuleCall)cTypeTypeGenericCrossReference_1_0_0.eContents().get(1);
+		private final Assignment cTypePrimitifAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cTypePrimitifTypePrimitifEnumRuleCall_1_1_0 = (RuleCall)cTypePrimitifAssignment_1_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Declaration:
-		//	'type' type=[TypeGeneric] name=ID;
+		//	'type' (type=[TypeGeneric] | typePrimitif=TypePrimitif) name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'type' type=[TypeGeneric] name=ID
+		//'type' (type=[TypeGeneric] | typePrimitif=TypePrimitif) name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'type'
 		public Keyword getTypeKeyword_0() { return cTypeKeyword_0; }
 		
+		//(type=[TypeGeneric] | typePrimitif=TypePrimitif)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
 		//type=[TypeGeneric]
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_1_0() { return cTypeAssignment_1_0; }
 		
 		//[TypeGeneric]
-		public CrossReference getTypeTypeGenericCrossReference_1_0() { return cTypeTypeGenericCrossReference_1_0; }
+		public CrossReference getTypeTypeGenericCrossReference_1_0_0() { return cTypeTypeGenericCrossReference_1_0_0; }
 		
 		//ID
-		public RuleCall getTypeTypeGenericIDTerminalRuleCall_1_0_1() { return cTypeTypeGenericIDTerminalRuleCall_1_0_1; }
+		public RuleCall getTypeTypeGenericIDTerminalRuleCall_1_0_0_1() { return cTypeTypeGenericIDTerminalRuleCall_1_0_0_1; }
+		
+		//typePrimitif=TypePrimitif
+		public Assignment getTypePrimitifAssignment_1_1() { return cTypePrimitifAssignment_1_1; }
+		
+		//TypePrimitif
+		public RuleCall getTypePrimitifTypePrimitifEnumRuleCall_1_1_0() { return cTypePrimitifTypePrimitifEnumRuleCall_1_1_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -2300,15 +2294,24 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cLeftDeclarationCrossReference_0_0 = (CrossReference)cLeftAssignment_0.eContents().get(0);
 		private final RuleCall cLeftDeclarationIDTerminalRuleCall_0_0_1 = (RuleCall)cLeftDeclarationCrossReference_0_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cRightAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cRightElementCrossReference_2_0 = (CrossReference)cRightAssignment_2.eContents().get(0);
-		private final RuleCall cRightElementIDTerminalRuleCall_2_0_1 = (RuleCall)cRightElementCrossReference_2_0.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cRightAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final CrossReference cRightElementCrossReference_2_0_0 = (CrossReference)cRightAssignment_2_0.eContents().get(0);
+		private final RuleCall cRightElementIDTerminalRuleCall_2_0_0_1 = (RuleCall)cRightElementCrossReference_2_0_0.eContents().get(1);
+		private final Assignment cIntAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cIntEIntParserRuleCall_2_1_0 = (RuleCall)cIntAssignment_2_1.eContents().get(0);
+		private final Assignment cRealAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
+		private final RuleCall cRealERealParserRuleCall_2_2_0 = (RuleCall)cRealAssignment_2_2.eContents().get(0);
+		private final Assignment cBoolAssignment_2_3 = (Assignment)cAlternatives_2.eContents().get(3);
+		private final RuleCall cBoolEBoolEnumRuleCall_2_3_0 = (RuleCall)cBoolAssignment_2_3.eContents().get(0);
+		private final Assignment cTextAssignment_2_4 = (Assignment)cAlternatives_2.eContents().get(4);
+		private final RuleCall cTextSTRINGTerminalRuleCall_2_4_0 = (RuleCall)cTextAssignment_2_4.eContents().get(0);
 		
 		//Definition:
-		//	left=[Declaration] '=' right=[Element];
+		//	left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//left=[Declaration] '=' right=[Element]
+		//left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING)
 		public Group getGroup() { return cGroup; }
 		
 		//left=[Declaration]
@@ -2323,14 +2326,41 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 		
+		//(right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
 		//right=[Element]
-		public Assignment getRightAssignment_2() { return cRightAssignment_2; }
+		public Assignment getRightAssignment_2_0() { return cRightAssignment_2_0; }
 		
 		//[Element]
-		public CrossReference getRightElementCrossReference_2_0() { return cRightElementCrossReference_2_0; }
+		public CrossReference getRightElementCrossReference_2_0_0() { return cRightElementCrossReference_2_0_0; }
 		
 		//ID
-		public RuleCall getRightElementIDTerminalRuleCall_2_0_1() { return cRightElementIDTerminalRuleCall_2_0_1; }
+		public RuleCall getRightElementIDTerminalRuleCall_2_0_0_1() { return cRightElementIDTerminalRuleCall_2_0_0_1; }
+		
+		//int=EInt
+		public Assignment getIntAssignment_2_1() { return cIntAssignment_2_1; }
+		
+		//EInt
+		public RuleCall getIntEIntParserRuleCall_2_1_0() { return cIntEIntParserRuleCall_2_1_0; }
+		
+		//real=EReal
+		public Assignment getRealAssignment_2_2() { return cRealAssignment_2_2; }
+		
+		//EReal
+		public RuleCall getRealERealParserRuleCall_2_2_0() { return cRealERealParserRuleCall_2_2_0; }
+		
+		//bool=EBool
+		public Assignment getBoolAssignment_2_3() { return cBoolAssignment_2_3; }
+		
+		//EBool
+		public RuleCall getBoolEBoolEnumRuleCall_2_3_0() { return cBoolEBoolEnumRuleCall_2_3_0; }
+		
+		//text=STRING
+		public Assignment getTextAssignment_2_4() { return cTextAssignment_2_4; }
+		
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_2_4_0() { return cTextSTRINGTerminalRuleCall_2_4_0; }
 	}
 	public class WithElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.With");
@@ -2338,17 +2368,17 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNameWithKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Assignment cOptionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cOptionOptionParserRuleCall_1_0 = (RuleCall)cOptionAssignment_1.eContents().get(0);
+		private final RuleCall cOptionRefDeviceParserRuleCall_1_0 = (RuleCall)cOptionAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cOptionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cOptionOptionParserRuleCall_2_1_0 = (RuleCall)cOptionAssignment_2_1.eContents().get(0);
+		private final RuleCall cOptionRefDeviceParserRuleCall_2_1_0 = (RuleCall)cOptionAssignment_2_1.eContents().get(0);
 		
 		//With:
-		//	name='with' option+=Option ("," option+=Option)*;
+		//	name='with' option+=RefDevice ("," option+=RefDevice)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name='with' option+=Option ("," option+=Option)*
+		//name='with' option+=RefDevice ("," option+=RefDevice)*
 		public Group getGroup() { return cGroup; }
 		
 		//name='with'
@@ -2357,53 +2387,23 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getNameWithKeyword_0_0() { return cNameWithKeyword_0_0; }
 		
-		//option+=Option
+		//option+=RefDevice
 		public Assignment getOptionAssignment_1() { return cOptionAssignment_1; }
 		
-		//Option
-		public RuleCall getOptionOptionParserRuleCall_1_0() { return cOptionOptionParserRuleCall_1_0; }
+		//RefDevice
+		public RuleCall getOptionRefDeviceParserRuleCall_1_0() { return cOptionRefDeviceParserRuleCall_1_0; }
 		
-		//("," option+=Option)*
+		//("," option+=RefDevice)*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//","
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 		
-		//option+=Option
+		//option+=RefDevice
 		public Assignment getOptionAssignment_2_1() { return cOptionAssignment_2_1; }
 		
-		//Option
-		public RuleCall getOptionOptionParserRuleCall_2_1_0() { return cOptionOptionParserRuleCall_2_1_0; }
-	}
-	public class OptionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Option");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cLed_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLedBlinkParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCameraParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRefDeviceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		
-		//Option:
-		//	Led_Impl
-		//	| LedBlink
-		//	| Camera
-		//	| RefDevice;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Led_Impl | LedBlink | Camera | RefDevice
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Led_Impl
-		public RuleCall getLed_ImplParserRuleCall_0() { return cLed_ImplParserRuleCall_0; }
-		
-		//LedBlink
-		public RuleCall getLedBlinkParserRuleCall_1() { return cLedBlinkParserRuleCall_1; }
-		
-		//Camera
-		public RuleCall getCameraParserRuleCall_2() { return cCameraParserRuleCall_2; }
-		
 		//RefDevice
-		public RuleCall getRefDeviceParserRuleCall_3() { return cRefDeviceParserRuleCall_3; }
+		public RuleCall getOptionRefDeviceParserRuleCall_2_1_0() { return cOptionRefDeviceParserRuleCall_2_1_0; }
 	}
 	public class RefDeviceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.RefDevice");
@@ -2466,331 +2466,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
-	}
-	public class AttributElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Attribut");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cAttributeKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
-		private final Assignment cTypeAssignment_0_3_0 = (Assignment)cGroup_0_3.eContents().get(0);
-		private final CrossReference cTypeTypeGenericCrossReference_0_3_0_0 = (CrossReference)cTypeAssignment_0_3_0.eContents().get(0);
-		private final RuleCall cTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1 = (RuleCall)cTypeTypeGenericCrossReference_0_3_0_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
-		private final Assignment cElmtAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
-		private final CrossReference cElmtElementCrossReference_0_3_2_0 = (CrossReference)cElmtAssignment_0_3_2.eContents().get(0);
-		private final RuleCall cElmtElementIDTerminalRuleCall_0_3_2_0_1 = (RuleCall)cElmtElementCrossReference_0_3_2_0.eContents().get(1);
-		private final Assignment cModeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cModeModeEnumRuleCall_1_0 = (RuleCall)cModeAssignment_1.eContents().get(0);
-		private final Assignment cIntAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cIntEIntParserRuleCall_2_0 = (RuleCall)cIntAssignment_2.eContents().get(0);
-		private final Assignment cBoolAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final RuleCall cBoolEBoolEnumRuleCall_3_0 = (RuleCall)cBoolAssignment_3.eContents().get(0);
-		
-		//Attribut:
-		//	'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode
-		//	| int=EInt
-		//	| bool=EBool;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode | int=EInt | bool=EBool
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element])
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'attribute'
-		public Keyword getAttributeKeyword_0_0() { return cAttributeKeyword_0_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_0_2() { return cEqualsSignKeyword_0_2; }
-		
-		//(type=[TypeGeneric] '.' elmt+=[Element])
-		public Group getGroup_0_3() { return cGroup_0_3; }
-		
-		//type=[TypeGeneric]
-		public Assignment getTypeAssignment_0_3_0() { return cTypeAssignment_0_3_0; }
-		
-		//[TypeGeneric]
-		public CrossReference getTypeTypeGenericCrossReference_0_3_0_0() { return cTypeTypeGenericCrossReference_0_3_0_0; }
-		
-		//ID
-		public RuleCall getTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1() { return cTypeTypeGenericIDTerminalRuleCall_0_3_0_0_1; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_0_3_1() { return cFullStopKeyword_0_3_1; }
-		
-		//elmt+=[Element]
-		public Assignment getElmtAssignment_0_3_2() { return cElmtAssignment_0_3_2; }
-		
-		//[Element]
-		public CrossReference getElmtElementCrossReference_0_3_2_0() { return cElmtElementCrossReference_0_3_2_0; }
-		
-		//ID
-		public RuleCall getElmtElementIDTerminalRuleCall_0_3_2_0_1() { return cElmtElementIDTerminalRuleCall_0_3_2_0_1; }
-		
-		//mode=Mode
-		public Assignment getModeAssignment_1() { return cModeAssignment_1; }
-		
-		//Mode
-		public RuleCall getModeModeEnumRuleCall_1_0() { return cModeModeEnumRuleCall_1_0; }
-		
-		//int=EInt
-		public Assignment getIntAssignment_2() { return cIntAssignment_2; }
-		
-		//EInt
-		public RuleCall getIntEIntParserRuleCall_2_0() { return cIntEIntParserRuleCall_2_0; }
-		
-		//bool=EBool
-		public Assignment getBoolAssignment_3() { return cBoolAssignment_3; }
-		
-		//EBool
-		public RuleCall getBoolEBoolEnumRuleCall_3_0() { return cBoolEBoolEnumRuleCall_3_0; }
-	}
-	public class Led_ImplElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Led_Impl");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameLedKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
-		private final Keyword cColorKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cColorAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cColorColorLedEnumRuleCall_7_0 = (RuleCall)cColorAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//Led_Impl:
-		//	name='led'
-		//	'('
-		//	'mode' '=' mode=Mode
-		//	'color' '=' color=ColorLed
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//// Led:
-		//name='led' '(' 'mode' '=' mode=Mode 'color' '=' color=ColorLed ')'
-		public Group getGroup() { return cGroup; }
-		
-		//// Led:
-		//name='led'
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//'led'
-		public Keyword getNameLedKeyword_0_0() { return cNameLedKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'mode'
-		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//mode=Mode
-		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
-		
-		//Mode
-		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
-		
-		//'color'
-		public Keyword getColorKeyword_5() { return cColorKeyword_5; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
-		
-		//color=ColorLed
-		public Assignment getColorAssignment_7() { return cColorAssignment_7; }
-		
-		//ColorLed
-		public RuleCall getColorColorLedEnumRuleCall_7_0() { return cColorColorLedEnumRuleCall_7_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
-	}
-	public class LedBlinkElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.LedBlink");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameLedBlinkKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cModeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cModeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cModeModeEnumRuleCall_4_0 = (RuleCall)cModeAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cColorKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cColorAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cColorColorLedEnumRuleCall_5_2_0 = (RuleCall)cColorAssignment_5_2.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cBlink_per_secKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cBlink_per_secCSTAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cBlink_per_secCSTINTTerminalRuleCall_6_2_0 = (RuleCall)cBlink_per_secCSTAssignment_6_2.eContents().get(0);
-		private final Assignment cAttributsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cAttributsAttributParserRuleCall_7_0 = (RuleCall)cAttributsAssignment_7.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//LedBlink:
-		//	name='ledBlink'
-		//	'('
-		//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT) attributs+=Attribut*
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//// LedBlink:
-		//name='ledBlink' '(' 'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT)
-		//attributs+=Attribut* ')'
-		public Group getGroup() { return cGroup; }
-		
-		//// LedBlink:
-		//name='ledBlink'
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//'ledBlink'
-		public Keyword getNameLedBlinkKeyword_0_0() { return cNameLedBlinkKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'mode'
-		public Keyword getModeKeyword_2() { return cModeKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//mode=Mode
-		public Assignment getModeAssignment_4() { return cModeAssignment_4; }
-		
-		//Mode
-		public RuleCall getModeModeEnumRuleCall_4_0() { return cModeModeEnumRuleCall_4_0; }
-		
-		//('color' '=' color=ColorLed)
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'color'
-		public Keyword getColorKeyword_5_0() { return cColorKeyword_5_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
-		
-		//color=ColorLed
-		public Assignment getColorAssignment_5_2() { return cColorAssignment_5_2; }
-		
-		//ColorLed
-		public RuleCall getColorColorLedEnumRuleCall_5_2_0() { return cColorColorLedEnumRuleCall_5_2_0; }
-		
-		//('blink_per_sec' '=' blink_per_secCST=INT)
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'blink_per_sec'
-		public Keyword getBlink_per_secKeyword_6_0() { return cBlink_per_secKeyword_6_0; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6_1() { return cEqualsSignKeyword_6_1; }
-		
-		//blink_per_secCST=INT
-		public Assignment getBlink_per_secCSTAssignment_6_2() { return cBlink_per_secCSTAssignment_6_2; }
-		
-		//INT
-		public RuleCall getBlink_per_secCSTINTTerminalRuleCall_6_2_0() { return cBlink_per_secCSTINTTerminalRuleCall_6_2_0; }
-		
-		//attributs+=Attribut*
-		public Assignment getAttributsAssignment_7() { return cAttributsAssignment_7; }
-		
-		//Attribut
-		public RuleCall getAttributsAttributParserRuleCall_7_0() { return cAttributsAttributParserRuleCall_7_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
-	}
-	public class CameraElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Camera");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cNameCameraKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cIdKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cIdAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cIdINTTerminalRuleCall_4_0 = (RuleCall)cIdAssignment_4.eContents().get(0);
-		private final Keyword cModeKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cModeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cModeModeEnumRuleCall_7_0 = (RuleCall)cModeAssignment_7.eContents().get(0);
-		private final Assignment cAttributsAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cAttributsAttributParserRuleCall_8_0 = (RuleCall)cAttributsAssignment_8.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		
-		//Camera:
-		//	name='camera'
-		//	'('
-		//	'id' '=' id=INT
-		//	'mode' '=' mode=Mode
-		//	attributs+=Attribut*
-		//	')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//// Camera:
-		//name='camera' '(' 'id' '=' id=INT 'mode' '=' mode=Mode attributs+=Attribut* ')'
-		public Group getGroup() { return cGroup; }
-		
-		//// Camera:
-		//name='camera'
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-		
-		//'camera'
-		public Keyword getNameCameraKeyword_0_0() { return cNameCameraKeyword_0_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//'id'
-		public Keyword getIdKeyword_2() { return cIdKeyword_2; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
-		
-		//id=INT
-		public Assignment getIdAssignment_4() { return cIdAssignment_4; }
-		
-		//INT
-		public RuleCall getIdINTTerminalRuleCall_4_0() { return cIdINTTerminalRuleCall_4_0; }
-		
-		//'mode'
-		public Keyword getModeKeyword_5() { return cModeKeyword_5; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
-		
-		//mode=Mode
-		public Assignment getModeAssignment_7() { return cModeAssignment_7; }
-		
-		//Mode
-		public RuleCall getModeModeEnumRuleCall_7_0() { return cModeModeEnumRuleCall_7_0; }
-		
-		//attributs+=Attribut*
-		public Assignment getAttributsAssignment_8() { return cAttributsAssignment_8; }
-		
-		//Attribut
-		public RuleCall getAttributsAttributParserRuleCall_8_0() { return cAttributsAttributParserRuleCall_8_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
 	}
 	public class TypeGenericElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.TypeGeneric");
@@ -2892,59 +2567,79 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
-	
-	public class ColorLedElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.ColorLed");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cBLUEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cBLUEBLUEKeyword_0_0 = (Keyword)cBLUEEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cREDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cREDREDKeyword_1_0 = (Keyword)cREDEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cYELLOWEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cYELLOWYELLOWKeyword_2_0 = (Keyword)cYELLOWEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cGREENEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cGREENGREENKeyword_3_0 = (Keyword)cGREENEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cWHITEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cWHITEWHITEKeyword_4_0 = (Keyword)cWHITEEnumLiteralDeclaration_4.eContents().get(0);
+	public class ERealElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.EReal");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final RuleCall cINTTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//enum ColorLed: // ColorLed:
-		//	BLUE | RED | YELLOW | GREEN | WHITE;
+		//EReal:
+		//	'-'? INT '.' INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'-'? INT '.' INT
+		public Group getGroup() { return cGroup; }
+		
+		//'-'?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
+	}
+	
+	public class TypePrimitifElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.TypePrimitif");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBoolTypeEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBoolTypeBOOLEANKeyword_0_0 = (Keyword)cBoolTypeEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cIntTypeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cIntTypeNUMBERKeyword_1_0 = (Keyword)cIntTypeEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRealTypeEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRealTypeREALKeyword_2_0 = (Keyword)cRealTypeEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cStringTypeEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cStringTypeTEXTKeyword_3_0 = (Keyword)cStringTypeEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum TypePrimitif:
+		//	boolType='BOOLEAN'
+		//	| intType='NUMBER'
+		//	| realType='REAL'
+		//	| stringType='TEXT';
 		public EnumRule getRule() { return rule; }
 		
-		//// ColorLed:
-		//BLUE | RED | YELLOW | GREEN | WHITE
+		//boolType='BOOLEAN' | intType='NUMBER' | realType='REAL' | stringType='TEXT'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//// ColorLed:
-		//BLUE
-		public EnumLiteralDeclaration getBLUEEnumLiteralDeclaration_0() { return cBLUEEnumLiteralDeclaration_0; }
+		//boolType='BOOLEAN'
+		public EnumLiteralDeclaration getBoolTypeEnumLiteralDeclaration_0() { return cBoolTypeEnumLiteralDeclaration_0; }
 		
-		//'BLUE'
-		public Keyword getBLUEBLUEKeyword_0_0() { return cBLUEBLUEKeyword_0_0; }
+		//'BOOLEAN'
+		public Keyword getBoolTypeBOOLEANKeyword_0_0() { return cBoolTypeBOOLEANKeyword_0_0; }
 		
-		//RED
-		public EnumLiteralDeclaration getREDEnumLiteralDeclaration_1() { return cREDEnumLiteralDeclaration_1; }
+		//intType='NUMBER'
+		public EnumLiteralDeclaration getIntTypeEnumLiteralDeclaration_1() { return cIntTypeEnumLiteralDeclaration_1; }
 		
-		//'RED'
-		public Keyword getREDREDKeyword_1_0() { return cREDREDKeyword_1_0; }
+		//'NUMBER'
+		public Keyword getIntTypeNUMBERKeyword_1_0() { return cIntTypeNUMBERKeyword_1_0; }
 		
-		//YELLOW
-		public EnumLiteralDeclaration getYELLOWEnumLiteralDeclaration_2() { return cYELLOWEnumLiteralDeclaration_2; }
+		//realType='REAL'
+		public EnumLiteralDeclaration getRealTypeEnumLiteralDeclaration_2() { return cRealTypeEnumLiteralDeclaration_2; }
 		
-		//'YELLOW'
-		public Keyword getYELLOWYELLOWKeyword_2_0() { return cYELLOWYELLOWKeyword_2_0; }
+		//'REAL'
+		public Keyword getRealTypeREALKeyword_2_0() { return cRealTypeREALKeyword_2_0; }
 		
-		//GREEN
-		public EnumLiteralDeclaration getGREENEnumLiteralDeclaration_3() { return cGREENEnumLiteralDeclaration_3; }
+		//stringType='TEXT'
+		public EnumLiteralDeclaration getStringTypeEnumLiteralDeclaration_3() { return cStringTypeEnumLiteralDeclaration_3; }
 		
-		//'GREEN'
-		public Keyword getGREENGREENKeyword_3_0() { return cGREENGREENKeyword_3_0; }
-		
-		//WHITE
-		public EnumLiteralDeclaration getWHITEEnumLiteralDeclaration_4() { return cWHITEEnumLiteralDeclaration_4; }
-		
-		//'WHITE'
-		public Keyword getWHITEWHITEKeyword_4_0() { return cWHITEWHITEKeyword_4_0; }
+		//'TEXT'
+		public Keyword getStringTypeTEXTKeyword_3_0() { return cStringTypeTEXTKeyword_3_0; }
 	}
 	public class ModeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Mode");
@@ -3094,16 +2789,12 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final DeclarationElements pDeclaration;
 	private final DefinitionElements pDefinition;
 	private final WithElements pWith;
-	private final OptionElements pOption;
 	private final RefDeviceElements pRefDevice;
-	private final AttributElements pAttribut;
-	private final Led_ImplElements pLed_Impl;
-	private final LedBlinkElements pLedBlink;
-	private final CameraElements pCamera;
 	private final TypeGenericElements pTypeGeneric;
 	private final ElementElements pElement;
+	private final TypePrimitifElements eTypePrimitif;
 	private final EIntElements pEInt;
-	private final ColorLedElements eColorLed;
+	private final ERealElements pEReal;
 	private final ModeElements eMode;
 	private final EBoolElements eEBool;
 	private final DirectionTypeElements eDirectionType;
@@ -3165,16 +2856,12 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDeclaration = new DeclarationElements();
 		this.pDefinition = new DefinitionElements();
 		this.pWith = new WithElements();
-		this.pOption = new OptionElements();
 		this.pRefDevice = new RefDeviceElements();
-		this.pAttribut = new AttributElements();
-		this.pLed_Impl = new Led_ImplElements();
-		this.pLedBlink = new LedBlinkElements();
-		this.pCamera = new CameraElements();
 		this.pTypeGeneric = new TypeGenericElements();
 		this.pElement = new ElementElements();
+		this.eTypePrimitif = new TypePrimitifElements();
 		this.pEInt = new EIntElements();
-		this.eColorLed = new ColorLedElements();
+		this.pEReal = new ERealElements();
 		this.eMode = new ModeElements();
 		this.eEBool = new EBoolElements();
 		this.eDirectionType = new DirectionTypeElements();
@@ -3219,10 +2906,8 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Model:
 	//	'CHOREOGRAPHY'
-	//	'{' ('import' libraries+=[Library])*
+	//	'{' ('import' libraries+=[Library] ';')*
 	//	context=Context?
-	//	types+=TypeGeneric*
-	//	devices+=Device*
 	//	assignement+=Assignement assignement+=Assignement*
 	//	'start' '=' main=RefPart ';'
 	//	'}';
@@ -3236,8 +2921,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Library:
 	//	'LIBRARY' name=ID
-	//	'{' ('import' libraries+=[Library])*
-	//	context=Context?
+	//	'{' ('import' libraries+=[Library] ';')*
 	//	types+=TypeGeneric*
 	//	devices+=Device*
 	//	assignement+=Assignement assignement+=Assignement*
@@ -3728,7 +3412,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Declaration:
-	//	'type' type=[TypeGeneric] name=ID;
+	//	'type' (type=[TypeGeneric] | typePrimitif=TypePrimitif) name=ID;
 	public DeclarationElements getDeclarationAccess() {
 		return pDeclaration;
 	}
@@ -3738,7 +3422,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Definition:
-	//	left=[Declaration] '=' right=[Element];
+	//	left=[Declaration] '=' (right=[Element] | int=EInt | real=EReal | bool=EBool | text=STRING);
 	public DefinitionElements getDefinitionAccess() {
 		return pDefinition;
 	}
@@ -3748,26 +3432,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//With:
-	//	name='with' option+=Option ("," option+=Option)*;
+	//	name='with' option+=RefDevice ("," option+=RefDevice)*;
 	public WithElements getWithAccess() {
 		return pWith;
 	}
 	
 	public ParserRule getWithRule() {
 		return getWithAccess().getRule();
-	}
-	
-	//Option:
-	//	Led_Impl
-	//	| LedBlink
-	//	| Camera
-	//	| RefDevice;
-	public OptionElements getOptionAccess() {
-		return pOption;
-	}
-	
-	public ParserRule getOptionRule() {
-		return getOptionAccess().getRule();
 	}
 	
 	//RefDevice:
@@ -3781,60 +3452,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRefDeviceRule() {
 		return getRefDeviceAccess().getRule();
-	}
-	
-	//Attribut:
-	//	'attribute' name=ID '=' (type=[TypeGeneric] '.' elmt+=[Element]) | mode=Mode
-	//	| int=EInt
-	//	| bool=EBool;
-	public AttributElements getAttributAccess() {
-		return pAttribut;
-	}
-	
-	public ParserRule getAttributRule() {
-		return getAttributAccess().getRule();
-	}
-	
-	//Led_Impl:
-	//	name='led'
-	//	'('
-	//	'mode' '=' mode=Mode
-	//	'color' '=' color=ColorLed
-	//	')';
-	public Led_ImplElements getLed_ImplAccess() {
-		return pLed_Impl;
-	}
-	
-	public ParserRule getLed_ImplRule() {
-		return getLed_ImplAccess().getRule();
-	}
-	
-	//LedBlink:
-	//	name='ledBlink'
-	//	'('
-	//	'mode' '=' mode=Mode ('color' '=' color=ColorLed) ('blink_per_sec' '=' blink_per_secCST=INT) attributs+=Attribut*
-	//	')';
-	public LedBlinkElements getLedBlinkAccess() {
-		return pLedBlink;
-	}
-	
-	public ParserRule getLedBlinkRule() {
-		return getLedBlinkAccess().getRule();
-	}
-	
-	//Camera:
-	//	name='camera'
-	//	'('
-	//	'id' '=' id=INT
-	//	'mode' '=' mode=Mode
-	//	attributs+=Attribut*
-	//	')';
-	public CameraElements getCameraAccess() {
-		return pCamera;
-	}
-	
-	public ParserRule getCameraRule() {
-		return getCameraAccess().getRule();
 	}
 	
 	/// ******************* Type ********************* / TypeGeneric:
@@ -3860,6 +3477,19 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getElementAccess().getRule();
 	}
 	
+	//enum TypePrimitif:
+	//	boolType='BOOLEAN'
+	//	| intType='NUMBER'
+	//	| realType='REAL'
+	//	| stringType='TEXT';
+	public TypePrimitifElements getTypePrimitifAccess() {
+		return eTypePrimitif;
+	}
+	
+	public EnumRule getTypePrimitifRule() {
+		return getTypePrimitifAccess().getRule();
+	}
+	
 	//EInt:
 	//	'-'? INT;
 	public EIntElements getEIntAccess() {
@@ -3870,14 +3500,14 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getEIntAccess().getRule();
 	}
 	
-	//enum ColorLed: // ColorLed:
-	//	BLUE | RED | YELLOW | GREEN | WHITE;
-	public ColorLedElements getColorLedAccess() {
-		return eColorLed;
+	//EReal:
+	//	'-'? INT '.' INT;
+	public ERealElements getERealAccess() {
+		return pEReal;
 	}
 	
-	public EnumRule getColorLedRule() {
-		return getColorLedAccess().getRule();
+	public ParserRule getERealRule() {
+		return getERealAccess().getRule();
 	}
 	
 	//enum Mode: // Mode:

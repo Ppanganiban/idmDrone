@@ -8,10 +8,8 @@ Root :
 Model :
 	'CHOREOGRAPHY'
 	'{'
-		('import' libraries += [Library])*
+		('import' libraries += [Library]';')*
 		(context = Context)?
-		(types += TypeGeneric)*
-		(devices += Device)*
 		assignement+=Assignement ( assignement+=Assignement)*
 		'start' '=' main=RefPart ';'
 	'}'
@@ -20,8 +18,7 @@ Model :
 Library :
 	'LIBRARY' name=ID
 	'{'
-		('import' libraries += [Library])*
-		(context = Context)?
+		('import' libraries += [Library]';')*
 		(types += TypeGeneric)*
 		(devices += Device)*
 		assignement+=Assignement ( assignement+=Assignement)*
@@ -252,22 +249,20 @@ Device:
 ;
 
 Declaration:
-	'type' type=([TypeGeneric]) name=ID
+	'type' (type=[TypeGeneric] | typePrimitif=TypePrimitif) name=ID
 ;
 
 Definition :
-	left = [Declaration] '=' right = [Element]
+	left = [Declaration] '=' ( (right 	= [Element])
+							| (int  	= EInt)
+							| (real 	= EReal)
+							| (bool 	= EBool)
+							| (text 	= STRING) )
 ;
 With :
-	name='with' option+=Option ( "," option+=Option)*
+	name='with' option+=RefDevice ( "," option+=RefDevice)*
 ;
 
-Option :
-	Led_Impl
-	| LedBlink
-	| Camera
-	| RefDevice
-;
 
 RefDevice :
 	dev = [Device]
@@ -277,38 +272,6 @@ RefDevice :
 	')'
 ;
 
-Attribut :
-	'attribute' name = ID '=' (type=[TypeGeneric]'.'(elmt+=[Element]))
-							| mode=Mode
-							| int = EInt
-							| bool = EBool
-							 
-;
-Led_Impl :// Led:
-	name='led'
-	'('
-	'mode' '=' mode=Mode
-	'color''=' color=ColorLed
-	')'
-;
-
-LedBlink :// LedBlink:
-	name='ledBlink'
-	'('
-	'mode''=' mode=Mode
-	('color''=' color=ColorLed)
-	('blink_per_sec''=' blink_per_secCST=INT )
-	(attributs+=Attribut)*
-	')';
-
-Camera :// Camera:
-	name='camera'
-	'('
-	'id''=' id=INT
-	'mode''=' mode=Mode
-	(attributs += Attribut)*
-	')'
-;
 /******************* Type *********************/
 
 TypeGeneric :
@@ -323,18 +286,21 @@ Element:
 	'element' name = ID
 ;
 
+enum TypePrimitif:
+	boolType 		= 'BOOLEAN'
+	| intType 		= 'NUMBER'
+	| realType		= 'REAL'
+	| stringType	= 'TEXT'
+;
 EInt :
 	'-'? INT;
 
-
-enum ColorLed :// ColorLed:
-				BLUE = 'BLUE' | RED = 'RED' | YELLOW = 'YELLOW' | GREEN='GREEN' | WHITE='WHITE';
+EReal :
+	'-'? INT'.'INT;
 
 enum Mode :// Mode:
 				OFF = 'OFF' | ON = 'ON';
-
 enum EBool :
 				TRUE = 'TRUE' | FALSE = 'FALSE';
-				
 enum DirectionType :
 				FRONT = 'FRONT' | BEHIND = 'BEHIND' | LEFT = 'LEFT' | RIGHT = 'RIGHT';

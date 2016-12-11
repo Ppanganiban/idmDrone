@@ -114,12 +114,7 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.DECLARATION: return createDeclaration();
       case DrnPackage.DEFINITION: return createDefinition();
       case DrnPackage.WITH: return createWith();
-      case DrnPackage.OPTION: return createOption();
       case DrnPackage.REF_DEVICE: return createRefDevice();
-      case DrnPackage.ATTRIBUT: return createAttribut();
-      case DrnPackage.LED_IMPL: return createLed_Impl();
-      case DrnPackage.LED_BLINK: return createLedBlink();
-      case DrnPackage.CAMERA: return createCamera();
       case DrnPackage.TYPE_GENERIC: return createTypeGeneric();
       case DrnPackage.ELEMENT: return createElement();
       default:
@@ -137,8 +132,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case DrnPackage.COLOR_LED:
-        return createColorLedFromString(eDataType, initialValue);
+      case DrnPackage.TYPE_PRIMITIF:
+        return createTypePrimitifFromString(eDataType, initialValue);
       case DrnPackage.MODE:
         return createModeFromString(eDataType, initialValue);
       case DrnPackage.EBOOL:
@@ -160,8 +155,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case DrnPackage.COLOR_LED:
-        return convertColorLedToString(eDataType, instanceValue);
+      case DrnPackage.TYPE_PRIMITIF:
+        return convertTypePrimitifToString(eDataType, instanceValue);
       case DrnPackage.MODE:
         return convertModeToString(eDataType, instanceValue);
       case DrnPackage.EBOOL:
@@ -706,65 +701,10 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Option createOption()
-  {
-    OptionImpl option = new OptionImpl();
-    return option;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public RefDevice createRefDevice()
   {
     RefDeviceImpl refDevice = new RefDeviceImpl();
     return refDevice;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribut createAttribut()
-  {
-    AttributImpl attribut = new AttributImpl();
-    return attribut;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Led_Impl createLed_Impl()
-  {
-    Led_ImplImpl led_Impl = new Led_ImplImpl();
-    return led_Impl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LedBlink createLedBlink()
-  {
-    LedBlinkImpl ledBlink = new LedBlinkImpl();
-    return ledBlink;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Camera createCamera()
-  {
-    CameraImpl camera = new CameraImpl();
-    return camera;
   }
 
   /**
@@ -794,9 +734,9 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ColorLed createColorLedFromString(EDataType eDataType, String initialValue)
+  public TypePrimitif createTypePrimitifFromString(EDataType eDataType, String initialValue)
   {
-    ColorLed result = ColorLed.get(initialValue);
+    TypePrimitif result = TypePrimitif.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -806,7 +746,7 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertColorLedToString(EDataType eDataType, Object instanceValue)
+  public String convertTypePrimitifToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

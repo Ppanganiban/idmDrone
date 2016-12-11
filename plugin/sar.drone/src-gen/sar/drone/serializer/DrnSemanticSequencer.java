@@ -16,7 +16,6 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
-import sar.drone.drn.Attribut;
 import sar.drone.drn.BACKWARD;
 import sar.drone.drn.CARREXY;
 import sar.drone.drn.CARREXZ;
@@ -24,7 +23,6 @@ import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
 import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.CERCLEYZ;
-import sar.drone.drn.Camera;
 import sar.drone.drn.Context;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
@@ -40,8 +38,6 @@ import sar.drone.drn.InitialPositionX;
 import sar.drone.drn.InitialPositionY;
 import sar.drone.drn.LEFT;
 import sar.drone.drn.Land;
-import sar.drone.drn.LedBlink;
-import sar.drone.drn.Led_Impl;
 import sar.drone.drn.Library;
 import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
@@ -80,9 +76,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DrnPackage.ASSIGNEMENT:
 				sequence_Assignement(context, (Assignement) semanticObject); 
 				return; 
-			case DrnPackage.ATTRIBUT:
-				sequence_Attribut(context, (Attribut) semanticObject); 
-				return; 
 			case DrnPackage.BACKWARD:
 				sequence_BACKWARD(context, (BACKWARD) semanticObject); 
 				return; 
@@ -103,9 +96,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.CERCLEYZ:
 				sequence_CERCLEYZ(context, (CERCLEYZ) semanticObject); 
-				return; 
-			case DrnPackage.CAMERA:
-				sequence_Camera(context, (Camera) semanticObject); 
 				return; 
 			case DrnPackage.CONTEXT:
 				sequence_Context(context, (Context) semanticObject); 
@@ -148,12 +138,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.LAND:
 				sequence_Land(context, (Land) semanticObject); 
-				return; 
-			case DrnPackage.LED_BLINK:
-				sequence_LedBlink(context, (LedBlink) semanticObject); 
-				return; 
-			case DrnPackage.LED_IMPL:
-				sequence_Led_Impl(context, (Led_Impl) semanticObject); 
 				return; 
 			case DrnPackage.LIBRARY:
 				sequence_Library(context, (Library) semanticObject); 
@@ -258,18 +242,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=ID operandes+=Expression operandes+=Expression*)
 	 */
 	protected void sequence_Assignement(ISerializationContext context, Assignement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Attribut returns Attribut
-	 *
-	 * Constraint:
-	 *     ((name=ID type=[TypeGeneric|ID] elmt+=[Element|ID]) | mode=Mode | int=EInt | bool=EBool)
-	 */
-	protected void sequence_Attribut(ISerializationContext context, Attribut semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -458,19 +430,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Option returns Camera
-	 *     Camera returns Camera
-	 *
-	 * Constraint:
-	 *     (name='camera' id=INT mode=Mode attributs+=Attribut*)
-	 */
-	protected void sequence_Camera(ISerializationContext context, Camera semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Context returns Context
 	 *
 	 * Constraint:
@@ -512,19 +471,10 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Declaration returns Declaration
 	 *
 	 * Constraint:
-	 *     (type=[TypeGeneric|ID] name=ID)
+	 *     ((type=[TypeGeneric|ID] | typePrimitif=TypePrimitif) name=ID)
 	 */
 	protected void sequence_Declaration(ISerializationContext context, Declaration semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DECLARATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DECLARATION__TYPE));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DECLARATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DECLARATION__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDeclarationAccess().getTypeTypeGenericIDTerminalRuleCall_1_0_1(), semanticObject.getType());
-		feeder.accept(grammarAccess.getDeclarationAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -533,19 +483,10 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Definition returns Definition
 	 *
 	 * Constraint:
-	 *     (left=[Declaration|ID] right=[Element|ID])
+	 *     (left=[Declaration|ID] (right=[Element|ID] | int=EInt | real=EReal | bool=EBool | text=STRING))
 	 */
 	protected void sequence_Definition(ISerializationContext context, Definition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEFINITION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEFINITION__LEFT));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.DEFINITION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.DEFINITION__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDefinitionAccess().getLeftDeclarationIDTerminalRuleCall_0_0_1(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getDefinitionAccess().getRightElementIDTerminalRuleCall_2_0_1(), semanticObject.getRight());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -753,44 +694,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Option returns LedBlink
-	 *     LedBlink returns LedBlink
-	 *
-	 * Constraint:
-	 *     (name='ledBlink' mode=Mode color=ColorLed blink_per_secCST=INT attributs+=Attribut*)
-	 */
-	protected void sequence_LedBlink(ISerializationContext context, LedBlink semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Option returns Led_Impl
-	 *     Led_Impl returns Led_Impl
-	 *
-	 * Constraint:
-	 *     (name='led' mode=Mode color=ColorLed)
-	 */
-	protected void sequence_Led_Impl(ISerializationContext context, Led_Impl semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.LED_IMPL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.LED_IMPL__NAME));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.OPTION__MODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.OPTION__MODE));
-			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.LED_IMPL__COLOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.LED_IMPL__COLOR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLed_ImplAccess().getNameLedKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getLed_ImplAccess().getModeModeEnumRuleCall_4_0(), semanticObject.getMode());
-		feeder.accept(grammarAccess.getLed_ImplAccess().getColorColorLedEnumRuleCall_7_0(), semanticObject.getColor());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Root returns Library
 	 *     Library returns Library
 	 *
@@ -798,7 +701,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         libraries+=[Library|ID]* 
-	 *         context=Context? 
 	 *         types+=TypeGeneric* 
 	 *         devices+=Device* 
 	 *         assignement+=Assignement 
@@ -907,15 +809,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (
-	 *         libraries+=[Library|ID]* 
-	 *         context=Context? 
-	 *         types+=TypeGeneric* 
-	 *         devices+=Device* 
-	 *         assignement+=Assignement 
-	 *         assignement+=Assignement* 
-	 *         main=RefPart
-	 *     )
+	 *     (libraries+=[Library|ID]* context=Context? assignement+=Assignement assignement+=Assignement* main=RefPart)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -950,7 +844,6 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Option returns RefDevice
 	 *     RefDevice returns RefDevice
 	 *
 	 * Constraint:
@@ -1111,7 +1004,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     With returns With
 	 *
 	 * Constraint:
-	 *     (name='with' option+=Option option+=Option*)
+	 *     (name='with' option+=RefDevice option+=RefDevice*)
 	 */
 	protected void sequence_With(ISerializationContext context, With semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

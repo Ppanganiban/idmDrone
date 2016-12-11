@@ -168,8 +168,47 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	    		ok = false;
 	    		i = 0;
 	    		while(!ok && i < ref.getDefinitions().size()){
-	    			if (d.getType() ==  ref.getDefinitions().get(i).getLeft().getType())
-	    				ok = true;
+	    			System.out.println();
+	    			if(d.getType() != null){
+	    				System.out.println(d + "//"+ref.getDefinitions().get(i).getLeft());
+	    				System.out.println(d  ==  ref.getDefinitions().get(i).getLeft());
+	    				if (d  ==  ref.getDefinitions().get(i).getLeft())
+	    					ok = true;	    				
+	    			}
+    				else if(d.getTypePrimitif() != null){
+	    				System.out.println(d.getTypePrimitif()+" : "+d);
+	    				System.out.println(ref.getDefinitions().get(i).getInt()
+								+ "/" +ref.getDefinitions().get(i).getText()
+								+ "/" +ref.getDefinitions().get(i).getReal());
+	    				switch (d.getTypePrimitif()) {
+						case STRING_TYPE:
+							if (ref.getDefinitions().get(i).getText() != null) {
+								ok = true;
+							}	
+							break;
+						case INT_TYPE:
+							if (ref.getDefinitions().get(i).getInt() != null)
+								ok = true;
+							break;
+						case REAL_TYPE:
+							if (ref.getDefinitions().get(i).getReal() != null)
+								ok = true;
+							break;
+						case BOOL_TYPE:
+							if (ref.getDefinitions().get(i).getInt() == null
+							&& ref.getDefinitions().get(i).getText() == null
+							&& ref.getDefinitions().get(i).getReal() == null)
+								ok = true;
+							
+							System.out.println("ok : "+ ok + "/" +ref.getDefinitions().get(i).getInt()
+									+ "/" +ref.getDefinitions().get(i).getText()
+									+ "/" +ref.getDefinitions().get(i).getReal());
+							break;
+						default:
+							break;
+						}				
+	    			}
+
 	    			i++;
 	    		}
 	    		if(!ok) {

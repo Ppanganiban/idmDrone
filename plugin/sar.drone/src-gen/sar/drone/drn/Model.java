@@ -13,6 +13,7 @@ package sar.drone.drn;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.Model#getContext <em>Context</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getMain <em>Main</em>}</li>
  * </ul>
  *
@@ -22,6 +23,32 @@ package sar.drone.drn;
  */
 public interface Model extends Root
 {
+  /**
+   * Returns the value of the '<em><b>Context</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Context</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Context</em>' containment reference.
+   * @see #setContext(Context)
+   * @see sar.drone.drn.DrnPackage#getModel_Context()
+   * @model containment="true"
+   * @generated
+   */
+  Context getContext();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Model#getContext <em>Context</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Context</em>' containment reference.
+   * @see #getContext()
+   * @generated
+   */
+  void setContext(Context value);
+
   /**
    * Returns the value of the '<em><b>Main</b></em>' containment reference.
    * <!-- begin-user-doc -->
