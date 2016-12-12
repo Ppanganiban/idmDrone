@@ -68,6 +68,7 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
     {
       case DrnPackage.ROOT: return createRoot();
       case DrnPackage.MODEL: return createModel();
+      case DrnPackage.CONFIGURATION: return createConfiguration();
       case DrnPackage.LIBRARY: return createLibrary();
       case DrnPackage.CONTEXT: return createContext();
       case DrnPackage.LIMIT: return createLimit();
@@ -140,6 +141,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return createEBoolFromString(eDataType, initialValue);
       case DrnPackage.DIRECTION_TYPE:
         return createDirectionTypeFromString(eDataType, initialValue);
+      case DrnPackage.CONNECTION_TYPE:
+        return createConnectionTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -163,6 +166,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return convertEBoolToString(eDataType, instanceValue);
       case DrnPackage.DIRECTION_TYPE:
         return convertDirectionTypeToString(eDataType, instanceValue);
+      case DrnPackage.CONNECTION_TYPE:
+        return convertConnectionTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -188,6 +193,17 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Configuration createConfiguration()
+  {
+    ConfigurationImpl configuration = new ConfigurationImpl();
+    return configuration;
   }
 
   /**
@@ -813,6 +829,28 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * @generated
    */
   public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConnectionType createConnectionTypeFromString(EDataType eDataType, String initialValue)
+  {
+    ConnectionType result = ConnectionType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertConnectionTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

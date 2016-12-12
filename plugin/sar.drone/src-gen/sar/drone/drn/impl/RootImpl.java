@@ -3,21 +3,10 @@
  */
 package sar.drone.drn.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import sar.drone.drn.Assignement;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Root;
 
@@ -25,27 +14,11 @@ import sar.drone.drn.Root;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Root</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link sar.drone.drn.impl.RootImpl#getAssignement <em>Assignement</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class RootImpl extends MinimalEObjectImpl.Container implements Root
 {
-  /**
-   * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssignement()
-   * @generated
-   * @ordered
-   */
-  protected EList<Assignement> assignement;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -65,104 +38,6 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.ROOT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Assignement> getAssignement()
-  {
-    if (assignement == null)
-    {
-      assignement = new EObjectContainmentEList<Assignement>(Assignement.class, this, DrnPackage.ROOT__ASSIGNEMENT);
-    }
-    return assignement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DrnPackage.ROOT__ASSIGNEMENT:
-        return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case DrnPackage.ROOT__ASSIGNEMENT:
-        return getAssignement();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case DrnPackage.ROOT__ASSIGNEMENT:
-        getAssignement().clear();
-        getAssignement().addAll((Collection<? extends Assignement>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case DrnPackage.ROOT__ASSIGNEMENT:
-        getAssignement().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case DrnPackage.ROOT__ASSIGNEMENT:
-        return assignement != null && !assignement.isEmpty();
-    }
-    return super.eIsSet(featureID);
   }
 
 } //RootImpl

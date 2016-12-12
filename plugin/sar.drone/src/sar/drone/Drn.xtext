@@ -3,11 +3,12 @@ grammar sar.drone.Drn with org.eclipse.xtext.common.Terminals
 generate drn "http://www.drone.sar/Drn"
 
 Root :
-	Library	|Model
+	Configuration | Model | Library
 ;
 Model :
 	'CHOREOGRAPHY'
 	'{'
+	  'configuration' config=[Configuration]';'
 		('import' libraries += [Library]';')*
 		(context = Context)?
 		assignement+=Assignement
@@ -16,13 +17,20 @@ Model :
 	'}'
 ;
 
-Library :
-	'LIBRARY' name=ID
+Configuration :
+  'CONFIGURATION' name=ID
 	'{'
 		(types += TypeGeneric)*
 		(devices += Device)*
-    (assignement+=Assignement)*
+    'CONNECTION''by'connection=ConnectionType';'
+    'DRONE@IP''='ip=IpAdress';'
 	'}'
+;
+Library :
+  'LIBRARY' name=ID
+  '{'
+    (assignement+=Assignement)*
+  '}'
 ;
 
 /******************* Contexte *********************/
@@ -304,3 +312,10 @@ enum EBool :
 				TRUE = 'TRUE' | FALSE = 'FALSE';
 enum DirectionType :
 				FRONT = 'FRONT' | BEHIND = 'BEHIND' | LEFT = 'LEFT' | RIGHT = 'RIGHT';
+enum ConnectionType :
+  BLUETOOTH = 'BLUETOOTH'| WIFI = 'WI-FI' 
+;
+
+IpAdress:
+  INT'.'INT'.'INT'.'INT  
+;

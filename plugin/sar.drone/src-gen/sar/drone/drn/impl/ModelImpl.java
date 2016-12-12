@@ -15,8 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import sar.drone.drn.Assignement;
+import sar.drone.drn.Configuration;
 import sar.drone.drn.Context;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Library;
@@ -31,8 +35,10 @@ import sar.drone.drn.RefPart;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getConfig <em>Config</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ModelImpl#getAssignement <em>Assignement</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ModelImpl#getMain <em>Main</em>}</li>
  * </ul>
  *
@@ -40,6 +46,16 @@ import sar.drone.drn.RefPart;
  */
 public class ModelImpl extends RootImpl implements Model
 {
+  /**
+   * The cached value of the '{@link #getConfig() <em>Config</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConfig()
+   * @generated
+   * @ordered
+   */
+  protected Configuration config;
+
   /**
    * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' reference list.
    * <!-- begin-user-doc -->
@@ -59,6 +75,16 @@ public class ModelImpl extends RootImpl implements Model
    * @ordered
    */
   protected Context context;
+
+  /**
+   * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssignement()
+   * @generated
+   * @ordered
+   */
+  protected EList<Assignement> assignement;
 
   /**
    * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
@@ -89,6 +115,49 @@ public class ModelImpl extends RootImpl implements Model
   protected EClass eStaticClass()
   {
     return DrnPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Configuration getConfig()
+  {
+    if (config != null && config.eIsProxy())
+    {
+      InternalEObject oldConfig = (InternalEObject)config;
+      config = (Configuration)eResolveProxy(oldConfig);
+      if (config != oldConfig)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DrnPackage.MODEL__CONFIG, oldConfig, config));
+      }
+    }
+    return config;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Configuration basicGetConfig()
+  {
+    return config;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConfig(Configuration newConfig)
+  {
+    Configuration oldConfig = config;
+    config = newConfig;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.MODEL__CONFIG, oldConfig, config));
   }
 
   /**
@@ -158,6 +227,20 @@ public class ModelImpl extends RootImpl implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Assignement> getAssignement()
+  {
+    if (assignement == null)
+    {
+      assignement = new EObjectContainmentEList<Assignement>(Assignement.class, this, DrnPackage.MODEL__ASSIGNEMENT);
+    }
+    return assignement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RefPart getMain()
   {
     return main;
@@ -213,6 +296,8 @@ public class ModelImpl extends RootImpl implements Model
     {
       case DrnPackage.MODEL__CONTEXT:
         return basicSetContext(null, msgs);
+      case DrnPackage.MODEL__ASSIGNEMENT:
+        return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
       case DrnPackage.MODEL__MAIN:
         return basicSetMain(null, msgs);
     }
@@ -229,10 +314,15 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONFIG:
+        if (resolve) return getConfig();
+        return basicGetConfig();
       case DrnPackage.MODEL__LIBRARIES:
         return getLibraries();
       case DrnPackage.MODEL__CONTEXT:
         return getContext();
+      case DrnPackage.MODEL__ASSIGNEMENT:
+        return getAssignement();
       case DrnPackage.MODEL__MAIN:
         return getMain();
     }
@@ -250,12 +340,19 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONFIG:
+        setConfig((Configuration)newValue);
+        return;
       case DrnPackage.MODEL__LIBRARIES:
         getLibraries().clear();
         getLibraries().addAll((Collection<? extends Library>)newValue);
         return;
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)newValue);
+        return;
+      case DrnPackage.MODEL__ASSIGNEMENT:
+        getAssignement().clear();
+        getAssignement().addAll((Collection<? extends Assignement>)newValue);
         return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)newValue);
@@ -274,11 +371,17 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONFIG:
+        setConfig((Configuration)null);
+        return;
       case DrnPackage.MODEL__LIBRARIES:
         getLibraries().clear();
         return;
       case DrnPackage.MODEL__CONTEXT:
         setContext((Context)null);
+        return;
+      case DrnPackage.MODEL__ASSIGNEMENT:
+        getAssignement().clear();
         return;
       case DrnPackage.MODEL__MAIN:
         setMain((RefPart)null);
@@ -297,10 +400,14 @@ public class ModelImpl extends RootImpl implements Model
   {
     switch (featureID)
     {
+      case DrnPackage.MODEL__CONFIG:
+        return config != null;
       case DrnPackage.MODEL__LIBRARIES:
         return libraries != null && !libraries.isEmpty();
       case DrnPackage.MODEL__CONTEXT:
         return context != null;
+      case DrnPackage.MODEL__ASSIGNEMENT:
+        return assignement != null && !assignement.isEmpty();
       case DrnPackage.MODEL__MAIN:
         return main != null;
     }

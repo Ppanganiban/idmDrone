@@ -23,6 +23,7 @@ import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
 import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.CERCLEYZ;
+import sar.drone.drn.Configuration;
 import sar.drone.drn.Context;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
@@ -96,6 +97,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.CERCLEYZ:
 				sequence_CERCLEYZ(context, (CERCLEYZ) semanticObject); 
+				return; 
+			case DrnPackage.CONFIGURATION:
+				sequence_Configuration(context, (Configuration) semanticObject); 
 				return; 
 			case DrnPackage.CONTEXT:
 				sequence_Context(context, (Context) semanticObject); 
@@ -430,6 +434,19 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Root returns Configuration
+	 *     Configuration returns Configuration
+	 *
+	 * Constraint:
+	 *     (name=ID types+=TypeGeneric* devices+=Device* connection=ConnectionType ip=IpAdress)
+	 */
+	protected void sequence_Configuration(ISerializationContext context, Configuration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Context returns Context
 	 *
 	 * Constraint:
@@ -698,7 +715,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Library returns Library
 	 *
 	 * Constraint:
-	 *     (name=ID types+=TypeGeneric* devices+=Device* assignement+=Assignement*)
+	 *     (name=ID assignement+=Assignement*)
 	 */
 	protected void sequence_Library(ISerializationContext context, Library semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -802,7 +819,14 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (libraries+=[Library|ID]* context=Context? assignement+=Assignement assignement+=Assignement* main=RefPart)
+	 *     (
+	 *         config=[Configuration|ID] 
+	 *         libraries+=[Library|ID]* 
+	 *         context=Context? 
+	 *         assignement+=Assignement 
+	 *         assignement+=Assignement* 
+	 *         main=RefPart
+	 *     )
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

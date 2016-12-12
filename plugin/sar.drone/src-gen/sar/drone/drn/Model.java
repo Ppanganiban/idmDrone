@@ -14,8 +14,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link sar.drone.drn.Model#getConfig <em>Config</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getContext <em>Context</em>}</li>
+ *   <li>{@link sar.drone.drn.Model#getAssignement <em>Assignement</em>}</li>
  *   <li>{@link sar.drone.drn.Model#getMain <em>Main</em>}</li>
  * </ul>
  *
@@ -25,6 +27,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Model extends Root
 {
+  /**
+   * Returns the value of the '<em><b>Config</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Config</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Config</em>' reference.
+   * @see #setConfig(Configuration)
+   * @see sar.drone.drn.DrnPackage#getModel_Config()
+   * @model
+   * @generated
+   */
+  Configuration getConfig();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Model#getConfig <em>Config</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Config</em>' reference.
+   * @see #getConfig()
+   * @generated
+   */
+  void setConfig(Configuration value);
+
   /**
    * Returns the value of the '<em><b>Libraries</b></em>' reference list.
    * The list contents are of type {@link sar.drone.drn.Library}.
@@ -66,6 +94,22 @@ public interface Model extends Root
    * @generated
    */
   void setContext(Context value);
+
+  /**
+   * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.Assignement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Assignement</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Assignement</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getModel_Assignement()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Assignement> getAssignement();
 
   /**
    * Returns the value of the '<em><b>Main</b></em>' containment reference.

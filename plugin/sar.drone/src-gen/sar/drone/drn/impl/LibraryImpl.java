@@ -18,10 +18,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import sar.drone.drn.Device;
+import sar.drone.drn.Assignement;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Library;
-import sar.drone.drn.TypeGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +31,7 @@ import sar.drone.drn.TypeGeneric;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.LibraryImpl#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.impl.LibraryImpl#getTypes <em>Types</em>}</li>
- *   <li>{@link sar.drone.drn.impl.LibraryImpl#getDevices <em>Devices</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.LibraryImpl#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,24 +59,14 @@ public class LibraryImpl extends RootImpl implements Library
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+   * The cached value of the '{@link #getAssignement() <em>Assignement</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypes()
+   * @see #getAssignement()
    * @generated
    * @ordered
    */
-  protected EList<TypeGeneric> types;
-
-  /**
-   * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDevices()
-   * @generated
-   * @ordered
-   */
-  protected EList<Device> devices;
+  protected EList<Assignement> assignement;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,27 +117,13 @@ public class LibraryImpl extends RootImpl implements Library
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeGeneric> getTypes()
+  public EList<Assignement> getAssignement()
   {
-    if (types == null)
+    if (assignement == null)
     {
-      types = new EObjectContainmentEList<TypeGeneric>(TypeGeneric.class, this, DrnPackage.LIBRARY__TYPES);
+      assignement = new EObjectContainmentEList<Assignement>(Assignement.class, this, DrnPackage.LIBRARY__ASSIGNEMENT);
     }
-    return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Device> getDevices()
-  {
-    if (devices == null)
-    {
-      devices = new EObjectContainmentEList<Device>(Device.class, this, DrnPackage.LIBRARY__DEVICES);
-    }
-    return devices;
+    return assignement;
   }
 
   /**
@@ -162,10 +136,8 @@ public class LibraryImpl extends RootImpl implements Library
   {
     switch (featureID)
     {
-      case DrnPackage.LIBRARY__TYPES:
-        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
-      case DrnPackage.LIBRARY__DEVICES:
-        return ((InternalEList<?>)getDevices()).basicRemove(otherEnd, msgs);
+      case DrnPackage.LIBRARY__ASSIGNEMENT:
+        return ((InternalEList<?>)getAssignement()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,10 +154,8 @@ public class LibraryImpl extends RootImpl implements Library
     {
       case DrnPackage.LIBRARY__NAME:
         return getName();
-      case DrnPackage.LIBRARY__TYPES:
-        return getTypes();
-      case DrnPackage.LIBRARY__DEVICES:
-        return getDevices();
+      case DrnPackage.LIBRARY__ASSIGNEMENT:
+        return getAssignement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,13 +174,9 @@ public class LibraryImpl extends RootImpl implements Library
       case DrnPackage.LIBRARY__NAME:
         setName((String)newValue);
         return;
-      case DrnPackage.LIBRARY__TYPES:
-        getTypes().clear();
-        getTypes().addAll((Collection<? extends TypeGeneric>)newValue);
-        return;
-      case DrnPackage.LIBRARY__DEVICES:
-        getDevices().clear();
-        getDevices().addAll((Collection<? extends Device>)newValue);
+      case DrnPackage.LIBRARY__ASSIGNEMENT:
+        getAssignement().clear();
+        getAssignement().addAll((Collection<? extends Assignement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -229,11 +195,8 @@ public class LibraryImpl extends RootImpl implements Library
       case DrnPackage.LIBRARY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DrnPackage.LIBRARY__TYPES:
-        getTypes().clear();
-        return;
-      case DrnPackage.LIBRARY__DEVICES:
-        getDevices().clear();
+      case DrnPackage.LIBRARY__ASSIGNEMENT:
+        getAssignement().clear();
         return;
     }
     super.eUnset(featureID);
@@ -251,10 +214,8 @@ public class LibraryImpl extends RootImpl implements Library
     {
       case DrnPackage.LIBRARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.LIBRARY__TYPES:
-        return types != null && !types.isEmpty();
-      case DrnPackage.LIBRARY__DEVICES:
-        return devices != null && !devices.isEmpty();
+      case DrnPackage.LIBRARY__ASSIGNEMENT:
+        return assignement != null && !assignement.isEmpty();
     }
     return super.eIsSet(featureID);
   }

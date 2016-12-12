@@ -15,8 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Library#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.Library#getTypes <em>Types</em>}</li>
- *   <li>{@link sar.drone.drn.Library#getDevices <em>Devices</em>}</li>
+ *   <li>{@link sar.drone.drn.Library#getAssignement <em>Assignement</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getLibrary()
@@ -52,35 +51,19 @@ public interface Library extends Root
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.TypeGeneric}.
+   * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.
+   * The list contents are of type {@link sar.drone.drn.Assignement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Assignement</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Types</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getLibrary_Types()
+   * @return the value of the '<em>Assignement</em>' containment reference list.
+   * @see sar.drone.drn.DrnPackage#getLibrary_Assignement()
    * @model containment="true"
    * @generated
    */
-  EList<TypeGeneric> getTypes();
-
-  /**
-   * Returns the value of the '<em><b>Devices</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.Device}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Devices</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Devices</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getLibrary_Devices()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Device> getDevices();
+  EList<Assignement> getAssignement();
 
 } // Library

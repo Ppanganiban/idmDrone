@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
+import sar.drone.drn.Configuration;
+import sar.drone.drn.ConnectionType;
 import sar.drone.drn.Context;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.Definition;
@@ -78,6 +80,13 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass configurationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -451,6 +460,13 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   private EEnum directionTypeEEnum = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum connectionTypeEEnum = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -528,16 +544,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRoot_Assignement()
-  {
-    return (EReference)rootEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getModel()
   {
     return modelEClass;
@@ -548,7 +554,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Libraries()
+  public EReference getModel_Config()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -558,7 +564,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Context()
+  public EReference getModel_Libraries()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
@@ -568,9 +574,89 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Main()
+  public EReference getModel_Context()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Assignement()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Main()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConfiguration()
+  {
+    return configurationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConfiguration_Name()
+  {
+    return (EAttribute)configurationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConfiguration_Types()
+  {
+    return (EReference)configurationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConfiguration_Devices()
+  {
+    return (EReference)configurationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConfiguration_Connection()
+  {
+    return (EAttribute)configurationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConfiguration_Ip()
+  {
+    return (EAttribute)configurationEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -598,19 +684,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLibrary_Types()
+  public EReference getLibrary_Assignement()
   {
     return (EReference)libraryEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLibrary_Devices()
-  {
-    return (EReference)libraryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1868,6 +1944,16 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getConnectionType()
+  {
+    return connectionTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DrnFactory getDrnFactory()
   {
     return (DrnFactory)getEFactoryInstance();
@@ -1894,17 +1980,24 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     // Create classes and their features
     rootEClass = createEClass(ROOT);
-    createEReference(rootEClass, ROOT__ASSIGNEMENT);
 
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__CONFIG);
     createEReference(modelEClass, MODEL__LIBRARIES);
     createEReference(modelEClass, MODEL__CONTEXT);
+    createEReference(modelEClass, MODEL__ASSIGNEMENT);
     createEReference(modelEClass, MODEL__MAIN);
+
+    configurationEClass = createEClass(CONFIGURATION);
+    createEAttribute(configurationEClass, CONFIGURATION__NAME);
+    createEReference(configurationEClass, CONFIGURATION__TYPES);
+    createEReference(configurationEClass, CONFIGURATION__DEVICES);
+    createEAttribute(configurationEClass, CONFIGURATION__CONNECTION);
+    createEAttribute(configurationEClass, CONFIGURATION__IP);
 
     libraryEClass = createEClass(LIBRARY);
     createEAttribute(libraryEClass, LIBRARY__NAME);
-    createEReference(libraryEClass, LIBRARY__TYPES);
-    createEReference(libraryEClass, LIBRARY__DEVICES);
+    createEReference(libraryEClass, LIBRARY__ASSIGNEMENT);
 
     contextEClass = createEClass(CONTEXT);
     createEAttribute(contextEClass, CONTEXT__NAME);
@@ -2080,6 +2173,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     modeEEnum = createEEnum(MODE);
     eBoolEEnum = createEEnum(EBOOL);
     directionTypeEEnum = createEEnum(DIRECTION_TYPE);
+    connectionTypeEEnum = createEEnum(CONNECTION_TYPE);
   }
 
   /**
@@ -2112,6 +2206,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     // Add supertypes to classes
     modelEClass.getESuperTypes().add(this.getRoot());
+    configurationEClass.getESuperTypes().add(this.getRoot());
     libraryEClass.getESuperTypes().add(this.getRoot());
     surfaceEClass.getESuperTypes().add(this.getLimit());
     initialPositionEClass.getESuperTypes().add(this.getLimit());
@@ -2152,17 +2247,24 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRoot_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Config(), this.getConfiguration(), null, "config", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Context(), this.getContext(), null, "context", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Main(), this.getRefPart(), null, "main", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfiguration_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfiguration_Devices(), this.getDevice(), null, "devices", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConfiguration_Connection(), this.getConnectionType(), "connection", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConfiguration_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLibrary_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLibrary_Devices(), this.getDevice(), null, "devices", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLibrary_Assignement(), this.getAssignement(), null, "assignement", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2353,6 +2455,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     addEEnumLiteral(directionTypeEEnum, DirectionType.BEHIND);
     addEEnumLiteral(directionTypeEEnum, DirectionType.LEFT);
     addEEnumLiteral(directionTypeEEnum, DirectionType.RIGHT);
+
+    initEEnum(connectionTypeEEnum, ConnectionType.class, "ConnectionType");
+    addEEnumLiteral(connectionTypeEEnum, ConnectionType.BLUETOOTH);
+    addEEnumLiteral(connectionTypeEEnum, ConnectionType.WIFI);
 
     // Create resource
     createResource(eNS_URI);

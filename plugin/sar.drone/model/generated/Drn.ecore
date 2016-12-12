@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="drn" nsURI="http://www.drone.sar/Drn" nsPrefix="drn">
-  <eClassifiers xsi:type="ecore:EClass" name="Root">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" upperBound="-1"
-        eType="#//Assignement" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Root"/>
   <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="config" eType="#//Configuration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" unique="false"
         upperBound="-1" eType="#//Library"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="#//Context"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" upperBound="-1"
+        eType="#//Assignement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//RefPart"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//Root">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//Root">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//TypeGeneric" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
         eType="#//Device" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connection" eType="#//ConnectionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//Root">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignement" upperBound="-1"
+        eType="#//Assignement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -212,5 +219,9 @@
     <eLiterals name="BEHIND" value="1" literal="BEHIND"/>
     <eLiterals name="LEFT" value="2" literal="LEFT"/>
     <eLiterals name="RIGHT" value="3" literal="RIGHT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConnectionType">
+    <eLiterals name="BLUETOOTH" literal="BLUETOOTH"/>
+    <eLiterals name="WIFI" value="1" literal="WI-FI"/>
   </eClassifiers>
 </ecore:EPackage>

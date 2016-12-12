@@ -1,7 +1,5 @@
 package sar.drone.scoping;
 
-import java.util.ArrayList;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
@@ -69,11 +67,7 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 			Assignement a = (Assignement)e.eContainer();
 			Root r = (Root) a.eContainer();
 			if(r instanceof Model){
-				ArrayList<EObject> libs = new ArrayList<EObject>();
-				for (Library l : ((Model)r).getLibraries()){
-					libs.addAll(l.getDevices());
-				}
-				return Scopes.scopeFor(libs);	
+				return Scopes.scopeFor(((Model)r).getConfig().getDevices());	
 			}
 		}
 		else if (reference == DrnPackage.Literals.REF_DEVICE__DEV
@@ -84,18 +78,18 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 			Assignement a = (Assignement)e.eContainer();
 			Root r = (Root) a.eContainer();
 			if (r instanceof Model) {
-				ArrayList<EObject> libs = new ArrayList<EObject>();
-				for (Library l : ((Model)r).getLibraries()){
-					libs.addAll(l.getDevices());
-				}
-				return Scopes.scopeFor(libs);
+				 
+				return Scopes.scopeFor(((Model)r).getConfig().getDevices());
 			}
 		}
 		else if (reference == DrnPackage.Literals.REF_PART__VARIABLE_PARTIE
 				&& context instanceof Assignement){
 			Assignement a = (Assignement)context;
 			Root r = (Root) a.eContainer();
-			return Scopes.scopeFor(r.getAssignement());
+			if (r instanceof Model)
+				return Scopes.scopeFor(((Model)r).getAssignement());
+			else if (r instanceof Library)
+					return Scopes.scopeFor(((Library)r).getAssignement());
 		}
 		return super.getScope(context, reference);
 	}

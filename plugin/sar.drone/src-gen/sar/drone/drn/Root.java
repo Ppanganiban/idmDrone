@@ -3,8 +3,6 @@
  */
 package sar.drone.drn;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Root</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link sar.drone.drn.Root#getAssignement <em>Assignement</em>}</li>
- * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getRoot()
  * @model
@@ -25,20 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Root extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Assignement</b></em>' containment reference list.
-   * The list contents are of type {@link sar.drone.drn.Assignement}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Assignement</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Assignement</em>' containment reference list.
-   * @see sar.drone.drn.DrnPackage#getRoot_Assignement()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Assignement> getAssignement();
-
 } // Root

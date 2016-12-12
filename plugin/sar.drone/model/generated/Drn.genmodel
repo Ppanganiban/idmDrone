@@ -26,18 +26,28 @@
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/RIGHT"/>
     </genEnums>
-    <genClasses ecoreClass="Drn.ecore#//Root">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Root/assignement"/>
-    </genClasses>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Drn.ecore#//ConnectionType">
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//ConnectionType/BLUETOOTH"/>
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//ConnectionType/WIFI"/>
+    </genEnums>
+    <genClasses ecoreClass="Drn.ecore#//Root"/>
     <genClasses ecoreClass="Drn.ecore#//Model">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/config"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/libraries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/assignement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/main"/>
+    </genClasses>
+    <genClasses ecoreClass="Drn.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Configuration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Configuration/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Configuration/devices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Configuration/connection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Configuration/ip"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Library">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Library/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Library/types"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Library/devices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Library/assignement"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Context">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Context/name"/>

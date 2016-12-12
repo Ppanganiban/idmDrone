@@ -69,22 +69,13 @@ public interface DrnPackage extends EPackage
   int ROOT = 0;
 
   /**
-   * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ROOT__ASSIGNEMENT = 0;
-
-  /**
    * The number of structural features of the '<em>Root</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROOT_FEATURE_COUNT = 1;
+  int ROOT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.ModelImpl <em>Model</em>}' class.
@@ -97,13 +88,13 @@ public interface DrnPackage extends EPackage
   int MODEL = 1;
 
   /**
-   * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
+   * The feature id for the '<em><b>Config</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ASSIGNEMENT = ROOT__ASSIGNEMENT;
+  int MODEL__CONFIG = ROOT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Libraries</b></em>' reference list.
@@ -112,7 +103,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__LIBRARIES = ROOT_FEATURE_COUNT + 0;
+  int MODEL__LIBRARIES = ROOT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Context</b></em>' containment reference.
@@ -121,7 +112,16 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CONTEXT = ROOT_FEATURE_COUNT + 1;
+  int MODEL__CONTEXT = ROOT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ASSIGNEMENT = ROOT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Main</b></em>' containment reference.
@@ -130,7 +130,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__MAIN = ROOT_FEATURE_COUNT + 2;
+  int MODEL__MAIN = ROOT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -139,7 +139,71 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = ROOT_FEATURE_COUNT + 3;
+  int MODEL_FEATURE_COUNT = ROOT_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.ConfigurationImpl <em>Configuration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.ConfigurationImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getConfiguration()
+   * @generated
+   */
+  int CONFIGURATION = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__NAME = ROOT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__TYPES = ROOT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__DEVICES = ROOT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Connection</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__CONNECTION = ROOT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Ip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION__IP = ROOT_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Configuration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIGURATION_FEATURE_COUNT = ROOT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LibraryImpl <em>Library</em>}' class.
@@ -149,16 +213,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLibrary()
    * @generated
    */
-  int LIBRARY = 2;
-
-  /**
-   * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LIBRARY__ASSIGNEMENT = ROOT__ASSIGNEMENT;
+  int LIBRARY = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -170,22 +225,13 @@ public interface DrnPackage extends EPackage
   int LIBRARY__NAME = ROOT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>Assignement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIBRARY__TYPES = ROOT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Devices</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LIBRARY__DEVICES = ROOT_FEATURE_COUNT + 2;
+  int LIBRARY__ASSIGNEMENT = ROOT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Library</em>' class.
@@ -194,7 +240,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIBRARY_FEATURE_COUNT = ROOT_FEATURE_COUNT + 3;
+  int LIBRARY_FEATURE_COUNT = ROOT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.ContextImpl <em>Context</em>}' class.
@@ -204,7 +250,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getContext()
    * @generated
    */
-  int CONTEXT = 3;
+  int CONTEXT = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -241,7 +287,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLimit()
    * @generated
    */
-  int LIMIT = 4;
+  int LIMIT = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,7 +315,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getSurface()
    * @generated
    */
-  int SURFACE = 5;
+  int SURFACE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,7 +352,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPosition()
    * @generated
    */
-  int INITIAL_POSITION = 6;
+  int INITIAL_POSITION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -334,7 +380,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getInitialDirection()
    * @generated
    */
-  int INITIAL_DIRECTION = 7;
+  int INITIAL_DIRECTION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -371,7 +417,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionX()
    * @generated
    */
-  int INITIAL_POSITION_X = 8;
+  int INITIAL_POSITION_X = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -408,7 +454,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getInitialPositionY()
    * @generated
    */
-  int INITIAL_POSITION_Y = 9;
+  int INITIAL_POSITION_Y = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -445,7 +491,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMaxLength()
    * @generated
    */
-  int MAX_LENGTH = 10;
+  int MAX_LENGTH = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -482,7 +528,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMaxWidth()
    * @generated
    */
-  int MAX_WIDTH = 11;
+  int MAX_WIDTH = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -519,7 +565,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMaxSpeed()
    * @generated
    */
-  int MAX_SPEED = 12;
+  int MAX_SPEED = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -556,7 +602,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMaxHeight()
    * @generated
    */
-  int MAX_HEIGHT = 13;
+  int MAX_HEIGHT = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -593,7 +639,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAssignement()
    * @generated
    */
-  int ASSIGNEMENT = 14;
+  int ASSIGNEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -630,7 +676,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 15;
+  int EXPRESSION = 16;
 
   /**
    * The feature id for the '<em><b>Move</b></em>' containment reference.
@@ -685,7 +731,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMovement()
    * @generated
    */
-  int MOVEMENT = 16;
+  int MOVEMENT = 17;
 
   /**
    * The number of structural features of the '<em>Movement</em>' class.
@@ -704,7 +750,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefPart()
    * @generated
    */
-  int REF_PART = 17;
+  int REF_PART = 18;
 
   /**
    * The feature id for the '<em><b>Variable partie</b></em>' reference.
@@ -732,7 +778,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefPartLib()
    * @generated
    */
-  int REF_PART_LIB = 18;
+  int REF_PART_LIB = 19;
 
   /**
    * The feature id for the '<em><b>Lib</b></em>' reference.
@@ -769,7 +815,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getAnd()
    * @generated
    */
-  int AND = 19;
+  int AND = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -860,7 +906,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepY_Impl()
    * @generated
    */
-  int DEP_YIMPL = 20;
+  int DEP_YIMPL = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -906,7 +952,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFORWARD()
    * @generated
    */
-  int FORWARD = 21;
+  int FORWARD = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -952,7 +998,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getBACKWARD()
    * @generated
    */
-  int BACKWARD = 22;
+  int BACKWARD = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -998,7 +1044,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepX_Impl()
    * @generated
    */
-  int DEP_XIMPL = 23;
+  int DEP_XIMPL = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1044,7 +1090,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLEFT()
    * @generated
    */
-  int LEFT = 24;
+  int LEFT = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1090,7 +1136,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRIGHT()
    * @generated
    */
-  int RIGHT = 25;
+  int RIGHT = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1136,7 +1182,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepZ_Impl()
    * @generated
    */
-  int DEP_ZIMPL = 26;
+  int DEP_ZIMPL = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1182,7 +1228,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getUP()
    * @generated
    */
-  int UP = 27;
+  int UP = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1228,7 +1274,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDOWN()
    * @generated
    */
-  int DOWN = 28;
+  int DOWN = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1274,7 +1320,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXY_IMPL()
    * @generated
    */
-  int DEP_XY_IMPL = 29;
+  int DEP_XY_IMPL = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1311,7 +1357,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXY()
    * @generated
    */
-  int CERCLEXY = 30;
+  int CERCLEXY = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1357,7 +1403,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXY()
    * @generated
    */
-  int CARREXY = 31;
+  int CARREXY = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1403,7 +1449,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepYZ_IMPL()
    * @generated
    */
-  int DEP_YZ_IMPL = 32;
+  int DEP_YZ_IMPL = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1440,7 +1486,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEYZ()
    * @generated
    */
-  int CERCLEYZ = 33;
+  int CERCLEYZ = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1486,7 +1532,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREYZ()
    * @generated
    */
-  int CARREYZ = 34;
+  int CARREYZ = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1532,7 +1578,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXZ_IMPL()
    * @generated
    */
-  int DEP_XZ_IMPL = 35;
+  int DEP_XZ_IMPL = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1569,7 +1615,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCERCLEXZ()
    * @generated
    */
-  int CERCLEXZ = 36;
+  int CERCLEXZ = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1615,7 +1661,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getCARREXZ()
    * @generated
    */
-  int CARREXZ = 37;
+  int CARREXZ = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1661,7 +1707,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDepXYZ_IMPL()
    * @generated
    */
-  int DEP_XYZ_IMPL = 38;
+  int DEP_XYZ_IMPL = 39;
 
   /**
    * The number of structural features of the '<em>Dep XYZ IMPL</em>' class.
@@ -1680,7 +1726,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getFlip()
    * @generated
    */
-  int FLIP = 39;
+  int FLIP = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1708,7 +1754,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRotate()
    * @generated
    */
-  int ROTATE = 40;
+  int ROTATE = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1754,7 +1800,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWait()
    * @generated
    */
-  int WAIT = 41;
+  int WAIT = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1791,7 +1837,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTakeOff()
    * @generated
    */
-  int TAKE_OFF = 42;
+  int TAKE_OFF = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1819,7 +1865,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getLand()
    * @generated
    */
-  int LAND = 43;
+  int LAND = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1847,7 +1893,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDevice()
    * @generated
    */
-  int DEVICE = 44;
+  int DEVICE = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1884,7 +1930,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 45;
+  int DECLARATION = 46;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1930,7 +1976,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDefinition()
    * @generated
    */
-  int DEFINITION = 46;
+  int DEFINITION = 47;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' reference.
@@ -2003,7 +2049,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getWith()
    * @generated
    */
-  int WITH = 47;
+  int WITH = 48;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2040,7 +2086,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getRefDevice()
    * @generated
    */
-  int REF_DEVICE = 48;
+  int REF_DEVICE = 49;
 
   /**
    * The feature id for the '<em><b>Dev</b></em>' reference.
@@ -2086,7 +2132,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTypeGeneric()
    * @generated
    */
-  int TYPE_GENERIC = 49;
+  int TYPE_GENERIC = 50;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2123,7 +2169,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 50;
+  int ELEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2151,7 +2197,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTypePrimitif()
    * @generated
    */
-  int TYPE_PRIMITIF = 51;
+  int TYPE_PRIMITIF = 52;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -2161,7 +2207,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 52;
+  int MODE = 53;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -2171,7 +2217,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 53;
+  int EBOOL = 54;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
@@ -2181,7 +2227,17 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
    * @generated
    */
-  int DIRECTION_TYPE = 54;
+  int DIRECTION_TYPE = 55;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.ConnectionType
+   * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
+   * @generated
+   */
+  int CONNECTION_TYPE = 56;
 
 
   /**
@@ -2195,17 +2251,6 @@ public interface DrnPackage extends EPackage
   EClass getRoot();
 
   /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Root#getAssignement <em>Assignement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Assignement</em>'.
-   * @see sar.drone.drn.Root#getAssignement()
-   * @see #getRoot()
-   * @generated
-   */
-  EReference getRoot_Assignement();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2214,6 +2259,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the reference '{@link sar.drone.drn.Model#getConfig <em>Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Config</em>'.
+   * @see sar.drone.drn.Model#getConfig()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Config();
 
   /**
    * Returns the meta object for the reference list '{@link sar.drone.drn.Model#getLibraries <em>Libraries</em>}'.
@@ -2238,6 +2294,17 @@ public interface DrnPackage extends EPackage
   EReference getModel_Context();
 
   /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Model#getAssignement <em>Assignement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Assignement</em>'.
+   * @see sar.drone.drn.Model#getAssignement()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Assignement();
+
+  /**
    * Returns the meta object for the containment reference '{@link sar.drone.drn.Model#getMain <em>Main</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2247,6 +2314,71 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EReference getModel_Main();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Configuration <em>Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Configuration</em>'.
+   * @see sar.drone.drn.Configuration
+   * @generated
+   */
+  EClass getConfiguration();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Configuration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.Configuration#getName()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EAttribute getConfiguration_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Configuration#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Types</em>'.
+   * @see sar.drone.drn.Configuration#getTypes()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_Types();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Configuration#getDevices <em>Devices</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Devices</em>'.
+   * @see sar.drone.drn.Configuration#getDevices()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EReference getConfiguration_Devices();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Connection</em>'.
+   * @see sar.drone.drn.Configuration#getConnection()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EAttribute getConfiguration_Connection();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Configuration#getIp <em>Ip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ip</em>'.
+   * @see sar.drone.drn.Configuration#getIp()
+   * @see #getConfiguration()
+   * @generated
+   */
+  EAttribute getConfiguration_Ip();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Library <em>Library</em>}'.
@@ -2270,26 +2402,15 @@ public interface DrnPackage extends EPackage
   EAttribute getLibrary_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Library#getTypes <em>Types</em>}'.
+   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Library#getAssignement <em>Assignement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Types</em>'.
-   * @see sar.drone.drn.Library#getTypes()
+   * @return the meta object for the containment reference list '<em>Assignement</em>'.
+   * @see sar.drone.drn.Library#getAssignement()
    * @see #getLibrary()
    * @generated
    */
-  EReference getLibrary_Types();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.Library#getDevices <em>Devices</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Devices</em>'.
-   * @see sar.drone.drn.Library#getDevices()
-   * @see #getLibrary()
-   * @generated
-   */
-  EReference getLibrary_Devices();
+  EReference getLibrary_Assignement();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Context <em>Context</em>}'.
@@ -3615,6 +3736,16 @@ public interface DrnPackage extends EPackage
   EEnum getDirectionType();
 
   /**
+   * Returns the meta object for enum '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Connection Type</em>'.
+   * @see sar.drone.drn.ConnectionType
+   * @generated
+   */
+  EEnum getConnectionType();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3648,14 +3779,6 @@ public interface DrnPackage extends EPackage
     EClass ROOT = eINSTANCE.getRoot();
 
     /**
-     * The meta object literal for the '<em><b>Assignement</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ROOT__ASSIGNEMENT = eINSTANCE.getRoot_Assignement();
-
-    /**
      * The meta object literal for the '{@link sar.drone.drn.impl.ModelImpl <em>Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3664,6 +3787,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Config</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__CONFIG = eINSTANCE.getModel_Config();
 
     /**
      * The meta object literal for the '<em><b>Libraries</b></em>' reference list feature.
@@ -3682,12 +3813,70 @@ public interface DrnPackage extends EPackage
     EReference MODEL__CONTEXT = eINSTANCE.getModel_Context();
 
     /**
+     * The meta object literal for the '<em><b>Assignement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__ASSIGNEMENT = eINSTANCE.getModel_Assignement();
+
+    /**
      * The meta object literal for the '<em><b>Main</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__MAIN = eINSTANCE.getModel_Main();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.ConfigurationImpl <em>Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.ConfigurationImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getConfiguration()
+     * @generated
+     */
+    EClass CONFIGURATION = eINSTANCE.getConfiguration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__TYPES = eINSTANCE.getConfiguration_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONFIGURATION__DEVICES = eINSTANCE.getConfiguration_Devices();
+
+    /**
+     * The meta object literal for the '<em><b>Connection</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIGURATION__CONNECTION = eINSTANCE.getConfiguration_Connection();
+
+    /**
+     * The meta object literal for the '<em><b>Ip</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIGURATION__IP = eINSTANCE.getConfiguration_Ip();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.LibraryImpl <em>Library</em>}' class.
@@ -3708,20 +3897,12 @@ public interface DrnPackage extends EPackage
     EAttribute LIBRARY__NAME = eINSTANCE.getLibrary_Name();
 
     /**
-     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Assignement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LIBRARY__TYPES = eINSTANCE.getLibrary_Types();
-
-    /**
-     * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LIBRARY__DEVICES = eINSTANCE.getLibrary_Devices();
+    EReference LIBRARY__ASSIGNEMENT = eINSTANCE.getLibrary_Assignement();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.ContextImpl <em>Context</em>}' class.
@@ -4826,6 +5007,16 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.ConnectionType
+     * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
+     * @generated
+     */
+    EEnum CONNECTION_TYPE = eINSTANCE.getConnectionType();
 
   }
 
