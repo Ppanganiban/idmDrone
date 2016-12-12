@@ -1,7 +1,5 @@
 package sar.drone.validation;
 
-import java.lang.ref.Reference;
-import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +11,7 @@ import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 import org.eclipse.xtext.validation.Check;
 
 import com.google.common.base.Objects;
-import com.ibm.icu.util.StringTokenizer;
-
+import com.google.common.net.InetAddresses;
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
 import sar.drone.drn.CARREXY;
@@ -1515,8 +1512,11 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 	  @Check
 	  public void checkIp(final Configuration conf){
-		  StringTokenizer st = new StringTokenizer(conf.getIp());
-		  
+		  if(!InetAddresses.isInetAddress(conf.getIp())){
+			  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONFIGURATION.getEStructuralFeatures();
+		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+		      this.error("Drone adress ip is not correctly defined", conf, _get_1);
+		  }
 	  }
 }
 
