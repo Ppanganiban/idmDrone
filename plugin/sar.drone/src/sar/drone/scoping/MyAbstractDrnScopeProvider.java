@@ -74,8 +74,8 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 			Assignement a = (Assignement)e.eContainer();
 			Root r = (Root) a.eContainer();
 			if (r instanceof Model) {
-				 
-				return Scopes.scopeFor(((Model)r).getConfig().getDevices());
+				if (((Model)r).getConfig() != null)
+					return Scopes.scopeFor(((Model)r).getConfig().getDevices());
 			}
 		}
 		else if (reference == DrnPackage.Literals.REF_PART__VARIABLE_PARTIE

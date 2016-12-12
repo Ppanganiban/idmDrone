@@ -13,6 +13,7 @@ import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 import org.eclipse.xtext.validation.Check;
 
 import com.google.common.base.Objects;
+import com.ibm.icu.util.StringTokenizer;
 
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
@@ -22,6 +23,7 @@ import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
 import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.CERCLEYZ;
+import sar.drone.drn.Configuration;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.DepXY_IMPL;
@@ -1511,6 +1513,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  	}
 	  }
 
-
+	  @Check
+	  public void checkIp(final Configuration conf){
+		  StringTokenizer st = new StringTokenizer(conf.getIp());
+		  
+	  }
 }
 

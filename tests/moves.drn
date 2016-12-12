@@ -1,0 +1,18 @@
+LIBRARY moves{	
+	myBigCarre{
+		right(distance = 10 temps = 5);
+		backward(distance = 10 temps = 5);
+		left(distance = 10 temps = 5);
+		forward(distance = 10 temps = 5);
+	}
+	myLittleCarre{
+		right(distance = 4 temps = 2);
+		backward(distance = 4 temps = 2);
+		left(distance = 4 temps = 2);
+		forward(distance = 4 temps = 2);
+	}
+	comboCarre{
+		myLittleCarre;
+		myBigCarre;
+	}
+}

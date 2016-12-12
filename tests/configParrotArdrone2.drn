@@ -1,0 +1,26 @@
+CONFIGURATION ParrotArdrone2{
+	Type Couleur {
+		element Red;
+		element Blue;
+		element Yellow;
+		element White;
+		element Green
+	}
+
+	Type CamID {
+		element Front;
+		element Bottom
+	}
+
+	DEVICE Cam {
+		type CamID id
+	}
+
+	DEVICE Led {
+		type Couleur color;
+		type NUMBER blinkPerSecond
+	}
+
+	CONNECTION by WI-FI;
+	DRONE@IP = 188.255.44.3;
+}

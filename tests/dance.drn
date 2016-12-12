@@ -1,0 +1,24 @@
+CHOREOGRAPHY {
+	configuration ParrotArdrone2;
+	import moves;
+
+
+	CONTEXT {
+		maxHeight = 10;
+		maxLength = 20;
+		maxWidth  = 20;
+		positionX = 8;
+		positionY = 10;
+		initialDirection = FRONT;
+	}
+
+	part{
+		(backward ( distance = 8 temps = 5) then forward ( distance = 8 temps = 5));
+		part2;
+	}
+	part2{
+		(backward ( distance = 5 temps = 5) then forward ( distance = 8 temps = 5))X 3;
+		moves.comboCarre;
+	}
+	start = part;
+}
