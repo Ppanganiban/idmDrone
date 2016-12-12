@@ -1,9 +1,9 @@
 package sar.drone.validation;
 
+import java.lang.ref.Reference;
 import java.sql.Ref;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -37,6 +37,7 @@ import sar.drone.drn.InitialDirection;
 import sar.drone.drn.InitialPositionX;
 import sar.drone.drn.InitialPositionY;
 import sar.drone.drn.LEFT;
+import sar.drone.drn.Library;
 import sar.drone.drn.Limit;
 import sar.drone.drn.MaxHeight;
 import sar.drone.drn.MaxLength;
@@ -171,10 +172,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	    		ok = false;
 	    		i = 0;
 	    		while(!ok && i < ref.getDefinitions().size()){
-	    			System.out.println();
 	    			if(d.getType() != null){
-	    				System.out.println(d + "//"+ref.getDefinitions().get(i).getLeft());
-	    				System.out.println(d  ==  ref.getDefinitions().get(i).getLeft());
 	    				if (d  ==  ref.getDefinitions().get(i).getLeft())
 	    					ok = true;	    				
 	    			}
@@ -192,10 +190,6 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 							break;
 						case REAL_TYPE:
-							System.out.println(d.getTypePrimitif()+" : "+d);
-		    				System.out.println(ref.getDefinitions().get(i).getInt()
-									+ "/" +ref.getDefinitions().get(i).getText()
-									+ "/" +ref.getDefinitions().get(i).getReal());
 							if (ref.getDefinitions().get(i).getReal() != null) {
 								ok = true;
 							}
@@ -339,8 +333,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		class ReccException extends Exception {
 			private static final long serialVersionUID = 1L;
 			EObject target;
-			public ReccException(EObject ref){
+			boolean contained;
+			public ReccException(EObject ref, boolean isContained){
 				target = ref;
+				contained = isContained;
 			}
 		}
 
@@ -356,16 +352,21 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  System.out.println("*******************************");
 			  System.out.println("Initial Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 			  try {
-			  	MyAbstractDrnValidator.checkDonePositionRef(ref.getMain(), this, true);
+			  	MyAbstractDrnValidator.checkDronePositionRef(ref.getMain(), this, true);
 			  }
 			  catch (ReccException e) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1;
-				  if (e.target instanceof RefPart)
+				  EStructuralFeature _get_1;
+				  if (e.target instanceof RefPart && e.contained){
 					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
-				  else
+					  _get_1 = _eStructuralFeatures_1.get(0);
+					  this.error("This call creates an infinite loop", e.target, _get_1);
+				  }
+				  else if(e.target instanceof RefPartLib) {
 					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART_LIB.getEStructuralFeatures();
-				  EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-				  this.error("This call creates an infinite loop", e.target, _get_1);
+					  _get_1 = _eStructuralFeatures_1.get(0);
+					  this.error("This call creates an infinite loop", e.target, _get_1);
+				  }
 			  }
 			  finally {
 				  MyAbstractDrnValidator.resetRefMark(ref.getMain());				
@@ -373,9 +374,9 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  }
 	  }
 
-	  static void checkDonePositionRef(final RefPart ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
+	  static void checkDronePositionRef(final RefPart ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
 		  Assignement a = ref.getVariable_partie();
-
+		  System.out.println("---Assignement : "+a.getName()+"---");
 		  if (a.isMark()) {
 			  a.setMark(false);
 
@@ -429,15 +430,14 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 		  }
 		  else{
-			  ReccException rex = adv.new ReccException(ref);
+			  ReccException rex = adv.new ReccException(ref, isContained);
 			  throw rex;
 		  }
 	  }
-
-	  
-	  static void checkDonePositionRefPartLib(final RefPartLib ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException{
+  
+	  static void checkDronePositionRefPartLib(final RefPartLib ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException{
 		  Assignement a = ref.getAssignement();
-
+		  System.out.println("---Assignement : "+a.getName()+"---");
 		  if (a.isMark()) {
 			  a.setMark(false);
 			  
@@ -479,7 +479,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 		  }
 		  else{
-			  ReccException rex = adv.new ReccException(ref);
+			  ReccException rex = adv.new ReccException(ref, isContained);
 			  throw rex;
 		  }
 	  }
@@ -493,10 +493,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 
 	  static void checkDronePositionMovement(final Movement ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
 		  if(ref instanceof RefPart){
-			  MyAbstractDrnValidator.checkDonePositionRef((RefPart)ref, adv, isContained);
+			  MyAbstractDrnValidator.checkDronePositionRef((RefPart)ref, adv, isContained);
 		  }
 		  if(ref instanceof RefPartLib){
-			  MyAbstractDrnValidator.checkDonePositionRefPartLib((RefPartLib)ref, adv, isContained);
+			  MyAbstractDrnValidator.checkDronePositionRefPartLib((RefPartLib)ref, adv, isContained);
 		  }
 		  else if (ref instanceof Rotate){
 			  MyAbstractDrnValidator.checkDronePositionRotate((Rotate) ref, adv, isContained);
@@ -1360,13 +1360,60 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  System.out.println(((DepXZ_IMPL) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 	  }
 
-
+	  @Check
+	  public void checkLibRecc(final Library ref){
+		  for (Assignement a : ref.getAssignement()) {
+			  a.setMark(false);
+			  try {
+				  for (Expression e : a.getOperandes()) {
+					  if (e.getMove() instanceof RefPart){
+						  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), this);
+						  for (int i = 1; i < e.getRepeatCST(); i++){
+							  ((RefPart)e.getMove()).getVariable_partie().setMark(true);
+							  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), this);		  
+						  }
+					  }
+				  }
+			  }catch (ReccException e) {
+				  EList<EStructuralFeature> _eStructuralFeatures_1;
+				  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
+				  EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  this.error("This call creates an infinite loop", e.target, _get_1);
+			  }
+			  finally {
+				  MyAbstractDrnValidator.resetRefMark(a);				
+			  }
+		  }
+	  }
+	  static void checkLibReccRef(final RefPart ref, MyAbstractDrnValidator adv) throws ReccException{
+		  Assignement a = ref.getVariable_partie();
+		  if(a.isMark()){
+			  a.setMark(false);
+			  for (Expression e : a.getOperandes()) {
+				  if (e.getMove() instanceof RefPart){
+					  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), adv);
+					  for (int i = 1; i < e.getRepeatCST(); i++){
+						  ((RefPart)e.getMove()).getVariable_partie().setMark(true);
+						  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), adv);		  
+					  }
+				  }
+			  }
+		  }
+		  else{
+			  ReccException rex = adv.new ReccException(ref, false);
+			  throw rex;
+		  }
+	  }
+	  
+	  
 	  static void resetRefMark(final EObject ref){
 		  Assignement a;
 		  if(ref instanceof RefPart)
 			  a = ((RefPart) ref).getVariable_partie();
-		  else
+		  else if (ref instanceof RefPartLib)
 			  a = ((RefPartLib) ref).getAssignement();
+		  else
+			  a = (Assignement) ref;
 
 		  if (!a.isMark()){
 			  a.setMark(true);

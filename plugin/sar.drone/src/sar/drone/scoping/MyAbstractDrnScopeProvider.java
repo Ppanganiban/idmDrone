@@ -21,10 +21,6 @@ import sar.drone.drn.With;
 public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider {// implements IGlobalScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-
-		if(reference == DrnPackage.Literals.REF_DEVICE__DEV){
-			System.out.println(context + "//"+reference);
-		}
 		if (reference == DrnPackage.Literals.REF_DEVICE__DEFINITIONS
 				&& context instanceof RefDevice){
 			RefDevice rd = (RefDevice) context;
