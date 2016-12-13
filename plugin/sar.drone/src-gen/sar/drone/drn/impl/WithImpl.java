@@ -232,9 +232,11 @@ public class WithImpl extends MinimalEObjectImpl.Container implements With
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
+    result.append("<with>");
+    for(RefDevice rd : option){
+    	result.append(rd.toString());
+    }
+    result.append("</with>");
     return result.toString();
   }
 

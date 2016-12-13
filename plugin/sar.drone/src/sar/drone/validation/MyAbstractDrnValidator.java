@@ -66,7 +66,20 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	static int MAXW = -1;
 	static int MAXL = -1;
 	static int MAXZ = -1;
+	static int nbmodel = 0;
+	static int nbconfig = 0;
 	
+	@Check
+	public void checkOnlyOneModel(final Model model){
+		nbmodel++;
+		if (nbmodel > 1){
+			EList<EStructuralFeature> _eStructuralFeatures = DrnPackage.Literals.MODEL.getEStructuralFeatures();
+			EStructuralFeature _get = _eStructuralFeatures.get(0);
+		    this.error("There is already a choreography in the folder", model, _get);
+		}
+		nbmodel--;
+	}
+
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();

@@ -465,9 +465,20 @@ public class AndImpl extends MovementImpl implements And
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
+    result.append("<merge>");
+    if(depx != null)
+    	result.append(depx.toString());
+    if(depxy != null)
+    	result.append(depxy.toString());
+    if(depxz != null)
+    	result.append(depxz.toString());
+    if(depy != null)
+    	result.append(depy.toString());
+    if(depyz != null)
+    	result.append(depyz.toString());
+    if(depz != null)
+    	result.append(depz.toString());
+    result.append("</merge>");
     return result.toString();
   }
 

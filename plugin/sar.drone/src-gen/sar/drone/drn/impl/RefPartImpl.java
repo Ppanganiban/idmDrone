@@ -170,4 +170,13 @@ public class RefPartImpl extends MovementImpl implements RefPart
     return super.eIsSet(featureID);
   }
 
+  public String toString(){
+	  if (eIsProxy()) return super.toString();
+	  
+	  StringBuffer result = new StringBuffer(super.toString());
+	  result.append("<reference>");
+	  result.append("<name>"+variable_partie.getName()+"</name>");
+	  result.append("</reference>");
+	  return result.toString();
+  }
 } //RefPartImpl

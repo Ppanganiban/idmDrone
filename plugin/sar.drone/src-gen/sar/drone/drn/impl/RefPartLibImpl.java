@@ -236,4 +236,14 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
     return super.eIsSet(featureID);
   }
 
+  @Override
+  public String toString(){
+	  if (eIsProxy()) return super.toString();
+	  
+	  StringBuffer result = new StringBuffer(super.toString());
+	  result.append("<reference>");
+	  result.append("<name>"+assignement.getName()+"</name>");
+	  result.append("</reference>");
+	  return result.toString();
+  }
 } //RefPartLibImpl

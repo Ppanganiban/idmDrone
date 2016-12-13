@@ -222,11 +222,9 @@ public class WaitImpl extends MovementImpl implements Wait
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", tempsCST: ");
-    result.append(tempsCST);
-    result.append(')');
+    result.append("<"+name+">");
+    result.append("<time>"+tempsCST+"</time>");
+    result.append("</"+name+">");
     return result.toString();
   }
 

@@ -276,13 +276,10 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", distanceCST: ");
-    result.append(distanceCST);
-    result.append(", tempsCST: ");
-    result.append(tempsCST);
-    result.append(')');
+    result.append("<"+name+">");
+    result.append("<distance>"+distanceCST+"</distance>");
+    result.append("<time>"+tempsCST+"</time>");
+    result.append("</"+name+">");
     return result.toString();
   }
 

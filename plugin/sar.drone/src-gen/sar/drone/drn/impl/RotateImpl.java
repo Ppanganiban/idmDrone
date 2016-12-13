@@ -276,13 +276,9 @@ public class RotateImpl extends MovementImpl implements Rotate
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", angleCST: ");
-    result.append(angleCST);
-    result.append(", tempsCST: ");
-    result.append(tempsCST);
-    result.append(')');
+    result.append("<"+name+">");
+    result.append("<time>"+tempsCST+"</time>");
+    result.append("</"+name+">");
     return result.toString();
   }
 

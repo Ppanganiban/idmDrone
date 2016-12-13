@@ -168,9 +168,8 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
+    result.append("<"+name+">");
+    result.append("</"+name+">");
     return result.toString();
   }
 
