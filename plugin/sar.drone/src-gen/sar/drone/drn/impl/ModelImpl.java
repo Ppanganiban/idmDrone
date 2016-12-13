@@ -413,5 +413,26 @@ public class ModelImpl extends RootImpl implements Model
     }
     return super.eIsSet(featureID);
   }
+  
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer();
+    result.append("<model>");
+/*    if(config != null)
+    	result.append(config.toString());
+*/
+/*    for(Library l : libraries){
+    	result.append(l.toString()+"\n");
+    }
+*/
+    for(Assignement a : assignement){
+    	result.append(a.toString()+"\n");
+    }
+    result.append("</model>");
+    return result.toString();
+  }
 
 } //ModelImpl
