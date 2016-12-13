@@ -37,5 +37,4 @@ public class InitialPositionImpl extends LimitImpl implements InitialPosition
   {
     return DrnPackage.Literals.INITIAL_POSITION;
   }
-
 } //InitialPositionImpl

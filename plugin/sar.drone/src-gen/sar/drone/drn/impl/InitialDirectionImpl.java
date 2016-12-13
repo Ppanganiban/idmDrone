@@ -168,10 +168,10 @@ public class InitialDirectionImpl extends InitialPositionImpl implements Initial
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    StringBuffer result = new StringBuffer();
+    result.append("<"+name+">");
     result.append(value);
-    result.append(')');
+    result.append("</"+name+">");
     return result.toString();
   }
 
