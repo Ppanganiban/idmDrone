@@ -68,8 +68,9 @@ public interface Assignement extends EObject
    */
   EList<Expression> getOperandes();
 
-boolean isMark();
+Assignement getCaller();
 
-void setMark(boolean b);
-
+void setCaller(Assignement a);
+  
+  
 } // Assignement

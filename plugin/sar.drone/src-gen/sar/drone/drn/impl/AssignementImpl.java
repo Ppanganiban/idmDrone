@@ -229,7 +229,9 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+   if (eIsProxy()) {  
+    	return super.toString();
+    }
 
     StringBuffer result = new StringBuffer();
     result.append("<part>");
@@ -253,16 +255,16 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   }
 
   protected boolean mark = true;
-@Override
-public boolean isMark() {
-	// TODO Auto-generated method stub
-	return mark;
-}
+  protected boolean repeated = false;
 
-@Override
-public void setMark(boolean b) {
-	// TODO Auto-generated method stub
-	mark = b;
-}
-
+  Assignement caller = null;
+  
+  @Override
+  public Assignement getCaller(){
+	  return caller;
+  }
+  @Override
+  public void setCaller(Assignement a){
+	  caller = a;
+  }
 } //AssignementImpl

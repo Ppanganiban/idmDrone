@@ -299,11 +299,14 @@ public class RefDeviceImpl extends MinimalEObjectImpl.Container implements RefDe
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<"+dev.getName()+">");
-    result.append("<mode>"+mode+"</mode>");
-    for(Definition d : definitions)
-    	result.append(d.toString());
-    result.append("</"+dev.getName()+">");
+    if(dev != null){
+        result.append("<"+dev.getName()+">");
+        result.append("<mode>"+mode+"</mode>");
+        for(Definition d : definitions)
+        	result.append(d.toString());
+        result.append("</"+dev.getName()+">");    	
+    }
+
     return result.toString();
   }
 

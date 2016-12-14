@@ -171,8 +171,9 @@ public class RefPartImpl extends MovementImpl implements RefPart
   }
 
   public String toString(){
-	  if (eIsProxy()) return super.toString();
-	  
+	  if (eIsProxy()){
+		  return super.toString();
+	  }
 	  StringBuffer result = new StringBuffer();
 	  result.append("<reference>");
 	  result.append("<name>"+variable_partie.getName()+"</name>");

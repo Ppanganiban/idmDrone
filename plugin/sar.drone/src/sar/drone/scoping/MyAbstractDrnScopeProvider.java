@@ -83,10 +83,12 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 				&& context instanceof Assignement){
 			Assignement a = (Assignement)context;
 			Root r = (Root) a.eContainer();
-			if (r instanceof Model)
-				return Scopes.scopeFor(((Model)r).getAssignement());
+			if (r instanceof Model) {
+				return Scopes.scopeFor(((Model)r).getAssignement());				
+			}
+
 			else if (r instanceof Library)
-					return Scopes.scopeFor(((Library)r).getAssignement());
+				return Scopes.scopeFor(((Library)r).getAssignement());
 		}
 		return super.getScope(context, reference);
 	}
