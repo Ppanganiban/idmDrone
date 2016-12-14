@@ -58,6 +58,7 @@ public abstract class MyAbstractDrnScopeProvider extends DelegatingScopeProvider
 		}
 		else if (reference == DrnPackage.Literals.REF_DEVICE__DEV
 				&& context instanceof With){
+			System.out.println(context);
 			With w = (With) context;
 			Expression e = (Expression)w.eContainer();
 			Assignement a = (Assignement)e.eContainer();

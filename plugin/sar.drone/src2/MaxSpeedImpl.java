@@ -10,49 +10,49 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.TakeOff;
+import sar.drone.drn.MaxSpeed;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Take Off</b></em>'.
+ * An implementation of the model object '<em><b>Max Speed</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.TakeOffImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.MaxSpeedImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TakeOffImpl extends MovementImpl implements TakeOff
+public class MaxSpeedImpl extends LimitImpl implements MaxSpeed
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TakeOffImpl()
+  protected MaxSpeedImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.TAKE_OFF;
+    return DrnPackage.Literals.MAX_SPEED;
   }
 
   /**
@@ -73,9 +73,9 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public int getValue()
   {
-    return name;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setValue(int newValue)
   {
-    String oldName = name;
-    name = newName;
+    int oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.TAKE_OFF__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.MAX_SPEED__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
-        return getName();
+      case DrnPackage.MAX_SPEED__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
-        setName((String)newValue);
+      case DrnPackage.MAX_SPEED__VALUE:
+        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
-        setName(NAME_EDEFAULT);
+      case DrnPackage.MAX_SPEED__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.MAX_SPEED__VALUE:
+        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +167,11 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();    result.append("<"+name+">");
+    StringBuffer result = new StringBuffer();
+    result.append("<"+name+">");
+    result.append(value);
     result.append("</"+name+">");
     return result.toString();
   }
 
-} //TakeOffImpl
+} //MaxSpeedImpl

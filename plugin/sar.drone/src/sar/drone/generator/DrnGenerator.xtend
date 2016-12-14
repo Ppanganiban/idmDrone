@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import sar.drone.drn.Model
 
 /**
  * Generates code from your model files on save.
@@ -26,7 +27,8 @@ class DrnGenerator implements IGenerator {
 	 list=resource.getContents();
 	  sb=new StringBuffer();
 	  for(EObject e:list){
-		  sb.append(e.toString());
+	    if (e instanceof Model)
+  		  sb.append(e.toString());
 	  }
 	  fsa.generateFile("model.xml", sb.toString());
 }

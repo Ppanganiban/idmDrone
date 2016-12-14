@@ -3,29 +3,41 @@
  */
 package sar.drone.drn.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import sar.drone.drn.Declaration;
+import sar.drone.drn.Device;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.TakeOff;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Take Off</b></em>'.
+ * An implementation of the model object '<em><b>Device</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.TakeOffImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DeviceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DeviceImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TakeOffImpl extends MovementImpl implements TakeOff
+public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -48,11 +60,21 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclarations()
+   * @generated
+   * @ordered
+   */
+  protected EList<Declaration> declarations;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TakeOffImpl()
+  protected DeviceImpl()
   {
     super();
   }
@@ -65,7 +87,7 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.TAKE_OFF;
+    return DrnPackage.Literals.DEVICE;
   }
 
   /**
@@ -88,7 +110,37 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.TAKE_OFF__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEVICE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Declaration> getDeclarations()
+  {
+    if (declarations == null)
+    {
+      declarations = new EObjectContainmentEList<Declaration>(Declaration.class, this, DrnPackage.DEVICE__DECLARATIONS);
+    }
+    return declarations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.DEVICE__DECLARATIONS:
+        return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +153,10 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.DEVICE__NAME:
         return getName();
+      case DrnPackage.DEVICE__DECLARATIONS:
+        return getDeclarations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +166,18 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.DEVICE__NAME:
         setName((String)newValue);
+        return;
+      case DrnPackage.DEVICE__DECLARATIONS:
+        getDeclarations().clear();
+        getDeclarations().addAll((Collection<? extends Declaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +193,11 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.DEVICE__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case DrnPackage.DEVICE__DECLARATIONS:
+        getDeclarations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +213,10 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.DEVICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.DEVICE__DECLARATIONS:
+        return declarations != null && !declarations.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +231,11 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();    result.append("<"+name+">");
-    result.append("</"+name+">");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
     return result.toString();
   }
 
-} //TakeOffImpl
+} //DeviceImpl

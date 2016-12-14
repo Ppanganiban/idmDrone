@@ -3,29 +3,41 @@
  */
 package sar.drone.drn.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import sar.drone.drn.Context;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.TakeOff;
+import sar.drone.drn.Limit;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Take Off</b></em>'.
+ * An implementation of the model object '<em><b>Context</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.TakeOffImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ContextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ContextImpl#getLimit <em>Limit</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TakeOffImpl extends MovementImpl implements TakeOff
+public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -48,11 +60,21 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLimit()
+   * @generated
+   * @ordered
+   */
+  protected EList<Limit> limit;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TakeOffImpl()
+  protected ContextImpl()
   {
     super();
   }
@@ -65,7 +87,7 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.TAKE_OFF;
+    return DrnPackage.Literals.CONTEXT;
   }
 
   /**
@@ -88,7 +110,37 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.TAKE_OFF__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONTEXT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Limit> getLimit()
+  {
+    if (limit == null)
+    {
+      limit = new EObjectContainmentEList<Limit>(Limit.class, this, DrnPackage.CONTEXT__LIMIT);
+    }
+    return limit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DrnPackage.CONTEXT__LIMIT:
+        return ((InternalEList<?>)getLimit()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +153,10 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.CONTEXT__NAME:
         return getName();
+      case DrnPackage.CONTEXT__LIMIT:
+        return getLimit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +166,18 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.CONTEXT__NAME:
         setName((String)newValue);
+        return;
+      case DrnPackage.CONTEXT__LIMIT:
+        getLimit().clear();
+        getLimit().addAll((Collection<? extends Limit>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +193,11 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.CONTEXT__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case DrnPackage.CONTEXT__LIMIT:
+        getLimit().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +213,10 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     switch (featureID)
     {
-      case DrnPackage.TAKE_OFF__NAME:
+      case DrnPackage.CONTEXT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.CONTEXT__LIMIT:
+        return limit != null && !limit.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +231,13 @@ public class TakeOffImpl extends MovementImpl implements TakeOff
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();    result.append("<"+name+">");
-    result.append("</"+name+">");
+    StringBuffer result = new StringBuffer();
+    result.append("<context>");
+    for(Limit l : limit){
+    	result.append(l.toString());
+    }
+    result.append("</context>");
     return result.toString();
   }
 
-} //TakeOffImpl
+} //ContextImpl

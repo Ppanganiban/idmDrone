@@ -9,25 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import sar.drone.drn.DepZ_Impl;
+import sar.drone.drn.DepXY_IMPL;
 import sar.drone.drn.DrnPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dep ZImpl</b></em>'.
+ * An implementation of the model object '<em><b>Dep XY IMPL</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.DepZ_ImplImpl#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DepZ_ImplImpl#getDistanceCST <em>Distance CST</em>}</li>
- *   <li>{@link sar.drone.drn.impl.DepZ_ImplImpl#getTempsCST <em>Temps CST</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DepXY_IMPLImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.DepXY_IMPLImpl#getTempsCST <em>Temps CST</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
+public class DepXY_IMPLImpl extends MovementImpl implements DepXY_IMPL
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -48,26 +47,6 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistanceCST()
-   * @generated
-   * @ordered
-   */
-  protected static final int DISTANCE_CST_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getDistanceCST() <em>Distance CST</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDistanceCST()
-   * @generated
-   * @ordered
-   */
-  protected int distanceCST = DISTANCE_CST_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTempsCST() <em>Temps CST</em>}' attribute.
@@ -94,7 +73,7 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DepZ_ImplImpl()
+  protected DepXY_IMPLImpl()
   {
     super();
   }
@@ -107,7 +86,7 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.DEP_ZIMPL;
+    return DrnPackage.Literals.DEP_XY_IMPL;
   }
 
   /**
@@ -130,30 +109,7 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_ZIMPL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getDistanceCST()
-  {
-    return distanceCST;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDistanceCST(int newDistanceCST)
-  {
-    int oldDistanceCST = distanceCST;
-    distanceCST = newDistanceCST;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_ZIMPL__DISTANCE_CST, oldDistanceCST, distanceCST));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XY_IMPL__NAME, oldName, name));
   }
 
   /**
@@ -176,7 +132,7 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
     int oldTempsCST = tempsCST;
     tempsCST = newTempsCST;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_ZIMPL__TEMPS_CST, oldTempsCST, tempsCST));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.DEP_XY_IMPL__TEMPS_CST, oldTempsCST, tempsCST));
   }
 
   /**
@@ -189,11 +145,9 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_ZIMPL__NAME:
+      case DrnPackage.DEP_XY_IMPL__NAME:
         return getName();
-      case DrnPackage.DEP_ZIMPL__DISTANCE_CST:
-        return getDistanceCST();
-      case DrnPackage.DEP_ZIMPL__TEMPS_CST:
+      case DrnPackage.DEP_XY_IMPL__TEMPS_CST:
         return getTempsCST();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -209,13 +163,10 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_ZIMPL__NAME:
+      case DrnPackage.DEP_XY_IMPL__NAME:
         setName((String)newValue);
         return;
-      case DrnPackage.DEP_ZIMPL__DISTANCE_CST:
-        setDistanceCST((Integer)newValue);
-        return;
-      case DrnPackage.DEP_ZIMPL__TEMPS_CST:
+      case DrnPackage.DEP_XY_IMPL__TEMPS_CST:
         setTempsCST((Integer)newValue);
         return;
     }
@@ -232,13 +183,10 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_ZIMPL__NAME:
+      case DrnPackage.DEP_XY_IMPL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DrnPackage.DEP_ZIMPL__DISTANCE_CST:
-        setDistanceCST(DISTANCE_CST_EDEFAULT);
-        return;
-      case DrnPackage.DEP_ZIMPL__TEMPS_CST:
+      case DrnPackage.DEP_XY_IMPL__TEMPS_CST:
         setTempsCST(TEMPS_CST_EDEFAULT);
         return;
     }
@@ -255,11 +203,9 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   {
     switch (featureID)
     {
-      case DrnPackage.DEP_ZIMPL__NAME:
+      case DrnPackage.DEP_XY_IMPL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.DEP_ZIMPL__DISTANCE_CST:
-        return distanceCST != DISTANCE_CST_EDEFAULT;
-      case DrnPackage.DEP_ZIMPL__TEMPS_CST:
+      case DrnPackage.DEP_XY_IMPL__TEMPS_CST:
         return tempsCST != TEMPS_CST_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -275,12 +221,13 @@ public class DepZ_ImplImpl extends MovementImpl implements DepZ_Impl
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    result.append("<"+name+">");
-    result.append("<distance>"+distanceCST+"</distance>");
-    result.append("<time>"+tempsCST+"</time>");
-    result.append("</"+name+">");
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", tempsCST: ");
+    result.append(tempsCST);
+    result.append(')');
     return result.toString();
   }
 
-} //DepZ_ImplImpl
+} //DepXY_IMPLImpl
