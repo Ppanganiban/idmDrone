@@ -1,0 +1,28 @@
+CHOREOGRAPHY {
+	configuration ParrotArdrone2;
+	import moves;
+
+	CONTEXT {
+		maxLength = 30;
+		maxHeight = 30;
+		maxWidth = 30;
+		positionX = 10;
+		initialDirection = BEHIND;
+		positionY = 10;
+	}
+	part{
+		(backward ( distance = 8 temps = 5) then forward ( distance = 8 temps = 5));
+		part2 X 2;
+		part3 with Cam ( mode ON, id = Bottom), Led( mode ON, color = Green, blinkPerSecond = 4);
+	}
+
+	part2{
+		rotate(angle = 90 temps = 2);
+		moves.comboCarre;
+		part3;
+	}
+	part3{
+		right ( distance = 8 temps = 5);
+	}
+	start = part;
+}
