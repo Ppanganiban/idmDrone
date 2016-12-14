@@ -237,13 +237,14 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  public void checkContext(final ContextImpl ref) {
 		  Boolean toCheck = false;
 		  int countX = 0;
-		  int x = 0;
-		  int countY = 0;
-		  int y = 0;
 		  int countD = 0;
-		  int maxWidth = -1;
-		  int maxLength = -1;
-		  int MaxHeight = -1;
+		  int countY = 0;
+
+		  yCurr = 0;
+		  xCurr = 0;
+		  MAXW = -1;
+		  MAXL = -1;
+		  MAXZ = -1;
 		  DirectionType d = null;
 		  
 		  for (Limit l : ref.getLimit()){
@@ -251,14 +252,12 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  toCheck = true;
 			  if (l instanceof InitialPositionX){
 				  countX = 1;
-				  x = ((InitialPositionX) l).getValue();
-				  xCurr = x;
+				  xCurr = ((InitialPositionX) l).getValue();
 			  }
 
 			  if (l instanceof InitialPositionY){
 				  countY = 1;
-				  y = ((InitialPositionY) l).getValue();
-				  yCurr = y;
+				  yCurr = ((InitialPositionY) l).getValue();
 			  }
 			  
 			  if (l instanceof InitialDirection){
@@ -279,18 +278,15 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 
 			  
-			  if (l instanceof MaxWidth) {
-				 maxWidth = ((MaxWidth) l).getValue();
-				 MAXW = maxWidth;
-			  }
-			  if (l instanceof MaxLength) {
-				  maxLength = ((MaxLength) l).getValue();
-				  MAXL = maxLength;
-			  }
-			  if (l instanceof MaxHeight) {
-				  MaxHeight = ((MaxHeight) l).getValue();
-				  MAXZ = MaxHeight;
-			  }
+			  if (l instanceof MaxWidth)
+				 MAXW = ((MaxWidth) l).getValue();
+
+			  if (l instanceof MaxLength)
+				  MAXL = ((MaxLength) l).getValue();
+
+			  if (l instanceof MaxHeight)
+				  MAXZ = ((MaxHeight) l).getValue();
+			  
 		  }
 
 		  if (countX > 1) {
@@ -328,12 +324,12 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 			  
 			  //Check if initial position are inside the surface
-			  if(maxLength > 0 && y > maxLength){
+			  if(MAXL > 0 && yCurr > MAXL){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
 		  	    	this.error("Drone is out of max length", ref, _get_1);
 			  }
-			  if(maxWidth > 0 && x > maxWidth){
+			  if(MAXW > 0 && xCurr > MAXW){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
 		  	    	this.error("Drone is out of max width", ref, _get_1);
@@ -390,10 +386,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  Assignement a = ref.getVariable_partie();
 		  Assignement c;
 		  System.out.println("---Assignement : "+a.getName()+"---");
-		  if (a.getCaller() != null)
-			  System.out.println(a.getCaller().getName());
-		  else
-			  System.out.println("null");
+		  if (a.getCaller() == null){
+			  a.setCaller(a);
+		  }
+		  System.out.println(a.getCaller().getName());			  
 
 		  for (Expression e : a.getOperandes()) {
 			  if(e.getMove() instanceof RefPart) {
@@ -1403,7 +1399,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  @Check
 	  public void checkLibRecc(final Library ref){
 		  for (Assignement a : ref.getAssignement()) {
-			  a.setCaller(null);
+			  a.setCaller(a);
 			  try {
 				  for (Expression e : a.getOperandes()) {
 					  if (e.getMove() instanceof RefPart){
@@ -1453,15 +1449,17 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  else
 			  a = (Assignement) ref;
 
-		  a.setCaller(null);
-		  for (Expression e : a.getOperandes()) {
-			  if (e.getMove() instanceof RefPart){
-				  if(((RefPart)e.getMove()).getVariable_partie() != a)
-					  MyAbstractDrnValidator.resetRefMark(e.getMove());					  
-			  }
-			  else if (e.getMove() instanceof RefPartLib){
-				  MyAbstractDrnValidator.resetRefMark(e.getMove());
-			  }
+		  if(a.getCaller() != null){
+			  a.setCaller(null);
+			  for (Expression e : a.getOperandes()) {
+				  if (e.getMove() instanceof RefPart){
+					  if(((RefPart)e.getMove()).getVariable_partie() != a)
+						  MyAbstractDrnValidator.resetRefMark(e.getMove());					  
+				  }
+				  else if (e.getMove() instanceof RefPartLib){
+					  MyAbstractDrnValidator.resetRefMark(e.getMove());
+				  }
+			  }			  
 		  }
 	  }
 
