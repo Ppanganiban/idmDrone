@@ -427,11 +427,11 @@ public class ModelImpl extends RootImpl implements Model
     if(context != null)
     	result.append(context.toString());
 
-/*    for(Library l : libraries){
+    for(Library l : libraries){
     	for(Assignement a : l.getAssignement()){
     		result.append(a.toString());
     	}
-    }*/
+    }
     
     for(Assignement a : assignement){
     	result.append(a.toString());

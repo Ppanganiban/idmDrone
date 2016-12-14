@@ -389,7 +389,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  if (a.getCaller() == null){
 			  a.setCaller(a);
 		  }
-		  System.out.println(a.getCaller().getName());			  
+		  System.out.println("call by : "+a.getCaller().getName());			  
 
 		  for (Expression e : a.getOperandes()) {
 			  if(e.getMove() instanceof RefPart) {
@@ -408,9 +408,11 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  else if (e.getMove() instanceof RefPartLib){
 				  c = (Assignement)((RefPartLib) e.getMove()).getAssignement().getCaller();
 				  if(c == null) {
-					  ((RefPart) e.getMove()).getVariable_partie().setCaller(a);
+					  ((RefPartLib) e.getMove()).getAssignement().setCaller(a);
 				  }
-				  else if (c != a){
+				  else if (c != a
+						  || ((RefPartLib) e.getMove()).getAssignement() == a
+						  || ((RefPartLib) e.getMove()).getAssignement() == c){
 					  ReccException rex = adv.new ReccException(ref, isContained);
 					  throw rex;
 				  }
@@ -463,6 +465,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 					  }
 				  }
 		  }
+		  a.setCaller(null);
 	  }
   
 	  static void checkDronePositionRefPartLib(final RefPartLib ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException{
@@ -470,9 +473,9 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  Assignement c;
 		  System.out.println("---Assignement : "+a.getName()+"---");
 		  if (a.getCaller() != null)
-			  System.out.println(a.getCaller().getName());
+			  System.out.println("call by : "+a.getCaller().getName());
 		  else
-			  System.out.println("null");
+			  System.out.println("call by : null");
 
 		  for (Expression e : a.getOperandes()) {
 			  
@@ -482,7 +485,9 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 					  if(c == null) {
 						  ((RefPart) e.getMove()).getVariable_partie().setCaller(a);
 					  }
-					  else if(c != a){
+					  else if(c != a
+							  || ((RefPartLib) e.getMove()).getAssignement() == a
+							  || ((RefPartLib) e.getMove()).getAssignement() == c){
 						  ReccException rex = adv.new ReccException(ref, isContained);
 						  throw rex;
 					  }
@@ -515,9 +520,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 						  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART_LIB.getEStructuralFeatures();
 				  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
 				  	      adv.error("Drone is out of height"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
-					  }
+					  }	
 			  }
 		  }
+		  a.setCaller(null);
 	  }
 
 	  static void checkDronePositionExpression(final Expression ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
@@ -1426,15 +1432,15 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  c = (Assignement)((RefPart) e.getMove()).getVariable_partie().getCaller();
 				  if(c == null) {
 					  ((RefPart) e.getMove()).getVariable_partie().setCaller(a);
-					  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), adv);
 				  }
-				  else if (c == a){
-					  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), adv);				  
-				  }
-				  else{
+				  else if (c !=a
+						  || ((RefPart) e.getMove()).getVariable_partie() == a
+						  || ((RefPart) e.getMove()).getVariable_partie() == c){
+					  
 					  ReccException rex = adv.new ReccException(ref, false);
 					  throw rex;
 				  }
+				  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), adv);  
 			  }
 		  }
 	  }
@@ -1453,8 +1459,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  a.setCaller(null);
 			  for (Expression e : a.getOperandes()) {
 				  if (e.getMove() instanceof RefPart){
-					  if(((RefPart)e.getMove()).getVariable_partie() != a)
-						  MyAbstractDrnValidator.resetRefMark(e.getMove());					  
+					  MyAbstractDrnValidator.resetRefMark(e.getMove());					  
 				  }
 				  else if (e.getMove() instanceof RefPartLib){
 					  MyAbstractDrnValidator.resetRefMark(e.getMove());
