@@ -102,14 +102,17 @@ xmlDocPtr doc;
 xmlNodePtr node;
 xmlNode *cur_node = NULL;
 
-char * include_genere(){
-	char * includes = "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <libxml/tree.h>\n#include <libxml/parser.h>\n#include <malloc.h>\n#include \"runtime.h\"\n";
-	return includes;
+void include_genere(FILE *f){
+	char includes[] = "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include <string.h>\r\n#include <libxml/tree.h>\r\n#include <libxml/parser.h>\r\n#include <malloc.h>\r\n#include \"runtime.h\"\r\n";
+		fprintf(f,"%s",includes);
+
+
 }
 
-char * struct_genere(){
-	char * structs ="struct global * g;\nstruct oneAxis oaAction;\nstruct rotation rAction;\n struct connect cnx;\n";
-	return structs;
+void struct_genere(FILE *f){
+	char  structs[] ="struct global * g;\r\nstruct oneAxis oaAction;\r\nstruct rotation rAction;\r\n struct connect cnx;\r\n";
+	fprintf(f,"%s",structs );
+
 }
 
 void config_genere(FILE * f){
@@ -129,11 +132,10 @@ void config_genere(FILE * f){
     }
      //cur_node=cur_node->children;          
              
-    char * montype= malloc(sizeof(char)*(11+strlen(cur_node->children->content)));
-    sprintf(montype,"cnx.type = %s",cur_node->children->content);
 
-    fwrite(montype,sizeof(montype), 1, f);
-        printf("la %s\n",cur_node->children->content);
+
+    fprintf(f,"cnx.type %s\n",cur_node->children->content);
+
 
 
     //Check ip
@@ -147,17 +149,15 @@ void config_genere(FILE * f){
     //xmlNode* tmp=cur_node;
    
 
-    char * monip= malloc(sizeof(char)*(9+strlen(cur_node->children->content)));
-    sprintf(montype,"cnx.ip = %s",cur_node->children->content);
-       printf("la %s\n",cur_node->children->content);
 
-   fwrite(monip,sizeof(monip), 1, f);
+
+   fprintf(f,"cnx.ip = %s\n",cur_node->children->content);
 }
 
 
 void main_genere(FILE * f){
-    char * monmain="int main(int argc, char * argv[]){\n";
-	fwrite(monmain,sizeof(monmain) , 1, f);
+    char monmain []="int main(int argc, char * argv[]){\n";
+	fprintf(f,"%s",monmain);
     cur_node = node;
      
     if(strcmp("model",cur_node->name)){
@@ -175,7 +175,7 @@ void main_genere(FILE * f){
  
 	//function pour les actions
     char * ret="return 0\n}";
-	fwrite(ret,sizeof(ret),1,f);
+	fprintf(f,"%s",ret);
 }
 
 
@@ -190,16 +190,15 @@ int main(int argc, char * argv[]){
 	node = xmlDocGetRootElement(doc);
     cur_node= node;
 	//Open fichier
-	FILE * genere = fopen("./genere.c","a+");
+	FILE * genere = fopen("./genere.c","a");
 
 	//Écriture des includes
     printf("open file ok\n");
-    char * include = include_genere();
-	fwrite(include,sizeof(include),1,genere );
+    include_genere(genere);
      printf("include ok\n");
 	//Écriture des structures
-    char *structs = struct_genere();
-	fwrite(structs,sizeof(structs),1,genere );
+    	struct_genere(genere);
+
      printf("structure generer ok\n");
 	//Écriture du main
 	main_genere(genere);
