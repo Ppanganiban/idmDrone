@@ -116,30 +116,41 @@ void config_genere(FILE * f){
     
 
 
-	if(!strcmp("config",cur_node->name)){
+	if(strcmp("config",cur_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
-	
     //Check connection
     cur_node = cur_node->children;
-	if(!strcmp("connection",cur_node->name)){
+
+	if(strcmp("connection",cur_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
+     //cur_node=cur_node->children;          
+             
+    char * montype= malloc(sizeof(char)*(11+strlen(cur_node->children->content)));
+    sprintf(montype,"cnx.type = %s",cur_node->children->content);
 
-    char * montype= strcat("cnx.type = ",cur_node->content);
     fwrite(montype,sizeof(montype), 1, f);
-   
+        printf("la %s\n",cur_node->children->content);
+
 
     //Check ip
-    cur_node = cur_node->children;
-    if(!strcmp("ip",cur_node->name)){
+
+    cur_node = cur_node->next;
+
+    if(strcmp("ip",cur_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
-    char * monip= strcat("cnx.ip = ",cur_node->content);
-  
+    //xmlNode* tmp=cur_node;
+   
+
+    char * monip= malloc(sizeof(char)*(9+strlen(cur_node->children->content)));
+    sprintf(montype,"cnx.ip = %s",cur_node->children->content);
+       printf("la %s\n",cur_node->children->content);
+
    fwrite(monip,sizeof(monip), 1, f);
 }
 
@@ -175,7 +186,7 @@ void actions_genere(FILE * f){
 
 int main(int argc, char * argv[]){
 
-	doc = xmlReadFile("./model.xml",NULL,0);
+	doc = xmlReadFile("./model.xml","UTF_8",0);
 	node = xmlDocGetRootElement(doc);
     cur_node= node;
 	//Open fichier
