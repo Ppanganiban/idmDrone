@@ -4,7 +4,7 @@ struct attribute{
 };
 struct option{
 	char * name;
-	struct attribute * att;
+	struct attribute att[0];
 };
 
 // action
@@ -12,7 +12,7 @@ struct action {
     char * name;
     unsigned int repeat;
     unsigned int time;
-    struct option * options;
+    
 }action;
 
 // dep on one Axis
@@ -60,7 +60,10 @@ struct limits {
 	float angular_speed;
 	int length;
 	int width;
-	char *ip;
+	int height;
+	struct position initial_pos;
+	int initial_direction;
+
 }limits;
 
 //current action of the drone
@@ -71,7 +74,7 @@ union uAction {
 //connexion
 struct connect {
     char * type;
-    char * ip;
+    char * address;
 }connect;
 
 //global structure of the current state of the choreography;
@@ -81,7 +84,10 @@ struct global {
 	struct speed curr_speed;
 	struct limits context;
 	union uAction * curr_action;
+	struct option * options;
 }global;
+
+
 int takeoff(struct global*);
 int front(struct global*);
 int back(struct global*);
@@ -89,6 +95,6 @@ int left(struct global*);
 int right(struct global*);
 int rotate(struct global*);
 int land(struct global*);
-void connectDrone();
+void connectDrone(struct global*);
 
 

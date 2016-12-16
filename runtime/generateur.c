@@ -15,10 +15,114 @@ int ip = 0;
 int repeat =0;
 int ref = 0;
 int direction = 0;
+char limit_v_speed=0;
+char limit_a_speed=0;
+char limit_length=0;
+char limit_width=0;
+char angle;
 int i=0;
+xmlDocPtr doc;
+xmlNodePtr node;
+xmlNode *cur_node = NULL;
 
-static void
-print_element_names(xmlNode * a_node,int i)
+void actions_genere(xmlNode * node,FILE * f){
+	
+	xmlNode * a_node = node;
+	if(!strcmp("action",a_node->name))
+		a_node = a_node->children;
+	int repeat =0;
+	struct option opt;
+
+
+	if(!strcmp("repeat",a_node->name)){
+		repeat = atoi(a_node->children->content);
+		a_node = a_node -> next;
+	}
+	
+
+	if(!strcmp("with",a_node->name)){
+		/*option.name = malloc(sizeof(char)*strlen(a_node->children->name));
+
+		strcpy(option.name,a_node->children->name);
+		xmlNode tmp * =a_node->children;
+		int j=0;
+		while(tmp){
+	a_node = a_node->next;
+		}*/
+			a_node = a_node -> next;
+
+	}
+	xmlNode * tmp=NULL;
+	if(!strcmp("action",a_node->name)){
+	
+		actions_genere(a_node,f);
+
+	}
+	printf("%s",a_node->name);
+	
+	if(!strcmp("right",a_node->name) || !strcmp("left",a_node->name) || !strcmp("backward",a_node->name) || !strcmp("forward",a_node->name)){
+		fprintf(f,"oaAction.curr_action.name = %s\n",a_node->name);
+		fprintf(f,"oaAction.distance = %s\n",a_node->children->children->content);
+		fprintf(f,"oaAction.curr_action.time = %s\n",a_node->children->next->children->content);
+		fprintf(f,"oaAction.curr_action.repeat = %d\n",repeat);
+
+
+		}else if(!strcmp("rotate",a_node->name)){
+			fprintf(f,"orAction.curr_action.name = %s\n",a_node->name);
+			printf("naaame: %s\n",a_node->children->name);
+			fprintf(f,"orAction.angle = %s\n",a_node->children->children->content);
+			fprintf(f,"orAction.curr_action.time = %s\n",a_node->children->next->children->content);
+			fprintf(f,"orAction.curr_action.repeat = %d\n",repeat);
+		}
+
+	if(node->next)
+		actions_genere(node->next,f);
+
+}
+void context_genere (FILE * f){
+	//cur_node = a_node;
+	//xmlNode * tmp_node;
+	xmlNode * a_node = cur_node;
+	cur_node = cur_node ->next;
+	a_node =cur_node->children;
+	//tmp_node = cur_node;
+	while(a_node){
+			printf("cur_node: %s\n",a_node->name);
+
+		if(!strcmp(a_node->name,"maxHeight")){
+			fprintf(f,"g.limit.height = %s\n",a_node->children->content);
+
+		}else if(!strcmp(a_node->name,"maxLength")){
+			fprintf(f,"g.limit.length = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"maxWidth")){
+			fprintf(f,"g.limit.width = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"maxAngularSpeed")){
+			fprintf(f,"g.limit.angular_speed = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"maxVerticalSpeed")){
+			fprintf(f,"g.limit.vertical_speed = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"maxVerticalSpeed")){
+			fprintf(f,"g.limit.vertical_speed = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"positionX")){
+			fprintf(f,"g.limit.initial_pos.x = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"positionY")){
+			fprintf(f,"g.limit.initial_pos.y = %s\n",a_node->children->content);
+
+		}else if (!strcmp(a_node->name,"initialDirection")){
+			fprintf(f,"g.limit.initial_direction = %s\n",a_node->children->content);
+
+		}
+		a_node = a_node->next;
+
+	}
+}
+
+/*static void print_element_names(xmlNode * a_node,int i)
 {
 	xmlNode *cur_node = NULL;
    	
@@ -29,6 +133,8 @@ print_element_names(xmlNode * a_node,int i)
 union uAction *actions = malloc(100*sizeof(uAction));
     	for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
 		//XML_NODE
+	
+
         	if (cur_node->type == XML_ELEMENT_NODE) {
 			
 			
@@ -53,6 +159,8 @@ union uAction *actions = malloc(100*sizeof(uAction));
 				ref=1;
 			if(!strcmp("initialDirection",cur_node->name))
 				direction=1;
+			if(!strcmp("angle",cur_node->name))
+				angle =1;
 			i++; 
 			
 	  	}else{
@@ -62,6 +170,7 @@ union uAction *actions = malloc(100*sizeof(uAction));
 				if(nameAction==1){
 
 					actions[i].axis.curr_action.name = cur_node->content ;
+
 					nameAction =0;		
 				}
 				if(distance==1){
@@ -86,9 +195,9 @@ union uAction *actions = malloc(100*sizeof(uAction));
 					global.curr_state.direction = atoi(cur_node->content) ;
 					direction=0;
 				}
-				if(ip==1){
-					global.context.ip = cur_node->content ;
-					ip=0;
+				if(angle==1){
+					actions[i].rotate.angle =atoi(cur_node->content) ;
+					angle=0;
 				}
 			}
 		} 
@@ -96,11 +205,11 @@ union uAction *actions = malloc(100*sizeof(uAction));
 		print_element_names(cur_node->children,i);
 		
 	}
-}
+}*/
 
-xmlDocPtr doc;
-xmlNodePtr node;
-xmlNode *cur_node = NULL;
+
+
+
 
 void include_genere(FILE *f){
 	char includes[] = "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include <string.h>\r\n#include <libxml/tree.h>\r\n#include <libxml/parser.h>\r\n#include <malloc.h>\r\n#include \"runtime.h\"\r\n";
@@ -110,23 +219,24 @@ void include_genere(FILE *f){
 }
 
 void struct_genere(FILE *f){
-	char  structs[] ="struct global * g;\r\nstruct oneAxis oaAction;\r\nstruct rotation rAction;\r\n struct connect cnx;\r\n";
+	char  structs[] ="struct global g;\r\nstruct oneAxis oaAction;\r\nstruct rotation rAction;\r\n struct connect cnx;\r\n";
 	fprintf(f,"%s",structs );
 
 }
 
 void config_genere(FILE * f){
     
-
+	xmlNode * a_node=cur_node;
 
 	if(strcmp("config",cur_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
     //Check connection
-    cur_node = cur_node->children;
 
-	if(strcmp("connection",cur_node->name)){
+    a_node = a_node->children;
+
+	if(strcmp("connection",a_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
@@ -134,15 +244,15 @@ void config_genere(FILE * f){
              
 
 
-    fprintf(f,"cnx.type %s\n",cur_node->children->content);
+    fprintf(f,"cnx.type %s\n",a_node->children->content);
 
 
 
     //Check ip
 
-    cur_node = cur_node->next;
+    a_node = a_node->next;
 
-    if(strcmp("ip",cur_node->name)){
+    if(strcmp("address",a_node->name)){
         fprintf(stderr, "XML file is wrong !\n");
         exit(-1);
     }
@@ -151,7 +261,7 @@ void config_genere(FILE * f){
 
 
 
-   fprintf(f,"cnx.ip = %s\n",cur_node->children->content);
+   fprintf(f,"cnx.address = %s\n",a_node->children->content);
 }
 
 
@@ -172,7 +282,13 @@ void main_genere(FILE * f){
   
 	//function pour configuration
     config_genere(f);
- 
+    	//function pour définition du context
+    context_genere(f);
+
+    fprintf(f,"connectDrone(&g)\n");
+    printf("pt: %s\n",cur_node->next->name);
+    actions_genere(cur_node->next,f);
+
 	//function pour les actions
     char * ret="return 0\n}";
 	fprintf(f,"%s",ret);
@@ -180,9 +296,6 @@ void main_genere(FILE * f){
 
 
 
-void actions_genere(FILE * f){
-
-}
 
 int main(int argc, char * argv[]){
     if(argc < 2){
@@ -207,9 +320,8 @@ int main(int argc, char * argv[]){
      printf("structure generer ok\n");
 	//Écriture du main
 	main_genere(genere);
-  printf("main generer ok\n");
-	print_element_names(node,0);
-	
+  	printf("main generer ok\n");
+	//print_element_names(cur_node,0);
 	fclose(genere);
 
 	return 0;
