@@ -495,6 +495,29 @@ public class DrnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DrnPackage.CONNECTION_TYPE:
+      {
+        ConnectionType connectionType = (ConnectionType)theEObject;
+        T result = caseConnectionType(connectionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.BLUETOOTH:
+      {
+        Bluetooth bluetooth = (Bluetooth)theEObject;
+        T result = caseBluetooth(bluetooth);
+        if (result == null) result = caseConnectionType(bluetooth);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DrnPackage.WIFI:
+      {
+        Wifi wifi = (Wifi)theEObject;
+        T result = caseWifi(wifi);
+        if (result == null) result = caseConnectionType(wifi);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -1327,6 +1350,54 @@ public class DrnSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Connection Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Connection Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConnectionType(ConnectionType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bluetooth</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bluetooth</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBluetooth(Bluetooth object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Wifi</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Wifi</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWifi(Wifi object)
   {
     return null;
   }

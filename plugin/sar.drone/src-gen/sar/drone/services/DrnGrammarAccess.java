@@ -20,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -182,14 +183,9 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCONNECTIONKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cByKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cConnectionAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cConnectionConnectionTypeEnumRuleCall_7_0 = (RuleCall)cConnectionAssignment_7.eContents().get(0);
+		private final RuleCall cConnectionConnectionTypeParserRuleCall_7_0 = (RuleCall)cConnectionAssignment_7.eContents().get(0);
 		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cDRONEIPKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cEqualsSignKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cIpAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cIpIpAdressParserRuleCall_11_0 = (RuleCall)cIpAssignment_11.eContents().get(0);
-		private final Keyword cSemicolonKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Configuration:
 		//	'CONFIGURATION' name=ID
@@ -197,12 +193,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//	types+=TypeGeneric*
 		//	devices+=Device*
 		//	'CONNECTION' 'by' connection=ConnectionType ';'
-		//	'DRONE@IP' '=' ip=IpAdress ';'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CONFIGURATION' name=ID '{' types+=TypeGeneric* devices+=Device* 'CONNECTION' 'by' connection=ConnectionType ';'
-		//'DRONE@IP' '=' ip=IpAdress ';' '}'
+		//'CONFIGURATION' name=ID '{' types+=TypeGeneric* devices+=Device* 'CONNECTION' 'by' connection=ConnectionType ';' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'CONFIGURATION'
@@ -239,28 +233,13 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getConnectionAssignment_7() { return cConnectionAssignment_7; }
 		
 		//ConnectionType
-		public RuleCall getConnectionConnectionTypeEnumRuleCall_7_0() { return cConnectionConnectionTypeEnumRuleCall_7_0; }
+		public RuleCall getConnectionConnectionTypeParserRuleCall_7_0() { return cConnectionConnectionTypeParserRuleCall_7_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
 		
-		//'DRONE@IP'
-		public Keyword getDRONEIPKeyword_9() { return cDRONEIPKeyword_9; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_10() { return cEqualsSignKeyword_10; }
-		
-		//ip=IpAdress
-		public Assignment getIpAssignment_11() { return cIpAssignment_11; }
-		
-		//IpAdress
-		public RuleCall getIpIpAdressParserRuleCall_11_0() { return cIpIpAdressParserRuleCall_11_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_12() { return cSemicolonKeyword_12; }
-		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class LibraryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Library");
@@ -2662,6 +2641,87 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
 	}
+	public class ConnectionTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.ConnectionType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cBluetoothParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWifiParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ConnectionType:
+		//	Bluetooth | Wifi;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Bluetooth | Wifi
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Bluetooth
+		public RuleCall getBluetoothParserRuleCall_0() { return cBluetoothParserRuleCall_0; }
+		
+		//Wifi
+		public RuleCall getWifiParserRuleCall_1() { return cWifiParserRuleCall_1; }
+	}
+	public class BluetoothElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Bluetooth");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameBLUETOOTHKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAdressAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAdressMACTerminalRuleCall_2_0 = (RuleCall)cAdressAssignment_2.eContents().get(0);
+		
+		//Bluetooth:
+		//	name='BLUETOOTH' ':' adress=MAC;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name='BLUETOOTH' ':' adress=MAC
+		public Group getGroup() { return cGroup; }
+		
+		//name='BLUETOOTH'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//'BLUETOOTH'
+		public Keyword getNameBLUETOOTHKeyword_0_0() { return cNameBLUETOOTHKeyword_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//adress=MAC
+		public Assignment getAdressAssignment_2() { return cAdressAssignment_2; }
+		
+		//MAC
+		public RuleCall getAdressMACTerminalRuleCall_2_0() { return cAdressMACTerminalRuleCall_2_0; }
+	}
+	public class WifiElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Wifi");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameWIFIKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAdressAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAdressIpAdressParserRuleCall_2_0 = (RuleCall)cAdressAssignment_2.eContents().get(0);
+		
+		//Wifi:
+		//	name='WI-FI' ':' adress=IpAdress;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name='WI-FI' ':' adress=IpAdress
+		public Group getGroup() { return cGroup; }
+		
+		//name='WI-FI'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//'WI-FI'
+		public Keyword getNameWIFIKeyword_0_0() { return cNameWIFIKeyword_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//adress=IpAdress
+		public Assignment getAdressAssignment_2() { return cAdressAssignment_2; }
+		
+		//IpAdress
+		public RuleCall getAdressIpAdressParserRuleCall_2_0() { return cAdressIpAdressParserRuleCall_2_0; }
+	}
 	public class IpAdressElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.IpAdress");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2847,33 +2907,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'RIGHT'
 		public Keyword getRIGHTRIGHTKeyword_3_0() { return cRIGHTRIGHTKeyword_3_0; }
 	}
-	public class ConnectionTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.ConnectionType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cBLUETOOTHEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cBLUETOOTHBLUETOOTHKeyword_0_0 = (Keyword)cBLUETOOTHEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cWIFIEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cWIFIWIFIKeyword_1_0 = (Keyword)cWIFIEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum ConnectionType:
-		//	BLUETOOTH | WIFI='WI-FI';
-		public EnumRule getRule() { return rule; }
-		
-		//BLUETOOTH | WIFI='WI-FI'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//BLUETOOTH
-		public EnumLiteralDeclaration getBLUETOOTHEnumLiteralDeclaration_0() { return cBLUETOOTHEnumLiteralDeclaration_0; }
-		
-		//'BLUETOOTH'
-		public Keyword getBLUETOOTHBLUETOOTHKeyword_0_0() { return cBLUETOOTHBLUETOOTHKeyword_0_0; }
-		
-		//WIFI='WI-FI'
-		public EnumLiteralDeclaration getWIFIEnumLiteralDeclaration_1() { return cWIFIEnumLiteralDeclaration_1; }
-		
-		//'WI-FI'
-		public Keyword getWIFIWIFIKeyword_1_0() { return cWIFIWIFIKeyword_1_0; }
-	}
 	
 	private final RootElements pRoot;
 	private final ModelElements pModel;
@@ -2933,7 +2966,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModeElements eMode;
 	private final EBoolElements eEBool;
 	private final DirectionTypeElements eDirectionType;
-	private final ConnectionTypeElements eConnectionType;
+	private final ConnectionTypeElements pConnectionType;
+	private final BluetoothElements pBluetooth;
+	private final TerminalRule tMAC;
+	private final WifiElements pWifi;
 	private final IpAdressElements pIpAdress;
 	
 	private final Grammar grammar;
@@ -3003,7 +3039,10 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.eMode = new ModeElements();
 		this.eEBool = new EBoolElements();
 		this.eDirectionType = new DirectionTypeElements();
-		this.eConnectionType = new ConnectionTypeElements();
+		this.pConnectionType = new ConnectionTypeElements();
+		this.pBluetooth = new BluetoothElements();
+		this.tMAC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MAC");
+		this.pWifi = new WifiElements();
 		this.pIpAdress = new IpAdressElements();
 	}
 	
@@ -3067,7 +3106,6 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	//	types+=TypeGeneric*
 	//	devices+=Device*
 	//	'CONNECTION' 'by' connection=ConnectionType ';'
-	//	'DRONE@IP' '=' ip=IpAdress ';'
 	//	'}';
 	public ConfigurationElements getConfigurationAccess() {
 		return pConfiguration;
@@ -3696,14 +3734,42 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		return getDirectionTypeAccess().getRule();
 	}
 	
-	//enum ConnectionType:
-	//	BLUETOOTH | WIFI='WI-FI';
+	//ConnectionType:
+	//	Bluetooth | Wifi;
 	public ConnectionTypeElements getConnectionTypeAccess() {
-		return eConnectionType;
+		return pConnectionType;
 	}
 	
-	public EnumRule getConnectionTypeRule() {
+	public ParserRule getConnectionTypeRule() {
 		return getConnectionTypeAccess().getRule();
+	}
+	
+	//Bluetooth:
+	//	name='BLUETOOTH' ':' adress=MAC;
+	public BluetoothElements getBluetoothAccess() {
+		return pBluetooth;
+	}
+	
+	public ParserRule getBluetoothRule() {
+		return getBluetoothAccess().getRule();
+	}
+	
+	//terminal MAC:
+	//	('0'..'9' | 'A'..'E') ('0'..'9' | 'A'..'E') ':' ('0'..'9' | 'A'..'E') ('0'..'9' | 'A'..'E') ':' ('0'..'9' | 'A'..'E')
+	//	('0'..'9' | 'A'..'E') ':' ('0'..'9' | 'A'..'E') ('0'..'9' | 'A'..'E') ':' ('0'..'9' | 'A'..'E') ('0'..'9' | 'A'..'E')
+	//	':' ('0'..'9' | 'A'..'E') ('0'..'9' | 'A'..'E');
+	public TerminalRule getMACRule() {
+		return tMAC;
+	}
+	
+	//Wifi:
+	//	name='WI-FI' ':' adress=IpAdress;
+	public WifiElements getWifiAccess() {
+		return pWifi;
+	}
+	
+	public ParserRule getWifiRule() {
+		return getWifiAccess().getRule();
 	}
 	
 	//IpAdress:

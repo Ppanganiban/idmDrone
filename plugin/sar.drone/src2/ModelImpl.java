@@ -421,20 +421,13 @@ public class ModelImpl extends RootImpl implements Model
 
     StringBuffer result = new StringBuffer();
     result.append("<model>");
-/*    if(config != null)
+    if(config != null)
     	result.append(config.toString());
 
     if(context != null)
     	result.append(context.toString());
-*/
-/*    for(Library l : libraries){
-    	result.append(l.toString()+"\n");
-    }
-*/
-    for(Assignement a : assignement){
-    	result.append(a.toString()+"\n");
-    }
-    result.append("<main>"+main+"</main>");
+    
+    result.append(main.toString());
     result.append("</model>");
     return result.toString();
   }

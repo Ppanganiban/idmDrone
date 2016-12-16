@@ -10,12 +10,12 @@ CHOREOGRAPHY {
 		initialDirection = BEHIND;
 		positionY = 10;
 	}
+
 	part{
 		(backward ( distance = 8 temps = 5) then forward ( distance = 8 temps = 5));
 		part2 X 2;
 		part3 with Cam ( mode ON, id = Bottom), Led( mode ON, color = Green, blinkPerSecond = 4);
 	}
-
 	part2{
 		rotate(angle = 90 temps = 2);
 		moves.comboCarre;

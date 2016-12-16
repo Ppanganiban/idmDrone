@@ -3,41 +3,31 @@
  */
 package sar.drone.drn.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import sar.drone.drn.Assignement;
+import sar.drone.drn.ConnectionType;
 import sar.drone.drn.DrnPackage;
-import sar.drone.drn.Expression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Assignement</b></em>'.
+ * An implementation of the model object '<em><b>Connection Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sar.drone.drn.impl.AssignementImpl#getName <em>Name</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AssignementImpl#getOperandes <em>Operandes</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ConnectionTypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ConnectionTypeImpl#getAdress <em>Adress</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssignementImpl extends MinimalEObjectImpl.Container implements Assignement
+public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements ConnectionType
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -60,21 +50,31 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOperandes() <em>Operandes</em>}' containment reference list.
+   * The default value of the '{@link #getAdress() <em>Adress</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperandes()
+   * @see #getAdress()
    * @generated
    * @ordered
    */
-  protected EList<Expression> operandes;
+  protected static final String ADRESS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAdress() <em>Adress</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAdress()
+   * @generated
+   * @ordered
+   */
+  protected String adress = ADRESS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AssignementImpl()
+  protected ConnectionTypeImpl()
   {
     super();
   }
@@ -87,7 +87,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   @Override
   protected EClass eStaticClass()
   {
-    return DrnPackage.Literals.ASSIGNEMENT;
+    return DrnPackage.Literals.CONNECTION_TYPE;
   }
 
   /**
@@ -110,7 +110,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ASSIGNEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONNECTION_TYPE__NAME, oldName, name));
   }
 
   /**
@@ -118,13 +118,9 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getOperandes()
+  public String getAdress()
   {
-    if (operandes == null)
-    {
-      operandes = new EObjectContainmentEList<Expression>(Expression.class, this, DrnPackage.ASSIGNEMENT__OPERANDES);
-    }
-    return operandes;
+    return adress;
   }
 
   /**
@@ -132,15 +128,12 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setAdress(String newAdress)
   {
-    switch (featureID)
-    {
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return ((InternalEList<?>)getOperandes()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldAdress = adress;
+    adress = newAdress;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONNECTION_TYPE__ADRESS, oldAdress, adress));
   }
 
   /**
@@ -153,10 +146,10 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
+      case DrnPackage.CONNECTION_TYPE__NAME:
         return getName();
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return getOperandes();
+      case DrnPackage.CONNECTION_TYPE__ADRESS:
+        return getAdress();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,18 +159,16 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
+      case DrnPackage.CONNECTION_TYPE__NAME:
         setName((String)newValue);
         return;
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        getOperandes().clear();
-        getOperandes().addAll((Collection<? extends Expression>)newValue);
+      case DrnPackage.CONNECTION_TYPE__ADRESS:
+        setAdress((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +184,11 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
+      case DrnPackage.CONNECTION_TYPE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        getOperandes().clear();
+      case DrnPackage.CONNECTION_TYPE__ADRESS:
+        setAdress(ADRESS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +204,10 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
+      case DrnPackage.CONNECTION_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return operandes != null && !operandes.isEmpty();
+      case DrnPackage.CONNECTION_TYPE__ADRESS:
+        return ADRESS_EDEFAULT == null ? adress != null : !ADRESS_EDEFAULT.equals(adress);
     }
     return super.eIsSet(featureID);
   }
@@ -229,39 +220,15 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   @Override
   public String toString()
   {
-   if (eIsProxy()) {  
-    	return super.toString();
-    }
+    if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer();
-    for (Expression e : operandes){
-        result.append("<action>");
-        if(e.getRepeatCST()>1)
-    		result.append("<repeat>"+e.getRepeatCST()+"</repeat>");
-
-        if(e.getWith().size() > 0)
-    		result.append(e.getWith().get(0).toString());
-        
-        result.append(e.getMove().toString());
-        for (Expression t : e.getThen())
-            result.append(t.getMove().toString());
-
-        result.append("</action>");
-    }
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", adress: ");
+    result.append(adress);
+    result.append(')');
     return result.toString();
   }
 
-  protected boolean mark = true;
-  protected boolean repeated = false;
-
-  Assignement caller = null;
-  
-  @Override
-  public Assignement getCaller(){
-	  return caller;
-  }
-  @Override
-  public void setCaller(Assignement a){
-	  caller = a;
-  }
-} //AssignementImpl
+} //ConnectionTypeImpl

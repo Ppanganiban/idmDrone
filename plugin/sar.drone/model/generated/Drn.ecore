@@ -19,8 +19,8 @@
         eType="#//TypeGeneric" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
         eType="#//Device" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connection" eType="#//ConnectionType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" eType="#//ConnectionType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//Root">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -220,8 +220,10 @@
     <eLiterals name="LEFT" value="2" literal="LEFT"/>
     <eLiterals name="RIGHT" value="3" literal="RIGHT"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ConnectionType">
-    <eLiterals name="BLUETOOTH" literal="BLUETOOTH"/>
-    <eLiterals name="WIFI" value="1" literal="WI-FI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bluetooth" eSuperTypes="#//ConnectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Wifi" eSuperTypes="#//ConnectionType"/>
 </ecore:EPackage>

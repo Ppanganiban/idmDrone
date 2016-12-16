@@ -52,11 +52,11 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDepXZ_IMPLAccess().getAlternatives(), "rule__DepXZ_IMPL__Alternatives");
 					put(grammarAccess.getDeclarationAccess().getAlternatives_1(), "rule__Declaration__Alternatives_1");
 					put(grammarAccess.getDefinitionAccess().getAlternatives_2(), "rule__Definition__Alternatives_2");
+					put(grammarAccess.getConnectionTypeAccess().getAlternatives(), "rule__ConnectionType__Alternatives");
 					put(grammarAccess.getTypePrimitifAccess().getAlternatives(), "rule__TypePrimitif__Alternatives");
 					put(grammarAccess.getModeAccess().getAlternatives(), "rule__Mode__Alternatives");
 					put(grammarAccess.getEBoolAccess().getAlternatives(), "rule__EBool__Alternatives");
 					put(grammarAccess.getDirectionTypeAccess().getAlternatives(), "rule__DirectionType__Alternatives");
-					put(grammarAccess.getConnectionTypeAccess().getAlternatives(), "rule__ConnectionType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_5(), "rule__Model__Group_5__0");
 					put(grammarAccess.getConfigurationAccess().getGroup(), "rule__Configuration__Group__0");
@@ -111,6 +111,8 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElementAccess().getGroup(), "rule__Element__Group__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getERealAccess().getGroup(), "rule__EReal__Group__0");
+					put(grammarAccess.getBluetoothAccess().getGroup(), "rule__Bluetooth__Group__0");
+					put(grammarAccess.getWifiAccess().getGroup(), "rule__Wifi__Group__0");
 					put(grammarAccess.getIpAdressAccess().getGroup(), "rule__IpAdress__Group__0");
 					put(grammarAccess.getModelAccess().getConfigAssignment_3(), "rule__Model__ConfigAssignment_3");
 					put(grammarAccess.getModelAccess().getLibrariesAssignment_5_1(), "rule__Model__LibrariesAssignment_5_1");
@@ -122,7 +124,6 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConfigurationAccess().getTypesAssignment_3(), "rule__Configuration__TypesAssignment_3");
 					put(grammarAccess.getConfigurationAccess().getDevicesAssignment_4(), "rule__Configuration__DevicesAssignment_4");
 					put(grammarAccess.getConfigurationAccess().getConnectionAssignment_7(), "rule__Configuration__ConnectionAssignment_7");
-					put(grammarAccess.getConfigurationAccess().getIpAssignment_11(), "rule__Configuration__IpAssignment_11");
 					put(grammarAccess.getLibraryAccess().getNameAssignment_1(), "rule__Library__NameAssignment_1");
 					put(grammarAccess.getLibraryAccess().getAssignementAssignment_3(), "rule__Library__AssignementAssignment_3");
 					put(grammarAccess.getContextAccess().getNameAssignment_0(), "rule__Context__NameAssignment_0");
@@ -244,6 +245,10 @@ public class DrnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeGenericAccess().getElementsAssignment_3(), "rule__TypeGeneric__ElementsAssignment_3");
 					put(grammarAccess.getTypeGenericAccess().getElementsAssignment_4_1(), "rule__TypeGeneric__ElementsAssignment_4_1");
 					put(grammarAccess.getElementAccess().getNameAssignment_1(), "rule__Element__NameAssignment_1");
+					put(grammarAccess.getBluetoothAccess().getNameAssignment_0(), "rule__Bluetooth__NameAssignment_0");
+					put(grammarAccess.getBluetoothAccess().getAdressAssignment_2(), "rule__Bluetooth__AdressAssignment_2");
+					put(grammarAccess.getWifiAccess().getNameAssignment_0(), "rule__Wifi__NameAssignment_0");
+					put(grammarAccess.getWifiAccess().getAdressAssignment_2(), "rule__Wifi__AdressAssignment_2");
 				}
 			};
 		}

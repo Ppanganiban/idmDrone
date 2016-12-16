@@ -336,6 +336,21 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
+      public Adapter caseConnectionType(ConnectionType object)
+      {
+        return createConnectionTypeAdapter();
+      }
+      @Override
+      public Adapter caseBluetooth(Bluetooth object)
+      {
+        return createBluetoothAdapter();
+      }
+      @Override
+      public Adapter caseWifi(Wifi object)
+      {
+        return createWifiAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -1133,6 +1148,51 @@ public class DrnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.ConnectionType
+   * @generated
+   */
+  public Adapter createConnectionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Bluetooth <em>Bluetooth</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Bluetooth
+   * @generated
+   */
+  public Adapter createBluetoothAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sar.drone.drn.Wifi <em>Wifi</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sar.drone.drn.Wifi
+   * @generated
+   */
+  public Adapter createWifiAdapter()
   {
     return null;
   }

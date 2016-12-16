@@ -179,7 +179,7 @@ public interface DrnPackage extends EPackage
   int CONFIGURATION__DEVICES = ROOT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Connection</b></em>' attribute.
+   * The feature id for the '<em><b>Connection</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -188,22 +188,13 @@ public interface DrnPackage extends EPackage
   int CONFIGURATION__CONNECTION = ROOT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Ip</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONFIGURATION__IP = ROOT_FEATURE_COUNT + 4;
-
-  /**
    * The number of structural features of the '<em>Configuration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIGURATION_FEATURE_COUNT = ROOT_FEATURE_COUNT + 5;
+  int CONFIGURATION_FEATURE_COUNT = ROOT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LibraryImpl <em>Library</em>}' class.
@@ -2190,6 +2181,117 @@ public interface DrnPackage extends EPackage
   int ELEMENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link sar.drone.drn.impl.ConnectionTypeImpl <em>Connection Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.ConnectionTypeImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
+   * @generated
+   */
+  int CONNECTION_TYPE = 52;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_TYPE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Adress</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_TYPE__ADRESS = 1;
+
+  /**
+   * The number of structural features of the '<em>Connection Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_TYPE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.BluetoothImpl <em>Bluetooth</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.BluetoothImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getBluetooth()
+   * @generated
+   */
+  int BLUETOOTH = 53;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLUETOOTH__NAME = CONNECTION_TYPE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Adress</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLUETOOTH__ADRESS = CONNECTION_TYPE__ADRESS;
+
+  /**
+   * The number of structural features of the '<em>Bluetooth</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLUETOOTH_FEATURE_COUNT = CONNECTION_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link sar.drone.drn.impl.WifiImpl <em>Wifi</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.impl.WifiImpl
+   * @see sar.drone.drn.impl.DrnPackageImpl#getWifi()
+   * @generated
+   */
+  int WIFI = 54;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIFI__NAME = CONNECTION_TYPE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Adress</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIFI__ADRESS = CONNECTION_TYPE__ADRESS;
+
+  /**
+   * The number of structural features of the '<em>Wifi</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WIFI_FEATURE_COUNT = CONNECTION_TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link sar.drone.drn.TypePrimitif <em>Type Primitif</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2197,7 +2299,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getTypePrimitif()
    * @generated
    */
-  int TYPE_PRIMITIF = 52;
+  int TYPE_PRIMITIF = 55;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.Mode <em>Mode</em>}' enum.
@@ -2207,7 +2309,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getMode()
    * @generated
    */
-  int MODE = 53;
+  int MODE = 56;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.EBool <em>EBool</em>}' enum.
@@ -2217,7 +2319,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getEBool()
    * @generated
    */
-  int EBOOL = 54;
+  int EBOOL = 57;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.DirectionType <em>Direction Type</em>}' enum.
@@ -2227,17 +2329,7 @@ public interface DrnPackage extends EPackage
    * @see sar.drone.drn.impl.DrnPackageImpl#getDirectionType()
    * @generated
    */
-  int DIRECTION_TYPE = 55;
-
-  /**
-   * The meta object id for the '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see sar.drone.drn.ConnectionType
-   * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
-   * @generated
-   */
-  int CONNECTION_TYPE = 56;
+  int DIRECTION_TYPE = 58;
 
 
   /**
@@ -2359,26 +2451,15 @@ public interface DrnPackage extends EPackage
   EReference getConfiguration_Devices();
 
   /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}'.
+   * Returns the meta object for the containment reference '{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Connection</em>'.
+   * @return the meta object for the containment reference '<em>Connection</em>'.
    * @see sar.drone.drn.Configuration#getConnection()
    * @see #getConfiguration()
    * @generated
    */
-  EAttribute getConfiguration_Connection();
-
-  /**
-   * Returns the meta object for the attribute '{@link sar.drone.drn.Configuration#getIp <em>Ip</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ip</em>'.
-   * @see sar.drone.drn.Configuration#getIp()
-   * @see #getConfiguration()
-   * @generated
-   */
-  EAttribute getConfiguration_Ip();
+  EReference getConfiguration_Connection();
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Library <em>Library</em>}'.
@@ -3696,6 +3777,58 @@ public interface DrnPackage extends EPackage
   EAttribute getElement_Name();
 
   /**
+   * Returns the meta object for class '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Connection Type</em>'.
+   * @see sar.drone.drn.ConnectionType
+   * @generated
+   */
+  EClass getConnectionType();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.ConnectionType#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sar.drone.drn.ConnectionType#getName()
+   * @see #getConnectionType()
+   * @generated
+   */
+  EAttribute getConnectionType_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.ConnectionType#getAdress <em>Adress</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Adress</em>'.
+   * @see sar.drone.drn.ConnectionType#getAdress()
+   * @see #getConnectionType()
+   * @generated
+   */
+  EAttribute getConnectionType_Adress();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Bluetooth <em>Bluetooth</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bluetooth</em>'.
+   * @see sar.drone.drn.Bluetooth
+   * @generated
+   */
+  EClass getBluetooth();
+
+  /**
+   * Returns the meta object for class '{@link sar.drone.drn.Wifi <em>Wifi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Wifi</em>'.
+   * @see sar.drone.drn.Wifi
+   * @generated
+   */
+  EClass getWifi();
+
+  /**
    * Returns the meta object for enum '{@link sar.drone.drn.TypePrimitif <em>Type Primitif</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3734,16 +3867,6 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EEnum getDirectionType();
-
-  /**
-   * Returns the meta object for enum '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Connection Type</em>'.
-   * @see sar.drone.drn.ConnectionType
-   * @generated
-   */
-  EEnum getConnectionType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3863,20 +3986,12 @@ public interface DrnPackage extends EPackage
     EReference CONFIGURATION__DEVICES = eINSTANCE.getConfiguration_Devices();
 
     /**
-     * The meta object literal for the '<em><b>Connection</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Connection</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONFIGURATION__CONNECTION = eINSTANCE.getConfiguration_Connection();
-
-    /**
-     * The meta object literal for the '<em><b>Ip</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONFIGURATION__IP = eINSTANCE.getConfiguration_Ip();
+    EReference CONFIGURATION__CONNECTION = eINSTANCE.getConfiguration_Connection();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.LibraryImpl <em>Library</em>}' class.
@@ -4969,6 +5084,52 @@ public interface DrnPackage extends EPackage
     EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
 
     /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.ConnectionTypeImpl <em>Connection Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.ConnectionTypeImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
+     * @generated
+     */
+    EClass CONNECTION_TYPE = eINSTANCE.getConnectionType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONNECTION_TYPE__NAME = eINSTANCE.getConnectionType_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Adress</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONNECTION_TYPE__ADRESS = eINSTANCE.getConnectionType_Adress();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.BluetoothImpl <em>Bluetooth</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.BluetoothImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getBluetooth()
+     * @generated
+     */
+    EClass BLUETOOTH = eINSTANCE.getBluetooth();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.impl.WifiImpl <em>Wifi</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.impl.WifiImpl
+     * @see sar.drone.drn.impl.DrnPackageImpl#getWifi()
+     * @generated
+     */
+    EClass WIFI = eINSTANCE.getWifi();
+
+    /**
      * The meta object literal for the '{@link sar.drone.drn.TypePrimitif <em>Type Primitif</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5007,16 +5168,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
-
-    /**
-     * The meta object literal for the '{@link sar.drone.drn.ConnectionType <em>Connection Type</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see sar.drone.drn.ConnectionType
-     * @see sar.drone.drn.impl.DrnPackageImpl#getConnectionType()
-     * @generated
-     */
-    EEnum CONNECTION_TYPE = eINSTANCE.getConnectionType();
 
   }
 

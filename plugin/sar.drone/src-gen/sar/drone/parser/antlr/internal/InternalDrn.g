@@ -360,7 +360,7 @@ ruleConfiguration returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeEnumRuleCall_7_0());
+					newCompositeNode(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeParserRuleCall_7_0());
 				}
 				lv_connection_7_0=ruleConnectionType
 				{
@@ -380,40 +380,9 @@ ruleConfiguration returns [EObject current=null]
 		{
 			newLeafNode(otherlv_8, grammarAccess.getConfigurationAccess().getSemicolonKeyword_8());
 		}
-		otherlv_9='DRONE@IP'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getConfigurationAccess().getDRONEIPKeyword_9());
-		}
-		otherlv_10='='
-		{
-			newLeafNode(otherlv_10, grammarAccess.getConfigurationAccess().getEqualsSignKeyword_10());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getConfigurationAccess().getIpIpAdressParserRuleCall_11_0());
-				}
-				lv_ip_11_0=ruleIpAdress
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getConfigurationRule());
-					}
-					set(
-						$current,
-						"ip",
-						lv_ip_11_0,
-						"sar.drone.Drn.IpAdress");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_12=';'
-		{
-			newLeafNode(otherlv_12, grammarAccess.getConfigurationAccess().getSemicolonKeyword_12());
-		}
-		otherlv_13='}'
-		{
-			newLeafNode(otherlv_13, grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_13());
+			newLeafNode(otherlv_9, grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -4416,6 +4385,153 @@ ruleEReal returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)
 ;
 
+// Entry rule entryRuleConnectionType
+entryRuleConnectionType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConnectionTypeRule()); }
+	iv_ruleConnectionType=ruleConnectionType
+	{ $current=$iv_ruleConnectionType.current; }
+	EOF;
+
+// Rule ConnectionType
+ruleConnectionType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getConnectionTypeAccess().getBluetoothParserRuleCall_0());
+		}
+		this_Bluetooth_0=ruleBluetooth
+		{
+			$current = $this_Bluetooth_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getConnectionTypeAccess().getWifiParserRuleCall_1());
+		}
+		this_Wifi_1=ruleWifi
+		{
+			$current = $this_Wifi_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleBluetooth
+entryRuleBluetooth returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBluetoothRule()); }
+	iv_ruleBluetooth=ruleBluetooth
+	{ $current=$iv_ruleBluetooth.current; }
+	EOF;
+
+// Rule Bluetooth
+ruleBluetooth returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0='BLUETOOTH'
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBluetoothRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "BLUETOOTH");
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getBluetoothAccess().getColonKeyword_1());
+		}
+		(
+			(
+				lv_adress_2_0=RULE_MAC
+				{
+					newLeafNode(lv_adress_2_0, grammarAccess.getBluetoothAccess().getAdressMACTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBluetoothRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"adress",
+						lv_adress_2_0,
+						"sar.drone.Drn.MAC");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleWifi
+entryRuleWifi returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getWifiRule()); }
+	iv_ruleWifi=ruleWifi
+	{ $current=$iv_ruleWifi.current; }
+	EOF;
+
+// Rule Wifi
+ruleWifi returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0='WI-FI'
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getWifiRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "WI-FI");
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getWifiAccess().getColonKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getWifiAccess().getAdressIpAdressParserRuleCall_2_0());
+				}
+				lv_adress_2_0=ruleIpAdress
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getWifiRule());
+					}
+					set(
+						$current,
+						"adress",
+						lv_adress_2_0,
+						"sar.drone.Drn.IpAdress");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleIpAdress
 entryRuleIpAdress returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getIpAdressRule()); }
@@ -4618,32 +4734,7 @@ ruleDirectionType returns [Enumerator current=null]
 	)
 ;
 
-// Rule ConnectionType
-ruleConnectionType returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='BLUETOOTH'
-			{
-				$current = grammarAccess.getConnectionTypeAccess().getBLUETOOTHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getConnectionTypeAccess().getBLUETOOTHEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='WI-FI'
-			{
-				$current = grammarAccess.getConnectionTypeAccess().getWIFIEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getConnectionTypeAccess().getWIFIEnumLiteralDeclaration_1());
-			}
-		)
-	)
-;
+RULE_MAC : ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

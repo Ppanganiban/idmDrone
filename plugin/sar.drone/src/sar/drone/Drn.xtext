@@ -2,6 +2,9 @@ grammar sar.drone.Drn with org.eclipse.xtext.common.Terminals
 
 generate drn "http://www.drone.sar/Drn"
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
 Root :
 	Configuration | Model | Library
 ;
@@ -23,7 +26,6 @@ Configuration :
 		(types += TypeGeneric)*
 		(devices += Device)*
     'CONNECTION''by'connection=ConnectionType';'
-    'DRONE@IP''='ip=IpAdress';'
 	'}'
 ;
 Library :
@@ -312,10 +314,28 @@ enum EBool :
 				TRUE = 'TRUE' | FALSE = 'FALSE';
 enum DirectionType :
 				FRONT = 'FRONT' | BEHIND = 'BEHIND' | LEFT = 'LEFT' | RIGHT = 'RIGHT';
-enum ConnectionType :
-  BLUETOOTH = 'BLUETOOTH'| WIFI = 'WI-FI' 
+
+ConnectionType :
+  Bluetooth | Wifi 
 ;
 
+Bluetooth:
+  name='BLUETOOTH'':' adress=MAC
+;
+
+terminal MAC returns ecore::EString:
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))':'
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))':'
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))':'
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))':'
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))':'
+	(('0'..'9')|('A'..'E'))(('0'..'9')|('A'..'E'))
+;
+
+
+Wifi:
+  name='WI-FI'':'adress=IpAdress
+;
 IpAdress:
   INT'.'INT'.'INT'.'INT  
 ;

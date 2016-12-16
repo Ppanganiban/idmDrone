@@ -241,9 +241,8 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
 	  if (eIsProxy()) return super.toString();
 	  
 	  StringBuffer result = new StringBuffer();
-	  result.append("<reference>");
-	  result.append("<name>"+assignement.getName()+"</name>");
-	  result.append("</reference>");
+	  if(assignement != null)
+		  result.append(assignement.toString());
 	  return result.toString();
   }
 } //RefPartLibImpl

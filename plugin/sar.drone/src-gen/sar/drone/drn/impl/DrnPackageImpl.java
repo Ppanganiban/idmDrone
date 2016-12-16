@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
+import sar.drone.drn.Bluetooth;
 import sar.drone.drn.Configuration;
 import sar.drone.drn.ConnectionType;
 import sar.drone.drn.Context;
@@ -57,6 +58,7 @@ import sar.drone.drn.TakeOff;
 import sar.drone.drn.TypeGeneric;
 import sar.drone.drn.TypePrimitif;
 import sar.drone.drn.Wait;
+import sar.drone.drn.Wifi;
 import sar.drone.drn.With;
 
 /**
@@ -436,6 +438,27 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass connectionTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bluetoothEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass wifiEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum typePrimitifEEnum = null;
 
   /**
@@ -458,13 +481,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * @generated
    */
   private EEnum directionTypeEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum connectionTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -644,19 +660,9 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConfiguration_Connection()
+  public EReference getConfiguration_Connection()
   {
-    return (EAttribute)configurationEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConfiguration_Ip()
-  {
-    return (EAttribute)configurationEClass.getEStructuralFeatures().get(4);
+    return (EReference)configurationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1904,6 +1910,56 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConnectionType()
+  {
+    return connectionTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConnectionType_Name()
+  {
+    return (EAttribute)connectionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConnectionType_Adress()
+  {
+    return (EAttribute)connectionTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBluetooth()
+  {
+    return bluetoothEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWifi()
+  {
+    return wifiEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getTypePrimitif()
   {
     return typePrimitifEEnum;
@@ -1937,16 +1993,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   public EEnum getDirectionType()
   {
     return directionTypeEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getConnectionType()
-  {
-    return connectionTypeEEnum;
   }
 
   /**
@@ -1992,8 +2038,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEAttribute(configurationEClass, CONFIGURATION__NAME);
     createEReference(configurationEClass, CONFIGURATION__TYPES);
     createEReference(configurationEClass, CONFIGURATION__DEVICES);
-    createEAttribute(configurationEClass, CONFIGURATION__CONNECTION);
-    createEAttribute(configurationEClass, CONFIGURATION__IP);
+    createEReference(configurationEClass, CONFIGURATION__CONNECTION);
 
     libraryEClass = createEClass(LIBRARY);
     createEAttribute(libraryEClass, LIBRARY__NAME);
@@ -2168,12 +2213,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     elementEClass = createEClass(ELEMENT);
     createEAttribute(elementEClass, ELEMENT__NAME);
 
+    connectionTypeEClass = createEClass(CONNECTION_TYPE);
+    createEAttribute(connectionTypeEClass, CONNECTION_TYPE__NAME);
+    createEAttribute(connectionTypeEClass, CONNECTION_TYPE__ADRESS);
+
+    bluetoothEClass = createEClass(BLUETOOTH);
+
+    wifiEClass = createEClass(WIFI);
+
     // Create enums
     typePrimitifEEnum = createEEnum(TYPE_PRIMITIF);
     modeEEnum = createEEnum(MODE);
     eBoolEEnum = createEEnum(EBOOL);
     directionTypeEEnum = createEEnum(DIRECTION_TYPE);
-    connectionTypeEEnum = createEEnum(CONNECTION_TYPE);
   }
 
   /**
@@ -2244,6 +2296,8 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     waitEClass.getESuperTypes().add(this.getMovement());
     takeOffEClass.getESuperTypes().add(this.getMovement());
     landEClass.getESuperTypes().add(this.getMovement());
+    bluetoothEClass.getESuperTypes().add(this.getConnectionType());
+    wifiEClass.getESuperTypes().add(this.getConnectionType());
 
     // Initialize classes and features; add operations and parameters
     initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2259,8 +2313,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConfiguration_Types(), this.getTypeGeneric(), null, "types", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConfiguration_Devices(), this.getDevice(), null, "devices", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConfiguration_Connection(), this.getConnectionType(), "connection", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConfiguration_Ip(), ecorePackage.getEString(), "ip", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConfiguration_Connection(), this.getConnectionType(), null, "connection", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2435,6 +2488,14 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(connectionTypeEClass, ConnectionType.class, "ConnectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConnectionType_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConnectionType_Adress(), ecorePackage.getEString(), "adress", null, 0, 1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bluetoothEClass, Bluetooth.class, "Bluetooth", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(wifiEClass, Wifi.class, "Wifi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     // Initialize enums and add enum literals
     initEEnum(typePrimitifEEnum, TypePrimitif.class, "TypePrimitif");
     addEEnumLiteral(typePrimitifEEnum, TypePrimitif.BOOL_TYPE);
@@ -2455,10 +2516,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     addEEnumLiteral(directionTypeEEnum, DirectionType.BEHIND);
     addEEnumLiteral(directionTypeEEnum, DirectionType.LEFT);
     addEEnumLiteral(directionTypeEEnum, DirectionType.RIGHT);
-
-    initEEnum(connectionTypeEEnum, ConnectionType.class, "ConnectionType");
-    addEEnumLiteral(connectionTypeEEnum, ConnectionType.BLUETOOTH);
-    addEEnumLiteral(connectionTypeEEnum, ConnectionType.WIFI);
 
     // Create resource
     createResource(eNS_URI);

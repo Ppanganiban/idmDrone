@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
+import sar.drone.drn.Bluetooth;
 import sar.drone.drn.CARREXY;
 import sar.drone.drn.CARREXZ;
 import sar.drone.drn.CARREYZ;
@@ -54,6 +55,7 @@ import sar.drone.drn.TakeOff;
 import sar.drone.drn.TypeGeneric;
 import sar.drone.drn.UP;
 import sar.drone.drn.Wait;
+import sar.drone.drn.Wifi;
 import sar.drone.drn.With;
 import sar.drone.services.DrnGrammarAccess;
 
@@ -79,6 +81,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DrnPackage.BACKWARD:
 				sequence_BACKWARD(context, (BACKWARD) semanticObject); 
+				return; 
+			case DrnPackage.BLUETOOTH:
+				sequence_Bluetooth(context, (Bluetooth) semanticObject); 
 				return; 
 			case DrnPackage.CARREXY:
 				sequence_CARREXY(context, (CARREXY) semanticObject); 
@@ -188,6 +193,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DrnPackage.WAIT:
 				sequence_Wait(context, (Wait) semanticObject); 
 				return; 
+			case DrnPackage.WIFI:
+				sequence_Wifi(context, (Wifi) semanticObject); 
+				return; 
 			case DrnPackage.WITH:
 				sequence_With(context, (With) semanticObject); 
 				return; 
@@ -272,6 +280,28 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getBACKWARDAccess().getNameBackwardKeyword_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getBACKWARDAccess().getDistanceCSTINTTerminalRuleCall_4_0(), semanticObject.getDistanceCST());
 		feeder.accept(grammarAccess.getBACKWARDAccess().getTempsCSTINTTerminalRuleCall_7_0(), semanticObject.getTempsCST());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ConnectionType returns Bluetooth
+	 *     Bluetooth returns Bluetooth
+	 *
+	 * Constraint:
+	 *     (name='BLUETOOTH' adress=MAC)
+	 */
+	protected void sequence_Bluetooth(ISerializationContext context, Bluetooth semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__ADRESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__ADRESS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBluetoothAccess().getAdressMACTerminalRuleCall_2_0(), semanticObject.getAdress());
 		feeder.finish();
 	}
 	
@@ -438,7 +468,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Configuration returns Configuration
 	 *
 	 * Constraint:
-	 *     (name=ID types+=TypeGeneric* devices+=Device* connection=ConnectionType ip=IpAdress)
+	 *     (name=ID types+=TypeGeneric* devices+=Device* connection=ConnectionType)
 	 */
 	protected void sequence_Configuration(ISerializationContext context, Configuration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1012,6 +1042,28 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getWaitAccess().getNameWaitKeyword_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getWaitAccess().getTempsCSTINTTerminalRuleCall_4_0(), semanticObject.getTempsCST());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ConnectionType returns Wifi
+	 *     Wifi returns Wifi
+	 *
+	 * Constraint:
+	 *     (name='WI-FI' adress=IpAdress)
+	 */
+	protected void sequence_Wifi(ISerializationContext context, Wifi semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__ADRESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DrnPackage.Literals.CONNECTION_TYPE__ADRESS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getWifiAccess().getAdressIpAdressParserRuleCall_2_0(), semanticObject.getAdress());
 		feeder.finish();
 	}
 	

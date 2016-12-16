@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link sar.drone.drn.Configuration#getTypes <em>Types</em>}</li>
  *   <li>{@link sar.drone.drn.Configuration#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}</li>
- *   <li>{@link sar.drone.drn.Configuration#getIp <em>Ip</em>}</li>
  * </ul>
  *
  * @see sar.drone.drn.DrnPackage#getConfiguration()
@@ -86,58 +85,29 @@ public interface Configuration extends Root
   EList<Device> getDevices();
 
   /**
-   * Returns the value of the '<em><b>Connection</b></em>' attribute.
-   * The literals are from the enumeration {@link sar.drone.drn.ConnectionType}.
+   * Returns the value of the '<em><b>Connection</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Connection</em>' attribute isn't clear,
+   * If the meaning of the '<em>Connection</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Connection</em>' attribute.
-   * @see sar.drone.drn.ConnectionType
+   * @return the value of the '<em>Connection</em>' containment reference.
    * @see #setConnection(ConnectionType)
    * @see sar.drone.drn.DrnPackage#getConfiguration_Connection()
-   * @model
+   * @model containment="true"
    * @generated
    */
   ConnectionType getConnection();
 
   /**
-   * Sets the value of the '{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}' attribute.
+   * Sets the value of the '{@link sar.drone.drn.Configuration#getConnection <em>Connection</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Connection</em>' attribute.
-   * @see sar.drone.drn.ConnectionType
+   * @param value the new value of the '<em>Connection</em>' containment reference.
    * @see #getConnection()
    * @generated
    */
   void setConnection(ConnectionType value);
-
-  /**
-   * Returns the value of the '<em><b>Ip</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ip</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ip</em>' attribute.
-   * @see #setIp(String)
-   * @see sar.drone.drn.DrnPackage#getConfiguration_Ip()
-   * @model
-   * @generated
-   */
-  String getIp();
-
-  /**
-   * Sets the value of the '{@link sar.drone.drn.Configuration#getIp <em>Ip</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ip</em>' attribute.
-   * @see #getIp()
-   * @generated
-   */
-  void setIp(String value);
 
 } // Configuration

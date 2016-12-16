@@ -14,13 +14,14 @@ import com.google.common.base.Objects;
 import com.google.common.net.InetAddresses;
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
+import sar.drone.drn.Bluetooth;
 import sar.drone.drn.CARREXY;
 import sar.drone.drn.CARREXZ;
 import sar.drone.drn.CARREYZ;
 import sar.drone.drn.CERCLEXY;
 import sar.drone.drn.CERCLEXZ;
 import sar.drone.drn.CERCLEYZ;
-import sar.drone.drn.Configuration;
+import sar.drone.drn.ConnectionType;
 import sar.drone.drn.DOWN;
 import sar.drone.drn.Declaration;
 import sar.drone.drn.DepXY_IMPL;
@@ -50,6 +51,7 @@ import sar.drone.drn.RefPartLib;
 import sar.drone.drn.Rotate;
 import sar.drone.drn.Surface;
 import sar.drone.drn.UP;
+import sar.drone.drn.Wifi;
 import sar.drone.drn.impl.AndImpl;
 import sar.drone.drn.impl.ContextImpl;
 
@@ -1552,11 +1554,13 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  }
 
 	  @Check
-	  public void checkIp(final Configuration conf){
-		  if(!InetAddresses.isInetAddress(conf.getIp())){
-			  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONFIGURATION.getEStructuralFeatures();
-		      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		      this.error("Drone adress ip is not correctly defined", conf, _get_1);
+	  public void checkIp(final ConnectionType conf){
+		  if(conf instanceof Wifi){
+			  if(!InetAddresses.isInetAddress(conf.getAdress())){
+				  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONFIGURATION.getEStructuralFeatures();
+			      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+			      this.error("Drone adress ip is not correctly defined", conf, _get_1);
+			  }			  
 		  }
 	  }
 }

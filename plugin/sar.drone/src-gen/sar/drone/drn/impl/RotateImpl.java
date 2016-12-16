@@ -277,6 +277,7 @@ public class RotateImpl extends MovementImpl implements Rotate
 
     StringBuffer result = new StringBuffer();
     result.append("<"+name+">");
+    result.append("<angle>"+angleCST+"</angle>");
     result.append("<time>"+tempsCST+"</time>");
     result.append("</"+name+">");
     return result.toString();

@@ -118,6 +118,9 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
       case DrnPackage.REF_DEVICE: return createRefDevice();
       case DrnPackage.TYPE_GENERIC: return createTypeGeneric();
       case DrnPackage.ELEMENT: return createElement();
+      case DrnPackage.CONNECTION_TYPE: return createConnectionType();
+      case DrnPackage.BLUETOOTH: return createBluetooth();
+      case DrnPackage.WIFI: return createWifi();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -141,8 +144,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return createEBoolFromString(eDataType, initialValue);
       case DrnPackage.DIRECTION_TYPE:
         return createDirectionTypeFromString(eDataType, initialValue);
-      case DrnPackage.CONNECTION_TYPE:
-        return createConnectionTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -166,8 +167,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return convertEBoolToString(eDataType, instanceValue);
       case DrnPackage.DIRECTION_TYPE:
         return convertDirectionTypeToString(eDataType, instanceValue);
-      case DrnPackage.CONNECTION_TYPE:
-        return convertConnectionTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -750,6 +749,39 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ConnectionType createConnectionType()
+  {
+    ConnectionTypeImpl connectionType = new ConnectionTypeImpl();
+    return connectionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Bluetooth createBluetooth()
+  {
+    BluetoothImpl bluetooth = new BluetoothImpl();
+    return bluetooth;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Wifi createWifi()
+  {
+    WifiImpl wifi = new WifiImpl();
+    return wifi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypePrimitif createTypePrimitifFromString(EDataType eDataType, String initialValue)
   {
     TypePrimitif result = TypePrimitif.get(initialValue);
@@ -829,28 +861,6 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * @generated
    */
   public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConnectionType createConnectionTypeFromString(EDataType eDataType, String initialValue)
-  {
-    ConnectionType result = ConnectionType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertConnectionTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

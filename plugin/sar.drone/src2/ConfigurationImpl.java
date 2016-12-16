@@ -36,7 +36,6 @@ import sar.drone.drn.TypeGeneric;
  *   <li>{@link sar.drone.drn.impl.ConfigurationImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ConfigurationImpl#getDevices <em>Devices</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ConfigurationImpl#getConnection <em>Connection</em>}</li>
- *   <li>{@link sar.drone.drn.impl.ConfigurationImpl#getIp <em>Ip</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,44 +83,14 @@ public class ConfigurationImpl extends RootImpl implements Configuration
   protected EList<Device> devices;
 
   /**
-   * The default value of the '{@link #getConnection() <em>Connection</em>}' attribute.
+   * The cached value of the '{@link #getConnection() <em>Connection</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getConnection()
    * @generated
    * @ordered
    */
-  protected static final ConnectionType CONNECTION_EDEFAULT = ConnectionType.BLUETOOTH;
-
-  /**
-   * The cached value of the '{@link #getConnection() <em>Connection</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConnection()
-   * @generated
-   * @ordered
-   */
-  protected ConnectionType connection = CONNECTION_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getIp() <em>Ip</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIp()
-   * @generated
-   * @ordered
-   */
-  protected static final String IP_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIp() <em>Ip</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIp()
-   * @generated
-   * @ordered
-   */
-  protected String ip = IP_EDEFAULT;
+  protected ConnectionType connection;
 
   /**
    * <!-- begin-user-doc -->
@@ -210,12 +179,16 @@ public class ConfigurationImpl extends RootImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConnection(ConnectionType newConnection)
+  public NotificationChain basicSetConnection(ConnectionType newConnection, NotificationChain msgs)
   {
     ConnectionType oldConnection = connection;
-    connection = newConnection == null ? CONNECTION_EDEFAULT : newConnection;
+    connection = newConnection;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONFIGURATION__CONNECTION, oldConnection, connection));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DrnPackage.CONFIGURATION__CONNECTION, oldConnection, newConnection);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -223,22 +196,20 @@ public class ConfigurationImpl extends RootImpl implements Configuration
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIp()
+  public void setConnection(ConnectionType newConnection)
   {
-    return ip;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIp(String newIp)
-  {
-    String oldIp = ip;
-    ip = newIp;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONFIGURATION__IP, oldIp, ip));
+    if (newConnection != connection)
+    {
+      NotificationChain msgs = null;
+      if (connection != null)
+        msgs = ((InternalEObject)connection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DrnPackage.CONFIGURATION__CONNECTION, null, msgs);
+      if (newConnection != null)
+        msgs = ((InternalEObject)newConnection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DrnPackage.CONFIGURATION__CONNECTION, null, msgs);
+      msgs = basicSetConnection(newConnection, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONFIGURATION__CONNECTION, newConnection, newConnection));
   }
 
   /**
@@ -255,6 +226,8 @@ public class ConfigurationImpl extends RootImpl implements Configuration
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case DrnPackage.CONFIGURATION__DEVICES:
         return ((InternalEList<?>)getDevices()).basicRemove(otherEnd, msgs);
+      case DrnPackage.CONFIGURATION__CONNECTION:
+        return basicSetConnection(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -277,8 +250,6 @@ public class ConfigurationImpl extends RootImpl implements Configuration
         return getDevices();
       case DrnPackage.CONFIGURATION__CONNECTION:
         return getConnection();
-      case DrnPackage.CONFIGURATION__IP:
-        return getIp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -308,9 +279,6 @@ public class ConfigurationImpl extends RootImpl implements Configuration
       case DrnPackage.CONFIGURATION__CONNECTION:
         setConnection((ConnectionType)newValue);
         return;
-      case DrnPackage.CONFIGURATION__IP:
-        setIp((String)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -335,10 +303,7 @@ public class ConfigurationImpl extends RootImpl implements Configuration
         getDevices().clear();
         return;
       case DrnPackage.CONFIGURATION__CONNECTION:
-        setConnection(CONNECTION_EDEFAULT);
-        return;
-      case DrnPackage.CONFIGURATION__IP:
-        setIp(IP_EDEFAULT);
+        setConnection((ConnectionType)null);
         return;
     }
     super.eUnset(featureID);
@@ -361,9 +326,7 @@ public class ConfigurationImpl extends RootImpl implements Configuration
       case DrnPackage.CONFIGURATION__DEVICES:
         return devices != null && !devices.isEmpty();
       case DrnPackage.CONFIGURATION__CONNECTION:
-        return connection != CONNECTION_EDEFAULT;
-      case DrnPackage.CONFIGURATION__IP:
-        return IP_EDEFAULT == null ? ip != null : !IP_EDEFAULT.equals(ip);
+        return connection != null;
     }
     return super.eIsSet(featureID);
   }
@@ -379,10 +342,11 @@ public class ConfigurationImpl extends RootImpl implements Configuration
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<config name="+name+">");
-    result.append("<connection>"+connection+"</connection>");
-    result.append("<ip>"+ip+"</ip>");
+    result.append("<config name=\""+name+"\">");
+    result.append("<connection>"+connection.getName()+"</connection>");
+    result.append("<adresse>"+connection.getAdress()+"</adresse>");
     result.append("</config>");
+
     return result.toString();
   }
 

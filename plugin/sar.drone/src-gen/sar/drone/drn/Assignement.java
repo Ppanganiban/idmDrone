@@ -71,6 +71,5 @@ public interface Assignement extends EObject
 Assignement getCaller();
 
 void setCaller(Assignement a);
-  
-  
+
 } // Assignement

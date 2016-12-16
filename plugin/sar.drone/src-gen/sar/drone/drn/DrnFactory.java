@@ -492,6 +492,33 @@ public interface DrnFactory extends EFactory
   Element createElement();
 
   /**
+   * Returns a new object of class '<em>Connection Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Connection Type</em>'.
+   * @generated
+   */
+  ConnectionType createConnectionType();
+
+  /**
+   * Returns a new object of class '<em>Bluetooth</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bluetooth</em>'.
+   * @generated
+   */
+  Bluetooth createBluetooth();
+
+  /**
+   * Returns a new object of class '<em>Wifi</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Wifi</em>'.
+   * @generated
+   */
+  Wifi createWifi();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

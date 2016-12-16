@@ -1399,6 +1399,81 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleConnectionType
+entryRuleConnectionType
+:
+{ before(grammarAccess.getConnectionTypeRule()); }
+	 ruleConnectionType
+{ after(grammarAccess.getConnectionTypeRule()); } 
+	 EOF 
+;
+
+// Rule ConnectionType
+ruleConnectionType 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getConnectionTypeAccess().getAlternatives()); }
+		(rule__ConnectionType__Alternatives)
+		{ after(grammarAccess.getConnectionTypeAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleBluetooth
+entryRuleBluetooth
+:
+{ before(grammarAccess.getBluetoothRule()); }
+	 ruleBluetooth
+{ after(grammarAccess.getBluetoothRule()); } 
+	 EOF 
+;
+
+// Rule Bluetooth
+ruleBluetooth 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getBluetoothAccess().getGroup()); }
+		(rule__Bluetooth__Group__0)
+		{ after(grammarAccess.getBluetoothAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleWifi
+entryRuleWifi
+:
+{ before(grammarAccess.getWifiRule()); }
+	 ruleWifi
+{ after(grammarAccess.getWifiRule()); } 
+	 EOF 
+;
+
+// Rule Wifi
+ruleWifi 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getWifiAccess().getGroup()); }
+		(rule__Wifi__Group__0)
+		{ after(grammarAccess.getWifiAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleIpAdress
 entryRuleIpAdress
 :
@@ -1482,22 +1557,6 @@ ruleDirectionType
 		{ before(grammarAccess.getDirectionTypeAccess().getAlternatives()); }
 		(rule__DirectionType__Alternatives)
 		{ after(grammarAccess.getDirectionTypeAccess().getAlternatives()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Rule ConnectionType
-ruleConnectionType
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getConnectionTypeAccess().getAlternatives()); }
-		(rule__ConnectionType__Alternatives)
-		{ after(grammarAccess.getConnectionTypeAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -2065,6 +2124,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ConnectionType__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getConnectionTypeAccess().getBluetoothParserRuleCall_0()); }
+		ruleBluetooth
+		{ after(grammarAccess.getConnectionTypeAccess().getBluetoothParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getConnectionTypeAccess().getWifiParserRuleCall_1()); }
+		ruleWifi
+		{ after(grammarAccess.getConnectionTypeAccess().getWifiParserRuleCall_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__TypePrimitif__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -2167,27 +2247,6 @@ rule__DirectionType__Alternatives
 		{ before(grammarAccess.getDirectionTypeAccess().getRIGHTEnumLiteralDeclaration_3()); }
 		('RIGHT')
 		{ after(grammarAccess.getDirectionTypeAccess().getRIGHTEnumLiteralDeclaration_3()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ConnectionType__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getConnectionTypeAccess().getBLUETOOTHEnumLiteralDeclaration_0()); }
-		('BLUETOOTH')
-		{ after(grammarAccess.getConnectionTypeAccess().getBLUETOOTHEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getConnectionTypeAccess().getWIFIEnumLiteralDeclaration_1()); }
-		('WI-FI')
-		{ after(grammarAccess.getConnectionTypeAccess().getWIFIEnumLiteralDeclaration_1()); }
 	)
 ;
 finally {
@@ -2902,7 +2961,6 @@ rule__Configuration__Group__9
 	}
 :
 	rule__Configuration__Group__9__Impl
-	rule__Configuration__Group__10
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2914,116 +2972,9 @@ rule__Configuration__Group__9__Impl
 	}
 :
 (
-	{ before(grammarAccess.getConfigurationAccess().getDRONEIPKeyword_9()); }
-	'DRONE@IP'
-	{ after(grammarAccess.getConfigurationAccess().getDRONEIPKeyword_9()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__10
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Configuration__Group__10__Impl
-	rule__Configuration__Group__11
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__10__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigurationAccess().getEqualsSignKeyword_10()); }
-	'='
-	{ after(grammarAccess.getConfigurationAccess().getEqualsSignKeyword_10()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__11
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Configuration__Group__11__Impl
-	rule__Configuration__Group__12
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__11__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigurationAccess().getIpAssignment_11()); }
-	(rule__Configuration__IpAssignment_11)
-	{ after(grammarAccess.getConfigurationAccess().getIpAssignment_11()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__12
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Configuration__Group__12__Impl
-	rule__Configuration__Group__13
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__12__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigurationAccess().getSemicolonKeyword_12()); }
-	';'
-	{ after(grammarAccess.getConfigurationAccess().getSemicolonKeyword_12()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__13
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Configuration__Group__13__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__Group__13__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_13()); }
+	{ before(grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_9()); }
 	'}'
-	{ after(grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_13()); }
+	{ after(grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_9()); }
 )
 ;
 finally {
@@ -9727,6 +9678,168 @@ finally {
 }
 
 
+rule__Bluetooth__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Bluetooth__Group__0__Impl
+	rule__Bluetooth__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getBluetoothAccess().getNameAssignment_0()); }
+	(rule__Bluetooth__NameAssignment_0)
+	{ after(grammarAccess.getBluetoothAccess().getNameAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Bluetooth__Group__1__Impl
+	rule__Bluetooth__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getBluetoothAccess().getColonKeyword_1()); }
+	':'
+	{ after(grammarAccess.getBluetoothAccess().getColonKeyword_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Bluetooth__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getBluetoothAccess().getAdressAssignment_2()); }
+	(rule__Bluetooth__AdressAssignment_2)
+	{ after(grammarAccess.getBluetoothAccess().getAdressAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Wifi__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Wifi__Group__0__Impl
+	rule__Wifi__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getWifiAccess().getNameAssignment_0()); }
+	(rule__Wifi__NameAssignment_0)
+	{ after(grammarAccess.getWifiAccess().getNameAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Wifi__Group__1__Impl
+	rule__Wifi__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getWifiAccess().getColonKeyword_1()); }
+	':'
+	{ after(grammarAccess.getWifiAccess().getColonKeyword_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Wifi__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getWifiAccess().getAdressAssignment_2()); }
+	(rule__Wifi__AdressAssignment_2)
+	{ after(grammarAccess.getWifiAccess().getAdressAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__IpAdress__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -10065,24 +10178,9 @@ rule__Configuration__ConnectionAssignment_7
 	}
 :
 	(
-		{ before(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeEnumRuleCall_7_0()); }
+		{ before(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeParserRuleCall_7_0()); }
 		ruleConnectionType
-		{ after(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeEnumRuleCall_7_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Configuration__IpAssignment_11
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getConfigurationAccess().getIpIpAdressParserRuleCall_11_0()); }
-		ruleIpAdress
-		{ after(grammarAccess.getConfigurationAccess().getIpIpAdressParserRuleCall_11_0()); }
+		{ after(grammarAccess.getConfigurationAccess().getConnectionConnectionTypeParserRuleCall_7_0()); }
 	)
 ;
 finally {
@@ -12039,6 +12137,76 @@ rule__Element__NameAssignment_1
 finally {
 	restoreStackSize(stackSize);
 }
+
+rule__Bluetooth__NameAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0()); }
+		(
+			{ before(grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0()); }
+			'BLUETOOTH'
+			{ after(grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0()); }
+		)
+		{ after(grammarAccess.getBluetoothAccess().getNameBLUETOOTHKeyword_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Bluetooth__AdressAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getBluetoothAccess().getAdressMACTerminalRuleCall_2_0()); }
+		RULE_MAC
+		{ after(grammarAccess.getBluetoothAccess().getAdressMACTerminalRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__NameAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0()); }
+		(
+			{ before(grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0()); }
+			'WI-FI'
+			{ after(grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0()); }
+		)
+		{ after(grammarAccess.getWifiAccess().getNameWIFIKeyword_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Wifi__AdressAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getWifiAccess().getAdressIpAdressParserRuleCall_2_0()); }
+		ruleIpAdress
+		{ after(grammarAccess.getWifiAccess().getAdressIpAdressParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+RULE_MAC : ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E') ':' ('0'..'9'|'A'..'E') ('0'..'9'|'A'..'E');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

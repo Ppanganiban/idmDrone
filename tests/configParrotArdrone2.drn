@@ -6,7 +6,6 @@ CONFIGURATION ParrotArdrone2{
 		element White;
 		element Green
 	}
-
 	Type CamID {
 		element Front;
 		element Bottom
@@ -21,6 +20,5 @@ CONFIGURATION ParrotArdrone2{
 		type NUMBER blinkPerSecond
 	}
 
-	CONNECTION by WI-FI;
-	DRONE@IP = 188.255.44.6;
+	CONNECTION by BLUETOOTH : 2A:20:20:20:20:20;
 }

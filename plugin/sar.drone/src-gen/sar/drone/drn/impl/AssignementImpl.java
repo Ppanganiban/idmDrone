@@ -234,8 +234,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
 
     StringBuffer result = new StringBuffer();
-    result.append("<part>");
-    result.append("<name>"+name+"</name>");
     for (Expression e : operandes){
         result.append("<action>");
         if(e.getRepeatCST()>1)
@@ -250,7 +248,6 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
 
         result.append("</action>");
     }
-    result.append("</part>");
     return result.toString();
   }
 
