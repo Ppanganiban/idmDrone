@@ -185,12 +185,17 @@ void actions_genere(FILE * f){
 }
 
 int main(int argc, char * argv[]){
+    if(argc < 2){
+        fprintf(stderr,"Bad arguments : main <path model xml>");
+        exit(-1);
+    }
 
-	doc = xmlReadFile("./model.xml","UTF_8",0);
+	doc = xmlReadFile(argv[1],"UTF_8",0);
 	node = xmlDocGetRootElement(doc);
     cur_node= node;
-	//Open fichier
-	FILE * genere = fopen("./genere.c","a");
+
+    //Open fichier
+	FILE * genere = fopen("genere.c","a");
 
 	//Écriture des includes
     printf("open file ok\n");
