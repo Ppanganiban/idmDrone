@@ -379,7 +379,7 @@ public class ConfigurationImpl extends RootImpl implements Configuration
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<config name="+name+">");
+    result.append("<config name=\""+name+"\">");
     result.append("<connection>"+connection+"</connection>");
     result.append("<ip>"+ip+"</ip>");
     result.append("</config>");
