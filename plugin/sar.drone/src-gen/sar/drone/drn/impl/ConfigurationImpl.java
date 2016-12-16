@@ -344,7 +344,7 @@ public class ConfigurationImpl extends RootImpl implements Configuration
     StringBuffer result = new StringBuffer();
     result.append("<config name=\""+name+"\">");
     result.append("<connection>"+connection.getName()+"</connection>");
-    result.append("<adresse>"+connection.getAdress()+"</adresse>");
+    result.append("<adress>"+connection.getAdress()+"</adress>");
     result.append("</config>");
 
     return result.toString();
