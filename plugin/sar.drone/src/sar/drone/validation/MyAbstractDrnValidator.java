@@ -54,6 +54,8 @@ import sar.drone.drn.UP;
 import sar.drone.drn.Wifi;
 import sar.drone.drn.impl.AndImpl;
 import sar.drone.drn.impl.ContextImpl;
+import sar.drone.drn.impl.RefPartImpl;
+import sar.drone.drn.impl.RefPartLibImpl;
 
 public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidator {
 	static float DEFAULTMAXSPEED = 20; //dm per sec
@@ -371,11 +373,15 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  if (e.target instanceof RefPart && e.contained){
 					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
 					  _get_1 = _eStructuralFeatures_1.get(0);
+					  RefPartImpl r = (RefPartImpl) e.target;
+					  r.canBeWrite = false;
 					  this.error("This call creates an infinite loop", e.target, _get_1);
 				  }
 				  else if(e.target instanceof RefPartLib) {
 					  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART_LIB.getEStructuralFeatures();
 					  _get_1 = _eStructuralFeatures_1.get(0);
+					  RefPartLibImpl r = (RefPartLibImpl) e.target;
+					  r.canBeWrite = false;
 					  this.error("This call creates an infinite loop", e.target, _get_1);
 				  }
 			  }
@@ -1359,12 +1365,16 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  for (Expression e : a.getOperandes()) {
 					  if (e.getMove() instanceof RefPart){
 						  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), this);
+						  RefPartImpl r = (RefPartImpl) e.getMove();
+						  r.canBeWrite = true;
 					  }
 				  }
 			  }catch (ReccException e) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1;
 				  _eStructuralFeatures_1 = DrnPackage.Literals.REF_PART.getEStructuralFeatures();
 				  EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+				  RefPartImpl r = (RefPartImpl) e.target;
+				  r.canBeWrite = false;
 				  this.error("This call creates an infinite loop", e.target, _get_1);
 			  }
 			  finally {
