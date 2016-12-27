@@ -1,4 +1,5 @@
 #include "runtime.h"
+#include <stdio.h>
 #include <arpa/inet.h>
 #include <pthread.h>
 #include <unistd.h>
@@ -11,10 +12,12 @@
 #define DroneAddress "127.0.0.1"
 #define AT_PORT 5556
 
+// control_udp
 int socket_command;
 char * commands[] = {"AT*REF=seq,290718208","AT*REF=seq,29717696","AT_FTRIM=seq","AT*PCMD=seq,0"};
 struct sockaddr_in serv_addr;
 int seq_control = 0;
+
 
 
 
@@ -50,19 +53,19 @@ typedef struct _navdata_demo_t {
 
 }navdata_demo_t;
 
-void put_seq(char **command){
+void put_seq(char *command){
  // printf("la command %s\n",command);
   char *delim = "seq";
   char *tmp;
   char p1[255]; 
-  strcpy(p1,strtok((*command),delim));
+  strcpy(p1,strtok(command,delim));
   char p2[255]; 
   p2[0]='\0';
   if((tmp=strtok(NULL,delim))!=NULL)
     strcpy(p2,tmp);
   
 
-  snprintf((*command),512,"%s%d%s",p1,seq_control,p2);
+  snprintf(command,512,"%s%d%s",p1,seq_control,p2);
   //(*command)=cmd;
   seq_control++;
 }
@@ -70,7 +73,7 @@ void sending_commands(char * command){
   int count =0;
   char  command_to_send[BUFFER_SIZE];
   strcpy(command_to_send,command);
-  put_seq((char**)&command_to_send);
+  put_seq(command_to_send);
 
   while(count < 30){
      if (sendto(socket_command, command_to_send,strlen(command_to_send)+1, 0, (struct sockaddr*)&serv_addr, sizeof(serv_addr))==-1)
@@ -105,36 +108,48 @@ int connectDrone(struct global* g){
   serv_addr.sin_family = AF_INET;
   serv_addr.sin_port=htons(AT_PORT);
   serv_addr.sin_addr.s_addr = inet_addr(DroneAddress);
+
   return 0;}
 int disconnectDrone(struct global* g){return 0;}
 
 
-void control_udp(union uAction* actions ){
+void* control_udp(){
+  int i=0;
+  takeoff(&g);
   
-
-  for(){
+  for(i=0;i<length;i++){
     
+    
+    if(actions[i].type==0){
+      actions[i].axis.curr_action.func();
+      //printf("ici\n");
+    }else{
+      actions[i].rotate.curr_action.func();
+      //printf("la\n");
+    }
+
   }
+  land(&g);
 }
 
-void navdata_tcp(){
+void* navdata_tcp(){
 
 }
 
-void video_udp(){
+void* video_udp(){
 
 }
-void choreography(union uAction * actions){
+void choreography(){
 
-	pthread_t t1, t2, t3;
+  pthread_t t1, t2, t3;
 
-	pthread_create(&t1,NULL,control_udp,(void*)actions);
-	pthread_create(&t2,NULL,navdata_tcp,(void*)NULL);
-	pthread_create(&t3,NULL,video_udp,(void*)NULL);
+  pthread_create(&t1,NULL,control_udp,(void*)NULL);
+  pthread_create(&t2,NULL,navdata_tcp,(void*)NULL);
+  pthread_create(&t3,NULL,video_udp,(void*)NULL);
 
 
-	pthread_join(t1,NULL);
-	pthread_join(t2,NULL);
-	pthread_join(t3,NULL);
+  pthread_join(t1,NULL);
+  pthread_join(t2,NULL);
+  pthread_join(t3,NULL);
 
 }

@@ -7,7 +7,7 @@ all: $(EXEC) $(GENEXEC)
 debug: $(EXEC).o $(MODEL)
 	gdb --args ./$(EXEC) $(MODEL) 
 $(GENEXEC): genere.c init.c runtime.c
-	 gcc -o $(GENEXEC) $^
+	 gcc -o $(GENEXEC) $^ $(LIBS)
 
 $(EXEC): $(EXEC).o $(MODEL)
 	 ./$(EXEC) $(MODEL)

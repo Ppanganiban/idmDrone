@@ -65,7 +65,7 @@ void actions_genere(xmlNode * node,FILE * f){
 	
 	//one Axis action
 	if(!strcmp("right",a_node->name) || !strcmp("left",a_node->name) || !strcmp("backward",a_node->name) || !strcmp("forward",a_node->name)){
-		fprintf(f,"actions[%d].type = %d;\n",i,0);
+		fprintf(f,"actions[%d].type =0 ;\n",i);
 		fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name);
 		fprintf(f,"actions[%d].axis.distance = %s;\n",i,a_node->children->children->content);
 		fprintf(f,"actions[%d].axis.curr_action.time = %s;\n",i,a_node->children->next->children->content);
@@ -75,7 +75,7 @@ void actions_genere(xmlNode * node,FILE * f){
 
 	//rotation action
 	}else if(!strcmp("rotate",a_node->name)){
-			fprintf(f,"actions[%d].type = %d;\n",i,1);
+			fprintf(f,"actions[%d].type =1 ;\n",i);
 			fprintf(f,"actions[%d].rotate.curr_action.func = &%s;\n",i,a_node->name);
 			//printf("naaame: %s\n",a_node->children->name);
 			fprintf(f,"actions[%d].rotate.angle = %s;\n",i,a_node->children->children->content);
@@ -144,8 +144,8 @@ void include_genere(FILE *f){
 }
 //WRITE THE STRUCTURES USED IN THE GENERATED CODE
 void struct_genere(FILE *f){
-	char  structs[] ="struct connexion cnx;\r\nstruct global g;\r\nunion uAction actions[512];\r\n";
-	fprintf(f,"%s",structs );
+	//char  structs[] =;
+	//fprintf(f,"%s",structs );
 
 }
 //WRITE THE CONFIGURATION REQUIRED FOR THE DRONE
@@ -200,11 +200,11 @@ void main_genere(FILE * f,FILE * actions){
     	//function for context definition
     	context_genere(f);
     	//connect to drone
-    	fprintf(f,"Action_filling(actions);\n");
+    	fprintf(f,"Action_filling();printf(\"type: %%d\",actions[0].type);\n");
    	fprintf(f,"connectDrone(&g);\n");
     	//generate the actions
     	actions_genere(cur_node->next,actions);
-
+    	fprintf(f,"choreography();\n");
     	//disconnect from the drone
     	fprintf(f,"disconnectDrone(&g);\n");
     	char * ret="return 0;\n}";
@@ -230,7 +230,7 @@ int main(int argc, char * argv[]){
 
 	//Écriture des includes
    	 printf("open file ok\n");
-   	 fprintf(init,"#include \"init.h\" \nvoid Action_filling(union uAction * actions){\n\n");
+   	 fprintf(init,"#include \"init.h\" \nvoid Action_filling(){\n\n");
 
     	include_genere(genere);
      	printf("include ok\n");
@@ -240,7 +240,7 @@ int main(int argc, char * argv[]){
      	printf("structure generer ok\n");
 	//Écriture du main
 	main_genere(genere,init);
-	fprintf(init,"\n}");
+	fprintf(init,"length=%d;\n}",i);
   	printf("main generer ok\n");
   	fclose(init);
 	fclose(genere);

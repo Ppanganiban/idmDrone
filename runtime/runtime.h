@@ -1,7 +1,11 @@
+
+
 #define BEHIND 1
 #define REAR 2
 #define RIGHTWARD 3
 #define LEFTWARD 4
+
+
 struct attribute{
 	char  name[255];
 	char  value[255];	
@@ -68,7 +72,7 @@ struct global {
 }global;
 // action
 struct action {
-    int (*func)(struct global*);
+    int (*func)();
     unsigned int repeat;
     unsigned int time;
     
@@ -86,11 +90,19 @@ struct rotation {
 	int angle;
 }rotation;
 //current action of the drone
-union uAction {
-	struct oneAxis axis;
-	struct rotation rotate;
-	char type;
+struct uAction {
+	union {
+		struct oneAxis axis;
+		struct rotation rotate;
+	};
+	int type;
 }uAction;
+
+
+int length;
+struct connexion cnx;
+struct global g;
+struct uAction actions[512];
 
 int takeoff(struct global*);
 int forward(struct global*);
@@ -101,4 +113,4 @@ int rotate(struct global*);
 int land(struct global*);
 int connectDrone(struct global*);
 int disconnectDrone(struct global*);
-void choreography(union uAction *);
+void choreography();
