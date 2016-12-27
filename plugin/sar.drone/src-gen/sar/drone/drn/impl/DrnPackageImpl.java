@@ -1090,36 +1090,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAnd_Depxz()
-  {
-    return (EReference)andEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAnd_Depxy()
-  {
-    return (EReference)andEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAnd_Depyz()
-  {
-    return (EReference)andEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDepY_Impl()
   {
     return depY_ImplEClass;
@@ -2099,9 +2069,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     createEReference(andEClass, AND__DEPX);
     createEReference(andEClass, AND__DEPY);
     createEReference(andEClass, AND__DEPZ);
-    createEReference(andEClass, AND__DEPXZ);
-    createEReference(andEClass, AND__DEPXY);
-    createEReference(andEClass, AND__DEPYZ);
 
     depY_ImplEClass = createEClass(DEP_YIMPL);
     createEAttribute(depY_ImplEClass, DEP_YIMPL__NAME);
@@ -2374,9 +2341,6 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     initEReference(getAnd_Depx(), this.getDepX_Impl(), null, "depx", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnd_Depy(), this.getDepY_Impl(), null, "depy", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnd_Depz(), this.getDepZ_Impl(), null, "depz", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Depxz(), this.getDepXZ_IMPL(), null, "depxz", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Depxy(), this.getDepXY_IMPL(), null, "depxy", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnd_Depyz(), this.getDepYZ_IMPL(), null, "depyz", null, 0, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(depY_ImplEClass, DepY_Impl.class, "DepY_Impl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDepY_Impl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DepY_Impl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

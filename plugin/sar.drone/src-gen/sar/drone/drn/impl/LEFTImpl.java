@@ -22,7 +22,7 @@ public class LEFTImpl extends DepX_ImplImpl implements LEFT
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LEFTImpl()
+  public LEFTImpl()
   {
     super();
   }

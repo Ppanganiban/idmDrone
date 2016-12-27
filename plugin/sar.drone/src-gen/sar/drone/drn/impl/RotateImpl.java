@@ -94,7 +94,7 @@ public class RotateImpl extends MovementImpl implements Rotate
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RotateImpl()
+  public RotateImpl()
   {
     super();
   }

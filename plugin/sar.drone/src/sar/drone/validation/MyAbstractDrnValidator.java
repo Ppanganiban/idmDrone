@@ -12,9 +12,10 @@ import org.eclipse.xtext.validation.Check;
 
 import com.google.common.base.Objects;
 import com.google.common.net.InetAddresses;
+
+import sar.drone.drn.And;
 import sar.drone.drn.Assignement;
 import sar.drone.drn.BACKWARD;
-import sar.drone.drn.Bluetooth;
 import sar.drone.drn.CARREXY;
 import sar.drone.drn.CARREXZ;
 import sar.drone.drn.CARREYZ;
@@ -53,9 +54,19 @@ import sar.drone.drn.Surface;
 import sar.drone.drn.UP;
 import sar.drone.drn.Wifi;
 import sar.drone.drn.impl.AndImpl;
+import sar.drone.drn.impl.BACKWARDImpl;
 import sar.drone.drn.impl.ContextImpl;
+import sar.drone.drn.impl.DOWNImpl;
+import sar.drone.drn.impl.DepX_ImplImpl;
+import sar.drone.drn.impl.DepY_ImplImpl;
+import sar.drone.drn.impl.DepZ_ImplImpl;
+import sar.drone.drn.impl.FORWARDImpl;
+import sar.drone.drn.impl.LEFTImpl;
+import sar.drone.drn.impl.RIGHTImpl;
 import sar.drone.drn.impl.RefPartImpl;
 import sar.drone.drn.impl.RefPartLibImpl;
+import sar.drone.drn.impl.RotateImpl;
+import sar.drone.drn.impl.UPImpl;
 
 public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidator {
 	static float DEFAULTMAXSPEED = 20; //dm per sec
@@ -63,10 +74,10 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	static float MAXSPEED = -1; //dm per sec
 	static float MINSPEED = -1; //dm per sec
 	
-	static int xCurr = 0;
-	static int yCurr = 0;
-	static int zCurr = 0;
-	static int angleCurr = 0;
+	static int xCurr;
+	static int yCurr;
+	static int zCurr;
+	static int angleCurr;
 	static int MAXW = Integer.MAX_VALUE;
 	static int MAXL = Integer.MAX_VALUE;
 	static int MAXZ = Integer.MAX_VALUE;
@@ -103,50 +114,37 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  	int depx	= 0;
 	  	int depy	= 0;
 	  	int depz	= 0;
-	  	int depxy   = 0;
-	  	int depxz   = 0;
-	  	int depyz   = 0;
-	  	boolean ok  = true;
 
 	  	rotate = and.getRotate().size();
 
-	  	depxy	= and.getDepxy().size();
-	  	depxz = and.getDepxz().size();
-	  	depyz = and.getDepyz().size();
-	  	
-	  	depx	= and.getDepx().size() + depxy + depxz;
-	  	depy	= and.getDepy().size() + depxy + depyz;
-	  	depz	= and.getDepz().size() + depxz + depyz;
+	  	depx	= and.getDepx().size();
+	  	depy	= and.getDepy().size();
+	  	depz	= and.getDepz().size();
 
 	    if ((depx > 1)) {
 	      EList<EStructuralFeature> _eStructuralFeatures = DrnPackage.Literals.AND.getEStructuralFeatures();
 	      EStructuralFeature _get = _eStructuralFeatures.get(0);
 	      this.error("Can \'t merge many movements on X axis", and, _get);
-	      ok = false;
 	    }
 	    if ((depy > 1)) {
 	      EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.AND.getEStructuralFeatures();
 	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
 	      this.error("Can \'t merge many movements on Y axis", and, _get_1);
-	      ok = false;
 	    }
 	    if ((depz > 1)) {
 	      EList<EStructuralFeature> _eStructuralFeatures_2 = DrnPackage.Literals.AND.getEStructuralFeatures();
 	      EStructuralFeature _get_2 = _eStructuralFeatures_2.get(0);
 	      this.error("Can \'t merge many movements on Z axis", and, _get_2);
-	      ok = false;
 	    }
 	    if ((rotate > 1)) {
 	      EList<EStructuralFeature> _eStructuralFeatures_3 = DrnPackage.Literals.AND.getEStructuralFeatures();
 	      EStructuralFeature _get_3 = _eStructuralFeatures_3.get(0);
 	      this.error("Can \'t merge many rotations", and, _get_3);
-	      ok = false;
 	    }
 	    if (((((depx + depy) + depz) + rotate) < 2)) {
 	      EList<EStructuralFeature> _eStructuralFeatures_4 = DrnPackage.Literals.MODEL.getEStructuralFeatures();
 	      EStructuralFeature _get_4 = _eStructuralFeatures_4.get(0);
 	      this.error("Missing operands", and, _get_4);
-	      ok = false;
 	    }
 	  }
 
@@ -237,13 +235,13 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  /*
 	   * Check and set the context
 	   */
-	  @Check
-	  public void checkContext(final ContextImpl ref) {
+	 
+	  public static void checkContext(final ContextImpl ref, MyAbstractDrnValidator adv) {
 		  Boolean toCheck = false;
 		  int countX = 0;
 		  int countD = 0;
 		  int countY = 0;
-
+		  zCurr = 0;
 		  yCurr = 0;
 		  xCurr = 0;
 		  MAXW = Integer.MAX_VALUE;
@@ -297,47 +295,47 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  if (countX > 1) {
   	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
   	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-  	    	this.error("Too many initial positions X", ref, _get_1);
+  	    	adv.error("Too many initial positions X", ref, _get_1);
 		  }
 		  if (countY > 1) {
   	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
   	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-  	    	this.error("Too many initial positions Y", ref, _get_1);
+  	    	adv.error("Too many initial positions Y", ref, _get_1);
 		  }
 		  if (countD > 1) {
   	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
   	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-  	    	this.error("Too many initial direction", ref, _get_1);
+  	    	adv.error("Too many initial direction", ref, _get_1);
 		  }
 		  if (toCheck) {	 
 			  //Check if there are intial position X, position Y and an initial direction
 			  if (countX == 0) {
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Initial position X is not iniatialized", ref, _get_1);				  
+		  	    	adv.error("Initial position X is not iniatialized", ref, _get_1);				  
 			  }
 			  
 			  if (countY == 0) {
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Initial position Y is not iniatialized", ref, _get_1);				  
+		  	    	adv.error("Initial position Y is not iniatialized", ref, _get_1);				  
 			  }
 			  if (countD == 0) {
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Initial direction is not iniatialized", ref, _get_1);				  
+		  	    	adv.error("Initial direction is not iniatialized", ref, _get_1);				  
 			  }
 			  
 			  //Check if initial position are inside the surface
 			  if(yCurr > MAXL){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Drone is out of max length", ref, _get_1);
+		  	    	adv.error("Drone is out of max length", ref, _get_1);
 			  }
 			  if(xCurr > MAXW){
 		  	    	EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.CONTEXT.getEStructuralFeatures();
 		  	    	EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
-		  	    	this.error("Drone is out of max width", ref, _get_1);
+		  	    	adv.error("Drone is out of max width", ref, _get_1);
 			  }
 		  }
 	  }
@@ -362,10 +360,12 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  @Check
 	  public void checkDronePosition(final Model ref) throws OutNotContainedException {
 	  	if (ref.getMain() != null && ref.getContext() != null) {
+	  		  MyAbstractDrnValidator.checkContext((ContextImpl) ref.getContext(), this);
 			  System.out.println("*******************************");
 			  System.out.println("Initial Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
 			  try {
 			  	MyAbstractDrnValidator.checkDronePositionRef(ref.getMain(), this, true);
+			  	((RefPartImpl)ref.getMain()).canBeWrite = true;
 			  }
 			  catch (ReccException e) {
 				  EList<EStructuralFeature> _eStructuralFeatures_1;
@@ -540,9 +540,11 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 	  static void checkDronePositionMovement(final Movement ref, MyAbstractDrnValidator adv, boolean isContained) throws ReccException, OutNotContainedException{
 		  if(ref instanceof RefPart){
 			  MyAbstractDrnValidator.checkDronePositionRef((RefPart)ref, adv, isContained);
+			  ((RefPartImpl)ref).canBeWrite = true;
 		  }
 		  if(ref instanceof RefPartLib){
 			  MyAbstractDrnValidator.checkDronePositionRefPartLib((RefPartLib)ref, adv, isContained);
+			  ((RefPartLibImpl)ref).canBeWrite = true;
 		  }
 		  else if (ref instanceof Rotate){
 			  MyAbstractDrnValidator.checkDronePositionRotate((Rotate) ref, adv, isContained);
@@ -564,6 +566,9 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  }
 		  else if (ref instanceof DepYZ_IMPL){
 		  	MyAbstractDrnValidator.checkDronePositionDepYZ((DepYZ_IMPL) ref, adv, isContained);
+		  }
+		  else if (ref instanceof And){
+		  	MyAbstractDrnValidator.checkDronePositionAnd((And) ref, adv, isContained);
 		  }
 	  }
 
@@ -696,6 +701,114 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 			  }
 		  }
 		  System.out.println(((DepZ_Impl) ref).getName()+"Drone state : "+"("+xCurr+","+yCurr+","+zCurr+")"+"("+angleCurr+")");
+	  }
+
+	  static void checkDronePositionAnd(final And ref, MyAbstractDrnValidator adv, boolean isContained){
+		  System.out.println("******** AND CHECK ********");
+		  int precx, precy, precz, precangle;
+		  
+		  precx = xCurr;
+		  precy = yCurr;
+		  precz = zCurr;
+		  precangle = angleCurr;
+
+		  DepX_Impl depX= ref.getDepx() != null ? ref.getDepx().get(0) : null;
+		  DepX_Impl subX;
+		  int nbiterX = 0;
+		  
+		  DepY_Impl depY = ref.getDepy().size()>0 ? ref.getDepy().get(0) : null;
+		  DepY_Impl subY;
+		  int nbiterY = 0;
+
+		  DepZ_Impl depZ = ref.getDepz().size()>0 ? ref.getDepz().get(0) : null;
+		  DepZ_Impl subZ;
+		  int nbiterZ = 0;
+
+		  Rotate depR = ref.getRotate().size()>0 ? ref.getRotate().get(0) : null;
+		  Rotate subR;
+		  int nbiterR = 0;
+
+		  ArrayList<Movement> moves = new ArrayList<Movement>();
+
+		  if (depX != null){
+			  if(depX instanceof RIGHTImpl){
+				  subX = new RIGHTImpl();
+			  }
+			  else{
+				  subX = new LEFTImpl();				  
+			  }
+			  subX.setTempsCST(1);
+			  subX.setDistanceCST(depX.getDistanceCST()/depX.getTempsCST());
+			  nbiterX = depX.getTempsCST();
+			  moves.add(subX);
+			  subX.setName(depX.getName());
+		  }
+		  if (depY != null){
+			  if(depY instanceof FORWARDImpl)
+				  subY = new FORWARDImpl();
+			  else
+				  subY = new BACKWARDImpl();
+
+			  subY.setTempsCST(1);
+			  subY.setDistanceCST(depY.getDistanceCST()/depY.getTempsCST());
+			  nbiterY = depY.getTempsCST();
+			  subY.setName(depY.getName());
+			  moves.add(subY);
+		  }
+		  if (depZ != null){
+			  if(depZ instanceof UPImpl)
+				  subZ = new UPImpl();
+			  else
+				  subZ = new DOWNImpl();			  
+			  subZ.setTempsCST(1);
+			  subZ.setDistanceCST(depZ.getDistanceCST()/depZ.getTempsCST());
+			  moves.add(subZ);
+			  subZ.setName(depZ.getName());
+			  nbiterZ = depZ.getTempsCST();
+		  }
+		  if (depR != null){  
+			  subR = new RotateImpl();
+			  moves.add(subR);
+			  subR.setTempsCST(1);
+			  subR.setAngleCST(""+ Integer.parseInt(depR.getAngleCST()) / depR.getTempsCST());
+			  nbiterR = depR.getTempsCST();
+			  subR.setName(depR.getName());
+		  }
+
+		  //Compute the total time of merge
+		  try{
+			  while ( nbiterR > 0 || nbiterX > 0 || nbiterY > 0 || nbiterZ > 0) {
+				  for(Movement m : moves){
+					  if(m instanceof Rotate && nbiterR > 0){
+						  checkDronePositionRotate((Rotate) m, adv, false);
+						  nbiterR--;
+					  }
+					  else if (m instanceof DepX_ImplImpl && nbiterX > 0){
+						  checkDronePositionDepX((DepX_Impl) m, adv, false);
+						  nbiterX--;
+					  }
+					  else if (m instanceof DepY_ImplImpl && nbiterY > 0){
+						  checkDronePositionDepY((DepY_Impl) m, adv, false);
+						  nbiterY--;
+					  }
+					  else if (m instanceof DepZ_ImplImpl && nbiterZ > 0){
+						  checkDronePositionDepZ((DepZ_Impl) m, adv, false);
+						  nbiterZ--;
+					  }
+				  }
+			  }			  
+		  }
+		  catch(OutNotContainedException e){
+  	    	  EList<EStructuralFeature> _eStructuralFeatures_1 = DrnPackage.Literals.AND.getEStructuralFeatures();
+	  	      EStructuralFeature _get_1 = _eStructuralFeatures_1.get(0);
+	  	      adv.error("Drone is out of range"+"("+xCurr+","+yCurr+","+zCurr+")", ref, _get_1);
+	  	      xCurr = precx;
+	  	      yCurr = precy;
+	  	      zCurr = precz;
+	  	      angleCurr = precangle;
+		  }
+
+		  System.out.println("******** FIN AND CHECK ********");
 	  }
 
 	  static void checkDronePositionDepXY(final DepXY_IMPL ref, MyAbstractDrnValidator adv, boolean isContained) throws OutNotContainedException{
@@ -1365,8 +1478,6 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 				  for (Expression e : a.getOperandes()) {
 					  if (e.getMove() instanceof RefPart){
 						  MyAbstractDrnValidator.checkLibReccRef((RefPart)e.getMove(), this);
-						  RefPartImpl r = (RefPartImpl) e.getMove();
-						  r.canBeWrite = true;
 					  }
 				  }
 			  }catch (ReccException e) {

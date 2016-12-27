@@ -462,23 +462,23 @@ public class AndImpl extends MovementImpl implements And
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+    //if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<merge>");
-    if(depx != null)
-    	result.append(depx.toString());
-    if(depxy != null)
-    	result.append(depxy.toString());
-    if(depxz != null)
-    	result.append(depxz.toString());
-    if(depy != null)
-    	result.append(depy.toString());
-    if(depyz != null)
-    	result.append(depyz.toString());
-    if(depz != null)
-    	result.append(depz.toString());
-    result.append("</merge>");
+    result.append("<"+name+">");
+    if(depx.size() == 1){
+    	result.append(depx.get(0).toString());
+    }
+	if(depy.size() == 1){
+    	result.append(depy.get(0).toString());	    	
+	    }
+	if(depz.size() == 1){
+    	result.append(depz.get(0).toString());
+	}
+	if(rotate.size() == 1){
+    	result.append(rotate.get(0).toString());
+	}
+    result.append("</"+name+">");
     return result.toString();
   }
 

@@ -212,33 +212,9 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name='merge' 
-	 *         (
-	 *             rotate+=Rotate | 
-	 *             depx+=DepX_Impl | 
-	 *             depy+=DepY_Impl | 
-	 *             depz+=DepZ_Impl | 
-	 *             depxz+=DepXZ_IMPL | 
-	 *             depxy+=DepXY_IMPL | 
-	 *             depyz+=DepYZ_IMPL
-	 *         ) 
-	 *         (
-	 *             rotate+=Rotate | 
-	 *             depx+=DepX_Impl | 
-	 *             depy+=DepY_Impl | 
-	 *             depz+=DepZ_Impl | 
-	 *             depxz+=DepXZ_IMPL | 
-	 *             depxy+=DepXY_IMPL | 
-	 *             depyz+=DepYZ_IMPL
-	 *         ) 
-	 *         (
-	 *             rotate+=Rotate | 
-	 *             depx+=DepX_Impl | 
-	 *             depy+=DepY_Impl | 
-	 *             depz+=DepZ_Impl | 
-	 *             depxz+=DepXZ_IMPL | 
-	 *             depxy+=DepXY_IMPL | 
-	 *             depyz+=DepYZ_IMPL
-	 *         )*
+	 *         (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl) 
+	 *         (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl) 
+	 *         (rotate+=Rotate | depx+=DepX_Impl | depy+=DepY_Impl | depz+=DepZ_Impl)*
 	 *     )
 	 */
 	protected void sequence_And(ISerializationContext context, And semanticObject) {

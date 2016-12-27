@@ -94,9 +94,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depx"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depz"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depxz"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depxy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//And/depyz"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//DepY_Impl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//DepY_Impl/name"/>

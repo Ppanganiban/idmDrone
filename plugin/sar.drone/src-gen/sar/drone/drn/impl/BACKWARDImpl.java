@@ -22,7 +22,7 @@ public class BACKWARDImpl extends DepY_ImplImpl implements BACKWARD
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BACKWARDImpl()
+  public BACKWARDImpl()
   {
     super();
   }

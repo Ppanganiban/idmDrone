@@ -22,7 +22,7 @@ public class UPImpl extends DepZ_ImplImpl implements UP
    * <!-- end-user-doc -->
    * @generated
    */
-  protected UPImpl()
+  public UPImpl()
   {
     super();
   }

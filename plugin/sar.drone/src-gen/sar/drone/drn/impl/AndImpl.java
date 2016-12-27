@@ -19,10 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sar.drone.drn.And;
-import sar.drone.drn.DepXY_IMPL;
-import sar.drone.drn.DepXZ_IMPL;
 import sar.drone.drn.DepX_Impl;
-import sar.drone.drn.DepYZ_IMPL;
 import sar.drone.drn.DepY_Impl;
 import sar.drone.drn.DepZ_Impl;
 import sar.drone.drn.DrnPackage;
@@ -41,9 +38,6 @@ import sar.drone.drn.Rotate;
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepx <em>Depx</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepy <em>Depy</em>}</li>
  *   <li>{@link sar.drone.drn.impl.AndImpl#getDepz <em>Depz</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AndImpl#getDepxz <em>Depxz</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AndImpl#getDepxy <em>Depxy</em>}</li>
- *   <li>{@link sar.drone.drn.impl.AndImpl#getDepyz <em>Depyz</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,36 +103,6 @@ public class AndImpl extends MovementImpl implements And
    * @ordered
    */
   protected EList<DepZ_Impl> depz;
-
-  /**
-   * The cached value of the '{@link #getDepxz() <em>Depxz</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDepxz()
-   * @generated
-   * @ordered
-   */
-  protected EList<DepXZ_IMPL> depxz;
-
-  /**
-   * The cached value of the '{@link #getDepxy() <em>Depxy</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDepxy()
-   * @generated
-   * @ordered
-   */
-  protected EList<DepXY_IMPL> depxy;
-
-  /**
-   * The cached value of the '{@link #getDepyz() <em>Depyz</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDepyz()
-   * @generated
-   * @ordered
-   */
-  protected EList<DepYZ_IMPL> depyz;
 
   /**
    * <!-- begin-user-doc -->
@@ -245,48 +209,6 @@ public class AndImpl extends MovementImpl implements And
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DepXZ_IMPL> getDepxz()
-  {
-    if (depxz == null)
-    {
-      depxz = new EObjectContainmentEList<DepXZ_IMPL>(DepXZ_IMPL.class, this, DrnPackage.AND__DEPXZ);
-    }
-    return depxz;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<DepXY_IMPL> getDepxy()
-  {
-    if (depxy == null)
-    {
-      depxy = new EObjectContainmentEList<DepXY_IMPL>(DepXY_IMPL.class, this, DrnPackage.AND__DEPXY);
-    }
-    return depxy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<DepYZ_IMPL> getDepyz()
-  {
-    if (depyz == null)
-    {
-      depyz = new EObjectContainmentEList<DepYZ_IMPL>(DepYZ_IMPL.class, this, DrnPackage.AND__DEPYZ);
-    }
-    return depyz;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -300,12 +222,6 @@ public class AndImpl extends MovementImpl implements And
         return ((InternalEList<?>)getDepy()).basicRemove(otherEnd, msgs);
       case DrnPackage.AND__DEPZ:
         return ((InternalEList<?>)getDepz()).basicRemove(otherEnd, msgs);
-      case DrnPackage.AND__DEPXZ:
-        return ((InternalEList<?>)getDepxz()).basicRemove(otherEnd, msgs);
-      case DrnPackage.AND__DEPXY:
-        return ((InternalEList<?>)getDepxy()).basicRemove(otherEnd, msgs);
-      case DrnPackage.AND__DEPYZ:
-        return ((InternalEList<?>)getDepyz()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -330,12 +246,6 @@ public class AndImpl extends MovementImpl implements And
         return getDepy();
       case DrnPackage.AND__DEPZ:
         return getDepz();
-      case DrnPackage.AND__DEPXZ:
-        return getDepxz();
-      case DrnPackage.AND__DEPXY:
-        return getDepxy();
-      case DrnPackage.AND__DEPYZ:
-        return getDepyz();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -370,18 +280,6 @@ public class AndImpl extends MovementImpl implements And
         getDepz().clear();
         getDepz().addAll((Collection<? extends DepZ_Impl>)newValue);
         return;
-      case DrnPackage.AND__DEPXZ:
-        getDepxz().clear();
-        getDepxz().addAll((Collection<? extends DepXZ_IMPL>)newValue);
-        return;
-      case DrnPackage.AND__DEPXY:
-        getDepxy().clear();
-        getDepxy().addAll((Collection<? extends DepXY_IMPL>)newValue);
-        return;
-      case DrnPackage.AND__DEPYZ:
-        getDepyz().clear();
-        getDepyz().addAll((Collection<? extends DepYZ_IMPL>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -411,15 +309,6 @@ public class AndImpl extends MovementImpl implements And
       case DrnPackage.AND__DEPZ:
         getDepz().clear();
         return;
-      case DrnPackage.AND__DEPXZ:
-        getDepxz().clear();
-        return;
-      case DrnPackage.AND__DEPXY:
-        getDepxy().clear();
-        return;
-      case DrnPackage.AND__DEPYZ:
-        getDepyz().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -444,12 +333,6 @@ public class AndImpl extends MovementImpl implements And
         return depy != null && !depy.isEmpty();
       case DrnPackage.AND__DEPZ:
         return depz != null && !depz.isEmpty();
-      case DrnPackage.AND__DEPXZ:
-        return depxz != null && !depxz.isEmpty();
-      case DrnPackage.AND__DEPXY:
-        return depxy != null && !depxy.isEmpty();
-      case DrnPackage.AND__DEPYZ:
-        return depyz != null && !depyz.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -465,20 +348,20 @@ public class AndImpl extends MovementImpl implements And
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer();
-    result.append("<merge>");
-    if(depx != null)
-    	result.append(depx.toString());
-    if(depxy != null)
-    	result.append(depxy.toString());
-    if(depxz != null)
-    	result.append(depxz.toString());
-    if(depy != null)
-    	result.append(depy.toString());
-    if(depyz != null)
-    	result.append(depyz.toString());
-    if(depz != null)
-    	result.append(depz.toString());
-    result.append("</merge>");
+    result.append("<"+name+">");
+    if(depx.size() == 1){
+    	result.append(depx.get(0).toString());
+    }
+	if(depy.size() == 1){
+    	result.append(depy.get(0).toString());	    	
+	    }
+	if(depz.size() == 1){
+    	result.append(depz.get(0).toString());
+	}
+	if(rotate.size() == 1){
+    	result.append(rotate.get(0).toString());
+	}
+    result.append("</"+name+">");
     return result.toString();
   }
 

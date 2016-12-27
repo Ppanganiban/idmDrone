@@ -22,7 +22,7 @@ public class RIGHTImpl extends DepX_ImplImpl implements RIGHT
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RIGHTImpl()
+  public RIGHTImpl()
   {
     super();
   }
