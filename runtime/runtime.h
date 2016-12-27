@@ -1,31 +1,16 @@
+#define BEHIND 1
+#define REAR 2
+#define RIGHTWARD 3
+#define LEFTWARD 4
 struct attribute{
-	char * name;
-	char * value;	
+	char  name[255];
+	char  value[255];	
 };
 struct option{
 	char * name;
 	struct attribute att[0];
 };
 
-// action
-struct action {
-    char * name;
-    unsigned int repeat;
-    unsigned int time;
-    
-}action;
-
-// dep on one Axis
-struct oneAxis {
-    struct action curr_action;
-    unsigned int distance;
-}oneAxis;
-
-//rotation
-struct rotation {
-	struct action curr_action;
-	int angle;
-}rotation;
 
 //state of the drone
 struct state {
@@ -47,8 +32,7 @@ struct position {
 struct speed {
 	
 	float vx;
-	float xy;
-	float vz;
+	float vy;
 	float angular_speed;
 	float vertical_speed;
 
@@ -66,16 +50,12 @@ struct limits {
 
 }limits;
 
-//current action of the drone
-union uAction {
-	struct oneAxis axis;
-	struct rotation rotate;
-}uAction;
+
 //connexion
-struct connect {
+struct connexion {
     char * type;
     char * address;
-}connect;
+}connexion;
 
 //global structure of the current state of the choreography;
 struct global {
@@ -83,18 +63,42 @@ struct global {
 	struct position curr_position;
 	struct speed curr_speed;
 	struct limits context;
-	union uAction * curr_action;
-	struct option * options;
+	int index_action;
+	struct option  options[];
 }global;
+// action
+struct action {
+    int (*func)(struct global*);
+    unsigned int repeat;
+    unsigned int time;
+    
+}action;
 
+// dep on one Axis
+struct oneAxis {
+    struct action curr_action;
+    unsigned int distance;
+}oneAxis;
+
+//rotation
+struct rotation {
+	struct action curr_action;
+	int angle;
+}rotation;
+//current action of the drone
+union uAction {
+	struct oneAxis axis;
+	struct rotation rotate;
+	char type;
+}uAction;
 
 int takeoff(struct global*);
-int front(struct global*);
-int back(struct global*);
+int forward(struct global*);
+int backward(struct global*);
 int left(struct global*);
 int right(struct global*);
 int rotate(struct global*);
 int land(struct global*);
-void connectDrone(struct global*);
-
-
+int connectDrone(struct global*);
+int disconnectDrone(struct global*);
+void choreography(union uAction *);
