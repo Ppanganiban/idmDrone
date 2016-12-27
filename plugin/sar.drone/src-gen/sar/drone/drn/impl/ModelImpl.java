@@ -431,5 +431,4 @@ public class ModelImpl extends RootImpl implements Model
     result.append("</model>");
     return result.toString();
   }
-
 } //ModelImpl

@@ -22,7 +22,7 @@ public class DOWNImpl extends DepZ_ImplImpl implements DOWN
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DOWNImpl()
+  public DOWNImpl()
   {
     super();
   }

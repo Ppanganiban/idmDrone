@@ -242,9 +242,9 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
         if(e.getWith().size() > 0)
     		result.append(e.getWith().get(0).toString());
         
-        result.append(e.getMove().toString());
-        for (Expression t : e.getThen())
-            result.append(t.getMove().toString());
+    	result.append(e.getMove().toString());
+	    for (Expression t : e.getThen())
+	        result.append(t.getMove().toString());
 
         result.append("</action>");
     }

@@ -1708,70 +1708,10 @@ ruleAnd returns [EObject current=null]
 					}
 				)
 			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_3_4_0());
-					}
-					lv_depxz_7_0=ruleDepXZ_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depxz",
-							lv_depxz_7_0,
-							"sar.drone.Drn.DepXZ_IMPL");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_3_5_0());
-					}
-					lv_depxy_8_0=ruleDepXY_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depxy",
-							lv_depxy_8_0,
-							"sar.drone.Drn.DepXY_IMPL");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_3_6_0());
-					}
-					lv_depyz_9_0=ruleDepYZ_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depyz",
-							lv_depyz_9_0,
-							"sar.drone.Drn.DepYZ_IMPL");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
 		)
-		otherlv_10=','
+		otherlv_7=','
 		{
-			newLeafNode(otherlv_10, grammarAccess.getAndAccess().getCommaKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getAndAccess().getCommaKeyword_4());
 		}
 		(
 			(
@@ -1779,7 +1719,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getRotateRotateParserRuleCall_5_0_0());
 					}
-					lv_rotate_11_0=ruleRotate
+					lv_rotate_8_0=ruleRotate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1787,7 +1727,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"rotate",
-							lv_rotate_11_0,
+							lv_rotate_8_0,
 							"sar.drone.Drn.Rotate");
 						afterParserOrEnumRuleCall();
 					}
@@ -1799,7 +1739,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getDepxDepX_ImplParserRuleCall_5_1_0());
 					}
-					lv_depx_12_0=ruleDepX_Impl
+					lv_depx_9_0=ruleDepX_Impl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1807,7 +1747,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depx",
-							lv_depx_12_0,
+							lv_depx_9_0,
 							"sar.drone.Drn.DepX_Impl");
 						afterParserOrEnumRuleCall();
 					}
@@ -1819,7 +1759,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getDepyDepY_ImplParserRuleCall_5_2_0());
 					}
-					lv_depy_13_0=ruleDepY_Impl
+					lv_depy_10_0=ruleDepY_Impl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1827,7 +1767,7 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depy",
-							lv_depy_13_0,
+							lv_depy_10_0,
 							"sar.drone.Drn.DepY_Impl");
 						afterParserOrEnumRuleCall();
 					}
@@ -1839,7 +1779,7 @@ ruleAnd returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_5_3_0());
 					}
-					lv_depz_14_0=ruleDepZ_Impl
+					lv_depz_11_0=ruleDepZ_Impl
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1847,77 +1787,17 @@ ruleAnd returns [EObject current=null]
 						add(
 							$current,
 							"depz",
-							lv_depz_14_0,
+							lv_depz_11_0,
 							"sar.drone.Drn.DepZ_Impl");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_5_4_0());
-					}
-					lv_depxz_15_0=ruleDepXZ_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depxz",
-							lv_depxz_15_0,
-							"sar.drone.Drn.DepXZ_IMPL");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_5_5_0());
-					}
-					lv_depxy_16_0=ruleDepXY_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depxy",
-							lv_depxy_16_0,
-							"sar.drone.Drn.DepXY_IMPL");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_5_6_0());
-					}
-					lv_depyz_17_0=ruleDepYZ_IMPL
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
-						}
-						add(
-							$current,
-							"depyz",
-							lv_depyz_17_0,
-							"sar.drone.Drn.DepYZ_IMPL");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
 		(
-			otherlv_18=','
+			otherlv_12=','
 			{
-				newLeafNode(otherlv_18, grammarAccess.getAndAccess().getCommaKeyword_6_0());
+				newLeafNode(otherlv_12, grammarAccess.getAndAccess().getCommaKeyword_6_0());
 			}
 			(
 				(
@@ -1925,7 +1805,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getRotateRotateParserRuleCall_6_1_0_0());
 						}
-						lv_rotate_19_0=ruleRotate
+						lv_rotate_13_0=ruleRotate
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1933,7 +1813,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"rotate",
-								lv_rotate_19_0,
+								lv_rotate_13_0,
 								"sar.drone.Drn.Rotate");
 							afterParserOrEnumRuleCall();
 						}
@@ -1945,7 +1825,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getDepxDepX_ImplParserRuleCall_6_1_1_0());
 						}
-						lv_depx_20_0=ruleDepX_Impl
+						lv_depx_14_0=ruleDepX_Impl
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1953,7 +1833,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"depx",
-								lv_depx_20_0,
+								lv_depx_14_0,
 								"sar.drone.Drn.DepX_Impl");
 							afterParserOrEnumRuleCall();
 						}
@@ -1965,7 +1845,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getDepyDepY_ImplParserRuleCall_6_1_2_0());
 						}
-						lv_depy_21_0=ruleDepY_Impl
+						lv_depy_15_0=ruleDepY_Impl
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1973,7 +1853,7 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"depy",
-								lv_depy_21_0,
+								lv_depy_15_0,
 								"sar.drone.Drn.DepY_Impl");
 							afterParserOrEnumRuleCall();
 						}
@@ -1985,7 +1865,7 @@ ruleAnd returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getAndAccess().getDepzDepZ_ImplParserRuleCall_6_1_3_0());
 						}
-						lv_depz_22_0=ruleDepZ_Impl
+						lv_depz_16_0=ruleDepZ_Impl
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getAndRule());
@@ -1993,77 +1873,17 @@ ruleAnd returns [EObject current=null]
 							add(
 								$current,
 								"depz",
-								lv_depz_22_0,
+								lv_depz_16_0,
 								"sar.drone.Drn.DepZ_Impl");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepxzDepXZ_IMPLParserRuleCall_6_1_4_0());
-						}
-						lv_depxz_23_0=ruleDepXZ_IMPL
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"depxz",
-								lv_depxz_23_0,
-								"sar.drone.Drn.DepXZ_IMPL");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepxyDepXY_IMPLParserRuleCall_6_1_5_0());
-						}
-						lv_depxy_24_0=ruleDepXY_IMPL
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"depxy",
-								lv_depxy_24_0,
-								"sar.drone.Drn.DepXY_IMPL");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				    |
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getDepyzDepYZ_IMPLParserRuleCall_6_1_6_0());
-						}
-						lv_depyz_25_0=ruleDepYZ_IMPL
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"depyz",
-								lv_depyz_25_0,
-								"sar.drone.Drn.DepYZ_IMPL");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)
 		)*
-		otherlv_26=')'
+		otherlv_17=')'
 		{
-			newLeafNode(otherlv_26, grammarAccess.getAndAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_17, grammarAccess.getAndAccess().getRightParenthesisKeyword_7());
 		}
 	)
 ;

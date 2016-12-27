@@ -17,7 +17,6 @@ CHOREOGRAPHY {
 	}
 	part2{
 		rotate(angle = 90 temps = 2);
-		moves.comboCarre;
 		part3;
 	}
 	part3{

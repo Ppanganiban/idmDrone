@@ -86,12 +86,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="depz" upperBound="-1" eType="#//DepZ_Impl"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depxz" upperBound="-1"
-        eType="#//DepXZ_IMPL" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depxy" upperBound="-1"
-        eType="#//DepXY_IMPL" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depyz" upperBound="-1"
-        eType="#//DepYZ_IMPL" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DepY_Impl" eSuperTypes="#//Movement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

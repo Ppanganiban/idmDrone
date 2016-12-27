@@ -22,7 +22,7 @@ public class FORWARDImpl extends DepY_ImplImpl implements FORWARD
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FORWARDImpl()
+  public FORWARDImpl()
   {
     super();
   }

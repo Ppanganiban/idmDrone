@@ -854,40 +854,13 @@ public interface DrnPackage extends EPackage
   int AND__DEPZ = MOVEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Depxz</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__DEPXZ = MOVEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Depxy</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__DEPXY = MOVEMENT_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Depyz</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AND__DEPYZ = MOVEMENT_FEATURE_COUNT + 7;
-
-  /**
    * The number of structural features of the '<em>And</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 8;
+  int AND_FEATURE_COUNT = MOVEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.DepY_ImplImpl <em>Dep YImpl</em>}' class.
@@ -2906,39 +2879,6 @@ public interface DrnPackage extends EPackage
   EReference getAnd_Depz();
 
   /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepxz <em>Depxz</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Depxz</em>'.
-   * @see sar.drone.drn.And#getDepxz()
-   * @see #getAnd()
-   * @generated
-   */
-  EReference getAnd_Depxz();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepxy <em>Depxy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Depxy</em>'.
-   * @see sar.drone.drn.And#getDepxy()
-   * @see #getAnd()
-   * @generated
-   */
-  EReference getAnd_Depxy();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link sar.drone.drn.And#getDepyz <em>Depyz</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Depyz</em>'.
-   * @see sar.drone.drn.And#getDepyz()
-   * @see #getAnd()
-   * @generated
-   */
-  EReference getAnd_Depyz();
-
-  /**
    * Returns the meta object for class '{@link sar.drone.drn.DepY_Impl <em>Dep YImpl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4364,30 +4304,6 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EReference AND__DEPZ = eINSTANCE.getAnd_Depz();
-
-    /**
-     * The meta object literal for the '<em><b>Depxz</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference AND__DEPXZ = eINSTANCE.getAnd_Depxz();
-
-    /**
-     * The meta object literal for the '<em><b>Depxy</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference AND__DEPXY = eINSTANCE.getAnd_Depxy();
-
-    /**
-     * The meta object literal for the '<em><b>Depyz</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference AND__DEPYZ = eINSTANCE.getAnd_Depyz();
 
     /**
      * The meta object literal for the '{@link sar.drone.drn.impl.DepY_ImplImpl <em>Dep YImpl</em>}' class.
