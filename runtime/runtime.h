@@ -75,7 +75,7 @@ struct action {
     int (*func)();
     unsigned int repeat;
     unsigned int time;
-    
+    int execution_phase;
 }action;
 
 // dep on one Axis
@@ -96,10 +96,12 @@ struct uAction {
 		struct rotation rotate;
 	};
 	int type;
+
 }uAction;
 
 
 int length;
+int pe;
 struct connexion cnx;
 struct global g;
 struct uAction actions[512];

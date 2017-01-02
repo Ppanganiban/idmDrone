@@ -24,6 +24,7 @@ int i=0;
 xmlDocPtr doc;
 xmlNodePtr node;
 xmlNode *cur_node = NULL;
+char ismerge=0;
 
 
 void actions_genere(xmlNode * node,FILE * f){
@@ -39,6 +40,15 @@ void actions_genere(xmlNode * node,FILE * f){
 
 	while(a_node!=NULL){
 		
+
+
+
+	if(!strcmp("merge",a_node->name)){
+		ismerge=1;
+		printf("it's a merge\n");
+		actions_genere(a_node->children,f);
+	}
+
 	//check repeat
 	if(!strcmp("repeat",a_node->name)){
 	
@@ -49,6 +59,7 @@ void actions_genere(xmlNode * node,FILE * f){
 	
 	//access the content of an action
 	if(!strcmp("action",a_node->name)){
+		ismerge=0;
 		actions_genere(a_node,f);
 		a_node=a_node->next;
 		//continue;
@@ -70,6 +81,9 @@ void actions_genere(xmlNode * node,FILE * f){
 		fprintf(f,"actions[%d].axis.distance = %s;\n",i,a_node->children->children->content);
 		fprintf(f,"actions[%d].axis.curr_action.time = %s;\n",i,a_node->children->next->children->content);
 		fprintf(f,"actions[%d].axis.curr_action.repeat = %d;\n",i,repeat);
+		fprintf(f,"actions[%d].axis.curr_action.execution_phase = %d;\n",i,pe);
+		if(!ismerge)
+			pe++;
 		i++;
 		
 
@@ -81,10 +95,14 @@ void actions_genere(xmlNode * node,FILE * f){
 			fprintf(f,"actions[%d].rotate.angle = %s;\n",i,a_node->children->children->content);
 			fprintf(f,"actions[%d].rotate.curr_action.time = %s;\n",i,a_node->children->next->children->content);
 			fprintf(f,"actions[%d].rotate.curr_action.repeat = %d;\n",i,repeat);
+			fprintf(f,"actions[%d].rotate.curr_action.execution_phase = %d;\n",i,pe);
+			if(!ismerge)
+				pe++;
 			i++;
 		
 	//access content of an action
 	}else if(!strcmp("action",a_node->name)){
+		ismerge=0;
 		actions_genere(a_node,f);
 		a_node=a_node->next;
 		break;
@@ -240,7 +258,8 @@ int main(int argc, char * argv[]){
      	printf("structure generer ok\n");
 	//Écriture du main
 	main_genere(genere,init);
-	fprintf(init,"length=%d;\n}",i);
+	fprintf(init,"length=%d;\n",i);
+	fprintf(init,"pe=%d;\n}",pe);
   	printf("main generer ok\n");
   	fclose(init);
 	fclose(genere);
