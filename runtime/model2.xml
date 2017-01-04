@@ -1,0 +1,1 @@
+<model><config name="ParrotArdrone2"><connection>BLUETOOTH</connection><address>2A:20:20:20:20:20</address></config><context><maxLength>30</maxLength><maxHeight>30</maxHeight><maxWidth>30</maxWidth><positionX>10</positionX><initialDirection>BEHIND</initialDirection><positionY>10</positionY></context><action><rotate><angle>180</angle><time>2</time></rotate></action></model>
