@@ -75,7 +75,6 @@ struct global {
 // action
 struct action {
     int (*func)();
-    unsigned int repeat;
     unsigned int time;
     int execution_phase;
 }action;

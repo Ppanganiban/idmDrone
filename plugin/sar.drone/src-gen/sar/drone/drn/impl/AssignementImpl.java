@@ -48,7 +48,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected static final String NAME_EDEFAULT = null;
-
+  
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
+  
   /**
    * The cached value of the '{@link #getOperandes() <em>Operandes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected EList<Expression> operandes;
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,7 +78,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     super();
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -89,7 +89,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     return DrnPackage.Literals.ASSIGNEMENT;
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -99,7 +99,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     return name;
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,7 +112,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ASSIGNEMENT__NAME, oldName, name));
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -126,7 +126,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     return operandes;
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -137,12 +137,12 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return ((InternalEList<?>)getOperandes()).basicRemove(otherEnd, msgs);
+    case DrnPackage.ASSIGNEMENT__OPERANDES:
+      return ((InternalEList<?>)getOperandes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -153,14 +153,14 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
-        return getName();
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return getOperandes();
+    case DrnPackage.ASSIGNEMENT__NAME:
+      return getName();
+    case DrnPackage.ASSIGNEMENT__OPERANDES:
+      return getOperandes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -172,17 +172,17 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
-        setName((String)newValue);
-        return;
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        getOperandes().clear();
-        getOperandes().addAll((Collection<? extends Expression>)newValue);
-        return;
+    case DrnPackage.ASSIGNEMENT__NAME:
+      setName((String)newValue);
+      return;
+    case DrnPackage.ASSIGNEMENT__OPERANDES:
+      getOperandes().clear();
+      getOperandes().addAll((Collection<? extends Expression>)newValue);
+      return;
     }
     super.eSet(featureID, newValue);
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -193,16 +193,16 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        getOperandes().clear();
-        return;
+    case DrnPackage.ASSIGNEMENT__NAME:
+      setName(NAME_EDEFAULT);
+      return;
+    case DrnPackage.ASSIGNEMENT__OPERANDES:
+      getOperandes().clear();
+      return;
     }
     super.eUnset(featureID);
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -213,14 +213,14 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     switch (featureID)
     {
-      case DrnPackage.ASSIGNEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DrnPackage.ASSIGNEMENT__OPERANDES:
-        return operandes != null && !operandes.isEmpty();
+    case DrnPackage.ASSIGNEMENT__NAME:
+      return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+    case DrnPackage.ASSIGNEMENT__OPERANDES:
+      return operandes != null && !operandes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -229,39 +229,42 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   @Override
   public String toString()
   {
-   if (eIsProxy()) {  
-    	return super.toString();
+    if (eIsProxy()) {  
+      return super.toString();
     }
-
+    
     StringBuffer result = new StringBuffer();
     for (Expression e : operandes){
-        result.append("<action>");
-        if(e.getRepeatCST()>1)
-    		result.append("<repeat>"+e.getRepeatCST()+"</repeat>");
-
+      //result.append("<action>");
+      
+      for(int i = 0; i < e.getRepeatCST(); i++){
+        result.append(e.getMove().toString());
         if(e.getWith().size() > 0)
-    		result.append(e.getWith().get(0).toString());
-        
-    	result.append(e.getMove().toString());
-	    for (Expression t : e.getThen())
-	        result.append(t.getMove().toString());
+          result.append(e.getWith().get(0).toString());
 
-        result.append("</action>");
+        for (Expression t : e.getThen()){
+          result.append(t.getMove().toString());
+          if(e.getWith().size() > 0)
+            result.append(e.getWith().get(0).toString());          
+        }
+      }
+      
+      //result.append("</action>");
     }
     return result.toString();
   }
-
+  
   protected boolean mark = true;
   protected boolean repeated = false;
-
+  
   Assignement caller = null;
   
   @Override
   public Assignement getCaller(){
-	  return caller;
+    return caller;
   }
   @Override
   public void setCaller(Assignement a){
-	  caller = a;
+    caller = a;
   }
 } //AssignementImpl

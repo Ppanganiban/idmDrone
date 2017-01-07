@@ -7,12 +7,9 @@
 #include "runtime.h"
 
 int nameAction=0;
-int distance =0;
-int time = 0;
 int maxLength =0;
 int connection =0;
 int ip = 0;
-int repeat =0;
 int ref = 0;
 int direction = 0;
 char limit_v_speed=0;
@@ -21,56 +18,35 @@ char limit_length=0;
 char limit_width=0;
 char angle;
 int i=0;
+
 xmlDocPtr doc;
 xmlNodePtr node;
 xmlNode *cur_node = NULL;
-char ismerge=0;
 
-
-void actions_genere(xmlNode * node,FILE * f){
+void actions_genere(xmlNode * node, FILE * f, int isMerge){
 	
 	xmlNode * a_node = node;
-	xmlNode * c_node =a_node;
-	int repeat = 1;
-	struct option opt;
-
-  //access the content of an action
-	if(!strcmp("action",a_node->name))
-		a_node = a_node->children;
 
 	while(a_node!=NULL){
-		
-	  if(!strcmp("merge",a_node->name)){
-		  ismerge = 1;
-		  printf("it's a merge\n");
-		  actions_genere(a_node->children,f);
-	  }
+	  printf("Node : %s\n",(char*) a_node->name);	
 
-	  //check repeat
-	  if(!strcmp("repeat",a_node->name)){
-      repeat = atoi(a_node->children->content);
-      a_node = a_node -> next;
-	  }
-	
-	  //access the content of an action
-	  if(!strcmp("action",a_node->name)){
-		  ismerge=0;
-		  actions_genere(a_node,f);
-		  a_node=a_node->next;
-		  //continue;
-		  break;
-	  }
+    if(!strcmp("merge",(char*) a_node->name)){
+		  printf("**Merge***\n");
+		  actions_genere(a_node->children, f, 1);
+      printf("**FIN MERGE**\n");
+    }
 
 	  //check with
-	  if(!strcmp("with",a_node->name)){
+	  if(!strcmp("with",(char*) a_node->name)){
 		  /* NOT IMPLEMENTED YET! */
+      /* THE TARGET OF A WITH IS THE LAST NODE SAVED */
 	  }
 	
 	  //one Axis action
-	  if(!strcmp("right",a_node->name)
-        || !strcmp("left",a_node->name)
-        || !strcmp("backward",a_node->name)
-        || !strcmp("forward",a_node->name)){
+	  if(!strcmp("right",(char*) a_node->name)
+        || !strcmp("left",(char*) a_node->name)
+        || !strcmp("backward",(char*) a_node->name)
+        || !strcmp("forward",(char*) a_node->name)){
 
       fprintf(f,"actions[%d].type =0 ;\n",i);
   		fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name);
@@ -82,17 +58,15 @@ void actions_genere(xmlNode * node,FILE * f){
               "actions[%d].axis.curr_action.time = %s;\n",
               i,
               a_node->children->next->children->content);
-		  fprintf(f, "actions[%d].axis.curr_action.repeat = %d;\n", i, repeat);
 		  fprintf(f,"actions[%d].axis.curr_action.execution_phase = %d;\n", i, pe);
 
-      if(!ismerge)
+      if(!isMerge)
 			  pe++;
 
       i++;
-
 	  }
     //Rotation action
-    else if(!strcmp("rotate", a_node->name)){
+    else if(!strcmp("rotate",(char*) a_node->name)){
 			fprintf(f,"actions[%d].type =1 ;\n",i);
 			fprintf(f,"actions[%d].rotate.curr_action.func = &%s;\n",i,a_node->name);
 
@@ -106,32 +80,19 @@ void actions_genere(xmlNode * node,FILE * f){
               i,
               a_node->children->next->children->content);
 
-			fprintf(f,"actions[%d].rotate.curr_action.repeat = %d;\n",i,repeat);
 			fprintf(f,
           "actions[%d].rotate.curr_action.execution_phase = %d;\n",
           i,
           pe);
 
-			if(!ismerge)
+			if(!isMerge)
 				pe++;
 
       i++;
     }
-    //Access content of an action
-    else if(!strcmp("action",a_node->name)){
-		  ismerge=0;
-		  actions_genere(a_node,f);
-		  a_node=a_node->next;
-		  break;
-		  //continue;
-	  }
     fprintf(f,"\n\n");
     a_node=a_node->next;
 	}
-
-	if(node->next)
-		actions_genere(node->next,f);
-
 }
 
 void context_genere (FILE * f){
@@ -143,28 +104,28 @@ void context_genere (FILE * f){
   fprintf(f,"/***** CONTEXT OF CHOREOGRAPHY ******/\n");
 	while(a_node){
 		//max height
-		if(!strcmp(a_node->name,"maxHeight")){
+		if(!strcmp((char*) a_node->name,"maxHeight")){
 			fprintf(f,"g.context.height = %s;\n",a_node->children->content);
 		//maxlength
-		}else if(!strcmp(a_node->name,"maxLength")){
+		}else if(!strcmp((char*) a_node->name,"maxLength")){
 			fprintf(f,"g.context.length = %s;\n",a_node->children->content);
 		//maxwidth
-		}else if (!strcmp(a_node->name,"maxWidth")){
+		}else if (!strcmp((char*) a_node->name,"maxWidth")){
 			fprintf(f,"g.context.width = %s;\n",a_node->children->content);
 		//maxangularspeed
-		}else if (!strcmp(a_node->name,"maxAngularSpeed")){
+		}else if (!strcmp((char*) a_node->name,"maxAngularSpeed")){
 			fprintf(f,"g.context.angular_speed = %s;\n",a_node->children->content);
 		//maxverticalspeed
-		}else if (!strcmp(a_node->name,"maxVerticalSpeed")){
+		}else if (!strcmp((char*) a_node->name,"maxVerticalSpeed")){
 			fprintf(f,"g.context.vertical_speed = %s;\n",a_node->children->content);
 		//initial x position of the drone
-		}else if (!strcmp(a_node->name,"positionX")){
+		}else if (!strcmp((char*) a_node->name,"positionX")){
 			fprintf(f,"g.context.initial_pos.x = %s;\n",a_node->children->content);
 		//initial y position of the drone
-		}else if (!strcmp(a_node->name,"positionY")){
+		}else if (!strcmp((char*) a_node->name,"positionY")){
 			fprintf(f,"g.context.initial_pos.y = %s;\n",a_node->children->content);
 		//initial direction of the drone
-		}else if (!strcmp(a_node->name,"initialDirection")){
+		}else if (!strcmp((char*) a_node->name,"initialDirection")){
 			fprintf(f,"g.context.initial_direction = %s;\n",a_node->children->content);
 
 		}
@@ -194,7 +155,7 @@ void config_genere(FILE * f){
 	xmlNode * a_node=cur_node;
 
   fprintf(f,"/********* CONFIGURATION ***************/\n");
-	if(strcmp("config",cur_node->name)){
+	if(strcmp("config",(char*) cur_node->name)){
     fprintf(stderr, "XML file is wrong !\n");
    	exit(-1);
   }
@@ -202,7 +163,7 @@ void config_genere(FILE * f){
   //Check connection
 	a_node = a_node->children;
 
-	if(strcmp("connection",a_node->name)){
+	if(strcmp("connection",(char*) a_node->name)){
     fprintf(stderr, "XML file is wrong !\n");
     exit(-1);
 	}
@@ -211,7 +172,7 @@ void config_genere(FILE * f){
   a_node = a_node->next;
     	
   //Check Address  	
-  if(strcmp("address",a_node->name)){
+  if(strcmp("address",(char*) a_node->name)){
     fprintf(stderr, "XML file is wrong !\n");
     exit(-1);
   }
@@ -221,11 +182,11 @@ void config_genere(FILE * f){
 
 void main_genere(FILE * f,FILE * actions){
 
-  char monmain []="int main(int argc, char * argv[]){\n";
+  char monmain []="int main(int argc, char * argv[]){\n\n";
 
   fprintf(f,"%s",monmain);
   cur_node = node; 
-  if(strcmp("model",cur_node->name)){
+  if(strcmp("model",(char*) cur_node->name)){
     fprintf(stderr, "XML file is wrong !\n");
     exit(-1);
   }
@@ -248,7 +209,7 @@ void main_genere(FILE * f,FILE * actions){
   fprintf(f,"connectDrone(&g);\n");
 
   //generate the actions
-  actions_genere(cur_node->next,actions);
+  actions_genere(cur_node->next,actions,0);
 
   fprintf(f,"choreography();\n");
 

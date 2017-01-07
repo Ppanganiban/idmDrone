@@ -132,7 +132,7 @@ pthread_mutex_t navdata_mutex;
  ******************************************************************************/
 
 float convert32BitsToFloat(char bits[32]){
-  int i, bit;
+  int i;
   float result = 0;
   for (i = 0; i < 32; i+=4){
     if(bits[i] == '1')
@@ -224,7 +224,6 @@ void pitch_update(){
 
 void spin_update(){
   /*************TO DO***************/
-  printf("spin_update : TO DO\n");
   /*  if(pile[g.index_action].rotate.angle<0)
     spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
   else
@@ -346,17 +345,17 @@ void sending_command(char * command,
                       struct sockaddr_in dest,
                       int socket){
 
-  int sended, count;
+  //int sended;
   double t1, t2;
 
   t1 = my_gettimeofday();
   t2 = t1;
 
-  printf("Sending command : %s during %d seconds\n\n",command, time);
+  printf("During %d seconds :: sending %s\n\n",time , command);
 
   //SEND THIS COMMAND DURING AT LEAST 1 second
   //************** TO DO *********************
-  count = 0;
+
   while(t1 + time - 1 > t2){
     //printf("Sending command : %s\n",command);
     /*sended = sendto(socket,
@@ -512,8 +511,8 @@ void* control_udp(){
   int i=0;
   int j=0;
   int k=0;
-  int mintime = 0;
-  int maxtime = 0;
+  //int mintime = 0;
+  //int maxtime = 0;
   
   int exec = 0;
 
@@ -571,6 +570,8 @@ void* control_udp(){
       indexof = 0;
   }
   land(&g);
+
+  pthread_exit(NULL);
 }
 
 /*
@@ -579,9 +580,14 @@ void* control_udp(){
  */
 void* navdata_udp(){
 
-  ssize_t recu ;
-  
-  socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
+  //ssize_t recu ;
+  //socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
+
+  int count;
+  for(count = 0; count < 6; count ++){
+    printf("NAVDATA : TODO SEND RECV\n");
+    sleep(2);
+  }
 
   int sended = sendto(socket_navdata,
 		                  "\x01\x00\x00\x00",
@@ -604,11 +610,16 @@ void* navdata_udp(){
 
   pthread_mutex_unlock(&navdata_mutex);
 
-
+  pthread_exit(NULL);
 }
 
 void* video_tcp(){
-
+  int count;
+  for(count = 0; count < 6; count ++){
+    printf("VIDEO :TODO SEND RECV\n");
+    sleep(2);
+  }
+  pthread_exit(NULL);
 }
 
 

@@ -60,7 +60,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    * @ordered
    */
-  protected static final int REPEAT_CST_EDEFAULT = 0;
+  protected static final int REPEAT_CST_EDEFAULT = 1;
 
   /**
    * The cached value of the '{@link #getRepeatCST() <em>Repeat CST</em>}' attribute.

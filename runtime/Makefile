@@ -1,4 +1,4 @@
-LIBS = -I/usr/include/libxml2 -lxml2 -g -pthread -lm
+LIBS = -I/usr/include/libxml2 -lxml2 -g -pthread -lm -Wall
 MODEL = ../tests/src-gen/model.xml
 EXEC = generateur
 GENEXEC = genere

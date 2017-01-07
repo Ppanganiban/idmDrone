@@ -5,6 +5,7 @@
 #include "init.h"
 
 int main(int argc, char * argv[]){
+
 /********* CONFIGURATION ***************/
 cnx.type =  "WI-FI";
 cnx.address = "192.168.1.1";
