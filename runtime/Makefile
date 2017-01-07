@@ -1,5 +1,5 @@
-LIBS = -I/usr/include/libxml2 -lxml2 -g -pthread
-MODEL = ./model2.xml
+LIBS = -I/usr/include/libxml2 -lxml2 -g -pthread -lm
+MODEL = ../tests/src-gen/model.xml
 EXEC = generateur
 GENEXEC = genere
 all: $(EXEC) $(GENEXEC)

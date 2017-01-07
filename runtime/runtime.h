@@ -5,6 +5,8 @@
 #define RIGHTWARD 3
 #define LEFTWARD 4
 
+#define ACTION_ROTATE 1
+#define ACTION_AXIS 0
 
 struct attribute{
 	char  name[255];

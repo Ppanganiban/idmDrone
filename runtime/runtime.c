@@ -5,44 +5,46 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+#include <sys/time.h>
 #include <stdint.h>
+#include <math.h>
+
 #define TIMER 2
 #define BUFFER_SIZE 512
 #define DroneAddress "192.168.1.1"
 #define AT_PORT 5556
 #define NAVDATA_PORT 5554
 #define DRONE_SPEED 5 //m/s
-// control_udp
-int socket_command;
-char * config [] = {};
-char * commands[] = {"AT*REF=seq,290718208\r","AT*REF=seq,290717696\r","AT*FTRIM=seq\r","AT*PCMD=seq,"};
-int32_t control_value [] = {-1082130432,-1086324736,-1090519040,-1098907648,-1102263091,-1110651699,-1119040307,0,1028443341,1036831949,1045220557,1048576000,1056964608,1061158912,1065353216};
-struct sockaddr_in serv_addr;
-int seq_control = 101;
-// navdata_udp
-int socket_navdata;
-char * navdata_command[] = {"AT*CONFIG=seq,\"general:navdata_demo\",\"TRUE\"\r","AT*CTRL=seq,0,\r"};
-struct sockaddr_in serv_addr_navdata;
-int seq_control_navdata = 1;
-//moving data
-int32_t tilt,pitch,vspeed,spin;
+
+//FOR AT*REF
+#define TAKEOFF 1
+#define LAND 0
+#define EMERGENCY_CHANGE 1
+#define EMERGENCY_STAY 0
+#define DEF_ATREF 290717696
+
+//FOR AT*PCMD
+#define FLAG_HOVER 0
+#define FLAG_PROG 1     //Progressive mode
+#define FLAG_PROGWITHYAW 3  //Progressive mode with yaw
 
 
-//pile of instructions
-struct uAction pile[4];
+/*******************************************************************************
+ ***************************** NAV DATA ****************************************
+ ******************************************************************************/
 
 typedef signed short      int16_t;
 typedef unsigned short     uint16_t;
-
-typedef float        float32_t;
-typedef double       float64_t;
+typedef float  float32_t;
+typedef double float64_t;
 
 typedef struct _navdata_demo_t {
   uint16_t    tag;            /*!< Navdata block ('option') identifier */
   uint16_t    size;           /*!< set this to the size of this structure */
 
-  uint32_t    ctrl_state;             /*!< Flying state (landed, flying, hovering, etc.) defined in CTRL_STATES enum. */
+  uint32_t    ctrl_state;     /*!< Flying state (landed, flying, hovering, etc.)
+                                defined in CTRL_STATES enum. */
+
   uint32_t    vbat_flying_percentage; /*!< battery voltage filtered (mV) */
 
   float32_t   theta;                  /*!< UAV's pitch in milli-degrees */
@@ -55,7 +57,8 @@ typedef struct _navdata_demo_t {
   float32_t   vy;                     /*!< UAV's estimated linear velocity */
   float32_t   vz;                     /*!< UAV's estimated linear velocity */
 
-  uint32_t    num_frames;       /*!< streamed frame index */ // Not used -> To integrate in video stage.
+  uint32_t    num_frames;       /*!< streamed frame index */
+                                // Not used -> To integrate in video stage.
 
 
   uint32_t    detection_tag_index;    /*!<  Deprecated ! Don't use ! */
@@ -79,7 +82,7 @@ typedef struct _navdata_iphone_angles_t {
 typedef struct _navdata_vision_detect_t {
     uint16_t   tag;
     uint16_t   size;
-  
+
     uint32_t   nb_detected;  
     uint32_t   type[4];
     uint32_t   xc[4];        
@@ -97,189 +100,70 @@ typedef struct _navdata_unpacked_t {
     navdata_iphone_angles_t  navdata_iphone_angles;
     navdata_vision_detect_t  navdata_vision_detect;
 } navdata_unpacked_t;
+
+
+/*******************************************************************************
+ ***************************** VARIABLES ***************************************
+ ******************************************************************************/
+
+char * config [] = {};
+int seq_control = 1;
+
+int socket_command;
+struct sockaddr_in serv_addr;
+
+int socket_navdata;
+struct sockaddr_in serv_addr_navdata;
+
+//moving data
+float tilt,pitch,vspeed,spin;
+
+
+//pile of instructions
+struct uAction pile[4];
+
 int indexof = 0;
+
 navdata_unpacked_t navdata_buffer;
 pthread_mutex_t navdata_mutex;
 
+/*******************************************************************************
+ ***************************** TOOLS *******************************************
+ ******************************************************************************/
 
-void put_seq(char *command){
- //
-  
-  char *delim = "seq";
-  char *tmp;
-  char p1[255]; 
- 
-  char p2[255]; 
-  p2[0]='\0';
-  tmp=strtok(command,delim);
-  
-  strcpy(p1,tmp);
-  if((tmp=strtok(NULL,""))!=NULL){
-   
-    strcpy(p2,&tmp[2]);
+float convert32BitsToFloat(char bits[32]){
+  int i, bit;
+  float result = 0;
+  for (i = 0; i < 32; i+=4){
+    if(bits[i] == '1')
+      result += pow(2,i);
+    if(bits[i+1] == '1')
+      result += pow(2,i + 1);
+    if(bits[i+2] == '1')
+      result += pow(2,i + 2);
+    if(bits[i+3] == '1')
+      result += pow(2,i + 3);
   }
-   
-  
-  snprintf(command,BUFFER_SIZE,"%s%d%s",p1,seq_control,p2);
-  //(*command)=cmd;
-  seq_control++;
+  return result;
 }
 
-void sending_commands(char * command,struct sockaddr_in dest,int socket){
-  int count =0;
-  char  command_to_send[BUFFER_SIZE];
-  strcpy(command_to_send,command);
-  put_seq(command_to_send);
-  printf("la command_send %s\n",command_to_send);
-  //while(count < 30){
-     if (sendto(socket,command_to_send,strlen(command_to_send)+1, 0, (struct sockaddr*)&dest, sizeof(dest))==-1)
-        {
-              perror("sendto");
-        }
-        count++;
-  //}
-
-  //printf("command: %s, count: %d\n",command_to_send,count);
-}
-int takeoff(struct global* g){
-  char move_command[512];
-  sending_commands(commands[2],serv_addr,socket_command);
-  seq_control=101;
-  while(1){
-    pthread_mutex_lock(&navdata_mutex);
-    if(navdata_buffer.navdata_demo.ctrl_state!=0){
-      sending_commands(commands[0],serv_addr,socket_command);
-      pthread_mutex_unlock(&navdata_mutex);
-  }else {
-      pthread_mutex_unlock(&navdata_mutex);
-      break;
-  }
-    snprintf(move_command,BUFFER_SIZE,"%s0,%d,%d,%d,%d",commands[3],tilt,pitch,vspeed,spin);
-
-   sending_commands(move_command,serv_addr,socket_command);
-}
-  return 0;
-}
-void pitch_update(){
-  if(pile[g.index_action].axis.curr_action.func == forward)
-    pitch = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*-1/DRONE_SPEED;
-  else
-    pitch = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*1/DRONE_SPEED;
-
-}
-void spin_update(){
-  if(pile[g.index_action].rotate.angle<0)
-    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
-  else
-    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
-
+double my_gettimeofday(){
+  struct timeval tmp_time;
+  gettimeofday(&tmp_time, NULL);
+  return (tmp_time.tv_sec + (tmp_time.tv_usec * 1.0e-6L));
 }
 
-
-void tilt_update(){
-  if(pile[g.index_action].axis.curr_action.func == left)
-    tilt = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*-1/DRONE_SPEED;
-  else
-    tilt = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*1/DRONE_SPEED;
-
+int setBitToOne(int val, int pos){
+  return (val | ( 1 << pos) );
 }
 
-/*void verticalspeed_update(){
-  if(pile[g.index_action].axis.curr_action.func == up)
-    vertical = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*-1/DRONE_SPEED;
-  else
-    vertical = ((float)pile[g.index_action].axis.distance/actions[g.index_action].axis.curr_action.time)*1/DRONE_SPEED;
-
-}*/
-
-
-int forward(struct global* g){
-  char move_command[BUFFER_SIZE];
-  pitch_update();
-  printf("Forward d: %d t: %d\n",pile[g->index_action].axis.distance,pile[g->index_action].axis.curr_action.time);
-  snprintf(move_command,BUFFER_SIZE,"%s1,%d,%d,%d,%d",commands[3],tilt,pitch,vspeed,spin);
-  sending_commands(move_command,serv_addr,socket_command);
-  return 0;}
-
-int backward(struct global* g){
-  char move_command[BUFFER_SIZE];
-  pitch_update();
-  printf("Backward d: %d t: %d\n",pile[g->index_action].axis.distance,pile[g->index_action].axis.curr_action.time);
-  snprintf(move_command,BUFFER_SIZE,"%s1,%d,%d,%d,%d",commands[3],tilt,pitch,vspeed,spin);
-  sending_commands(move_command,serv_addr,socket_command);
-  return 0;}
-
-int left(struct global* g){
-  char move_command[BUFFER_SIZE];
-  tilt_update();
-  printf("Left d: %d t: %d\n",pile[g->index_action].axis.distance,pile[g->index_action].axis.curr_action.time);
-  snprintf(move_command,BUFFER_SIZE,"%s1,%d,%d,%d,%d",commands[3],tilt,pitch,vspeed,spin);
-  sending_commands(move_command,serv_addr,socket_command);
-  return 0;
+int setBitToZero(int val, int pos){
+  int mask = setBitToOne(0, pos);
+  return (val & ~mask);
 }
-int right(struct global* g){
-  char move_command[BUFFER_SIZE];
-  tilt_update();
-  printf("Right d: %d t: %d\n",pile[g->index_action].axis.distance,pile[g->index_action].axis.curr_action.time);
 
-  snprintf(move_command,BUFFER_SIZE,"%s1,%d,%d,%d,%d",commands[3],tilt,pitch,vspeed,spin);
-  sending_commands(move_command,serv_addr,socket_command);
-  return 0;
-}
-int rotate(struct global* g){
-  char move_command[BUFFER_SIZE];
-  spin_update();
-  printf("Rotate a: %d t: %d\n",pile[g->index_action].rotate.angle,pile[g->index_action].axis.curr_action.time);
-  snprintf(move_command,BUFFER_SIZE,"%s1,%d,%d,%d,%d\r",commands[3],tilt,pitch,vspeed,spin);
-  sending_commands(move_command,serv_addr,socket_command);
-  return 0;
-}
-int land(struct global* g){
-   while(1){
-    pthread_mutex_lock(&navdata_mutex);
-    if(navdata_buffer.navdata_demo.ctrl_state!=1){
-      sending_commands(commands[1],serv_addr,socket_command);
-      pthread_mutex_unlock(&navdata_mutex);
-  }else {
-      pthread_mutex_unlock(&navdata_mutex);
-      break;
-  }
-}
-  return 0;
-}
-int connectDrone(struct global* g){
-  
-  //connect to send control
-  if((socket_command =  socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP))==-1)
-    perror("socket");
-
-  bzero(&serv_addr,sizeof(serv_addr));
-
-  serv_addr.sin_family = AF_INET;
-  serv_addr.sin_port=htons(AT_PORT);
-  serv_addr.sin_addr.s_addr = inet_addr(DroneAddress);
-
-  //connect to get navdata
-
-  if((socket_navdata =  socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP))==-1)
-    perror("socket");
-
-  
-
-  bzero(&serv_addr_navdata,sizeof(serv_addr_navdata));
-  serv_addr_navdata.sin_family = AF_INET;
-  serv_addr_navdata.sin_port=htons(NAVDATA_PORT);
-  serv_addr_navdata.sin_addr.s_addr = inet_addr(DroneAddress);
-
-
-
-   socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
- 
-   //if(bind(socket_navdata,(struct sockaddr *)&serv_addr_navdata,sizeof(serv_addr_navdata))==-1)
-   //     perror("bind");
-  
-  return 0;}
- void pile_sorting(){
+/*Handle action*/
+void pile_sorting(){
   int i=0;
   int j=0;
   char b=0;
@@ -300,7 +184,6 @@ int connectDrone(struct global* g){
       else
         time2 = pile[j].rotate.curr_action.time;
 
-
       if(time1 < time2){
          b=0;
          memcpy(&tmp,&pile[j+1],sizeof(pile[j+1]));
@@ -315,19 +198,316 @@ int connectDrone(struct global* g){
         else
           pile[j+1].rotate.curr_action.time-=pile[j].rotate.curr_action.time;
       }
-       
+    
     }
     if(b)
       break;
-  }
-    
+  }    
 }
 
-    
 
-int disconnectDrone(struct global* g){return 0;}
+/*******************************************************************************
+ ************************ UPDATE ROTORS ****************************************
+ ******************************************************************************/
+
+void pitch_update(){
+  float distance, time;
+
+  distance  = (float) pile[g.index_action].axis.distance;
+  time      = (float) actions[g.index_action].axis.curr_action.time;
+  if(pile[g.index_action].axis.curr_action.func == forward)
+    pitch = (distance / time) * -1 / DRONE_SPEED;
+
+  else
+    pitch = (distance / time) /DRONE_SPEED;
+}
+
+void spin_update(){
+  /*************TO DO***************/
+  printf("spin_update : TO DO\n");
+  /*  if(pile[g.index_action].rotate.angle<0)
+    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
+  else
+    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
+*/
+}
 
 
+void tilt_update(){
+  float distance, time;
+
+  distance  = (float) pile[g.index_action].axis.distance;
+  time      = (float) actions[g.index_action].axis.curr_action.time;
+
+  if(pile[g.index_action].axis.curr_action.func == left)
+    tilt = (distance / time) * -1 / DRONE_SPEED;
+  else
+    tilt = (distance / time) / DRONE_SPEED;
+}
+
+
+/*******************************************************************************
+ ***************************** ATCMD *******************************************
+ ******************************************************************************/
+
+char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
+  char * command = (char*) calloc(64, sizeof(char));
+
+  printf("CREATE PCMD : (%f)%d /(%f)%d /(%f)%d /(%f)%d\n",
+      roll, *(int*)&roll,
+      pitch, *(int*)&pitch,
+      gaz, *(int*)&gaz,
+      yaw, *(int*)&yaw);
+
+  if(flag == FLAG_HOVER || flag == FLAG_PROG || flag == FLAG_PROGWITHYAW){
+    snprintf(command,
+            64 * sizeof(char),
+            "AT*PCMD=%d,%d,%d,%d,%d,%d\r",
+            seq_control,
+	          flag,
+	          *(int*) &roll,
+	          *(int*) &pitch,
+	          *(int*) &gaz,
+	          *(int*) &yaw);
+  }
+  else{
+    perror("Creating command AT_PCMD :: Flag not allowed");
+  }
+  seq_control++;
+  return command;
+}
+
+char * createAT_REF(int startBit, int emergency){
+  char * command = (char*) calloc(32, sizeof(char));
+  int arg = DEF_ATREF; //Default values
+  if(startBit == TAKEOFF)
+    arg = setBitToOne(arg, 9);
+  
+  if(emergency == EMERGENCY_CHANGE)
+    arg = setBitToOne(arg, 8);
+
+  snprintf(command,
+            32 * sizeof(char),
+            "AT*REF=%d,%d\r",
+            seq_control,
+            arg);
+
+  seq_control++;
+  return command;
+}
+
+char * createAT_FTRIM(){ 
+  char * command = (char*) calloc(32, sizeof(char));
+  snprintf(command, 32 * sizeof(char), "AT*FTRIM=%d\r", seq_control);
+  seq_control++;
+  return command;
+}
+
+char * createAT_CALIB(int id_device){ 
+  char * command = (char*) calloc(32, sizeof(char));
+  snprintf(command,
+            32 * sizeof(char),
+            "AT*CALIB=%d,%d\r",
+            seq_control,
+            id_device);
+  seq_control++;
+  return command;
+}
+
+char * createAT_CONFIG(char * opt_name, char * opt_value){
+  char * command = (char*) calloc(1024, sizeof(char));
+  snprintf(command,
+            1024 * sizeof(char),
+            "AT*CONFIG=%d,%s, %s\r",
+            seq_control,
+            opt_name,
+            opt_value);
+  seq_control++;
+  return command;
+}
+
+char * createAT_COMWDG(){
+  char * command = (char*) calloc(32, sizeof(char));
+  snprintf(command,
+            32 * sizeof(char),
+            "AT*COMWDG=%d\r",
+            seq_control);
+  return command;
+}
+
+/*******************************************************************************
+ ***************************** SEND CMD ****************************************
+ ******************************************************************************/
+
+/* Send an AT command during 1 second */
+// MAY BE we can manage the time of a sending message in this function
+void sending_command(char * command,
+                      int time,
+                      struct sockaddr_in dest,
+                      int socket){
+
+  int sended, count;
+  double t1, t2;
+
+  t1 = my_gettimeofday();
+  t2 = t1;
+
+  printf("Sending command : %s during %d seconds\n\n",command, time);
+
+  //SEND THIS COMMAND DURING AT LEAST 1 second
+  //************** TO DO *********************
+  count = 0;
+  while(t1 + time - 1 > t2){
+    //printf("Sending command : %s\n",command);
+    /*sended = sendto(socket,
+	                  command_to_send,
+	                  strlen(command_to_send) + 1,
+	                  0,
+	                  (struct sockaddr*)&dest,
+	                  sizeof(dest));
+
+    if (sended ==-1)
+      perror("sendto");
+    */
+    t2 = my_gettimeofday();
+  }
+}
+
+/*******************************************************************************
+ ************************ RUNTIME MOVEMENTS ************************************
+ ******************************************************************************/
+
+int takeoff(struct global* g){
+  char *cmd;
+
+  cmd = createAT_FTRIM();
+  sending_command(cmd, 1, serv_addr, socket_command);
+  free(cmd);
+
+  cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
+  sending_command(cmd, 1, serv_addr, socket_command);
+
+  //Check in control state if AR DRONE is actually in the air
+  /********TO DO***************/
+
+  free(cmd);
+  return 0;
+}
+
+int land(struct global* g){
+  char *cmd;
+
+  cmd = createAT_REF(LAND, EMERGENCY_STAY);
+  sending_command(cmd, 1, serv_addr, socket_command);
+
+  //Check in control state if AR DRONE is actually landed
+  /******* TO DO ************/
+
+  free(cmd);
+  return 0;
+}
+
+/*
+ * Send an AT_PCMD command with the current value of global variables
+ * tilt, pitch, spin, vpseed.
+ */
+void sendATPCMD(){
+  char * cmd = createAT_PCMD(FLAG_PROG, tilt, pitch, spin, vspeed);
+  int time;
+  if(pile[g.index_action].type == ACTION_AXIS)
+    time = pile[g.index_action].axis.curr_action.time;
+
+  else
+    time = pile[g.index_action].rotate.curr_action.time;
+
+  sending_command(cmd, time, serv_addr,socket_command);
+  free(cmd);
+}
+
+int forward(struct global* g){
+  pitch_update();
+  printf("Forward d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+  sendATPCMD();
+  return 0;
+}
+
+int backward(struct global* g){
+  pitch_update();
+  printf("Backward d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+
+  sendATPCMD();
+  return 0;
+}
+
+int left(struct global* g){
+  tilt_update();
+  printf("Left d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+
+  sendATPCMD();
+  return 0;
+}
+int right(struct global* g){
+  tilt_update();
+  printf("Right d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+
+  sendATPCMD();
+  return 0;
+}
+
+int rotate(struct global* g){
+  spin_update();
+  printf("Rotate a: %d t: %d\n",
+          pile[g->index_action].rotate.angle,
+          pile[g->index_action].rotate.curr_action.time);
+
+  sendATPCMD();
+  return 0;
+}
+
+/*******************************************************************************
+ ************************ RUNTIME CONNECTION ***********************************
+ ******************************************************************************/
+
+int connectDrone(struct global* g){
+  
+  //connect to send control
+  if((socket_command = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
+    perror("Error creating socket command");
+
+  memset(&serv_addr, 0, sizeof(serv_addr));
+  serv_addr.sin_family = AF_INET;
+  serv_addr.sin_port=htons(AT_PORT);
+  serv_addr.sin_addr.s_addr = inet_addr(DroneAddress);
+
+  //connect to get navdata
+  if((socket_navdata = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
+    perror("Error creating socket navdata");
+  
+  memset(&serv_addr_navdata, 0, sizeof(serv_addr_navdata));
+
+  serv_addr_navdata.sin_family = AF_INET;
+  serv_addr_navdata.sin_port=htons(NAVDATA_PORT);
+  serv_addr_navdata.sin_addr.s_addr = inet_addr(DroneAddress);
+
+  return 0;
+}
+
+int disconnectDrone(struct global* g){
+  return 0;
+}
+
+/*
+ * Read all actions of the choreography and send it to the drone.
+ * Executed by one thread.
+ */
 void* control_udp(){
   int i=0;
   int j=0;
@@ -336,88 +516,94 @@ void* control_udp(){
   int maxtime = 0;
   
   int exec = 0;
+
   takeoff(&g);
-  sleep(3);
-  for(j = 0;j <= pe;j++){
-     
-      if(actions[i].type==0)
+
+  for(j = 0;j <= pe;j++){ 
+      if(actions[i].type == ACTION_AXIS)
         exec = actions[i].axis.curr_action.execution_phase;
       else
         exec = actions[i].rotate.curr_action.execution_phase;
-    while(i<length && exec==j){
-     
-      pile[indexof]=actions[i];
-      indexof++;
-      i++;
-      if(actions[i].type==0)
-        exec = actions[i].axis.curr_action.execution_phase;
-      else
-        exec = actions[i].rotate.curr_action.execution_phase;
-    }
-    //printf("%d/%d\n",i,length);
-    pile_sorting();
-    for(k = indexof-1;k >= 0;k--){
-       g.index_action = k;
-       if(pile[k].type==0){
 
-        pile[k].axis.curr_action.func(&g);
-        //printf("ici\n");
-      }else{
-        pile[k].rotate.curr_action.func(&g);
-        //printf("la\n");
-      }
-    }
-    for(k=indexof-1;k>=0;k--){
-       if(pile[k].type==0){
+      while(i<length && exec == j){
+        pile[indexof] = actions[i];
+        indexof++;
+        i++;
 
-        sleep(pile[k].axis.curr_action.time);
-        //if(pile[k].axis.curr_action.func == forward || pile[k].axis.curr_action.func == backward)
-        //  pitch =0;
-        //else
-         // tilt = 0;
-        //printf("ici\n");
-      }else{
-        printf("j'attends %d\n",pile[k].rotate.curr_action.time);
-        sleep(pile[k].rotate.curr_action.time);
-        printf("j'ai attendu\n");
-        //spin = 0;
-        //printf("la\n");
+        if(actions[i].type == ACTION_AXIS)
+          exec = actions[i].axis.curr_action.execution_phase;
+        else
+          exec = actions[i].rotate.curr_action.execution_phase;
       }
 
-    }
-    pitch = 0;
-    spin  = 0;
-    vspeed = 0;
-    tilt = 0;
-    indexof=0;
+      //printf("%d/%d\n",i,length);
+      pile_sorting();
+
+      for(k = indexof-1; k >= 0; k--){
+        g.index_action = k;
+
+        if(pile[k].type == ACTION_AXIS){
+          pile[k].axis.curr_action.func(&g);
+        }else{
+          pile[k].rotate.curr_action.func(&g);
+        }
+      }
+
+      for(k=indexof-1;k>=0;k--){
+        if(pile[k].type== ACTION_AXIS){
+        /*if(pile[k].axis.curr_action.func == forward
+              || pile[k].axis.curr_action.func == backward)
+            
+            pitch =0;
+          else
+            tilt = 0;
+        */
+        }else{
+          //spin = 0;
+          //printf("la\n");
+        }
+      }
+
+      pitch = 0;
+      spin  = 0;
+      vspeed = 0;
+      tilt = 0;
+      indexof = 0;
   }
   land(&g);
 }
 
+/*
+ * Function used for checking state of drone by theirs navdata.
+ * Used by one thread.
+ */
 void* navdata_udp(){
-socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
-if (sendto(socket_navdata,"\x01\x00\x00\x00",strlen("\x01\x00\x00\x00")+1, 0, (struct sockaddr*)&serv_addr_navdata, sizeof(serv_addr_navdata))==-1)
-        {
-              perror("sendto");
-        }
-sending_commands(navdata_command[0],serv_addr_navdata,socket_navdata);
-pthread_mutex_lock(&navdata_mutex);
-ssize_t recu ;//= recvfrom (socket_navdata,&navdata_buffer,sizeof(navdata_buffer), 0,(struct sockaddr *)&serv_addr_navdata,&t);
-pthread_mutex_unlock(&navdata_mutex);
-//sleep(1);
-sending_commands(navdata_command[1],serv_addr_navdata,socket_navdata);
+  ssize_t recu ;
+  
+  socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
- while(1){
-         
-       
- 
-        recu = recvfrom (socket_navdata,&navdata_buffer,sizeof(navdata_buffer), 0,(struct sockaddr *)&serv_addr_navdata,&t);
-        if(recu == -1)
-            perror("erreur recvfrom\n");
-      //    navdata_buffer = (&navdata_buffer & 1U << 10);
-        printf("%u\n",navdata_buffer.navdata_demo.ctrl_state);
-    }
+  int sended = sendto(socket_navdata,
+		                  "\x01\x00\x00\x00",
+		                  strlen("\x01\x00\x00\x00") + 1,
+		                  0,
+		                  (struct sockaddr*)&serv_addr_navdata,
+		                  sizeof(serv_addr_navdata));
+    
+  if(sended == -1)
+    perror("NAVDATA_UDP :: Error with sendto");
+
+  //sending_command(navdata_command[0], serv_addr_navdata, socket_navdata);
+  pthread_mutex_lock(&navdata_mutex);
+  //recu = recvfrom (socket_navdata,
+  //                  &navdata_buffer,
+  //                  sizeof(navdata_buffer),
+  //                  0,
+  //                  (struct sockaddr *)&serv_addr_navdata,&t);
+
+
+  pthread_mutex_unlock(&navdata_mutex);
+
 
 }
 
@@ -428,20 +614,22 @@ void* video_tcp(){
 
 void choreography(){
 
-  pthread_t t1, t2, t3;
+  pthread_t t_control, t_navdata, t_video;
+
   pthread_mutex_init(&navdata_mutex,NULL);
-  tilt = 0;
-  spin = 0;
-  pitch = 0;
-  vspeed = 0;
-  pthread_create(&t1,NULL,control_udp,(void*)NULL);
+  tilt    = 0;
+  spin    = 0;
+  pitch   = 0;
+  vspeed  = 0;
+
+  pthread_create(&t_control, NULL, control_udp, (void*) NULL);
   
-  pthread_create(&t2,NULL,navdata_udp,(void*)NULL);
-  //pthread_create(&t3,NULL,video_tcp,(void*)NULL);
+  pthread_create(&t_navdata, NULL, navdata_udp, (void*) NULL);
+  
+  pthread_create(&t_video, NULL, video_tcp, (void*) NULL);
 
-
-  pthread_join(t1,NULL);
-  pthread_join(t2,NULL);
-  //pthread_join(t3,NULL);
+  pthread_join(t_control, NULL);
+  pthread_join(t_navdata, NULL);
+  pthread_join(t_video, NULL);
 
 }

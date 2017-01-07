@@ -13,11 +13,11 @@ CHOREOGRAPHY {
 	part{
 		(backward ( distance = 8 temps = 5) then forward ( distance = 8 temps = 5));
 		part2 X 2;
-		part3 with Cam ( mode ON, id = Bottom), Led( mode ON, color = Green, blinkPerSecond = 4);
+		part3 with Cam ( mode ON, id = Bottom);
 	}
 	part2{
 		rotate(angle = 90 temps = 2);
-		part3;
+		left(distance = 6 temps = 4);
 	}
 	part3{
 		right ( distance = 8 temps = 5);
