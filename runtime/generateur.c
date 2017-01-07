@@ -34,6 +34,7 @@ void actions_genere(xmlNode * node, FILE * f, int isMerge){
 		  printf("**Merge***\n");
 		  actions_genere(a_node->children, f, 1);
       printf("**FIN MERGE**\n");
+      pe++;
     }
 
 	  //check with
@@ -46,7 +47,10 @@ void actions_genere(xmlNode * node, FILE * f, int isMerge){
 	  if(!strcmp("right",(char*) a_node->name)
         || !strcmp("left",(char*) a_node->name)
         || !strcmp("backward",(char*) a_node->name)
-        || !strcmp("forward",(char*) a_node->name)){
+        || !strcmp("forward",(char*) a_node->name)
+        || !strcmp("up",(char*) a_node->name)
+        || !strcmp("down",(char*) a_node->name)
+        ){
 
       fprintf(f,"actions[%d].type =0 ;\n",i);
   		fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name);

@@ -712,7 +712,7 @@ public abstract class MyAbstractDrnValidator extends AbstractDeclarativeValidato
 		  precz = zCurr;
 		  precangle = angleCurr;
 
-		  DepX_Impl depX= ref.getDepx() != null ? ref.getDepx().get(0) : null;
+		  DepX_Impl depX= ref.getDepx().size()>0 ? ref.getDepx().get(0) : null;
 		  DepX_Impl subX;
 		  int nbiterX = 0;
 		  

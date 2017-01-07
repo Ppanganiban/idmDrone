@@ -113,6 +113,8 @@ int backward(struct global*);
 int left(struct global*);
 int right(struct global*);
 int rotate(struct global*);
+int up(struct global*);
+int down(struct global*);
 int land(struct global*);
 int connectDrone(struct global*);
 int disconnectDrone(struct global*);

@@ -214,7 +214,7 @@ void pitch_update(){
   float distance, time;
 
   distance  = (float) pile[g.index_action].axis.distance;
-  time      = (float) actions[g.index_action].axis.curr_action.time;
+  time      = (float) pile[g.index_action].axis.curr_action.time;
   if(pile[g.index_action].axis.curr_action.func == forward)
     pitch = (distance / time) * -1 / DRONE_SPEED;
 
@@ -224,19 +224,29 @@ void pitch_update(){
 
 void spin_update(){
   /*************TO DO***************/
-  /*  if(pile[g.index_action].rotate.angle<0)
-    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
+  if(pile[g.index_action].rotate.angle<0)
+    spin = -0.5 ;
   else
-    spin = control_value[(pile[g.index_action].rotate.angle*14/180)];
-*/
+    spin = 0.5;
 }
 
+void vspeed_update(){
+  float distance, time;
+
+  distance  = (float) pile[g.index_action].axis.distance;
+  time      = (float) pile[g.index_action].axis.curr_action.time;
+
+  if(pile[g.index_action].axis.curr_action.func == down)
+    tilt = (distance / time) * -1 / DRONE_SPEED;
+  else
+    tilt = (distance / time) / DRONE_SPEED;
+}
 
 void tilt_update(){
   float distance, time;
 
   distance  = (float) pile[g.index_action].axis.distance;
-  time      = (float) actions[g.index_action].axis.curr_action.time;
+  time      = (float) pile[g.index_action].axis.curr_action.time;
 
   if(pile[g.index_action].axis.curr_action.func == left)
     tilt = (distance / time) * -1 / DRONE_SPEED;
@@ -351,7 +361,7 @@ void sending_command(char * command,
   t1 = my_gettimeofday();
   t2 = t1;
 
-  printf("During %d seconds :: sending %s\n\n",time , command);
+  printf("During %d seconds :: Send command %s\n\n",time ,command);
 
   //SEND THIS COMMAND DURING AT LEAST 1 second
   //************** TO DO *********************
@@ -423,6 +433,23 @@ void sendATPCMD(){
   free(cmd);
 }
 
+int up(struct global* g){
+  vspeed_update();
+  printf("UP d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+  sendATPCMD();
+  return 0;
+}
+
+int down(struct global* g){
+  vspeed_update();
+  printf("Down d: %d t: %d\n",
+          pile[g->index_action].axis.distance,
+          pile[g->index_action].axis.curr_action.time);
+  sendATPCMD();
+  return 0;
+}
 int forward(struct global* g){
   pitch_update();
   printf("Forward d: %d t: %d\n",
@@ -584,9 +611,9 @@ void* navdata_udp(){
   //socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
   int count;
-  for(count = 0; count < 6; count ++){
-    printf("NAVDATA : TODO SEND RECV\n");
-    sleep(2);
+  for(count = 0; count < 4; count ++){
+    printf("NAVDATA : SEND RECV\n");
+    sleep(1);
   }
 
   int sended = sendto(socket_navdata,
@@ -614,11 +641,6 @@ void* navdata_udp(){
 }
 
 void* video_tcp(){
-  int count;
-  for(count = 0; count < 6; count ++){
-    printf("VIDEO :TODO SEND RECV\n");
-    sleep(2);
-  }
   pthread_exit(NULL);
 }
 
