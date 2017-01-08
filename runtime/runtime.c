@@ -15,6 +15,7 @@
 #define AT_PORT 5556
 #define NAVDATA_PORT 5554
 #define DRONE_SPEED 5 //m/s
+#define MSG_PER_SEC 30
 
 //FOR AT*REF
 #define TAKEOFF 1
@@ -106,30 +107,40 @@ typedef struct _navdata_unpacked_t {
  ***************************** VARIABLES ***************************************
  ******************************************************************************/
 
-char * config [] = {};
-int seq_control = 1;
+//Use for message
+int seq_control = 1;              //Sequence number for our packets
+pthread_mutex_t seq_mutex;
 
+char * mess_cmd_curr = NULL;      //Current movement (send every 0.03sec)
+pthread_mutex_t cmd_mutex;
+pthread_cond_t cond_cmd_initialized;
+int dance_start;
+
+char * mess_navdata_curr = NULL;  //Message for navdata (send every 0.003sec)
+pthread_mutex_t navdata_mutex;
+
+pthread_cond_t cond_drone_initialized;
+int drone_initialized;            //Flag for begining the creation of ATCMD
+int dance_over;
+
+//Sockets
 int socket_command;
 struct sockaddr_in serv_addr;
 
 int socket_navdata;
 struct sockaddr_in serv_addr_navdata;
 
-//moving data
+//Moving data
 float tilt,pitch,vspeed,spin;
-
 
 //pile of instructions
 struct uAction pile[4];
-
 int indexof = 0;
 
-navdata_unpacked_t navdata_buffer;
-pthread_mutex_t navdata_mutex;
-pthread_mutex_t seq_mutex;
-pthread_cond_t cond_drone_initialized;
-int drone_initialized;
 
+navdata_unpacked_t navdata_buffer;
+
+double timer;
 
 /*******************************************************************************
  ***************************** TOOLS *******************************************
@@ -275,8 +286,8 @@ char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
       gaz, *(int*)&gaz,
       yaw, *(int*)&yaw);
 
+  pthread_mutex_lock(&seq_mutex);
   if(flag == FLAG_HOVER || flag == FLAG_PROG || flag == FLAG_PROGWITHYAW){
-    pthread_mutex_lock(&seq_mutex);
     snprintf(command,
             64 * sizeof(char),
             "AT*PCMD=%d,%d,%d,%d,%d,%d\r",
@@ -286,12 +297,10 @@ char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
 	          *(int*) &pitch,
 	          *(int*) &gaz,
 	          *(int*) &yaw);
-    pthread_mutex_unlock(&seq_mutex);
   }
   else{
     perror("Creating command AT_PCMD :: Flag not allowed");
   }
-  pthread_mutex_lock(&seq_mutex);
   seq_control++;
   pthread_mutex_unlock(&seq_mutex);
   return command;
@@ -369,93 +378,93 @@ char * createAT_COMWDG(){
   pthread_mutex_unlock(&seq_mutex);
   return command;
 }
-/*******************************************************************************
- ***************************** SEND CMD ****************************************
- ******************************************************************************/
 
-/* Send an AT command during 1 second */
-// MAY BE we can manage the time of a sending message in this function
-void sending_command(char * command,
-                      int time,
-                      struct sockaddr_in dest,
-                      int socket){
-
-  //int sended;
-  double t1, t2;
-
-  t1 = my_gettimeofday();
-  t2 = t1;
-
-  printf("During %d seconds :: Send command %s\n\n",time ,command);
-
-  //SEND THIS COMMAND DURING AT LEAST 1 second
-  //************** TO DO *********************
-
-  while(t1 + time > t2){
-    //printf("Sending command : %s\n",command);
-    /*sended = sendto(socket,
-	                  command_to_send,
-	                  strlen(command_to_send) + 1,
-	                  0,
-	                  (struct sockaddr*)&dest,
-	                  sizeof(dest));
-
-    if (sended ==-1)
-      perror("sendto");
-    */
-    t2 = my_gettimeofday();
-  }
-}
 
 /*******************************************************************************
  ************************ RUNTIME MOVEMENTS ************************************
  ******************************************************************************/
 
 int takeoff(struct global* g){
-  char *cmd;
+  char *cmd, *tmp;
 
   cmd = createAT_FTRIM();
-  sending_command(cmd, 1, serv_addr, socket_command);
-  free(cmd);
+  tmp = mess_cmd_curr;
 
+  pthread_mutex_lock(&cmd_mutex);
+  mess_cmd_curr = cmd;
+  pthread_mutex_unlock(&cmd_mutex);
+
+  if(tmp != NULL)
+    free(tmp);
+
+  dance_start = 1;
+  pthread_cond_broadcast(&cond_cmd_initialized);
+
+  sleep(1);
+
+  printf("Takeoff\n");
   cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
-  sending_command(cmd, 1, serv_addr, socket_command);
+  tmp = mess_cmd_curr;
 
-  //Check in control state if AR DRONE is actually in the air
-  /********TO DO***************/
+  pthread_mutex_lock(&cmd_mutex);
+  mess_cmd_curr = cmd;
+  pthread_mutex_unlock(&cmd_mutex);
 
-  free(cmd);
+  if(tmp != NULL)
+    free(tmp);
+
+  //Check in control state if it actually takeoff
+  /**************** TO DO ******************/
+  sleep(1);
+
   return 0;
 }
 
 int land(struct global* g){
-  char *cmd;
-
+  char *cmd, *tmp;
+  printf("Land\n");
   cmd = createAT_REF(LAND, EMERGENCY_STAY);
-  sending_command(cmd, 1, serv_addr, socket_command);
+  tmp = mess_cmd_curr;
+
+  pthread_mutex_lock(&cmd_mutex);
+  mess_cmd_curr = cmd;
+  pthread_mutex_unlock(&cmd_mutex);
+
+  if(tmp != NULL)
+    free(tmp);
 
   //Check in control state if AR DRONE is actually landed
   /******* TO DO ************/
+  sleep(1);
 
-  free(cmd);
   return 0;
 }
 
 /*
- * Send an AT_PCMD command with the current value of global variables
- * tilt, pitch, spin, vpseed.
+ * Replace the current AT_PCMD command with the next one with the
+ * values of global variables : tilt, pitch, spin, vpseed.
  */
-void sendATPCMD(){
-  char * cmd = createAT_PCMD(FLAG_PROG, tilt, pitch, spin, vspeed);
+void next_ATPCMD(){
+  char * cmd, *tmp;
   int time;
+
+  cmd = createAT_PCMD(FLAG_PROG, tilt, pitch, spin, vspeed);
+  tmp = mess_cmd_curr;
+
   if(pile[g.index_action].type == ACTION_AXIS)
     time = pile[g.index_action].axis.curr_action.time;
-
   else
     time = pile[g.index_action].rotate.curr_action.time;
 
-  sending_command(cmd, time, serv_addr,socket_command);
-  free(cmd);
+  pthread_mutex_lock(&cmd_mutex);
+  mess_cmd_curr = cmd;
+  pthread_mutex_unlock(&cmd_mutex);
+
+  
+  if(tmp != NULL)
+    free(tmp);
+
+  sleep(time);
 }
 
 int up(struct global* g){
@@ -463,7 +472,7 @@ int up(struct global* g){
   printf("UP d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 
@@ -472,7 +481,7 @@ int down(struct global* g){
   printf("Down d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 int forward(struct global* g){
@@ -480,7 +489,7 @@ int forward(struct global* g){
   printf("Forward d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 
@@ -490,7 +499,7 @@ int backward(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
 
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 
@@ -500,7 +509,7 @@ int left(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
 
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 int right(struct global* g){
@@ -509,7 +518,7 @@ int right(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
 
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 
@@ -519,7 +528,7 @@ int rotate(struct global* g){
           pile[g->index_action].rotate.angle,
           pile[g->index_action].rotate.curr_action.time);
 
-  sendATPCMD();
+  next_ATPCMD();
   return 0;
 }
 
@@ -548,10 +557,12 @@ int connectDrone(struct global* g){
   serv_addr_navdata.sin_port=htons(NAVDATA_PORT);
   serv_addr_navdata.sin_addr.s_addr = inet_addr(DroneAddress);
 
+  printf("**************** CONNECTION TO DRONE : OK **************\n");
   return 0;
 }
 
 int disconnectDrone(struct global* g){
+  printf("*************** DRONE DISCONNECTION : OK **************\n");
   return 0;
 }
 
@@ -563,11 +574,10 @@ void* control_udp(){
   int i=0;
   int j=0;
   int k=0;
-  //int mintime = 0;
-  //int maxtime = 0;
   
   int exec = 0;
 
+  //Check if it starts 
   pthread_mutex_lock(&seq_mutex);
   while(!drone_initialized)
     pthread_cond_wait(&cond_drone_initialized, &seq_mutex);
@@ -592,7 +602,6 @@ void* control_udp(){
           exec = actions[i].rotate.curr_action.execution_phase;
       }
 
-      //printf("%d/%d\n",i,length);
       pile_sorting();
 
       for(k = indexof-1; k >= 0; k--){
@@ -607,16 +616,14 @@ void* control_udp(){
 
       for(k=indexof-1;k>=0;k--){
         if(pile[k].type== ACTION_AXIS){
-        /*if(pile[k].axis.curr_action.func == forward
-              || pile[k].axis.curr_action.func == backward)
-            
+          if(pile[k].axis.curr_action.func == forward
+              || pile[k].axis.curr_action.func == backward)            
             pitch =0;
           else
             tilt = 0;
-        */
+        
         }else{
-          //spin = 0;
-          //printf("la\n");
+          spin = 0;
         }
       }
 
@@ -628,6 +635,7 @@ void* control_udp(){
   }
   land(&g);
 
+  dance_over = 1;
   pthread_exit(NULL);
 }
 
@@ -635,51 +643,112 @@ void* control_udp(){
  * Function used for checking state of drone by theirs navdata.
  * Used by one thread.
  */
-void* navdata_udp(){
+int bootstrap(){
+  int count, sended;
+  char * cmd = createAT_CONFIG("general:navdata_demo","TRUE");
+ 
+  for(count = 0; count < MSG_PER_SEC; count++){  
+  //  printf("%lf :: Send command %s\n\n",my_gettimeofday()-timer,cmd);   
+    
+    sended = sendto(socket_command,
+                    cmd,
+                    strlen(cmd) + 1,
+                    0,
+                    (struct sockaddr*)&serv_addr,
+                    sizeof(serv_addr));
 
-  //ssize_t recu ;
-  //socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
+    if(sended == -1){
+      perror("Error when sending command");
+      return -1;
+    }
+    usleep(30000);
+  }
 
-  int count;
-
-  sending_command(createAT_CONFIG("general:navadata_demo","TRUE"),
-                  1,
-                  serv_addr_navdata,
-                  socket_navdata);
-
+  //Allow the creation of the first action.
   drone_initialized = 1;
   pthread_cond_broadcast(&cond_drone_initialized);
-  
-  for(count = 0; count < 6; count ++){
-    printf("NAVDATA : TEST Concurrent Send\n");
-    sending_command(createAT_COMWDG(), 1, serv_addr_navdata, socket_navdata);
-    sleep(2);
+
+  return 0;
+}
+
+/*
+ * Routine used to send message to the drone.
+ * In one second, it sends the command to be execute by the drone
+ * and asks for navdata.
+ */ 
+void* sender_routine(){
+  int sended, count;
+  char * prec;
+
+  bootstrap();
+
+  //Wait the initialization of the first command
+  pthread_mutex_lock(&cmd_mutex);
+  while(dance_start != 1)
+    pthread_cond_wait(&cond_cmd_initialized, &cmd_mutex);
+  pthread_mutex_unlock(&cmd_mutex);
+
+ 
+  //Until the dance is not over we still send messages
+  while(dance_over != 1){
+    //Send 30 times the current command in 0.9sec
+    for(count = 0; count < MSG_PER_SEC; count++){
+      pthread_mutex_lock(&cmd_mutex);
+
+      if(prec == NULL || prec != mess_cmd_curr){
+        printf("%lf :: Send command %s\n\n",
+                my_gettimeofday() - timer,
+                mess_cmd_curr);
+        prec = mess_cmd_curr;
+      }
+
+      sended = sendto(socket_command,
+                    mess_cmd_curr,
+                    strlen(mess_cmd_curr) + 1,
+                    0,
+                    (struct sockaddr*)&serv_addr,
+                    sizeof(serv_addr));
+
+      if(sended == -1){
+        perror("Error when sending command") ;
+        pthread_exit(NULL);
+      }
+     
+      pthread_mutex_unlock(&cmd_mutex);
+      usleep(30000);
+    }
+
+
+    mess_navdata_curr =  createAT_CONFIG("general:navdata_demo","TRUE");
+    //Send 30 times the current command in 0.1sec 
+    for(count = 0; count < MSG_PER_SEC; count++){
+      pthread_mutex_lock(&navdata_mutex);
+     //printf("%lf :: Send command %s\n\n",
+     //         my_gettimeofday()-timer,
+     //         mess_navdata_curr); 
+
+      sended = sendto(socket_command,
+                    mess_navdata_curr,
+                    strlen(mess_navdata_curr) + 1,
+                    0,
+                    (struct sockaddr*)&serv_addr,
+                    sizeof(serv_addr));
+
+      if(sended == -1){
+        perror("Error when sending command");
+        pthread_exit(NULL);
+      }
+
+      pthread_mutex_unlock(&navdata_mutex);
+      usleep(3000);
+    }
+    free(mess_navdata_curr);
   }
-  int sended = sendto(socket_navdata,
-		                  "\x01\x00\x00\x00",
-		                  strlen("\x01\x00\x00\x00") + 1,
-		                  0,
-		                  (struct sockaddr*)&serv_addr_navdata,
-		                  sizeof(serv_addr_navdata));
-    
-  if(sended == -1)
-    perror("NAVDATA_UDP :: Error with sendto");
-
-  //sending_command(navdata_command[0], serv_addr_navdata, socket_navdata);
-  pthread_mutex_lock(&navdata_mutex);
-  //recu = recvfrom (socket_navdata,
-  //                  &navdata_buffer,
-  //                  sizeof(navdata_buffer),
-  //                  0,
-  //                  (struct sockaddr *)&serv_addr_navdata,&t);
-
-
-  pthread_mutex_unlock(&navdata_mutex);
-
   pthread_exit(NULL);
 }
 
-void* video_tcp(){
+
+/*void* video_tcp(){
   int count;
   pthread_mutex_lock(&seq_mutex);
   while(!drone_initialized)
@@ -693,11 +762,16 @@ void* video_tcp(){
   }
   pthread_exit(NULL);
 }
+*/
 
 
 void choreography(){
 
-  pthread_t t_control, t_navdata, t_video;
+  pthread_t t_sender, t_control;//, t_navdata, t_video;
+
+
+  if(pthread_mutex_init(&cmd_mutex,NULL) !=0)
+    perror("Error init mutex cmd_mutex");
 
   if(pthread_mutex_init(&navdata_mutex,NULL) !=0)
     perror("Error init mutex navdata_mutex");
@@ -714,15 +788,22 @@ void choreography(){
   vspeed  = 0;
 
   drone_initialized = 0;
+  dance_start = 0;
+  dance_over = 0;
 
+  timer = my_gettimeofday();
+  //Thread which sends all packet to the drone
+  pthread_create(&t_sender, NULL, sender_routine, (void*) NULL);
+
+  //Thread which schedules and replaces the ATPCMD to send
   pthread_create(&t_control, NULL, control_udp, (void*) NULL);
   
-  pthread_create(&t_navdata, NULL, navdata_udp, (void*) NULL);
-  
-  pthread_create(&t_video, NULL, video_tcp, (void*) NULL);
+  //pthread_create(&t_video, NULL, video_tcp, (void*) NULL);
 
+  pthread_join(t_sender, NULL);
   pthread_join(t_control, NULL);
-  pthread_join(t_navdata, NULL);
-  pthread_join(t_video, NULL);
+  //pthread_join(t_video, NULL);
 
+  if(mess_cmd_curr != NULL)
+    free(mess_cmd_curr);
 }
