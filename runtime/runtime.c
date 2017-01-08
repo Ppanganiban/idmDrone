@@ -126,6 +126,10 @@ int indexof = 0;
 
 navdata_unpacked_t navdata_buffer;
 pthread_mutex_t navdata_mutex;
+pthread_mutex_t seq_mutex;
+pthread_cond_t cond_drone_initialized;
+int drone_initialized;
+
 
 /*******************************************************************************
  ***************************** TOOLS *******************************************
@@ -169,36 +173,39 @@ void pile_sorting(){
   char b=0;
   int time1,time2;
   struct uAction tmp;
-  for(i=indexof-1;i>0;i--){
-    b=1;
-    for(j=0;j<i-1;j++){
+  for(i = indexof-1; i > 0; i--){
+    b = 1;
+    for(j = 0; j < i-1; j++){
 
-      if(pile[j+1].type==0)
-          time1 = pile[j+1].axis.curr_action.time;
+      if(pile[j+1].type == ACTION_AXIS)
+        time1 = pile[j+1].axis.curr_action.time;
       else
         time1 = pile[j+1].rotate.curr_action.time;
 
 
-      if(pile[j].type==0)
-          time2 = pile[j].axis.curr_action.time;
+      if(pile[j].type == ACTION_AXIS)
+        time2 = pile[j].axis.curr_action.time;
       else
         time2 = pile[j].rotate.curr_action.time;
 
       if(time1 < time2){
-         b=0;
-         memcpy(&tmp,&pile[j+1],sizeof(pile[j+1]));
-         memcpy(&pile[j+1],&pile[j],sizeof(pile[j]));
-         memcpy(&pile[j],&tmp,sizeof(tmp));
-         if(pile[j+1].type==0 && pile[j].type==0)
-          pile[j+1].axis.curr_action.time-=pile[j].axis.curr_action.time;
-        else if(pile[j+1].type==0 && pile[j].type==1)
-          pile[j+1].axis.curr_action.time-=pile[j].rotate.curr_action.time;
-        else if(pile[j+1].type==1 && pile[j].type==0)
-          pile[j+1].rotate.curr_action.time-=pile[j].axis.curr_action.time;
+        b=0;
+        memcpy(&tmp, &pile[j+1], sizeof(pile[j+1]));
+        memcpy(&pile[j+1], &pile[j], sizeof(pile[j]));
+        memcpy(&pile[j], &tmp, sizeof(tmp));
+
+        if(pile[j+1].type == ACTION_AXIS && pile[j].type == ACTION_AXIS)
+          pile[j+1].axis.curr_action.time -= pile[j].axis.curr_action.time;
+
+        else if(pile[j+1].type == ACTION_AXIS && pile[j].type == ACTION_ROTATE)
+          pile[j+1].axis.curr_action.time -= pile[j].rotate.curr_action.time;
+
+        else if(pile[j+1].type == ACTION_ROTATE && pile[j].type== ACTION_AXIS)
+          pile[j+1].rotate.curr_action.time -= pile[j].axis.curr_action.time;
+
         else
-          pile[j+1].rotate.curr_action.time-=pile[j].rotate.curr_action.time;
-      }
-    
+          pile[j+1].rotate.curr_action.time -= pile[j].rotate.curr_action.time;
+      }    
     }
     if(b)
       break;
@@ -269,6 +276,7 @@ char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
       yaw, *(int*)&yaw);
 
   if(flag == FLAG_HOVER || flag == FLAG_PROG || flag == FLAG_PROGWITHYAW){
+    pthread_mutex_lock(&seq_mutex);
     snprintf(command,
             64 * sizeof(char),
             "AT*PCMD=%d,%d,%d,%d,%d,%d\r",
@@ -278,11 +286,14 @@ char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
 	          *(int*) &pitch,
 	          *(int*) &gaz,
 	          *(int*) &yaw);
+    pthread_mutex_unlock(&seq_mutex);
   }
   else{
     perror("Creating command AT_PCMD :: Flag not allowed");
   }
+  pthread_mutex_lock(&seq_mutex);
   seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
   return command;
 }
 
@@ -295,6 +306,7 @@ char * createAT_REF(int startBit, int emergency){
   if(emergency == EMERGENCY_CHANGE)
     arg = setBitToOne(arg, 8);
 
+  pthread_mutex_lock(&seq_mutex);
   snprintf(command,
             32 * sizeof(char),
             "AT*REF=%d,%d\r",
@@ -302,48 +314,61 @@ char * createAT_REF(int startBit, int emergency){
             arg);
 
   seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
+
   return command;
 }
 
 char * createAT_FTRIM(){ 
   char * command = (char*) calloc(32, sizeof(char));
+  pthread_mutex_lock(&seq_mutex);
   snprintf(command, 32 * sizeof(char), "AT*FTRIM=%d\r", seq_control);
   seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
   return command;
 }
 
 char * createAT_CALIB(int id_device){ 
   char * command = (char*) calloc(32, sizeof(char));
+  pthread_mutex_lock(&seq_mutex);
   snprintf(command,
             32 * sizeof(char),
             "AT*CALIB=%d,%d\r",
             seq_control,
             id_device);
+  
   seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
   return command;
 }
 
 char * createAT_CONFIG(char * opt_name, char * opt_value){
-  char * command = (char*) calloc(1024, sizeof(char));
+  char * command = (char*) calloc(256, sizeof(char));
+  pthread_mutex_lock(&seq_mutex);
   snprintf(command,
-            1024 * sizeof(char),
-            "AT*CONFIG=%d,%s, %s\r",
+            256 * sizeof(char),
+            "AT*CONFIG=%d,\"%s\",\"%s\"\r",
             seq_control,
             opt_name,
             opt_value);
+
   seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
   return command;
 }
 
 char * createAT_COMWDG(){
   char * command = (char*) calloc(32, sizeof(char));
+  pthread_mutex_lock(&seq_mutex);
   snprintf(command,
             32 * sizeof(char),
             "AT*COMWDG=%d\r",
             seq_control);
+
+  seq_control++;
+  pthread_mutex_unlock(&seq_mutex);
   return command;
 }
-
 /*******************************************************************************
  ***************************** SEND CMD ****************************************
  ******************************************************************************/
@@ -366,7 +391,7 @@ void sending_command(char * command,
   //SEND THIS COMMAND DURING AT LEAST 1 second
   //************** TO DO *********************
 
-  while(t1 + time - 1 > t2){
+  while(t1 + time > t2){
     //printf("Sending command : %s\n",command);
     /*sended = sendto(socket,
 	                  command_to_send,
@@ -543,6 +568,11 @@ void* control_udp(){
   
   int exec = 0;
 
+  pthread_mutex_lock(&seq_mutex);
+  while(!drone_initialized)
+    pthread_cond_wait(&cond_drone_initialized, &seq_mutex);
+  pthread_mutex_unlock(&seq_mutex);
+
   takeoff(&g);
 
   for(j = 0;j <= pe;j++){ 
@@ -611,11 +641,20 @@ void* navdata_udp(){
   //socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
   int count;
-  for(count = 0; count < 4; count ++){
-    printf("NAVDATA : SEND RECV\n");
-    sleep(1);
-  }
 
+  sending_command(createAT_CONFIG("general:navadata_demo","TRUE"),
+                  1,
+                  serv_addr_navdata,
+                  socket_navdata);
+
+  drone_initialized = 1;
+  pthread_cond_broadcast(&cond_drone_initialized);
+  
+  for(count = 0; count < 6; count ++){
+    printf("NAVDATA : TEST Concurrent Send\n");
+    sending_command(createAT_COMWDG(), 1, serv_addr_navdata, socket_navdata);
+    sleep(2);
+  }
   int sended = sendto(socket_navdata,
 		                  "\x01\x00\x00\x00",
 		                  strlen("\x01\x00\x00\x00") + 1,
@@ -641,6 +680,17 @@ void* navdata_udp(){
 }
 
 void* video_tcp(){
+  int count;
+  pthread_mutex_lock(&seq_mutex);
+  while(!drone_initialized)
+    pthread_cond_wait(&cond_drone_initialized, &seq_mutex);
+  pthread_mutex_unlock(&seq_mutex);
+  
+  for(count = 0; count < 6; count ++){
+    printf("VIDEO : TEST Concurrent Send\n");
+    sending_command(createAT_CONFIG("CAM","test"), 1, serv_addr,socket_command);
+    sleep(2);
+  }
   pthread_exit(NULL);
 }
 
@@ -649,11 +699,21 @@ void choreography(){
 
   pthread_t t_control, t_navdata, t_video;
 
-  pthread_mutex_init(&navdata_mutex,NULL);
+  if(pthread_mutex_init(&navdata_mutex,NULL) !=0)
+    perror("Error init mutex navdata_mutex");
+
+  if(pthread_mutex_init(&seq_mutex,NULL) != 0)
+    perror("Error init mutex seq_mutex");
+
+  if(pthread_cond_init(&cond_drone_initialized, NULL) != 0)
+    perror("Error init condition drone_initialized");
+
   tilt    = 0;
   spin    = 0;
   pitch   = 0;
   vspeed  = 0;
+
+  drone_initialized = 0;
 
   pthread_create(&t_control, NULL, control_udp, (void*) NULL);
   
