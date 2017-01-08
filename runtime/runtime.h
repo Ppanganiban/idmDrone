@@ -118,4 +118,5 @@ int down(struct global*);
 int land(struct global*);
 int connectDrone(struct global*);
 int disconnectDrone(struct global*);
+int configureDrone(struct global*);
 void choreography();

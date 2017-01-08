@@ -212,6 +212,8 @@ void main_genere(FILE * f,FILE * actions){
 
   fprintf(f,"connectDrone(&g);\n");
 
+  fprintf(f,"configureDrone(&g);\n");
+
   //generate the actions
   actions_genere(cur_node->next,actions,0);
 
