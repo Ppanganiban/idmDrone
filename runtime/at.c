@@ -106,6 +106,15 @@ char * createAT_CONFIG(char * opt_name, char * opt_value){
         opt_name,
         opt_value);
 
+  printf("AT*CONFIG_IDS=%d,\"%s\",\"%s\",\"%s\"\\rAT*CONFIG=%d,\"%s\",\"%s\"\\r\n",
+        seq_control,
+        SESSION_ID,
+        USER_ID,
+        APP_ID,
+        seq_control + 1,
+        opt_name,
+        opt_value);
+
   seq_control += 2;
   pthread_mutex_unlock(&seq_mutex);
   return command;
@@ -140,3 +149,15 @@ char * createAT_COMWDG(){
   return command;
 }
 
+char * createAT_CTRL(){
+  char * command = (char*) calloc(32, sizeof(char));
+  pthread_mutex_lock(&seq_mutex);
+  snprintf(command,
+            32 * sizeof(char),
+            "AT*CTRL=%d,0\r",
+            seq_control);
+  seq_control++;
+  printf("%s\n",command);
+  pthread_mutex_unlock(&seq_mutex);
+  return command;
+}

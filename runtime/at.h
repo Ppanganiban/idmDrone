@@ -28,4 +28,5 @@ char * createAT_CONFIG_IDS();
 
 char * createAT_COMWDG();
 
+char * createAT_CTRL();
 
