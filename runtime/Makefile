@@ -2,19 +2,20 @@ LIBS = -I/usr/include/libxml2 -lxml2 -g -pthread -lm -Wall
 MODEL = ../tests/src-gen/model.xml
 EXEC = generateur
 GENEXEC = genere
+BIN_PATH = bin
 all: $(EXEC) $(GENEXEC)
 
 debug: $(EXEC).o $(MODEL)
 	gdb --args ./$(EXEC) $(MODEL) 
-$(GENEXEC): genere.c init.c runtime.c
-	 gcc -o $(GENEXEC) $^ $(LIBS)
+
+$(GENEXEC): genere.c init.c runtime.c at.c
+	 gcc -o $(BIN_PATH)/$(GENEXEC) $^ $(LIBS)
 
 $(EXEC): $(EXEC).o $(MODEL)
-	 ./$(EXEC) $(MODEL)
+	 ./$(BIN_PATH)/$(EXEC) $(MODEL)
 
 $(EXEC).o: $(EXEC).c
-	gcc -o $(EXEC) $(EXEC).c $(LIBS)
+	gcc -o $(BIN_PATH)/$(EXEC) $(EXEC).c $(LIBS)
 	
 clean:
-	rm genere.c
-	rm *.o
+	rm bin/*

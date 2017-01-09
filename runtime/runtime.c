@@ -1,4 +1,5 @@
 #include "runtime.h"
+#include "at.h"
 #include <stdio.h>
 #include <arpa/inet.h>
 #include <pthread.h>
@@ -17,17 +18,7 @@
 #define DRONE_SPEED 5 //m/s
 #define MSG_PER_SEC 30
 
-//FOR AT*REF
-#define TAKEOFF 1
-#define LAND 0
-#define EMERGENCY_CHANGE 1
-#define EMERGENCY_STAY 0
-#define DEF_ATREF 290717696
 
-//FOR AT*PCMD
-#define FLAG_HOVER 0
-#define FLAG_PROG 1     //Progressive mode
-#define FLAG_PROGWITHYAW 3  //Progressive mode with yaw
 
 
 /*******************************************************************************
@@ -146,36 +137,12 @@ double timer;
  ***************************** TOOLS *******************************************
  ******************************************************************************/
 
-float convert32BitsToFloat(char bits[32]){
-  int i;
-  float result = 0;
-  for (i = 0; i < 32; i+=4){
-    if(bits[i] == '1')
-      result += pow(2,i);
-    if(bits[i+1] == '1')
-      result += pow(2,i + 1);
-    if(bits[i+2] == '1')
-      result += pow(2,i + 2);
-    if(bits[i+3] == '1')
-      result += pow(2,i + 3);
-  }
-  return result;
-}
-
 double my_gettimeofday(){
   struct timeval tmp_time;
   gettimeofday(&tmp_time, NULL);
   return (tmp_time.tv_sec + (tmp_time.tv_usec * 1.0e-6L));
 }
 
-int setBitToOne(int val, int pos){
-  return (val | ( 1 << pos) );
-}
-
-int setBitToZero(int val, int pos){
-  int mask = setBitToOne(0, pos);
-  return (val & ~mask);
-}
 
 /*Handle action*/
 void pile_sorting(){
@@ -273,111 +240,6 @@ void tilt_update(){
 }
 
 
-/*******************************************************************************
- ***************************** ATCMD *******************************************
- ******************************************************************************/
-
-char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
-  char * command = (char*) calloc(64, sizeof(char));
-
-  printf("CREATE PCMD : (%f)%d /(%f)%d /(%f)%d /(%f)%d\n",
-      roll, *(int*)&roll,
-      pitch, *(int*)&pitch,
-      gaz, *(int*)&gaz,
-      yaw, *(int*)&yaw);
-
-  pthread_mutex_lock(&seq_mutex);
-  if(flag == FLAG_HOVER || flag == FLAG_PROG || flag == FLAG_PROGWITHYAW){
-    snprintf(command,
-            64 * sizeof(char),
-            "AT*PCMD=%d,%d,%d,%d,%d,%d\r",
-            seq_control,
-	          flag,
-	          *(int*) &roll,
-	          *(int*) &pitch,
-	          *(int*) &gaz,
-	          *(int*) &yaw);
-  }
-  else{
-    perror("Creating command AT_PCMD :: Flag not allowed");
-  }
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-  return command;
-}
-
-char * createAT_REF(int startBit, int emergency){
-  char * command = (char*) calloc(32, sizeof(char));
-  int arg = DEF_ATREF; //Default values
-  if(startBit == TAKEOFF)
-    arg = setBitToOne(arg, 9);
-  
-  if(emergency == EMERGENCY_CHANGE)
-    arg = setBitToOne(arg, 8);
-
-  pthread_mutex_lock(&seq_mutex);
-  snprintf(command,
-            32 * sizeof(char),
-            "AT*REF=%d,%d\r",
-            seq_control,
-            arg);
-
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-
-  return command;
-}
-
-char * createAT_FTRIM(){ 
-  char * command = (char*) calloc(32, sizeof(char));
-  pthread_mutex_lock(&seq_mutex);
-  snprintf(command, 32 * sizeof(char), "AT*FTRIM=%d\r", seq_control);
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-  return command;
-}
-
-char * createAT_CALIB(int id_device){ 
-  char * command = (char*) calloc(32, sizeof(char));
-  pthread_mutex_lock(&seq_mutex);
-  snprintf(command,
-            32 * sizeof(char),
-            "AT*CALIB=%d,%d\r",
-            seq_control,
-            id_device);
-  
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-  return command;
-}
-
-char * createAT_CONFIG(char * opt_name, char * opt_value){
-  char * command = (char*) calloc(256, sizeof(char));
-  pthread_mutex_lock(&seq_mutex);
-  snprintf(command,
-            256 * sizeof(char),
-            "AT*CONFIG=%d,\"%s\",\"%s\"\r",
-            seq_control,
-            opt_name,
-            opt_value);
-
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-  return command;
-}
-
-char * createAT_COMWDG(){
-  char * command = (char*) calloc(32, sizeof(char));
-  pthread_mutex_lock(&seq_mutex);
-  snprintf(command,
-            32 * sizeof(char),
-            "AT*COMWDG=%d\r",
-            seq_control);
-
-  seq_control++;
-  pthread_mutex_unlock(&seq_mutex);
-  return command;
-}
 
 
 /*******************************************************************************
@@ -669,6 +531,10 @@ int bootstrap(){
   pthread_cond_broadcast(&cond_drone_initialized);
 
   return 0;
+}
+
+int configureDrone(struct global *g){
+    return 0;
 }
 
 /*
