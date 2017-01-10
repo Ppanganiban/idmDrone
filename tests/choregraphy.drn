@@ -13,6 +13,7 @@ CHOREOGRAPHY {
 	part{
 		(backward ( distance = 8 temps = 5) then forward ( distance = 8 temps = 5));
 		merge( rotate ( angle = 180 temps = 6), up ( distance = 5 temps = 3) );
+		wait(temps = 4);
 		part2 X 2;
 		part3 with Cam ( mode ON, id = Bottom);
 	}

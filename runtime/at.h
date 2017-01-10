@@ -31,4 +31,3 @@ char * createAT_COMWDG();
 char * createAT_CTRL();
 
 char * createAT_LED(int animation_number, float freq, int duration);
-

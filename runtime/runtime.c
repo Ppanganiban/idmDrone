@@ -9,6 +9,9 @@
 #include <sys/time.h>
 #include <stdint.h>
 #include <math.h>
+#include "tool.h"
+
+#define EMERGENCY 1
 
 /******************** OPTION ***********************/
 #define NB_OPTIONS 2
@@ -144,6 +147,7 @@ struct sockaddr_in serv_addr_navdata;
 
 //Moving data
 float tilt,pitch,vspeed,spin;
+int flag;
 
 //pile of instructions
 struct uAction pile[4];
@@ -158,11 +162,6 @@ double timer;
  ***************************** TOOLS *******************************************
  ******************************************************************************/
 
-double my_gettimeofday(){
-  struct timeval tmp_time;
-  gettimeofday(&tmp_time, NULL);
-  return (tmp_time.tv_sec + (tmp_time.tv_usec * 1.0e-6L));
-}
 
 
 /*Handle action*/
@@ -243,8 +242,12 @@ int takeoff(struct global* g){
 
   sleep(1);
 
-  printf("Takeoff\n");
-  cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
+  printf("Takeoff / curr emergency mode : %d\n",(int)g->curr_state.emergency);
+  if(g->curr_state.emergency == EMERGENCY)
+    cmd = createAT_REF(TAKEOFF, EMERGENCY_CHANGE);
+  else
+    cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
+
   tmp = mess_cmd_curr;
 
   pthread_mutex_lock(&cmd_mutex);
@@ -264,7 +267,10 @@ int takeoff(struct global* g){
 int land(struct global* g){
   char *cmd, *tmp;
   printf("Land\n");
-  cmd = createAT_REF(LAND, EMERGENCY_STAY);
+  if(g->curr_state.emergency == EMERGENCY)
+    cmd = createAT_REF(LAND, EMERGENCY_CHANGE);
+  else
+    cmd = createAT_REF(LAND, EMERGENCY_STAY);
   tmp = mess_cmd_curr;
 
   pthread_mutex_lock(&cmd_mutex);
@@ -289,7 +295,7 @@ void next_ATPCMD(){
   char * cmd, *tmp;
   int time;
 
-  cmd = createAT_PCMD(FLAG_PROG, tilt, pitch, spin, vspeed);
+  cmd = createAT_PCMD(flag, tilt, pitch, spin, vspeed);
   tmp = mess_cmd_curr;
 
   if(pile[g.index_action].type == ACTION_AXIS)
@@ -310,6 +316,7 @@ void next_ATPCMD(){
 
 int up(struct global* g){
   vspeed_update();
+  flag = FLAG_PROG;
   printf("UP d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -319,6 +326,7 @@ int up(struct global* g){
 
 int down(struct global* g){
   vspeed_update();
+  flag = FLAG_PROG;
   printf("Down d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -327,6 +335,7 @@ int down(struct global* g){
 }
 int forward(struct global* g){
   pitch_update();
+  flag = FLAG_PROG;
   printf("Forward d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -336,6 +345,7 @@ int forward(struct global* g){
 
 int backward(struct global* g){
   pitch_update();
+  flag = FLAG_PROG;
   printf("Backward d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -346,6 +356,7 @@ int backward(struct global* g){
 
 int left(struct global* g){
   tilt_update();
+  flag = FLAG_PROG;
   printf("Left d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -355,6 +366,7 @@ int left(struct global* g){
 }
 int right(struct global* g){
   tilt_update();
+  flag = FLAG_PROG;
   printf("Right d: %d t: %d\n",
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
@@ -365,6 +377,7 @@ int right(struct global* g){
 
 int rotate(struct global* g){
   spin_update();
+  flag = FLAG_PROG;
   printf("Rotate a: %d t: %d\n",
           pile[g->index_action].rotate.angle,
           pile[g->index_action].rotate.curr_action.time);
@@ -373,6 +386,14 @@ int rotate(struct global* g){
   return 0;
 }
 
+int wait(struct global* g){
+  flag = FLAG_HOVER;
+  printf(" Wait t: %d\n",
+          pile[g->index_action].axis.curr_action.time);
+
+  next_ATPCMD();
+  return 0;
+}
 /*******************************************************************************
  ************************ RUNTIME CONNECTION ***********************************
  ******************************************************************************/

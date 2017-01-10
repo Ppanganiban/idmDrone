@@ -120,6 +120,7 @@ int rotate(struct global*);
 int up(struct global*);
 int down(struct global*);
 int land(struct global*);
+int wait(struct global*);
 int connectDrone(struct global*);
 int disconnectDrone(struct global*);
 int configureDrone(struct global*);

@@ -2,17 +2,11 @@
 #include <pthread.h>
 #include "at.h"
 #include <stdlib.h>
+#include "tool.h"
+
 extern pthread_mutex_t seq_mutex;
 extern int seq_control;
 
-int setBitToOne(int val, int pos){
-  return (val | ( 1 << pos) );
-}
-
-int setBitToZero(int val, int pos){
-  int mask = setBitToOne(0, pos);
-  return (val & ~mask);
-}
 
 /*******************************************************************************
  ***************************** ATCMD *******************************************
