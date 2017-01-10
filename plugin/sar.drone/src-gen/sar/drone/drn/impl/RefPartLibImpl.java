@@ -251,4 +251,17 @@ public class RefPartLibImpl extends MovementImpl implements RefPartLib
 		  return "";		  
 	  }
   }
+  public String toString(String with){
+
+	  if (eIsProxy()) return super.toString();
+	  
+	  if(canBeWrite){
+		  StringBuffer result = new StringBuffer();
+		  if(assignement != null)
+			  result.append(((AssignementImpl)assignement).toString(with));
+		  return result.toString();		  
+	  }else{
+		  return "";		  
+	  }
+  }
 } //RefPartLibImpl

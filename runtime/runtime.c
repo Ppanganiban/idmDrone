@@ -10,15 +10,36 @@
 #include <stdint.h>
 #include <math.h>
 
+/******************** OPTION ***********************/
+#define NB_OPTIONS 2
+
+#define CAMERA 0
+#define LED 1
+
+
+//Attributs and values
+#define MODE 0
+#define ON "ON"
+#define OFF "OFF"
+
+#define ID 1
+
+#define COLOR 2
+#define RED "RED"
+#define GREEN "GREEN"
+#define ORANGE "ORANGE"
+#define WHITE "WHITE"
+
+#define NAME 0
+#define VALUE 1
+
+/**************** NETWORK **************************/
 #define TIMER 2
 #define BUFFER_SIZE 512
 #define DroneAddress "192.168.1.1"
 #define AT_PORT 5556
 #define NAVDATA_PORT 5554
-#define DRONE_SPEED 5 //m/s
 #define MSG_PER_SEC 30
-
-
 
 
 /*******************************************************************************
@@ -190,56 +211,14 @@ void pile_sorting(){
   }    
 }
 
-
 /*******************************************************************************
  ************************ UPDATE ROTORS ****************************************
  ******************************************************************************/
 
-void pitch_update(){
-  float distance, time;
-
-  distance  = (float) pile[g.index_action].axis.distance;
-  time      = (float) pile[g.index_action].axis.curr_action.time;
-  if(pile[g.index_action].axis.curr_action.func == forward)
-    pitch = (distance / time) * -1 / DRONE_SPEED;
-
-  else
-    pitch = (distance / time) /DRONE_SPEED;
-}
-
-void spin_update(){
-  /*************TO DO***************/
-  if(pile[g.index_action].rotate.angle<0)
-    spin = -0.5 ;
-  else
-    spin = 0.5;
-}
-
-void vspeed_update(){
-  float distance, time;
-
-  distance  = (float) pile[g.index_action].axis.distance;
-  time      = (float) pile[g.index_action].axis.curr_action.time;
-
-  if(pile[g.index_action].axis.curr_action.func == down)
-    tilt = (distance / time) * -1 / DRONE_SPEED;
-  else
-    tilt = (distance / time) / DRONE_SPEED;
-}
-
-void tilt_update(){
-  float distance, time;
-
-  distance  = (float) pile[g.index_action].axis.distance;
-  time      = (float) pile[g.index_action].axis.curr_action.time;
-
-  if(pile[g.index_action].axis.curr_action.func == left)
-    tilt = (distance / time) * -1 / DRONE_SPEED;
-  else
-    tilt = (distance / time) / DRONE_SPEED;
-}
-
-
+extern void pitch_update();
+extern void spin_update();
+extern void vspeed_update();
+extern void tilt_update();
 
 
 /*******************************************************************************
@@ -441,7 +420,6 @@ int connectDrone(struct global* g){
   }
 
   cmd = createAT_CONFIG("general:navdata_demo","TRUE");
-  printf("Send command %s\n",cmd);
 
   for(count = 0; count < MSG_PER_SEC; count++){  
     sended = sendto(socket_command,
@@ -459,7 +437,6 @@ int connectDrone(struct global* g){
   free(cmd);
 
   cmd = createAT_CTRL();
-  printf("Send command %s\n",cmd);
   for(count = 0; count < MSG_PER_SEC; count++){  
     sended = sendto(socket_command,
                     cmd,

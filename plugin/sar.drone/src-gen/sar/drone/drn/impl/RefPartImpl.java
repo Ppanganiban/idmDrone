@@ -185,4 +185,17 @@ public class RefPartImpl extends MovementImpl implements RefPart
 		  return "";
 	  }
   }
+  public String toString(String with){
+	  if (eIsProxy()){
+		  return super.toString();
+	  }
+	  if(canBeWrite){
+		  StringBuffer result = new StringBuffer();
+		  if(variable_partie != null)
+			  result.append(((AssignementImpl)variable_partie).toString(with));
+		  return result.toString();		  
+	  }else{
+		  return "";
+	  }
+  }
 } //RefPartImpl

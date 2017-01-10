@@ -161,3 +161,20 @@ char * createAT_CTRL(){
   pthread_mutex_unlock(&seq_mutex);
   return command;
 }
+
+char * createAT_LED(int animation_number, float freq, int duration){
+  char * command = (char*) calloc(64, sizeof(char));
+
+  pthread_mutex_lock(&seq_mutex);
+  snprintf(command,
+            64 * sizeof(char),
+            "AT*LED=%d,%d,%d,%d\r",
+            seq_control,
+            animation_number,
+            *(int*)&freq,
+            duration);
+  seq_control++;
+  printf("%s\n",command);
+  pthread_mutex_unlock(&seq_mutex);
+  return command;
+}

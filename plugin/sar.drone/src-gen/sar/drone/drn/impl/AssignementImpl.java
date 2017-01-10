@@ -48,7 +48,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected static final String NAME_EDEFAULT = null;
-  
+
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-  
+
   /**
    * The cached value of the '{@link #getOperandes() <em>Operandes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
    * @ordered
    */
   protected EList<Expression> operandes;
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,7 +78,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     super();
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -89,7 +89,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     return DrnPackage.Literals.ASSIGNEMENT;
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -99,7 +99,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
   {
     return name;
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,7 +112,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.ASSIGNEMENT__NAME, oldName, name));
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -126,7 +126,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     return operandes;
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -142,7 +142,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -160,7 +160,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     return super.eGet(featureID, resolve, coreType);
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -182,7 +182,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     super.eSet(featureID, newValue);
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,7 +202,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     super.eUnset(featureID);
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,7 +220,7 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     }
     return super.eIsSet(featureID);
   }
-  
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -232,33 +232,79 @@ public class AssignementImpl extends MinimalEObjectImpl.Container implements Ass
     if (eIsProxy()) {  
       return super.toString();
     }
-    
+
     StringBuffer result = new StringBuffer();
+    String with_string;
     for (Expression e : operandes){
-      //result.append("<action>");
-      
+      with_string = "";
+      if(e.getWith().size() > 0)
+        with_string = e.getWith().get(0).toString();
+
       for(int i = 0; i < e.getRepeatCST(); i++){
-        result.append(e.getMove().toString());
-        if(e.getWith().size() > 0)
-          result.append(e.getWith().get(0).toString());
+        //We propagate the option with to the part instructions
+        if(e.getMove() instanceof RefPartImpl)
+          result.append(((RefPartImpl)e.getMove()).toString(with_string));
+        else if (e.getMove() instanceof RefPartLibImpl)
+          result.append(((RefPartLibImpl)e.getMove()).toString(with_string));
+        else
+          result.append(e.getMove().toString() + with_string);
 
         for (Expression t : e.getThen()){
-          result.append(t.getMove().toString());
-          if(e.getWith().size() > 0)
-            result.append(e.getWith().get(0).toString());          
+          if(t.getMove() instanceof RefPartImpl)
+            result.append(((RefPartImpl)t.getMove()).toString(with_string));
+          else if (t.getMove() instanceof RefPartLibImpl)
+            result.append(((RefPartLibImpl)t.getMove()).toString(with_string));
+          else
+            result.append(t.getMove().toString() + with_string);          
         }
       }
-      
+
       //result.append("</action>");
     }
     return result.toString();
   }
   
+  public String toString(String precOptions)
+  {
+    if (eIsProxy()) {  
+      return super.toString();
+    }
+
+    StringBuffer result = new StringBuffer();
+    String with_string;
+    for (Expression e : operandes){
+      with_string = "";
+      if(e.getWith().size() > 0)
+        with_string = e.getWith().get(0).toString();
+
+      for(int i = 0; i < e.getRepeatCST(); i++){
+        //We propagate the option with to the part instructions
+        if(e.getMove() instanceof RefPartImpl)
+          result.append(((RefPartImpl)e.getMove()).toString(with_string)+precOptions);
+        else if (e.getMove() instanceof RefPartLibImpl)
+          result.append(((RefPartLibImpl)e.getMove()).toString(with_string)+precOptions);
+        else
+          result.append(e.getMove().toString() + with_string +precOptions);
+
+        for (Expression t : e.getThen()){
+          if(t.getMove() instanceof RefPartImpl)
+            result.append(((RefPartImpl)t.getMove()).toString(with_string)+precOptions);
+          else if (t.getMove() instanceof RefPartLibImpl)
+            result.append(((RefPartLibImpl)t.getMove()).toString(with_string)+precOptions);
+          else
+            result.append(t.getMove().toString() + with_string+precOptions);          
+        }
+      }
+
+      //result.append("</action>");
+    }
+    return result.toString();
+  }
   protected boolean mark = true;
   protected boolean repeated = false;
-  
+
   Assignement caller = null;
-  
+
   @Override
   public Assignement getCaller(){
     return caller;

@@ -2,7 +2,7 @@
 #define DEF_MAX_LENGTH 1000000 //mm
 #define DEF_MAX_WIDTH 1000000 //mm
 #define DEF_MAX_YAW 3.14 //MUST BE convert in RADIAN/SEC in config drone
-#define DEF_MAX_VSPEED 1000 //MUST BE between 200 to 2000
+#define DEF_MAX_VSPEED 1000 //MUST BE between 200 to 2000 mm/s
 
 #define BEHIND 1
 #define REAR 2
@@ -18,7 +18,7 @@ struct attribute{
 };
 struct option{
 	char * name;
-	struct attribute att[0];
+	struct attribute * att;
 };
 
 
@@ -74,7 +74,7 @@ struct global {
 	struct speed curr_speed;
 	struct limits context;
 	int index_action;
-	struct option  options[];
+	struct option * options;
 }global;
 // action
 struct action {
@@ -100,8 +100,8 @@ struct uAction {
 		struct oneAxis axis;
 		struct rotation rotate;
 	};
+    struct option * options;
 	int type;
-
 }uAction;
 
 
@@ -124,3 +124,4 @@ int connectDrone(struct global*);
 int disconnectDrone(struct global*);
 int configureDrone(struct global*);
 void choreography();
+void fillActions();

@@ -171,7 +171,7 @@ void context_genere (FILE * f){
 
 //WRITE INCLUDES
 void include_genere(FILE *f){
-	char includes[] = "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <malloc.h>\n#include \"init.h\"\n\n";
+	char includes[] = "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <malloc.h>\n#include \"runtime.h\"\n\n";
 
 		fprintf(f,"%s",includes);
 }
@@ -238,7 +238,7 @@ void main_genere(FILE * f,FILE * actions){
 
   //connect to drone
 
-  fprintf(f,"Action_filling();\n");
+  fprintf(f,"fillActions();\n");
 
   fprintf(f,"connectDrone(&g);\n");
 
@@ -273,7 +273,7 @@ int main(int argc, char * argv[]){
 
 	//Écriture des includes
   printf("open file ok\n");
-  fprintf(init,"#include \"init.h\"\nvoid Action_filling(){\n\n");
+  fprintf(init,"#include \"init.h\"\nvoid fillActions(){\n\n");
 
   include_genere(genere);
   printf("include ok\n");
