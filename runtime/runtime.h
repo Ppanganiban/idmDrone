@@ -78,9 +78,9 @@ struct global {
 }global;
 // action
 struct action {
-    int (*func)();
-    unsigned int time;
-    int execution_phase;
+  int (*func)();
+  unsigned int time;
+  int execution_phase;
 }action;
 
 // dep on one Axis
@@ -100,7 +100,7 @@ struct uAction {
 		struct oneAxis axis;
 		struct rotation rotate;
 	};
-    struct option * options;
+  struct option * options;
 	int type;
 }uAction;
 

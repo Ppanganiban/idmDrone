@@ -121,65 +121,65 @@ void context_genere (FILE * f){
 	cur_node = cur_node ->next;
 	a_node =cur_node->children;
 
-    fprintf(f,"/***** CONTEXT OF CHOREOGRAPHY ******/\n");
-    fprintf(f,"//Default value\n");
-    fprintf(f,"g.context.height = %d;\n",DEF_MAX_ALTITUDE);
+  fprintf(f,"/***** CONTEXT OF CHOREOGRAPHY ******/\n");
+  fprintf(f,"//Default value\n");
+  fprintf(f,"g.context.height = %d;\n",DEF_MAX_ALTITUDE);
 	fprintf(f,"g.context.length = %d;\n",DEF_MAX_LENGTH);
 	fprintf(f,"g.context.width = %d;\n",DEF_MAX_WIDTH);
 	fprintf(f,"g.context.angular_speed = %f;\n", DEF_MAX_YAW);
-    fprintf(f,"g.context.vertical_speed = %d;\n",DEF_MAX_VSPEED);
-    fprintf(f,"g.context.initial_pos.x = 0;\n");
-    fprintf(f,"g.context.initial_pos.y = 0;\n");
-    fprintf(f,"g.context.initial_direction = REAR;\n");
-    fprintf(f,"//Set value from xml file\n");
+  fprintf(f,"g.context.vertical_speed = %d;\n",DEF_MAX_VSPEED);
+  fprintf(f,"g.context.initial_pos.x = 0;\n");
+  fprintf(f,"g.context.initial_pos.y = 0;\n");
+  fprintf(f,"g.context.initial_direction = REAR;\n");
+  fprintf(f,"//Set value from xml file\n");
 	while(a_node){
-		    //max height
-		    if(!strcmp((char*) a_node->name,"maxHeight"))
-                fprintf(f,
-                        "g.context.height = %d;\n",
-                        atoi((char*)a_node->children->content)*100);
+    //max height
+    if(!strcmp((char*) a_node->name,"maxHeight"))
+      fprintf(f,
+          "g.context.height = %d;\n",
+          atoi((char*)a_node->children->content)*100);
 
-            //maxlength
-            else if(!strcmp((char*) a_node->name,"maxLength"))
-			    fprintf(f,
-                        "g.context.length = %d;\n",
-                        atoi((char*)a_node->children->content)*100);
+    //maxlength
+    else if(!strcmp((char*) a_node->name,"maxLength"))
+      fprintf(f,
+          "g.context.length = %d;\n",
+          atoi((char*)a_node->children->content)*100);
 
-            //maxwidth
-		    else if (!strcmp((char*) a_node->name,"maxWidth"))
-		    	fprintf(f,
-                        "g.context.width = %d;\n",
-                        atoi((char*)a_node->children->content)*100);
+    //maxwidth
+    else if (!strcmp((char*) a_node->name,"maxWidth"))
+      fprintf(f,
+          "g.context.width = %d;\n",
+          atoi((char*)a_node->children->content)*100);
 		
-            //maxangularspeed
-		    else if (!strcmp((char*) a_node->name,"maxAngularSpeed"))
-			    fprintf(f,
-                        "g.context.angular_speed = %f;\n",
-                        atof((char*)a_node->children->content) * 3.14 / 180);
+    //maxangularspeed
+    else if (!strcmp((char*) a_node->name,"maxAngularSpeed"))
+      fprintf(f,
+          "g.context.angular_speed = %f;\n",
+          atof((char*)a_node->children->content));
 
-            //maxverticalspeed
-            else if (!strcmp((char*) a_node->name,"maxVerticalSpeed"))
-			    fprintf(f,
-                        "g.context.vertical_speed = %d;\n",
-                        atoi((char*)a_node->children->content) * 100);
-        
-            //initial x position of the drone
-		    else if (!strcmp((char*) a_node->name,"positionX"))
-			    fprintf(f,
-                        "g.context.initial_pos.x = %s;\n",
-                        a_node->children->content);
+    //maxverticalspeed
+    else if (!strcmp((char*) a_node->name,"maxVerticalSpeed"))
+      fprintf(f,
+          "g.context.vertical_speed = %d;\n",
+          atoi((char*)a_node->children->content) * 100);
+    
+    //initial x position of the drone
+    else if (!strcmp((char*) a_node->name,"positionX"))
+      fprintf(f,
+          "g.context.initial_pos.x = %s;\n",
+          a_node->children->content);
 
-            //initial y position of the drone
-            else if (!strcmp((char*) a_node->name,"positionY"))
-			    fprintf(f,
-                        "g.context.initial_pos.y = %s;\n",
-                        a_node->children->content);
+    //initial y position of the drone
+    else if (!strcmp((char*) a_node->name,"positionY"))
+      fprintf(f,
+          "g.context.initial_pos.y = %s;\n",
+          a_node->children->content);
 
-            //initial direction of the drone
-            else if (!strcmp((char*) a_node->name,"initialDirection"))
-			    fprintf(f,"g.context.initial_direction = %s;\n",a_node->children->content);
+    //initial direction of the drone
+    else if (!strcmp((char*) a_node->name,"initialDirection"))
+      fprintf(f,"g.context.initial_direction = %s;\n",a_node->children->content);
 
-        a_node = a_node->next;
+    a_node = a_node->next;
 	}
 
 	fprintf(f,"\n\n");

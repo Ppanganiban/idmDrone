@@ -1,8 +1,9 @@
 #include "runtime.h"
+
 #define DRONE_SPEED 5 //m/s
 
 extern float pitch, spin, tilt, vspee;
-extern struct uAction *pile;
+extern struct uAction pile[4];
 
 void pitch_update(){
   float distance, time;
@@ -17,11 +18,14 @@ void pitch_update(){
 }
 
 void spin_update(){
-  /*************TO DO***************/
-  if(pile[g.index_action].rotate.angle<0)
-    spin = -0.5 ;
+  float ang_curr  = ((float) pile[g.index_action].rotate.angle) * 3.14 / 180;
+  int time      = (int) pile[g.index_action].rotate.curr_action.time;
+  float ang_speed_curr = ang_curr > 0 ? ang_curr/time : -ang_curr/time;
+
+  if( ang_speed_curr <= g.context.angular_speed )
+    spin = ang_curr / time;
   else
-    spin = 0.5;
+    spin = ang_curr > 0 ? 1 : -1;
 }
 
 void vspeed_update(){
