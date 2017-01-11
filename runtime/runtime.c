@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <math.h>
 #include "tool.h"
+#include "navdata.h"
 
 #define EMERGENCY 1
 
@@ -44,80 +45,6 @@
 #define NAVDATA_PORT 5554
 #define MSG_PER_SEC 30
 
-
-/*******************************************************************************
- ***************************** NAV DATA ****************************************
- ******************************************************************************/
-
-typedef signed short      int16_t;
-typedef unsigned short     uint16_t;
-typedef float  float32_t;
-typedef double float64_t;
-
-typedef struct _navdata_demo_t {
-  uint16_t    tag;            /*!< Navdata block ('option') identifier */
-  uint16_t    size;           /*!< set this to the size of this structure */
-
-  uint32_t    ctrl_state;     /*!< Flying state (landed, flying, hovering, etc.)
-                                defined in CTRL_STATES enum. */
-
-  uint32_t    vbat_flying_percentage; /*!< battery voltage filtered (mV) */
-
-  float32_t   theta;                  /*!< UAV's pitch in milli-degrees */
-  float32_t   phi;                    /*!< UAV's roll  in milli-degrees */
-  float32_t   psi;                    /*!< UAV's yaw   in milli-degrees */
-
-  int32_t     altitude;               /*!< UAV's altitude in centimeters */
-
-  float32_t   vx;                     /*!< UAV's estimated linear velocity */
-  float32_t   vy;                     /*!< UAV's estimated linear velocity */
-  float32_t   vz;                     /*!< UAV's estimated linear velocity */
-
-  uint32_t    num_frames;       /*!< streamed frame index */
-                                // Not used -> To integrate in video stage.
-
-
-  uint32_t    detection_tag_index;    /*!<  Deprecated ! Don't use ! */
-
-  uint32_t    detection_camera_type;  /*!<  Type of tag searched in detection */
-
-
-}navdata_demo_t;
-
-typedef struct _navdata_iphone_angles_t {
-    uint16_t   tag;
-    uint16_t   size;
-
-    int32_t    enable;
-    float32_t  ax;
-    float32_t  ay;
-    float32_t  az;
-    uint32_t   elapsed;
-}navdata_iphone_angles_t;
-
-typedef struct _navdata_vision_detect_t {
-    uint16_t   tag;
-    uint16_t   size;
-
-    uint32_t   nb_detected;  
-    uint32_t   type[4];
-    uint32_t   xc[4];        
-    uint32_t   yc[4];
-    uint32_t   width[4];     
-    uint32_t   height[4];    
-    uint32_t   dist[4];      
-} navdata_vision_detect_t;
-
-typedef struct _navdata_unpacked_t {
-    uint32_t  mykonos_state;
-    int    vision_defined;
-
-    navdata_demo_t           navdata_demo;
-    navdata_iphone_angles_t  navdata_iphone_angles;
-    navdata_vision_detect_t  navdata_vision_detect;
-} navdata_unpacked_t;
-
-
 /*******************************************************************************
  ***************************** VARIABLES ***************************************
  ******************************************************************************/
@@ -138,6 +65,9 @@ pthread_cond_t cond_drone_initialized;
 int drone_initialized = 0;            //Flag for begining the creation of ATCMD
 int dance_over = 0;
 
+pthread_cond_t cond_first_navdata;
+int first_navdata = 0;
+
 //Sockets
 int socket_command;
 struct sockaddr_in serv_addr;
@@ -154,7 +84,7 @@ struct uAction pile[4];
 int indexof = 0;
 
 
-navdata_unpacked_t navdata_buffer;
+unsigned char buffer[4096];
 
 double timer;
 
@@ -234,6 +164,9 @@ int takeoff(struct global* g){
   mess_cmd_curr = cmd;
   pthread_mutex_unlock(&cmd_mutex);
 
+  while(first_navdata == 0){
+    sleep(1);
+  }
   if(tmp != NULL)
     free(tmp);
 
@@ -259,8 +192,15 @@ int takeoff(struct global* g){
 
   //Check in control state if it actually takeoff
   /**************** TO DO ******************/
-  sleep(1);
+  while(g->curr_state.landing == 1){
+    printf("TAKING OFF\n");
+    sleep(1);
+  }
 
+  printf("Hovering mode : %d / landinf : %d\n",
+          g->curr_state.hovering_mode,
+          g->curr_state.landing);
+ 
   return 0;
 }
 
@@ -281,9 +221,10 @@ int land(struct global* g){
     free(tmp);
 
   //Check in control state if AR DRONE is actually landed
-  /******* TO DO ************/
-  sleep(1);
-
+  while(g->curr_state.landing == 0){
+    printf("LANDING\n");
+    sleep(1);
+  }
   return 0;
 }
 
@@ -410,6 +351,7 @@ int connectDrone(struct global* g){
   serv_addr.sin_port=htons(AT_PORT);
   serv_addr.sin_addr.s_addr = inet_addr(DroneAddress);
 
+
   //connect to get navdata
   if((socket_navdata = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
     perror("Error creating socket navdata");
@@ -420,19 +362,20 @@ int connectDrone(struct global* g){
   serv_addr_navdata.sin_port=htons(NAVDATA_PORT);
   serv_addr_navdata.sin_addr.s_addr = inet_addr(DroneAddress);
 
+
   //Notify the ardrone to send navdata
   char * cmd;
   char * dirty_packet = "\x01\x00\x00\x00";
   int count,sended;
 
   printf("Send DIRTY PACKET\n");
-  for(count = 0; count < 10; count++){  
-    sended = sendto(socket_command,
+  for(count = 0; count < 1; count++){  
+    sended = sendto(socket_navdata,
                     dirty_packet,
                     strlen(dirty_packet) + 1,
                     0,
-                    (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
+                    (struct sockaddr*)&serv_addr_navdata,
+                    sizeof(serv_addr_navdata));
 
     if(sended == -1){
       perror("Error when sending command");
@@ -442,7 +385,7 @@ int connectDrone(struct global* g){
 
   cmd = createAT_CONFIG("general:navdata_demo","TRUE");
 
-  for(count = 0; count < MSG_PER_SEC; count++){  
+  for(count = 0; count < 1; count++){  
     sended = sendto(socket_command,
                     cmd,
                     strlen(cmd) + 1,
@@ -458,7 +401,7 @@ int connectDrone(struct global* g){
   free(cmd);
 
   cmd = createAT_CTRL();
-  for(count = 0; count < MSG_PER_SEC; count++){  
+  for(count = 0; count < 1; count++){  
     sended = sendto(socket_command,
                     cmd,
                     strlen(cmd) + 1,
@@ -569,6 +512,7 @@ int configureDrone(struct global *state_g){
                         0,
                         (struct sockaddr*)&serv_addr,
                     sizeof(serv_addr));
+
         if(sended == -1){
             perror("Error when sending command") ;
             pthread_exit(NULL);
@@ -585,6 +529,7 @@ int configureDrone(struct global *state_g){
                         0,
                         (struct sockaddr*)&serv_addr,
                     sizeof(serv_addr));
+
         if(sended == -1){
             perror("Error when sending command") ;
             pthread_exit(NULL);
@@ -601,6 +546,7 @@ int configureDrone(struct global *state_g){
                         0,
                         (struct sockaddr*)&serv_addr,
                     sizeof(serv_addr));
+
         if(sended == -1){
             perror("Error when sending command") ;
             pthread_exit(NULL);
@@ -738,21 +684,88 @@ void* sender_routine(){
 }
 */
 
+
 void * listen_navdata(){
   pthread_mutex_lock(&cmd_mutex);
+  char * cmd;
+  ssize_t recu;
+  int  sended;
+  navdata_t * packet;
+  navdata_option_t* nav_option;
+  navdata_demo_t* nav_demo;
+  
+  uint32_t control_state;
+
+  socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
+
   while(!drone_initialized){
     pthread_cond_wait(&cond_drone_initialized, &cmd_mutex);
   }
 
   pthread_mutex_unlock(&cmd_mutex);
 
-  while(!dance_over){
-    printf("LISTEN NAVDATA!!!!!\n");
-    //usleep(5000);
-    usleep(1000000);
-    /**** TO DO *********/
+  while(dance_over != 1){
+    
     //RECV NAVDATA
+    recu = recvfrom(socket_navdata,
+                    buffer,
+                    sizeof(unsigned char)*4096,
+                    0,
+                    (struct sockaddr *)&serv_addr_navdata,
+                    &t);
+    if( recu == -1)
+      perror("Erreur during reception of navdata\n");
+
+    packet =(navdata_t*) &buffer;
+    g.curr_state.emergency = packet->ardrone_state & ARDRONE_EMERGENCY_MASK;
+
+    nav_option = (navdata_option_t*) &(packet->options[0]);
+
+    switch(nav_option->tag){
+      case 0: //NAVDATA_DEMO
+        nav_demo = (navdata_demo_t*)nav_option;
+        g.curr_state.battery_life = nav_demo->vbat_flying_percentage;
+        control_state = nav_demo->ctrl_state >> 16;
+        switch(control_state){
+          case CTRL_LANDED:
+            g.curr_state.hovering_mode = 0;
+            g.curr_state.landing = 1;
+            break;
+          case CTRL_HOVERING :
+            g.curr_state.hovering_mode = 1;
+            g.curr_state.landing = 0;
+            break;
+          default:
+            g.curr_state.hovering_mode = 0;
+            g.curr_state.landing = 0;
+            break;
+        }
+        break;
+      default:
+        printf("NOT A NAVDATA DEMO %u\n",nav_option->tag);
+        break;
+    }
+
     //UPDATE DRONE STATE
+    printf("Landing : %d\n",g.curr_state.landing);
+    printf("Emergency : %d\n",g.curr_state.emergency);
+    printf("Hovering : %d\n",g.curr_state.hovering_mode);
+    printf("-----------------------------\n");
+
+    cmd = createAT_COMWDG();
+    printf("Send WDOG \n");
+    sended = sendto(socket_navdata,
+                    cmd,
+                    strlen(cmd) + 1,
+                    0,
+                    (struct sockaddr*)&serv_addr_navdata,
+                    sizeof(serv_addr_navdata));
+    if(sended == -1)
+        perror("Error when sending command");
+
+    free(cmd);
+    first_navdata = 1;
+    usleep(5000);
   }
   printf("END LISTENER\n");
   pthread_exit(NULL);
@@ -780,6 +793,8 @@ void choreography(){
   pitch   = 0;
   vspeed  = 0;
 
+  g.curr_state.hovering_mode = 0;
+  g.curr_state.landing = 1;
 
   timer = my_gettimeofday();
   //Thread which sends all packet to the drone
@@ -788,7 +803,7 @@ void choreography(){
   //Thread which schedules and replaces the ATPCMD to send
   pthread_create(&t_control, NULL, control_udp, (void*) NULL);
   
-  //pthread_create(&t_video, NULL, video_tcp, (void*) NULL);
+  //Thread which listen for navdata 
   pthread_create(&t_navdata, NULL, listen_navdata, (void*) NULL);
 
   pthread_join(t_sender, NULL);

@@ -15,3 +15,8 @@ int setBitToZero(int val, int pos){
   int mask = setBitToOne(0, pos);
   return (val & ~mask);
 }
+
+int getBit(int val, int pos){
+  int mask = 1 << pos;
+  return val & mask;
+}
