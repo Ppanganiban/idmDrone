@@ -83,16 +83,16 @@ int flag;
 struct uAction pile[4];
 int indexof = 0;
 
-
-unsigned char buffer[4096];
-
+//Use for print time spended
 double timer;
+
+//Use for reception of navdata
+#define NAV_BUFFER_SIZE 4096
+unsigned char buffer[NAV_BUFFER_SIZE];
 
 /*******************************************************************************
  ***************************** TOOLS *******************************************
  ******************************************************************************/
-
-
 
 /*Handle action*/
 void pile_sorting(){
@@ -138,6 +138,26 @@ void pile_sorting(){
     if(b)
       break;
   }    
+}
+
+int send_msg(int socket, struct sockaddr_in socket_addr, char * msg, int nb){
+  int count;
+  int sended;
+
+  for(count = 0; count < nb; count++){  
+    sended = sendto(socket,
+                    msg,
+                    strlen(msg) + 1,
+                    0,
+                    (struct sockaddr*)&socket_addr,
+                    sizeof(socket_addr));
+
+    if(sended == -1){
+      perror("Error when sending command");
+      return -1;
+    }
+  }
+  return 0;
 }
 
 /*******************************************************************************
@@ -335,6 +355,7 @@ int wait(struct global* g){
   next_ATPCMD();
   return 0;
 }
+
 /*******************************************************************************
  ************************ RUNTIME CONNECTION ***********************************
  ******************************************************************************/
@@ -366,55 +387,19 @@ int connectDrone(struct global* g){
   //Notify the ardrone to send navdata
   char * cmd;
   char * dirty_packet = "\x01\x00\x00\x00";
-  int count,sended;
 
   printf("Send DIRTY PACKET\n");
-  for(count = 0; count < 1; count++){  
-    sended = sendto(socket_navdata,
-                    dirty_packet,
-                    strlen(dirty_packet) + 1,
-                    0,
-                    (struct sockaddr*)&serv_addr_navdata,
-                    sizeof(serv_addr_navdata));
 
-    if(sended == -1){
-      perror("Error when sending command");
-      return -1;
-    }
-  }
-
+  send_msg(socket_navdata, serv_addr_navdata, dirty_packet,1);
+  
   cmd = createAT_CONFIG("general:navdata_demo","TRUE");
-
-  for(count = 0; count < 1; count++){  
-    sended = sendto(socket_command,
-                    cmd,
-                    strlen(cmd) + 1,
-                    0,
-                    (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-    if(sended == -1){
-      perror("Error when sending command");
-      return -1;
-    }
-  }
+  send_msg(socket_command, serv_addr, cmd, 1);
   free(cmd);
 
   cmd = createAT_CTRL();
-  for(count = 0; count < 1; count++){  
-    sended = sendto(socket_command,
-                    cmd,
-                    strlen(cmd) + 1,
-                    0,
-                    (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-    if(sended == -1){
-      perror("Error when sending command");
-      return -1;
-    }
-  }
+  send_msg(socket_command, serv_addr, cmd, 1);
   free(cmd);
+
   return 0;
 }
 
@@ -499,116 +484,46 @@ void* control_udp(){
 
 
 int configureDrone(struct global *state_g){
-    int sended, count;
     char * cmd, *var;
 
     printf("*********** CONFIGURE DRONE ************\n");
     printf("SESSION ID\n");
     cmd = createAT_CONFIG("custom:session_id",SESSION_ID);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
+    send_msg(socket_command, serv_addr, cmd,10);
     free(cmd);
 
     printf("USER ID\n");
     cmd = createAT_CONFIG("custom:profile_id",USER_ID);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
+    send_msg(socket_command, serv_addr, cmd,10);
     free(cmd);
 
     printf("APP ID\n");
     cmd = createAT_CONFIG("custom:application_id",APP_ID);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
+    send_msg(socket_command, serv_addr, cmd,10);
     free(cmd);
 
     printf("ALTITUDE MAX\n");
     var = (char*) calloc(20,sizeof(char));
     snprintf(var, 20 * sizeof(char),"%d", state_g->context.height);
-    cmd = createAT_CONFIG("control:altitude_max",var);
-    free(var);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
+    cmd = createAT_CONFIG("control:altitude_max",var);   
+    send_msg(socket_command, serv_addr, cmd,10);
     free(cmd);
+    free(var);
 
     printf("ANGULAR SPEED MAX\n");
     var = (char*) calloc(20,sizeof(char));
     snprintf(var, 20 * sizeof(char),"%f", state_g->context.angular_speed);
     cmd = createAT_CONFIG("control:control_yaw",var);
+    send_msg(socket_command, serv_addr, cmd,10);
     free(var);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
     free(cmd);
 
     printf("VERTICAL SPEED MAX\n");
     var = (char*) calloc(20,sizeof(char));
     snprintf(var, 20 * sizeof(char),"%f", state_g->context.vertical_speed);
     cmd = createAT_CONFIG("control:control_vzmax",var);
+    send_msg(socket_command, serv_addr, cmd,10);
     free(var);
-    for (count = 0; count < 10; count++){
-        sended = sendto(socket_command,
-                        cmd,
-                        strlen(cmd) + 1,
-                        0,
-                        (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-        if(sended == -1){
-            perror("Error when sending command") ;
-            pthread_exit(NULL);
-        }
-    }
     free(cmd);
     printf("*************FIN CONFIGURATION***********\n");
     
@@ -646,7 +561,6 @@ void* sender_routine(){
                 mess_cmd_curr);
         prec = mess_cmd_curr;
       }
-
       sended = sendto(socket_command,
                     mess_cmd_curr,
                     strlen(mess_cmd_curr) + 1,
@@ -686,22 +600,19 @@ void* sender_routine(){
 
 
 void * listen_navdata(){
-  pthread_mutex_lock(&cmd_mutex);
   char * cmd;
   ssize_t recu;
-  int  sended;
   navdata_t * packet;
   navdata_option_t* nav_option;
-  navdata_demo_t* nav_demo;
-  
+  navdata_demo_t* nav_demo;  
   uint32_t control_state;
+  int comm_watchdog;
 
   socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
-
+  pthread_mutex_lock(&cmd_mutex);
   while(!drone_initialized){
     pthread_cond_wait(&cond_drone_initialized, &cmd_mutex);
   }
-
   pthread_mutex_unlock(&cmd_mutex);
 
   while(dance_over != 1){
@@ -709,7 +620,7 @@ void * listen_navdata(){
     //RECV NAVDATA
     recu = recvfrom(socket_navdata,
                     buffer,
-                    sizeof(unsigned char)*4096,
+                    sizeof(unsigned char)*NAV_BUFFER_SIZE,
                     0,
                     (struct sockaddr *)&serv_addr_navdata,
                     &t);
@@ -718,6 +629,14 @@ void * listen_navdata(){
 
     packet =(navdata_t*) &buffer;
     g.curr_state.emergency = packet->ardrone_state & ARDRONE_EMERGENCY_MASK;
+    comm_watchdog = packet->ardrone_state & ARDRONE_COM_WATCHDOG_MASK;
+
+    if(comm_watchdog){
+      cmd = createAT_COMWDG();
+      printf("Send WDOG \n");
+      send_msg(socket_navdata, serv_addr_navdata, cmd, 1);
+      free(cmd);
+    }
 
     nav_option = (navdata_option_t*) &(packet->options[0]);
 
@@ -752,18 +671,6 @@ void * listen_navdata(){
     printf("Hovering : %d\n",g.curr_state.hovering_mode);
     printf("-----------------------------\n");
 
-    cmd = createAT_COMWDG();
-    printf("Send WDOG \n");
-    sended = sendto(socket_navdata,
-                    cmd,
-                    strlen(cmd) + 1,
-                    0,
-                    (struct sockaddr*)&serv_addr_navdata,
-                    sizeof(serv_addr_navdata));
-    if(sended == -1)
-        perror("Error when sending command");
-
-    free(cmd);
     first_navdata = 1;
     usleep(5000);
   }
