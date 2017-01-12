@@ -3,16 +3,20 @@ CHOREOGRAPHY {
 	import moves;
 
 	CONTEXT {
-		maxLength = 30;
+		maxLength = 300;
 		maxHeight = 30;
-		maxWidth = 30;
-		positionX = 10;
+		maxWidth = 300;
+		positionX = 100;
 		initialDirection = BEHIND;
-		positionY = 10;
+		positionY = 100;
 	}
 	part{
-		rotate ( angle = 180 temps = 3 );
-		wait(temps = 6);
+		rotate ( angle = 180 temps = 3 )X 2;
+		wait(temps = 6) with Cam(mode ON , id = Front);
+	}
+	part2{
+		right(distance = 50 temps = 3);
+		up(distance = 10 temps = 1);
 	}
 	start = part;
 }

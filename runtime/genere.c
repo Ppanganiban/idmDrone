@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
-#include "init.h"
+#include "runtime.h"
 
 int main(int argc, char * argv[]){
 
@@ -21,17 +21,16 @@ g.context.initial_pos.x = 0;
 g.context.initial_pos.y = 0;
 g.context.initial_direction = REAR;
 //Set value from xml file
-g.context.length = 30;
-g.context.height = 30;
-g.context.width = 30;
-g.context.initial_pos.x = 10;
+g.context.length = 30000;
+g.context.height = 3000;
+g.context.width = 30000;
+g.context.initial_pos.x = 100;
 g.context.initial_direction = BEHIND;
-g.context.initial_pos.y = 10;
+g.context.initial_pos.y = 100;
 
 
-Action_filling();
+fillActions();
 connectDrone(&g);
-configureDrone(&g);
 choreography();
 disconnectDrone(&g);
 return 0;
