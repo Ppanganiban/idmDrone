@@ -21,3 +21,9 @@ clean:
 	rm bin/*
 	rm genere.c
 	rm init.c
+
+reboot:
+	echo "reboot" | telnet 192.168.1.1
+
+ip:
+	sudo ifconfig wlp4s0 192.168.1.2 netmask 255.255.255.0
