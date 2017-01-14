@@ -59,9 +59,9 @@ void actions_genere(xmlNode * node, FILE * f, int isMerge){
         if(strcmp("wait",(char*) a_node->name) != 0){
         
             fprintf(f,
-                    "actions[%d].axis.distance = %s;\n",
+                    "actions[%d].axis.distance = %d;\n",
                     i,
-                    a_node->children->children->content);
+                    atoi((char*) a_node->children->children->content) * 100);
 		
             fprintf(f,
                     "actions[%d].axis.curr_action.time = %s;\n",
