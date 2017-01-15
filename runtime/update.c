@@ -1,7 +1,5 @@
 #include "runtime.h"
-
-#define DRONE_SPEED 1000 //mm/s
-#define DRONE_SPEED_IN_DEG 15 //deg
+#include "update.h"
 
 extern float pitch, spin, tilt, vspeed;
 extern struct uAction pile[4];
@@ -26,14 +24,22 @@ void pitch_update(){
   speed_curr  = distance / time;
   
   pitch = 1;
-  
+
   if(speed_curr < DRONE_SPEED){
-    rad_curr  = speed_curr*DRONE_SPEED_IN_DEG * 3.14 / 180 / DRONE_SPEED;
-    pitch     = rad_curr / (DRONE_SPEED_IN_DEG * 3.14 / 180);
+    rad_curr  = speed_curr*DRONE_SPEED_IN_DEG * 3.1415 / 180 / DRONE_SPEED;
+    pitch     = rad_curr / (DRONE_SPEED_IN_DEG * 3.1415 / 180);
   }
 
-  if(pile[g.index_action].axis.curr_action.func == backward)
+  if(pile[g.index_action].axis.curr_action.func == forward)
     pitch = -pitch;
+
+  if(pile[g.index_action].axis.curr_action.func == forward
+      && pre_move == BACKWARD)
+    pitch /= EQUILIBRE;
+  else if(pile[g.index_action].axis.curr_action.func == backward
+      && pre_move == FORWARD)
+    pitch /= EQUILIBRE;
+
 }
 
 void vspeed_update(){
@@ -62,10 +68,20 @@ void tilt_update(){
   tilt = 1;
 
   if(speed_curr < DRONE_SPEED){
-    rad_curr  = speed_curr*DRONE_SPEED_IN_DEG * 3.14 / 180 / DRONE_SPEED;
-    tilt      = rad_curr / (DRONE_SPEED_IN_DEG * 3.14 / 180);
+    rad_curr  = speed_curr*DRONE_SPEED_IN_DEG * 3.1415 / 180 / DRONE_SPEED;
+    tilt      = rad_curr / (DRONE_SPEED_IN_DEG * 3.1415 / 180);
   }
 
-  if(pile[g.index_action].axis.curr_action.func == backward)
+  if(pile[g.index_action].axis.curr_action.func == left)
     tilt  = -tilt;
+
+  if(pile[g.index_action].axis.curr_action.func == left
+      && pre_move == RIGHT)
+    tilt /= EQUILIBRE;
+
+  else if(pile[g.index_action].axis.curr_action.func == right
+      && pre_move == LEFT)
+    tilt /= EQUILIBRE;
+
+
 }

@@ -11,6 +11,7 @@
 #include <math.h>
 #include "tool.h"
 #include "navdata.h"
+#include "update.h"
 
 #define EMERGENCY 1
 
@@ -140,13 +141,13 @@ void pile_sorting(){
     }
     if(b)
       break;
-  }    
+  }  
 }
 
 int send_msg(int socket, struct sockaddr_in socket_addr, char * msg, int nb){
   int count;
   int sended;
-  /*printf("%lf :: Send command %s\n\n",
+/*  printf("%lf :: Send command %s\n\n",
                 my_gettimeofday() - timer,
                 msg);
   */
@@ -191,11 +192,6 @@ int send_dirty(int socket, struct sockaddr_in socket_addr, int nb){
  ************************ UPDATE ROTORS ****************************************
  ******************************************************************************/
 
-extern void pitch_update();
-extern void spin_update();
-extern void vspeed_update();
-extern void tilt_update();
-
 /*******************************************************************************
  ************************ RUNTIME MOVEMENTS ************************************
  ******************************************************************************/
@@ -213,34 +209,34 @@ int takeoff(struct global* g){
 
   printf("TAKING OFF\n");
 
-  if(g->curr_state.emergency == EMERGENCY)
-    cmd = createAT_REF(TAKEOFF, EMERGENCY_CHANGE);
-  else
-    cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
+  while(g->curr_state.hovering_mode == 0 || g->curr_position.z < 700){
 
-  send_msg(socket_command, serv_addr, cmd, 1);
-  free(cmd);
+    //cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
+    //send_msg(socket_command, serv_addr, cmd, 1);
+    //free(cmd);
+    if(g->curr_state.emergency == EMERGENCY)
+      cmd = createAT_REF(TAKEOFF, EMERGENCY_CHANGE);
+    else
+      cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
 
-  while(g->curr_state.hovering_mode == 0){
+    send_msg(socket_command, serv_addr, cmd, 1);
+    free(cmd);
+
+    usleep(33000);
+    
     cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
     send_msg(socket_command, serv_addr, cmd, 1);
     free(cmd);
-    sleep(1);
+
+    usleep(33000);
   }
 
-  /*  cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
-  send_msg(socket_command, serv_addr, cmd, 1);
-  free(cmd);
-  sleep(1);
-*/
+
   printf("Hovering mode : %d / landing : %d\n",
           g->curr_state.hovering_mode,
           g->curr_state.landing);
  
-  cmd = createAT_CALIB(0);
-  send_msg(socket_command, serv_addr, cmd,1);
-  free(cmd);
-  sleep(1);
+  pre_move = -1;
 
   return 0;
 }
@@ -248,6 +244,13 @@ int takeoff(struct global* g){
 int land(struct global* g){
   char *cmd, *tmp;
   printf("Land\n");
+  cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
+  send_msg(socket_command, serv_addr, cmd, 1);
+  free(cmd);
+  sleep(1);
+
+  pre_move = -1;
+
   if(g->curr_state.emergency == EMERGENCY)
     cmd = createAT_REF(LAND, EMERGENCY_CHANGE);
   else
@@ -299,6 +302,14 @@ void next_ATPCMD(){
   }
   if(tmp != NULL)
     free(tmp);
+  
+  free (cmd);
+  
+  cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
+  send_msg(socket_command, serv_addr, cmd, 1); 
+  //usleep(500000);
+  sleep(2);
+  free(cmd);
 }
 
 int up(struct global* g){
@@ -308,6 +319,8 @@ int up(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
   next_ATPCMD();
+
+  pre_move = UP;
   return 0;
 }
 
@@ -318,6 +331,7 @@ int down(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
   next_ATPCMD();
+  pre_move = DOWN;
   return 0;
 }
 int forward(struct global* g){
@@ -327,6 +341,7 @@ int forward(struct global* g){
           pile[g->index_action].axis.distance,
           pile[g->index_action].axis.curr_action.time);
   next_ATPCMD();
+  pre_move = FORWARD;
   return 0;
 }
 
@@ -338,6 +353,8 @@ int backward(struct global* g){
           pile[g->index_action].axis.curr_action.time);
 
   next_ATPCMD();
+  pre_move = BACKWARD;
+
   return 0;
 }
 
@@ -349,6 +366,7 @@ int left(struct global* g){
           pile[g->index_action].axis.curr_action.time);
 
   next_ATPCMD();
+  pre_move = LEFT;
   return 0;
 }
 int right(struct global* g){
@@ -359,6 +377,7 @@ int right(struct global* g){
           pile[g->index_action].axis.curr_action.time);
 
   next_ATPCMD();
+  pre_move = RIGHT;
   return 0;
 }
 
@@ -370,6 +389,7 @@ int rotate(struct global* g){
           pile[g->index_action].rotate.curr_action.time);
 
   next_ATPCMD();
+  pre_move = -1;
   return 0;
 }
 
@@ -379,9 +399,21 @@ int wait(struct global* g){
           pile[g->index_action].axis.curr_action.time);
 
   next_ATPCMD();
+  pre_move = -1;
   return 0;
 }
 
+int flip(struct global*g){
+  char tmp[20], *cmd;
+  printf("FLIP %d\n", ARDRONE_ANIM_FLIP_RIGHT);
+  snprintf(tmp, 20 * sizeof(char),"%d,2000", ARDRONE_ANIM_FLIP_RIGHT);
+  cmd = createAT_CONFIG("control:flight_anim",tmp);
+  send_msg(socket_command, serv_addr, cmd, 1);
+  free(cmd);
+  sleep(2);
+  pre_move = -1;
+  return 0;
+}
 /*******************************************************************************
  ************************ RUNTIME CONNECTION ***********************************
  ******************************************************************************/
@@ -391,10 +423,10 @@ int connectDrone(struct global* glob){
   char * cmd;
   int recu;
   int wait_command = 1;
-  int bootstrap = 0;
+  
   socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
   navdata_t* packet;
-  navdata_option_t* nav_option;
+  //navdata_option_t* nav_option;
   
   printf("**************** CONNECTION TO DRONE  **************\n");
 
@@ -418,41 +450,11 @@ int connectDrone(struct global* glob){
   serv_addr_navdata.sin_port=htons(NAVDATA_PORT);
   serv_addr_navdata.sin_addr.s_addr = inet_addr(DroneAddress);
 
-
+  //Initiate navdata_demo
   printf("Send DIRTY PACKET\n");
   send_dirty(socket_navdata, serv_addr_navdata, 1);
-
-  //Initiate navdata_demo
-  //cmd = createAT_CONFIG_IDS();
-  //send_msg(socket_command, serv_addr, cmd,1);
-  //free(cmd);
   sleep(1);
 
- /* int first_nav = 0;
-  while(!first_nav){
-    socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
-    //Check boot strap
-    recu = recvfrom(socket_navdata,
-                        buffer,
-                        sizeof(unsigned char)*NAV_BUFFER_SIZE,
-                        0,
-                        (struct sockaddr *)&serv_addr_navdata,
-                        &t);
-    if( recu == -1)
-        perror("Erreur during reception of navdata\n");
-
-    packet =(navdata_t*) &buffer;
-    if(packet->ardrone_state & ARDRONE_NAVDATA_BOOTSTRAP)
-        bootstrap = 1;
-
-    nav_option = (navdata_option_t*) &(packet->options[0]);
-    printf("Nav_option size = %d // TAG %d\n",nav_option->size, nav_option->tag);
-    if(nav_option->tag == 0)
-     first_nav = 1;
-
-    usleep(50000); 
-  }
-  */
   //Check boot strap
   recu = recvfrom(socket_navdata,
                       buffer,
@@ -465,33 +467,27 @@ int connectDrone(struct global* glob){
 
   packet =(navdata_t*) &buffer;
   printf("BOOT STRAP : %d\n", packet->ardrone_state & ARDRONE_NAVDATA_BOOTSTRAP);
-  if(packet->ardrone_state & ARDRONE_NAVDATA_BOOTSTRAP)
-      bootstrap = 1;
- 
   
   //EXIT BOOTSTRAP  
-  if(bootstrap){
-    printf("BOOTRSTRAP\n");
-    cmd = createAT_CONFIG("general:navdata_demo","TRUE");
-    send_msg(socket_command, serv_addr, cmd, 1);
-    free(cmd);
-    while(wait_command){
-      recu = recvfrom(socket_navdata,
-                      buffer,
-                      sizeof(unsigned char)*NAV_BUFFER_SIZE,
-                      0,
-                      (struct sockaddr *)&serv_addr_navdata,
-                      &t);
-      if( recu == -1)
-        perror("Erreur during reception of navdata\n");
+  cmd = createAT_CONFIG("general:navdata_demo","TRUE");
+  send_msg(socket_command, serv_addr, cmd, 1);
+  free(cmd);
 
-     packet =(navdata_t*) &buffer;
-     printf("COMMAND_MASK : %d\n", packet->ardrone_state & ARDRONE_COMMAND_MASK);
-     if(packet->ardrone_state & ARDRONE_COMMAND_MASK)
-        wait_command = 0;
-    }
+  while(wait_command){
+    recu = recvfrom(socket_navdata,
+                    buffer,
+                    sizeof(unsigned char)*NAV_BUFFER_SIZE,
+                    0,
+                    (struct sockaddr *)&serv_addr_navdata,
+                    &t);
+    if( recu == -1)
+      perror("Erreur during reception of navdata\n");
 
-    
+    packet =(navdata_t*) &buffer;
+    //printf("COMMAND_MASK : %d\n", packet->ardrone_state & ARDRONE_COMMAND_MASK);
+    if(packet->ardrone_state & ARDRONE_COMMAND_MASK)
+      wait_command = 0;
+
     //Send ACK
     cmd = createAT_CTRL();
     send_msg(socket_command, serv_addr, cmd, 1);
@@ -499,13 +495,6 @@ int connectDrone(struct global* glob){
     printf("END BOOTSTRAP\n");
   }
   
-/*  cmd = createAT_CONFIG_IDS();
-  send_msg(socket_command, serv_addr, cmd,1);
-  free(cmd);
-  cmd = createAT_CONFIG("general:navdata_demo","TRUE");
-  send_msg(socket_command, serv_addr, cmd, 1);
-  free(cmd);
-*/
   int comm_watchdog = packet->ardrone_state & ARDRONE_COM_WATCHDOG_MASK;
   if(comm_watchdog){
     cmd = createAT_COMWDG();
@@ -534,69 +523,46 @@ int disconnectDrone(struct global* g){
 
 
 int configureDrone(struct global *state_g){
-    char * cmd, *var;
+  char * cmd, *var;
 
-    printf("*********** CONFIGURE DRONE ************\n");
-    /*printf("SESSION ID\n");
-    cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    cmd = createAT_CONFIG("custom:session_id",SESSION_ID);
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
+  printf("*********** CONFIGURE DRONE ************\n");
+  
+  printf("ALTITUDE MAX\n");
+  var = (char*) calloc(20,sizeof(char));
+  snprintf(var, 20 * sizeof(char),"%d", state_g->context.height);
+  cmd = createAT_CONFIG("control:altitude_max",var);   
+  send_msg(socket_command, serv_addr, cmd,1);
+  free(cmd);
+  free(var);
 
-    printf("APP ID\n");
-    cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    cmd = createAT_CONFIG("custom:application_id",APP_ID);
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
+  printf("ANGULAR SPEED MAX\n");
+  var = (char*) calloc(20,sizeof(char));
+  snprintf(var, 20 * sizeof(char),"%f", state_g->context.angular_speed);
+  cmd = createAT_CONFIG("control:control_yaw",var);
+  send_msg(socket_command, serv_addr, cmd,1);
+  free(var);
+  free(cmd);
 
-    printf("USER ID\n");
-    cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    cmd = createAT_CONFIG("custom:profile_id",USER_ID);
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    */
-    
-    printf("ALTITUDE MAX\n");
-    /*cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    */var = (char*) calloc(20,sizeof(char));
-    snprintf(var, 20 * sizeof(char),"%d", state_g->context.height);
-    cmd = createAT_CONFIG("control:altitude_max",var);   
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    free(var);
+  printf("VERTICAL SPEED MAX\n");
+  var = (char*) calloc(20,sizeof(char));
+  snprintf(var, 20 * sizeof(char),"%f", state_g->context.vertical_speed);
+  cmd = createAT_CONFIG("control:control_vzmax",var);
+  send_msg(socket_command, serv_addr, cmd,1);
+  free(var);
+  free(cmd);
 
-    printf("ANGULAR SPEED MAX\n");
-    /*cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    */var = (char*) calloc(20,sizeof(char));
-    snprintf(var, 20 * sizeof(char),"%f", state_g->context.angular_speed);
-    cmd = createAT_CONFIG("control:control_yaw",var);
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(var);
-    free(cmd);
+  printf("EULER MAX\n");
+  var = (char*) calloc(20,sizeof(char));
+  snprintf(var, 20 * sizeof(char),"%f", DRONE_SPEED_IN_DEG * 3.14 /180);
+  cmd = createAT_CONFIG("control:control_euler_angle_max",var);
+  send_msg(socket_command, serv_addr, cmd,1);
+  free(var);
+  free(cmd);
 
-    printf("VERTICAL SPEED MAX\n");
-    /*cmd = createAT_CONFIG_IDS();
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(cmd);
-    */var = (char*) calloc(20,sizeof(char));
-    snprintf(var, 20 * sizeof(char),"%f", state_g->context.vertical_speed);
-    cmd = createAT_CONFIG("control:control_vzmax",var);
-    send_msg(socket_command, serv_addr, cmd,1);
-    free(var);
-    free(cmd);
-    printf("*************FIN CONFIGURATION***********\n");
-    
-    return 0;
+
+  printf("*************FIN CONFIGURATION***********\n");
+  
+  return 0;
 }
 
 /*******************************************************************************
@@ -611,7 +577,7 @@ void* control_udp(){
   int i=0;
   int j=0;
   int k=0;
-  
+  char start = 'a';
   int exec = 0;
 
   //Check if it starts 
@@ -622,53 +588,58 @@ void* control_udp(){
 
   takeoff(&g);
 
+  printf("**** PRESS <ENTER> FOR STARTING THE CHOREOGRAPHY ****");
+  while(start != '\n')
+    scanf("%c",&start);
+  printf("************ START **************\n");
+
   for(j = 0;j <= pe && comm_ok;j++){ 
+    if(actions[i].type == ACTION_AXIS)
+      exec = actions[i].axis.curr_action.execution_phase;
+    else
+      exec = actions[i].rotate.curr_action.execution_phase;
+
+    while(i<length && exec == j){
+      pile[indexof] = actions[i];
+      indexof++;
+      i++;
+
       if(actions[i].type == ACTION_AXIS)
         exec = actions[i].axis.curr_action.execution_phase;
       else
         exec = actions[i].rotate.curr_action.execution_phase;
+    }
 
-      while(i<length && exec == j){
-        pile[indexof] = actions[i];
-        indexof++;
-        i++;
+    pile_sorting();
 
-        if(actions[i].type == ACTION_AXIS)
-          exec = actions[i].axis.curr_action.execution_phase;
+    for(k = indexof-1; k >= 0; k--){
+      g.index_action = k;
+
+      if(pile[k].type == ACTION_AXIS){
+        pile[k].axis.curr_action.func(&g);
+      }else{
+        pile[k].rotate.curr_action.func(&g);
+      }
+    }
+
+    for(k=indexof-1;k>=0;k--){
+      if(pile[k].type== ACTION_AXIS){
+        if(pile[k].axis.curr_action.func == forward
+            || pile[k].axis.curr_action.func == backward)            
+          pitch =0;
         else
-          exec = actions[i].rotate.curr_action.execution_phase;
+          tilt = 0;
+      
+      }else{
+        spin = 0;
       }
+    }
 
-      pile_sorting();
-
-      for(k = indexof-1; k >= 0; k--){
-        g.index_action = k;
-
-        if(pile[k].type == ACTION_AXIS){
-          pile[k].axis.curr_action.func(&g);
-        }else{
-          pile[k].rotate.curr_action.func(&g);
-        }
-      }
-
-      for(k=indexof-1;k>=0;k--){
-        if(pile[k].type== ACTION_AXIS){
-          if(pile[k].axis.curr_action.func == forward
-              || pile[k].axis.curr_action.func == backward)            
-            pitch =0;
-          else
-            tilt = 0;
-        
-        }else{
-          spin = 0;
-        }
-      }
-
-      pitch = 0;
-      spin  = 0;
-      vspeed = 0;
-      tilt = 0;
-      indexof = 0;
+    pitch = 0;
+    spin  = 0;
+    vspeed = 0;
+    tilt = 0;
+    indexof = 0;
   }
   land(&g);
 
@@ -735,7 +706,6 @@ void * listen_navdata(){
   uint32_t control_state;
   socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
-
   while(dance_over != 1){
     //printf("Send DIRTY PACKET\n");
     send_dirty(socket_navdata, serv_addr_navdata,1);
@@ -754,6 +724,14 @@ void * listen_navdata(){
     packet =(navdata_t*) &buffer;
     g.curr_state.emergency = packet->ardrone_state & ARDRONE_EMERGENCY_MASK;
 
+    if(g.curr_state.emergency){
+      printf("EMERGENCY MODE\n");
+      cmd = createAT_REF(LAND,EMERGENCY_CHANGE);
+      send_msg(socket_command, serv_addr, cmd, 1);
+      free(cmd);
+    }
+   
+
     if(packet->ardrone_state & ARDRONE_COM_LOST_MASK){
       printf("COMMUNICATION LOST !!!!\n!");
       comm_ok = 0; 
@@ -761,7 +739,7 @@ void * listen_navdata(){
    
 
     nav_option = (navdata_option_t*) &(packet->options[0]);
-    //printf("Nav_option size = %d // TAG %d\n",nav_option->size, nav_option->tag);
+    //printf("Nav_option size = %d/TAG %d\n",nav_option->size, nav_option->tag);
     int full = 0;
     while (!full && nav_option->size >0){ 
       switch(nav_option->tag){
@@ -771,14 +749,15 @@ void * listen_navdata(){
           nav_demo = (navdata_demo_t*)nav_option;
           g.curr_state.battery_life = nav_demo->vbat_flying_percentage;
           control_state = nav_demo->ctrl_state >> 16;
-          if(g.curr_state.battery_life < 30)
+
+          if(g.curr_state.battery_life < 10)
             printf("BATTERY : %d\n",g.curr_state.battery_life);
-          //printf("CONTROL_STATE %d\n",control_state);
-          //printf("VX %f\n",nav_demo->vx);
-          //printf("ALTITUDE %d\n",nav_demo->altitude);
+
+          g.curr_position.z = nav_demo->altitude;
+
           switch(control_state){
             case CTRL_LANDED:
-              printf("LANDED\n");
+              //printf("LANDED\n");
               g.curr_state.hovering_mode = 0;
               g.curr_state.landing = 1;
               break;
@@ -788,29 +767,23 @@ void * listen_navdata(){
               g.curr_state.landing = 0;
               break;
             default:
-              printf("\n");
+              //printf("\n");
               g.curr_state.hovering_mode = 0;
               g.curr_state.landing = 0;
               break;
           }
+          
           //Allow the creation of the first action.
-          drone_initialized = 1;
-          pthread_cond_broadcast(&cond_drone_initialized);
-          first_navdata = 1;
+          if(!g.curr_state.emergency){
+            drone_initialized = 1;
+            pthread_cond_broadcast(&cond_drone_initialized);
+            first_navdata = 1;
+          }
           full=1;
           break;
 
         //CHECKSUM
         case 0xFFFF:
-          //printf("CHECKSUM\n");
-
-          /*cmd = createAT_CONFIG_IDS();
-          send_msg(socket_command, serv_addr, cmd,1);
-          free(cmd);
-          cmd = createAT_CONFIG("general:navdata_demo","TRUE");
-          send_msg(socket_command, serv_addr, cmd, 1);
-          free(cmd);
-          */
           full = 1;
           break;
 
@@ -820,13 +793,6 @@ void * listen_navdata(){
       }
       nav_option = (navdata_option_t*)((uint32_t*)nav_option+nav_option->size);
     }
-
-    //UPDATE DRONE STATE
-    /*printf("Landing : %d\n",g.curr_state.landing);
-    printf("Emergency : %d\n",g.curr_state.emergency);
-    printf("Hovering : %d\n",g.curr_state.hovering_mode);
-    */
-    printf("-----------------------------\n");
     
     usleep(5000);
   }
@@ -878,9 +844,7 @@ void choreography(){
 
   pthread_join(t_control, NULL);
   pthread_join(t_navdata, NULL);
- // pthread_join(t_sender, NULL);
-
- 
+  //pthread_join(t_sender, NULL);
 
   if(mess_cmd_curr != NULL)
     free(mess_cmd_curr);

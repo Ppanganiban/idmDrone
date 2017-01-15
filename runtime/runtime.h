@@ -124,5 +124,6 @@ int wait(struct global*);
 int connectDrone(struct global*);
 int disconnectDrone(struct global*);
 int configureDrone(struct global*);
+int flip(struct global*);
 void choreography();
 void fillActions();
