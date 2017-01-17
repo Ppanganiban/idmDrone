@@ -54,7 +54,7 @@ void actions_genere(xmlNode * node, FILE * f, int isMerge){
         ){
 
         fprintf(f,"actions[%d].type =0 ;\n",i);
-  		fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name);
+        fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name);
   		
         if(strcmp("wait",(char*) a_node->name) != 0){
         
@@ -86,6 +86,14 @@ void actions_genere(xmlNode * node, FILE * f, int isMerge){
         i++;
 	  }
     //Rotation action
+    else if(!strcmp("flip", (char*) a_node->name)){
+      fprintf(f,"actions[%d].type =0 ;\n",i);
+      fprintf(f,"actions[%d].axis.curr_action.func = &%s;\n",i,a_node->name); 
+      fprintf(f,"actions[%d].axis.curr_action.execution_phase = %d;\n", i, pe);
+      fprintf(f,"actions[%d].axis.distance = 0;\n", i);
+      fprintf(f,"actions[%d].axis.curr_action.time = 1;\n", i);
+      i++;
+    }
     else if(!strcmp("rotate",(char*) a_node->name)){
 			fprintf(f,"actions[%d].type =1 ;\n",i);
 			fprintf(f,"actions[%d].rotate.curr_action.func = &%s;\n",i,a_node->name);

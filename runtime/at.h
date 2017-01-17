@@ -13,6 +13,7 @@
 #define FLAG_HOVER 0
 #define FLAG_PROG 1     //Progressive mode
 #define FLAG_PROGWITHYAW 3  //Progressive mode with yaw
+#define FLAG_OTHER -1
 
 // USE FOR ANIMATION
 typedef enum {

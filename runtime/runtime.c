@@ -82,7 +82,8 @@ int flag;
 
 //pile of instructions
 struct uAction pile[4];
-int indexof = 0;
+struct uAction dirt_action;
+int index_pile = 0;
 
 //Use for print time spended
 double timer;
@@ -97,52 +98,6 @@ int comm_ok;
 /*******************************************************************************
  ***************************** TOOLS *******************************************
  ******************************************************************************/
-
-/*Handle action*/
-void pile_sorting(){
-  int i=0;
-  int j=0;
-  char b=0;
-  int time1,time2;
-  struct uAction tmp;
-  for(i = indexof-1; i > 0; i--){
-    b = 1;
-    for(j = 0; j < i-1; j++){
-
-      if(pile[j+1].type == ACTION_AXIS)
-        time1 = pile[j+1].axis.curr_action.time;
-      else
-        time1 = pile[j+1].rotate.curr_action.time;
-
-
-      if(pile[j].type == ACTION_AXIS)
-        time2 = pile[j].axis.curr_action.time;
-      else
-        time2 = pile[j].rotate.curr_action.time;
-
-      if(time1 < time2){
-        b=0;
-        memcpy(&tmp, &pile[j+1], sizeof(pile[j+1]));
-        memcpy(&pile[j+1], &pile[j], sizeof(pile[j]));
-        memcpy(&pile[j], &tmp, sizeof(tmp));
-
-        if(pile[j+1].type == ACTION_AXIS && pile[j].type == ACTION_AXIS)
-          pile[j+1].axis.curr_action.time -= pile[j].axis.curr_action.time;
-
-        else if(pile[j+1].type == ACTION_AXIS && pile[j].type == ACTION_ROTATE)
-          pile[j+1].axis.curr_action.time -= pile[j].rotate.curr_action.time;
-
-        else if(pile[j+1].type == ACTION_ROTATE && pile[j].type== ACTION_AXIS)
-          pile[j+1].rotate.curr_action.time -= pile[j].axis.curr_action.time;
-
-        else
-          pile[j+1].rotate.curr_action.time -= pile[j].rotate.curr_action.time;
-      }    
-    }
-    if(b)
-      break;
-  }  
-}
 
 int send_msg(int socket, struct sockaddr_in socket_addr, char * msg, int nb){
   int count;
@@ -167,6 +122,107 @@ int send_msg(int socket, struct sockaddr_in socket_addr, char * msg, int nb){
   return 0;
 }
 
+/*Handle action*/
+void handle_actions(){
+  int i = 0;
+  int empty_pile = 0;
+  int time_pile_tmp[4];
+  int t_min;
+  char * cmd;
+
+  //Copy time of action inside the "stack"
+  for(i = 0; i < 4; i++){
+    if(pile[i].type == ACTION_AXIS)
+      time_pile_tmp[i] = pile[i].axis.curr_action.time;
+    else
+      time_pile_tmp[i] = pile[i].rotate.curr_action.time;
+  }
+   
+
+  while(!empty_pile){
+    printf("--------------\n");
+
+    t_min = 9999999;
+    empty_pile = 1;
+    index_pile = 0;
+
+    //Looking for t_min
+    for(i = 0; i < 4; i++){
+      if(time_pile_tmp[i] < t_min && time_pile_tmp[i] > 0){
+        t_min = time_pile_tmp[i];
+        empty_pile = 0;  
+      }
+    }
+   
+    if(!empty_pile){    
+      for(i = 0; i < 4; i++){
+        //Update angles
+        if(time_pile_tmp[i] > 0){
+          index_pile = i;
+
+          if(pile[i].type == ACTION_AXIS)
+            pile[i].axis.curr_action.func(&g);
+          else
+            pile[i].rotate.curr_action.func(&g);
+
+          time_pile_tmp[i] -= t_min;
+        }
+      }
+
+      //If it's not a merge the designate function will do the job
+      if(flag != FLAG_PROG){
+        empty_pile = 1;
+        pile[0].axis.curr_action.func(&g);
+      }
+
+      //If we have an other movement
+      else if(flag == FLAG_PROG){
+        //Create the command and send it
+        
+        int time_tmp = my_gettimeofday();
+        printf("t_min = %d\n", t_min); 
+        while (my_gettimeofday() - time_tmp < t_min){
+        
+          cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
+          send_msg(socket_command, serv_addr, cmd, 1); 
+          free(cmd);
+          usleep(33000);
+        }
+       
+/*
+         //Stop inertie
+        if(tilt > 0)
+          tilt = -tilt;
+        if(pitch > 0)
+          pitch = -pitch;
+        if(vspeed > 0)
+          vspeed = -vspeed;
+        if(spin > 0)
+          spin = -spin;
+
+        cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
+        send_msg(socket_command, serv_addr, cmd, 1); 
+        free(cmd);
+        usleep(500000);
+
+         //Stop inertie
+        cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
+        send_msg(socket_command, serv_addr, cmd, 1); 
+        free(cmd);
+        usleep(500000);
+*/  
+      }
+    
+    }
+
+    tilt = 0;
+    pitch = 0;
+    vspeed = 0;
+    spin = 0;
+  }
+}
+
+
 int send_dirty(int socket, struct sockaddr_in socket_addr, int nb){
   int count;
   int sended;
@@ -188,9 +244,6 @@ int send_dirty(int socket, struct sockaddr_in socket_addr, int nb){
   return 0;
 }
 
-/*******************************************************************************
- ************************ UPDATE ROTORS ****************************************
- ******************************************************************************/
 
 /*******************************************************************************
  ************************ RUNTIME MOVEMENTS ************************************
@@ -199,6 +252,7 @@ int send_dirty(int socket, struct sockaddr_in socket_addr, int nb){
 int takeoff(struct global* g){
   char *cmd;
 
+  flag = FLAG_OTHER;
   dance_start = 1;
   pthread_cond_broadcast(&cond_cmd_initialized);
 
@@ -211,10 +265,7 @@ int takeoff(struct global* g){
 
   while(g->curr_state.hovering_mode == 0 || g->curr_position.z < 700){
 
-    //cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
-    //send_msg(socket_command, serv_addr, cmd, 1);
-    //free(cmd);
-    if(g->curr_state.emergency == EMERGENCY)
+   if(g->curr_state.emergency == EMERGENCY)
       cmd = createAT_REF(TAKEOFF, EMERGENCY_CHANGE);
     else
       cmd = createAT_REF(TAKEOFF, EMERGENCY_STAY);
@@ -243,6 +294,8 @@ int takeoff(struct global* g){
 
 int land(struct global* g){
   char *cmd, *tmp;
+
+  flag = FLAG_OTHER;
   printf("Land\n");
   cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
   send_msg(socket_command, serv_addr, cmd, 1);
@@ -273,54 +326,12 @@ int land(struct global* g){
   return 0;
 }
 
-
-/*
- * Replace the current AT_PCMD command with the next one with the
- * values of global variables : tilt, pitch, spin, vpseed.
- */
-void next_ATPCMD(){
-  char * cmd, *tmp;
-  double time;
-  double start;
-
-  cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
-  tmp = mess_cmd_curr;
-
-  if(pile[g.index_action].type == ACTION_AXIS)
-    time = pile[g.index_action].axis.curr_action.time;
-  else
-    time = pile[g.index_action].rotate.curr_action.time;
-
- /* pthread_mutex_lock(&cmd_mutex);
-  mess_cmd_curr = cmd;
-  pthread_mutex_unlock(&cmd_mutex);
-*/
-  start = my_gettimeofday();
-  while(my_gettimeofday() - start < time){
-    send_msg(socket_command, serv_addr, cmd, 1); 
-    usleep(33000);
-  }
-  if(tmp != NULL)
-    free(tmp);
-  
-  free (cmd);
-  
-  cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
-  send_msg(socket_command, serv_addr, cmd, 1); 
-  //usleep(500000);
-  sleep(2);
-  free(cmd);
-}
-
 int up(struct global* g){
   vspeed_update();
   flag = FLAG_PROG;
   printf("UP d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-  next_ATPCMD();
-
-  pre_move = UP;
+          pile[g->index_action + index_pile ].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 
@@ -328,20 +339,16 @@ int down(struct global* g){
   vspeed_update();
   flag = FLAG_PROG;
   printf("Down d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-  next_ATPCMD();
-  pre_move = DOWN;
+          pile[g->index_action + index_pile].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 int forward(struct global* g){
   pitch_update();
   flag = FLAG_PROG;
   printf("Forward d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-  next_ATPCMD();
-  pre_move = FORWARD;
+          pile[g->index_action + index_pile].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 
@@ -349,12 +356,8 @@ int backward(struct global* g){
   pitch_update();
   flag = FLAG_PROG;
   printf("Backward d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-
-  next_ATPCMD();
-  pre_move = BACKWARD;
-
+          pile[g->index_action + index_pile].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 
@@ -362,22 +365,16 @@ int left(struct global* g){
   tilt_update();
   flag = FLAG_PROG;
   printf("Left d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-
-  next_ATPCMD();
-  pre_move = LEFT;
+          pile[g->index_action + index_pile].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 int right(struct global* g){
   tilt_update();
   flag = FLAG_PROG;
   printf("Right d: %d t: %d\n",
-          pile[g->index_action].axis.distance,
-          pile[g->index_action].axis.curr_action.time);
-
-  next_ATPCMD();
-  pre_move = RIGHT;
+          pile[g->index_action + index_pile].axis.distance,
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 
@@ -385,35 +382,31 @@ int rotate(struct global* g){
   spin_update();
   flag = FLAG_PROG;
   printf("Rotate a: %d t: %d\n",
-          pile[g->index_action].rotate.angle,
-          pile[g->index_action].rotate.curr_action.time);
-
-  next_ATPCMD();
-  pre_move = -1;
+          pile[g->index_action + index_pile].rotate.angle,
+          pile[g->index_action + index_pile].rotate.curr_action.time);
   return 0;
 }
 
 int wait(struct global* g){
   flag = FLAG_HOVER;
   printf(" Wait t: %d\n",
-          pile[g->index_action].axis.curr_action.time);
-
-  next_ATPCMD();
-  pre_move = -1;
+          pile[g->index_action + index_pile].axis.curr_action.time);
   return 0;
 }
 
 int flip(struct global*g){
   char tmp[20], *cmd;
+  flag = FLAG_OTHER;
+
   printf("FLIP %d\n", ARDRONE_ANIM_FLIP_RIGHT);
   snprintf(tmp, 20 * sizeof(char),"%d,2000", ARDRONE_ANIM_FLIP_RIGHT);
   cmd = createAT_CONFIG("control:flight_anim",tmp);
   send_msg(socket_command, serv_addr, cmd, 1);
   free(cmd);
   sleep(2);
-  pre_move = -1;
   return 0;
 }
+
 /*******************************************************************************
  ************************ RUNTIME CONNECTION ***********************************
  ******************************************************************************/
@@ -574,11 +567,11 @@ int configureDrone(struct global *state_g){
  * Executed by one thread.
  */
 void* control_udp(){
-  int i=0;
-  int j=0;
-  int k=0;
+  int idx_action=0;
+  int phase=0;
   char start = 'a';
   int exec = 0;
+  int idx_pile = 0;
 
   //Check if it starts 
   pthread_mutex_lock(&seq_mutex);
@@ -593,107 +586,45 @@ void* control_udp(){
     scanf("%c",&start);
   printf("************ START **************\n");
 
-  for(j = 0;j <= pe && comm_ok;j++){ 
-    if(actions[i].type == ACTION_AXIS)
-      exec = actions[i].axis.curr_action.execution_phase;
+  idx_action = 0;
+
+  //For each execution phase
+  for(phase = 0; phase < pe && comm_ok; phase++ ){ 
+
+     printf("Phase : %d\n",phase);
+
+    //get the current execution phase
+    if(actions[idx_action].type == ACTION_AXIS)
+      exec = actions[idx_action].axis.curr_action.execution_phase;
     else
-      exec = actions[i].rotate.curr_action.execution_phase;
+      exec = actions[idx_action].rotate.curr_action.execution_phase;
 
-    while(i<length && exec == j){
-      pile[indexof] = actions[i];
-      indexof++;
-      i++;
+    idx_pile = 0;
+    //We fill our stack of action (merge)
+    while(idx_pile < 4 && exec == phase){
+      pile[idx_pile] = actions[idx_action + idx_pile];
 
-      if(actions[i].type == ACTION_AXIS)
-        exec = actions[i].axis.curr_action.execution_phase;
+      idx_pile++;
+      if(actions[idx_action + idx_pile].type == ACTION_AXIS)
+        exec = actions[idx_action + idx_pile].axis.curr_action.execution_phase;
       else
-        exec = actions[i].rotate.curr_action.execution_phase;
+        exec = actions[idx_action + idx_pile].rotate.curr_action.execution_phase;
     }
 
-    pile_sorting();
-
-    for(k = indexof-1; k >= 0; k--){
-      g.index_action = k;
-
-      if(pile[k].type == ACTION_AXIS){
-        pile[k].axis.curr_action.func(&g);
-      }else{
-        pile[k].rotate.curr_action.func(&g);
-      }
+    int blank = 0;
+    for(blank = idx_pile; blank < 4; blank++){
+      pile[blank] = dirt_action;
     }
 
-    for(k=indexof-1;k>=0;k--){
-      if(pile[k].type== ACTION_AXIS){
-        if(pile[k].axis.curr_action.func == forward
-            || pile[k].axis.curr_action.func == backward)            
-          pitch =0;
-        else
-          tilt = 0;
-      
-      }else{
-        spin = 0;
-      }
-    }
-
-    pitch = 0;
-    spin  = 0;
-    vspeed = 0;
-    tilt = 0;
-    indexof = 0;
+    //Compute and send our action (deplacement or merge)
+    handle_actions();
+    idx_action += idx_pile;
+    printf("***************************\n");
   }
   land(&g);
 
   dance_over = 1;
   printf("END CONTROL\n");
-  pthread_exit(NULL);
-}
-
-
-/*
- * Routine used to send message to the drone.
- * In one second, it sends the command to be execute by the drone
- * and asks for navdata.
- */ 
-void* sender_routine(){
-  int sended, count;
-  char * prec;
-
-  //Wait the initialization of the first command
-  pthread_mutex_lock(&cmd_mutex);
-  while(dance_start != 1)
-    pthread_cond_wait(&cond_cmd_initialized, &cmd_mutex);
-  pthread_mutex_unlock(&cmd_mutex);
-
- 
-  //Until the dance is not over we still send messages
-  while(dance_over != 1){
-    //Send 30 times the current command in 0.9sec
-    for(count = 0; count < 1; count++){
-      pthread_mutex_lock(&cmd_mutex);
-
-      if(prec == NULL || prec != mess_cmd_curr){
-        printf("%lf :: Send command %s\n\n",
-                my_gettimeofday() - timer,
-                mess_cmd_curr);
-        prec = mess_cmd_curr;
-      }
-      sended = sendto(socket_command,
-                    mess_cmd_curr,
-                    strlen(mess_cmd_curr) + 1,
-                    0,
-                    (struct sockaddr*)&serv_addr,
-                    sizeof(serv_addr));
-
-      if(sended == -1){
-        perror("Error when sending command") ;
-        pthread_exit(NULL);
-      }
-     
-      pthread_mutex_unlock(&cmd_mutex);
-      usleep(33000);
-    }
-  }
-  printf("END SENDER\n");
   pthread_exit(NULL);
 }
 
@@ -707,11 +638,9 @@ void * listen_navdata(){
   socklen_t t = sizeof((struct sockaddr *)&serv_addr_navdata);
 
   while(dance_over != 1){
-    //printf("Send DIRTY PACKET\n");
     send_dirty(socket_navdata, serv_addr_navdata,1);
     
     //RECV NAVDATA
-    //printf("WAIT MESSAGE\n");
     recu = recvfrom(socket_navdata,
                     buffer,
                     sizeof(unsigned char)*NAV_BUFFER_SIZE,
@@ -739,13 +668,11 @@ void * listen_navdata(){
    
 
     nav_option = (navdata_option_t*) &(packet->options[0]);
-    //printf("Nav_option size = %d/TAG %d\n",nav_option->size, nav_option->tag);
     int full = 0;
     while (!full && nav_option->size >0){ 
       switch(nav_option->tag){
         //NAVDATA_DEMO
         case 0:
-          //printf("NAVDATA_DEMO !!!\n"); 
           nav_demo = (navdata_demo_t*)nav_option;
           g.curr_state.battery_life = nav_demo->vbat_flying_percentage;
           control_state = nav_demo->ctrl_state >> 16;
@@ -788,7 +715,6 @@ void * listen_navdata(){
           break;
 
         default:
-          //printf("OTHER OPTION %d\n",nav_option->tag);
           break;
       }
       nav_option = (navdata_option_t*)((uint32_t*)nav_option+nav_option->size);
@@ -808,7 +734,10 @@ void choreography(){
   //pthread_t t_video;
 
  
-
+  dirt_action.axis.curr_action.func = NULL;
+  dirt_action.axis.curr_action.time = 0;
+  dirt_action.axis.curr_action.execution_phase = -1;
+  dirt_action.type = 1;
   if(pthread_mutex_init(&cmd_mutex,NULL) !=0)
     perror("Error init mutex cmd_mutex");
 
@@ -831,20 +760,15 @@ void choreography(){
   g.curr_state.landing = 1;
 
   timer = my_gettimeofday();
-  //Thread which sends all packet to the drone
-  //pthread_create(&t_sender, NULL, sender_routine, (void*) NULL);
 
   //Thread which schedules and replaces the ATPCMD to send
   pthread_create(&t_control, NULL, control_udp, (void*) NULL);
-  
 
   //Thread which listen for navdata 
   pthread_create(&t_navdata, NULL, listen_navdata, (void*) NULL);
- 
 
   pthread_join(t_control, NULL);
   pthread_join(t_navdata, NULL);
-  //pthread_join(t_sender, NULL);
 
   if(mess_cmd_curr != NULL)
     free(mess_cmd_curr);
