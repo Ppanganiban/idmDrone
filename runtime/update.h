@@ -1,6 +1,7 @@
 #define DRONE_SPEED 1000 //mm/s
-#define DRONE_SPEED_IN_DEG 10 //deg
+#define DRONE_SPEED_IN_DEG 0.5 //deg
 #define EQUILIBRE 3
+#define COEFF_TIME 4
 
 typedef enum {
   FORWARD,

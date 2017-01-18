@@ -179,38 +179,42 @@ void handle_actions(){
       else if(flag == FLAG_PROG){
         //Create the command and send it
         
-        int time_tmp = my_gettimeofday();
+
         printf("t_min = %d\n", t_min); 
+        cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
+        int time_tmp = my_gettimeofday();
         while (my_gettimeofday() - time_tmp < t_min){
+          send_msg(socket_command, serv_addr, cmd, 1); 
+          usleep(55000);
+        }
         
+        free(cmd);
+        
+        if(tilt != 0 || pitch != 0 || vspeed != 0){
+        
+           //Stop inertie
+          if(tilt != 0)
+            tilt = -tilt;
+          if(pitch != 0)
+            pitch = -pitch;
+          if(vspeed != 0)
+            vspeed = -vspeed;
+          if(spin != 0)
+            spin = -spin;
+
           cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
           send_msg(socket_command, serv_addr, cmd, 1); 
           free(cmd);
-          usleep(33000);
-        }
-       
+          usleep(500000);
 /*
-         //Stop inertie
-        if(tilt > 0)
-          tilt = -tilt;
-        if(pitch > 0)
-          pitch = -pitch;
-        if(vspeed > 0)
-          vspeed = -vspeed;
-        if(spin > 0)
-          spin = -spin;
-
-        cmd = createAT_PCMD(flag, tilt, pitch, vspeed, spin);
-        send_msg(socket_command, serv_addr, cmd, 1); 
-        free(cmd);
-        usleep(500000);
-
          //Stop inertie
         cmd = createAT_PCMD(FLAG_HOVER, 0, 0, 0, 0);
         send_msg(socket_command, serv_addr, cmd, 1); 
         free(cmd);
         usleep(500000);
 */  
+        }
+
       }
     
     }
@@ -488,13 +492,6 @@ int connectDrone(struct global* glob){
     printf("END BOOTSTRAP\n");
   }
   
-  int comm_watchdog = packet->ardrone_state & ARDRONE_COM_WATCHDOG_MASK;
-  if(comm_watchdog){
-    cmd = createAT_COMWDG();
-    send_msg(socket_navdata, serv_addr_navdata, cmd, 1);
-    free(cmd);
-  }
-
   //Send AT*CONFIGS
   configureDrone(glob);
 
@@ -668,6 +665,18 @@ void * listen_navdata(){
       free(cmd);
     }
    
+/*    int comm_watchdog = packet->ardrone_state & ARDRONE_COM_WATCHDOG_MASK;
+    if(comm_watchdog){
+      printf("WATCHDOG MODE ONE\n");
+      cmd = createAT_COMWDG();
+      send_msg(socket_navdata, serv_addr_navdata, cmd, 1);
+      free(cmd);
+
+      pthread_mutex_lock(&seq_mutex);
+      seq_control = 1; 
+      pthread_mutex_unlock(&seq_mutex);
+    }
+*/
 
     if(packet->ardrone_state & ARDRONE_COM_LOST_MASK){
       printf("COMMUNICATION LOST !!!!\n!");
@@ -681,11 +690,12 @@ void * listen_navdata(){
       switch(nav_option->tag){
         //NAVDATA_DEMO
         case 0:
+          //printf("NAVDATA\n");
           nav_demo = (navdata_demo_t*)nav_option;
           g.curr_state.battery_life = nav_demo->vbat_flying_percentage;
           control_state = nav_demo->ctrl_state >> 16;
 
-          if(g.curr_state.battery_life < 10)
+          if(g.curr_state.battery_life < 20)
             printf("BATTERY : %d\n",g.curr_state.battery_life);
 
           g.curr_position.z = nav_demo->altitude;

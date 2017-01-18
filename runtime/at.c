@@ -15,13 +15,14 @@ extern int seq_control;
 char * createAT_PCMD(int flag, float roll, float pitch, float gaz, float yaw){
   char * command = (char*) calloc(64, sizeof(char));
 
-/*  printf("CREATE PCMD : %d/ (%f)%d /(%f)%d /(%f)%d /(%f)%d\n",
+  printf("CREATE PCMD : %d/ (%f)%d /(%f)%d /(%f)%d /(%f)%d\n",
       flag,
       roll, *(int*)&roll,
       pitch, *(int*)&pitch,
       gaz, *(int*)&gaz,
       yaw, *(int*)&yaw);
-*/
+
+  
   pthread_mutex_lock(&seq_mutex);
   if(flag == FLAG_HOVER || flag == FLAG_PROG || flag == FLAG_PROGWITHYAW){
     snprintf(command,

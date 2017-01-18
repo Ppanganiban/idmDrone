@@ -1,7 +1,7 @@
 #define DEF_MAX_ALTITUDE 30000 //mm
 #define DEF_MAX_LENGTH 1000000 //mm
 #define DEF_MAX_WIDTH 1000000 //mm
-#define DEF_MAX_YAW 3.14 //MUST BE convert in RADIAN/SEC in config drone
+#define DEF_MAX_YAW 4.0 //MUST BE convert in RADIAN/SEC in config drone
 #define DEF_MAX_VSPEED 1000 //MUST BE between 200 to 2000 mm/s
 
 #define BEHIND 1
