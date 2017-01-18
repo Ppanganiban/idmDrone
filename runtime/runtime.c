@@ -553,6 +553,14 @@ int configureDrone(struct global *state_g){
   free(cmd);
 
 
+  printf("OUTDOOR\n");
+  if(state_g->context.indoor)
+    cmd = createAT_CONFIG("control:outdoor","FALSE");
+  else
+    cmd = createAT_CONFIG("control:outdoor","TRUE");
+
+  send_msg(socket_command, serv_addr, cmd,1);
+  free(cmd);
   printf("*************FIN CONFIGURATION***********\n");
   
   return 0;
