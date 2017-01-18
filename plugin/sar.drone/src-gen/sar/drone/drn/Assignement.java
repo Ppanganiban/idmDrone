@@ -68,8 +68,8 @@ public interface Assignement extends EObject
    */
   EList<Expression> getOperandes();
 
-void setCaller(Assignement a);
-
 Assignement getCaller();
+
+void setCaller(Assignement a);
 
 } // Assignement

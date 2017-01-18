@@ -50,6 +50,7 @@ struct speed {
 
 //context of the drone
 struct limits {
+  int indoor;
 	float vertical_speed;
 	float angular_speed;
 	int length;

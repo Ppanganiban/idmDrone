@@ -29,6 +29,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="where" eType="#//Where"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="limit" upperBound="-1"
         eType="#//Limit" containment="true"/>
   </eClassifiers>
@@ -213,6 +214,10 @@
     <eLiterals name="BEHIND" value="1" literal="BEHIND"/>
     <eLiterals name="LEFT" value="2" literal="LEFT"/>
     <eLiterals name="RIGHT" value="3" literal="RIGHT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Where">
+    <eLiterals name="INDOOR" literal="INDOOR"/>
+    <eLiterals name="OUTDOOR" value="1" literal="OUTBOOR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

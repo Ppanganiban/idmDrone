@@ -253,13 +253,22 @@ public interface DrnPackage extends EPackage
   int CONTEXT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Where</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT__WHERE = 1;
+
+  /**
    * The feature id for the '<em><b>Limit</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT__LIMIT = 1;
+  int CONTEXT__LIMIT = 2;
 
   /**
    * The number of structural features of the '<em>Context</em>' class.
@@ -268,7 +277,7 @@ public interface DrnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTEXT_FEATURE_COUNT = 2;
+  int CONTEXT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link sar.drone.drn.impl.LimitImpl <em>Limit</em>}' class.
@@ -2304,6 +2313,16 @@ public interface DrnPackage extends EPackage
    */
   int DIRECTION_TYPE = 58;
 
+  /**
+   * The meta object id for the '{@link sar.drone.drn.Where <em>Where</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sar.drone.drn.Where
+   * @see sar.drone.drn.impl.DrnPackageImpl#getWhere()
+   * @generated
+   */
+  int WHERE = 59;
+
 
   /**
    * Returns the meta object for class '{@link sar.drone.drn.Root <em>Root</em>}'.
@@ -2486,6 +2505,17 @@ public interface DrnPackage extends EPackage
    * @generated
    */
   EAttribute getContext_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link sar.drone.drn.Context#getWhere <em>Where</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Where</em>'.
+   * @see sar.drone.drn.Context#getWhere()
+   * @see #getContext()
+   * @generated
+   */
+  EAttribute getContext_Where();
 
   /**
    * Returns the meta object for the containment reference list '{@link sar.drone.drn.Context#getLimit <em>Limit</em>}'.
@@ -3809,6 +3839,16 @@ public interface DrnPackage extends EPackage
   EEnum getDirectionType();
 
   /**
+   * Returns the meta object for enum '{@link sar.drone.drn.Where <em>Where</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Where</em>'.
+   * @see sar.drone.drn.Where
+   * @generated
+   */
+  EEnum getWhere();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3976,6 +4016,14 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EAttribute CONTEXT__NAME = eINSTANCE.getContext_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Where</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXT__WHERE = eINSTANCE.getContext_Where();
 
     /**
      * The meta object literal for the '<em><b>Limit</b></em>' containment reference list feature.
@@ -5084,6 +5132,16 @@ public interface DrnPackage extends EPackage
      * @generated
      */
     EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
+
+    /**
+     * The meta object literal for the '{@link sar.drone.drn.Where <em>Where</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sar.drone.drn.Where
+     * @see sar.drone.drn.impl.DrnPackageImpl#getWhere()
+     * @generated
+     */
+    EEnum WHERE = eINSTANCE.getWhere();
 
   }
 

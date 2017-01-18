@@ -489,12 +489,43 @@ ruleContext returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getContextAccess().getLeftCurlyBracketKeyword_1());
 		}
+		otherlv_2='where'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getContextAccess().getWhereKeyword_2());
+		}
+		otherlv_3='='
+		{
+			newLeafNode(otherlv_3, grammarAccess.getContextAccess().getEqualsSignKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getContextAccess().getLimitLimitParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getContextAccess().getWhereWhereEnumRuleCall_4_0());
 				}
-				lv_limit_2_0=ruleLimit
+				lv_where_4_0=ruleWhere
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getContextRule());
+					}
+					set(
+						$current,
+						"where",
+						lv_where_4_0,
+						"sar.drone.Drn.Where");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5=';'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getContextAccess().getSemicolonKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getContextAccess().getLimitLimitParserRuleCall_6_0());
+				}
+				lv_limit_6_0=ruleLimit
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getContextRule());
@@ -502,23 +533,23 @@ ruleContext returns [EObject current=null]
 					add(
 						$current,
 						"limit",
-						lv_limit_2_0,
+						lv_limit_6_0,
 						"sar.drone.Drn.Limit");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3=';'
+		otherlv_7=';'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getContextAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_7, grammarAccess.getContextAccess().getSemicolonKeyword_7());
 		}
 		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getContextAccess().getLimitLimitParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getContextAccess().getLimitLimitParserRuleCall_8_0_0());
 					}
-					lv_limit_4_0=ruleLimit
+					lv_limit_8_0=ruleLimit
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getContextRule());
@@ -526,20 +557,20 @@ ruleContext returns [EObject current=null]
 						add(
 							$current,
 							"limit",
-							lv_limit_4_0,
+							lv_limit_8_0,
 							"sar.drone.Drn.Limit");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_5=';'
+			otherlv_9=';'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getContextAccess().getSemicolonKeyword_4_1());
+				newLeafNode(otherlv_9, grammarAccess.getContextAccess().getSemicolonKeyword_8_1());
 			}
 		)*
-		otherlv_6='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getContextAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_10, grammarAccess.getContextAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -4549,6 +4580,33 @@ ruleDirectionType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getDirectionTypeAccess().getRIGHTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_3, grammarAccess.getDirectionTypeAccess().getRIGHTEnumLiteralDeclaration_3());
+			}
+		)
+	)
+;
+
+// Rule Where
+ruleWhere returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='INDOOR'
+			{
+				$current = grammarAccess.getWhereAccess().getINDOOREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getWhereAccess().getINDOOREnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='OUTBOOR'
+			{
+				$current = grammarAccess.getWhereAccess().getOUTDOOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getWhereAccess().getOUTDOOREnumLiteralDeclaration_1());
 			}
 		)
 	)

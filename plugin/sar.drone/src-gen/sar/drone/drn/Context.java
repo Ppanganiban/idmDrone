@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.Context#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.Context#getWhere <em>Where</em>}</li>
  *   <li>{@link sar.drone.drn.Context#getLimit <em>Limit</em>}</li>
  * </ul>
  *
@@ -51,6 +52,35 @@ public interface Context extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Where</b></em>' attribute.
+   * The literals are from the enumeration {@link sar.drone.drn.Where}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Where</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Where</em>' attribute.
+   * @see sar.drone.drn.Where
+   * @see #setWhere(Where)
+   * @see sar.drone.drn.DrnPackage#getContext_Where()
+   * @model
+   * @generated
+   */
+  Where getWhere();
+
+  /**
+   * Sets the value of the '{@link sar.drone.drn.Context#getWhere <em>Where</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Where</em>' attribute.
+   * @see sar.drone.drn.Where
+   * @see #getWhere()
+   * @generated
+   */
+  void setWhere(Where value);
 
   /**
    * Returns the value of the '<em><b>Limit</b></em>' containment reference list.

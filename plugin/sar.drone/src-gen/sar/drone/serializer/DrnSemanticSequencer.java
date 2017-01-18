@@ -456,7 +456,7 @@ public class DrnSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Context returns Context
 	 *
 	 * Constraint:
-	 *     (name='CONTEXT' limit+=Limit limit+=Limit*)
+	 *     (name='CONTEXT' where=Where limit+=Limit limit+=Limit*)
 	 */
 	protected void sequence_Context(ISerializationContext context, Context semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

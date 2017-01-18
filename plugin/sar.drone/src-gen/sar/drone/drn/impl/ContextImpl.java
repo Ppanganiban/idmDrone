@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import sar.drone.drn.Context;
 import sar.drone.drn.DrnPackage;
 import sar.drone.drn.Limit;
+import sar.drone.drn.Where;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import sar.drone.drn.Limit;
  * </p>
  * <ul>
  *   <li>{@link sar.drone.drn.impl.ContextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sar.drone.drn.impl.ContextImpl#getWhere <em>Where</em>}</li>
  *   <li>{@link sar.drone.drn.impl.ContextImpl#getLimit <em>Limit</em>}</li>
  * </ul>
  *
@@ -58,6 +60,26 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getWhere() <em>Where</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhere()
+   * @generated
+   * @ordered
+   */
+  protected static final Where WHERE_EDEFAULT = Where.INDOOR;
+
+  /**
+   * The cached value of the '{@link #getWhere() <em>Where</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhere()
+   * @generated
+   * @ordered
+   */
+  protected Where where = WHERE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference list.
@@ -118,6 +140,29 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
+  public Where getWhere()
+  {
+    return where;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWhere(Where newWhere)
+  {
+    Where oldWhere = where;
+    where = newWhere == null ? WHERE_EDEFAULT : newWhere;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DrnPackage.CONTEXT__WHERE, oldWhere, where));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Limit> getLimit()
   {
     if (limit == null)
@@ -155,6 +200,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case DrnPackage.CONTEXT__NAME:
         return getName();
+      case DrnPackage.CONTEXT__WHERE:
+        return getWhere();
       case DrnPackage.CONTEXT__LIMIT:
         return getLimit();
     }
@@ -174,6 +221,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case DrnPackage.CONTEXT__NAME:
         setName((String)newValue);
+        return;
+      case DrnPackage.CONTEXT__WHERE:
+        setWhere((Where)newValue);
         return;
       case DrnPackage.CONTEXT__LIMIT:
         getLimit().clear();
@@ -196,6 +246,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
       case DrnPackage.CONTEXT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DrnPackage.CONTEXT__WHERE:
+        setWhere(WHERE_EDEFAULT);
+        return;
       case DrnPackage.CONTEXT__LIMIT:
         getLimit().clear();
         return;
@@ -215,6 +268,8 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
     {
       case DrnPackage.CONTEXT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DrnPackage.CONTEXT__WHERE:
+        return where != WHERE_EDEFAULT;
       case DrnPackage.CONTEXT__LIMIT:
         return limit != null && !limit.isEmpty();
     }
@@ -233,6 +288,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
 
     StringBuffer result = new StringBuffer();
     result.append("<context>");
+    result.append("<where>"+where+"</where>");
     for(Limit l : limit){
     	result.append(l.toString());
     }

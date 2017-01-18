@@ -20,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -288,23 +289,29 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNameCONTEXTKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cLimitAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLimitLimitParserRuleCall_2_0 = (RuleCall)cLimitAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cLimitAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cLimitLimitParserRuleCall_4_0_0 = (RuleCall)cLimitAssignment_4_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cWhereKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cWhereAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWhereWhereEnumRuleCall_4_0 = (RuleCall)cWhereAssignment_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cLimitAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cLimitLimitParserRuleCall_6_0 = (RuleCall)cLimitAssignment_6.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Assignment cLimitAssignment_8_0 = (Assignment)cGroup_8.eContents().get(0);
+		private final RuleCall cLimitLimitParserRuleCall_8_0_0 = (RuleCall)cLimitAssignment_8_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		/// ******************* Contexte ********************* / Context:
 		//	name='CONTEXT'
 		//	'{'
+		//	'where' '=' where=Where ';'
 		//	limit+=Limit ";" (limit+=Limit ";")*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name='CONTEXT' '{' limit+=Limit ";" (limit+=Limit ";")* '}'
+		//name='CONTEXT' '{' 'where' '=' where=Where ';' limit+=Limit ";" (limit+=Limit ";")* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//name='CONTEXT'
@@ -316,29 +323,44 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//'where'
+		public Keyword getWhereKeyword_2() { return cWhereKeyword_2; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		
+		//where=Where
+		public Assignment getWhereAssignment_4() { return cWhereAssignment_4; }
+		
+		//Where
+		public RuleCall getWhereWhereEnumRuleCall_4_0() { return cWhereWhereEnumRuleCall_4_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		
 		//limit+=Limit
-		public Assignment getLimitAssignment_2() { return cLimitAssignment_2; }
+		public Assignment getLimitAssignment_6() { return cLimitAssignment_6; }
 		
 		//Limit
-		public RuleCall getLimitLimitParserRuleCall_2_0() { return cLimitLimitParserRuleCall_2_0; }
+		public RuleCall getLimitLimitParserRuleCall_6_0() { return cLimitLimitParserRuleCall_6_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
 		
 		//(limit+=Limit ";")*
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_8() { return cGroup_8; }
 		
 		//limit+=Limit
-		public Assignment getLimitAssignment_4_0() { return cLimitAssignment_4_0; }
+		public Assignment getLimitAssignment_8_0() { return cLimitAssignment_8_0; }
 		
 		//Limit
-		public RuleCall getLimitLimitParserRuleCall_4_0_0() { return cLimitLimitParserRuleCall_4_0_0; }
+		public RuleCall getLimitLimitParserRuleCall_8_0_0() { return cLimitLimitParserRuleCall_8_0_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_4_1() { return cSemicolonKeyword_4_1; }
+		public Keyword getSemicolonKeyword_8_1() { return cSemicolonKeyword_8_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class LimitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Limit");
@@ -2828,6 +2850,33 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		//'RIGHT'
 		public Keyword getRIGHTRIGHTKeyword_3_0() { return cRIGHTRIGHTKeyword_3_0; }
 	}
+	public class WhereElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.Where");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cINDOOREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cINDOORINDOORKeyword_0_0 = (Keyword)cINDOOREnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOUTDOOREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cOUTDOOROUTBOORKeyword_1_0 = (Keyword)cOUTDOOREnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum Where:
+		//	INDOOR | OUTDOOR='OUTBOOR';
+		public EnumRule getRule() { return rule; }
+		
+		//INDOOR | OUTDOOR='OUTBOOR'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//INDOOR
+		public EnumLiteralDeclaration getINDOOREnumLiteralDeclaration_0() { return cINDOOREnumLiteralDeclaration_0; }
+		
+		//'INDOOR'
+		public Keyword getINDOORINDOORKeyword_0_0() { return cINDOORINDOORKeyword_0_0; }
+		
+		//OUTDOOR='OUTBOOR'
+		public EnumLiteralDeclaration getOUTDOOREnumLiteralDeclaration_1() { return cOUTDOOREnumLiteralDeclaration_1; }
+		
+		//'OUTBOOR'
+		public Keyword getOUTDOOROUTBOORKeyword_1_0() { return cOUTDOOROUTBOORKeyword_1_0; }
+	}
 	
 	private final RootElements pRoot;
 	private final ModelElements pModel;
@@ -2887,6 +2936,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModeElements eMode;
 	private final EBoolElements eEBool;
 	private final DirectionTypeElements eDirectionType;
+	private final WhereElements eWhere;
 	private final ConnectionTypeElements pConnectionType;
 	private final BluetoothElements pBluetooth;
 	private final TerminalRule tMAC;
@@ -2960,6 +3010,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 		this.eMode = new ModeElements();
 		this.eEBool = new EBoolElements();
 		this.eDirectionType = new DirectionTypeElements();
+		this.eWhere = new WhereElements();
 		this.pConnectionType = new ConnectionTypeElements();
 		this.pBluetooth = new BluetoothElements();
 		this.tMAC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "sar.drone.Drn.MAC");
@@ -3052,6 +3103,7 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	/// ******************* Contexte ********************* / Context:
 	//	name='CONTEXT'
 	//	'{'
+	//	'where' '=' where=Where ';'
 	//	limit+=Limit ";" (limit+=Limit ";")*
 	//	'}';
 	public ContextElements getContextAccess() {
@@ -3652,6 +3704,16 @@ public class DrnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getDirectionTypeRule() {
 		return getDirectionTypeAccess().getRule();
+	}
+	
+	//enum Where:
+	//	INDOOR | OUTDOOR='OUTBOOR';
+	public WhereElements getWhereAccess() {
+		return eWhere;
+	}
+	
+	public EnumRule getWhereRule() {
+		return getWhereAccess().getRule();
 	}
 	
 	//ConnectionType:

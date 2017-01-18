@@ -141,6 +141,12 @@ void context_genere (FILE * f){
   fprintf(f,"g.context.initial_direction = REAR;\n");
   fprintf(f,"//Set value from xml file\n");
 	while(a_node){
+     if(!strcmp((char*) a_node->name,"where"))
+      if(!strcmp((char*) a_node->children->content,"INDOOR"))
+        fprintf(f,"g.context.indoor = 1;\n");
+      else 
+        fprintf(f,"g.context.indoor = 0;\n");
+
     //max height
     if(!strcmp((char*) a_node->name,"maxHeight"))
       fprintf(f,

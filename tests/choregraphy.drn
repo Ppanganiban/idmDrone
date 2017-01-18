@@ -3,6 +3,7 @@ CHOREOGRAPHY {
 	import moves;
 
 	CONTEXT {
+		where = INDOOR;
 		maxLength = 300;
 		maxHeight = 30;
 		maxWidth = 300;
@@ -11,12 +12,14 @@ CHOREOGRAPHY {
 		positionY = 100;
 	}
 	part{
-		rotate ( angle = 180 temps = 3 )X 2;
-		wait(temps = 6) with Cam(mode ON , id = Front);
-	}
-	part2{
-		right(distance = 50 temps = 3);
-		up(distance = 10 temps = 1);
+		backward ( distance = 10  temps = 1);
+		merge(backward (distance = 10 temps = 2), rotate( angle = 90 temps =4), right (distance = 10 temps = 6));
+//		forward (distance = 10 temps = 3);
+//		right (distance = 10 temps = 2);
+//		left (distance = 10 temps = 3);
+//		up (distance = 10 temps = 3);
+//		rotate (angle = 180 temps = 4);
+//		down (distance = 10 temps = 3);
 	}
 	start = part;
 }

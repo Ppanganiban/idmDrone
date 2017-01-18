@@ -58,6 +58,7 @@ import sar.drone.drn.TakeOff;
 import sar.drone.drn.TypeGeneric;
 import sar.drone.drn.TypePrimitif;
 import sar.drone.drn.Wait;
+import sar.drone.drn.Where;
 import sar.drone.drn.Wifi;
 import sar.drone.drn.With;
 
@@ -483,6 +484,13 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
   private EEnum directionTypeEEnum = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum whereEEnum = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -720,9 +728,19 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getContext_Where()
+  {
+    return (EAttribute)contextEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getContext_Limit()
   {
-    return (EReference)contextEClass.getEStructuralFeatures().get(1);
+    return (EReference)contextEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1970,6 +1988,16 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getWhere()
+  {
+    return whereEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DrnFactory getDrnFactory()
   {
     return (DrnFactory)getEFactoryInstance();
@@ -2016,6 +2044,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     contextEClass = createEClass(CONTEXT);
     createEAttribute(contextEClass, CONTEXT__NAME);
+    createEAttribute(contextEClass, CONTEXT__WHERE);
     createEReference(contextEClass, CONTEXT__LIMIT);
 
     limitEClass = createEClass(LIMIT);
@@ -2193,6 +2222,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     modeEEnum = createEEnum(MODE);
     eBoolEEnum = createEEnum(EBOOL);
     directionTypeEEnum = createEEnum(DIRECTION_TYPE);
+    whereEEnum = createEEnum(WHERE);
   }
 
   /**
@@ -2288,6 +2318,7 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContext_Where(), this.getWhere(), "where", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContext_Limit(), this.getLimit(), null, "limit", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2480,6 +2511,10 @@ public class DrnPackageImpl extends EPackageImpl implements DrnPackage
     addEEnumLiteral(directionTypeEEnum, DirectionType.BEHIND);
     addEEnumLiteral(directionTypeEEnum, DirectionType.LEFT);
     addEEnumLiteral(directionTypeEEnum, DirectionType.RIGHT);
+
+    initEEnum(whereEEnum, Where.class, "Where");
+    addEEnumLiteral(whereEEnum, Where.INDOOR);
+    addEEnumLiteral(whereEEnum, Where.OUTDOOR);
 
     // Create resource
     createResource(eNS_URI);

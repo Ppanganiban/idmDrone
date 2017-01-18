@@ -26,6 +26,10 @@
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//DirectionType/RIGHT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Drn.ecore#//Where">
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//Where/INDOOR"/>
+      <genEnumLiterals ecoreEnumLiteral="Drn.ecore#//Where/OUTDOOR"/>
+    </genEnums>
     <genClasses ecoreClass="Drn.ecore#//Root"/>
     <genClasses ecoreClass="Drn.ecore#//Model">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Drn.ecore#//Model/config"/>
@@ -46,6 +50,7 @@
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Context">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Context/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Drn.ecore#//Context/where"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Drn.ecore#//Context/limit"/>
     </genClasses>
     <genClasses ecoreClass="Drn.ecore#//Limit">

@@ -40,6 +40,7 @@ Library :
 Context :
 	 name='CONTEXT'
 	'{'
+		'where' '=' where=Where';'
 		limit+=Limit ";"
 		(limit+=Limit ";")*
 	'}'
@@ -315,6 +316,9 @@ enum EBool :
 enum DirectionType :
 				FRONT = 'FRONT' | BEHIND = 'BEHIND' | LEFT = 'LEFT' | RIGHT = 'RIGHT';
 
+enum Where :
+	INDOOR = 'INDOOR' | OUTDOOR = 'OUTBOOR'
+; 
 ConnectionType :
   Bluetooth | Wifi 
 ;

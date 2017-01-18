@@ -144,6 +144,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return createEBoolFromString(eDataType, initialValue);
       case DrnPackage.DIRECTION_TYPE:
         return createDirectionTypeFromString(eDataType, initialValue);
+      case DrnPackage.WHERE:
+        return createWhereFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -167,6 +169,8 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
         return convertEBoolToString(eDataType, instanceValue);
       case DrnPackage.DIRECTION_TYPE:
         return convertDirectionTypeToString(eDataType, instanceValue);
+      case DrnPackage.WHERE:
+        return convertWhereToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -861,6 +865,28 @@ public class DrnFactoryImpl extends EFactoryImpl implements DrnFactory
    * @generated
    */
   public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Where createWhereFromString(EDataType eDataType, String initialValue)
+  {
+    Where result = Where.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertWhereToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
